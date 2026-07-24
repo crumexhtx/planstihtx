@@ -6,20 +6,14 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import { resolveSiteUrl } from './resolveSiteUrl.mjs';
 
 const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const distDir = path.join(root, 'dist');
-const configuredSiteUrl = process.env.VITE_SITE_URL?.trim();
+const siteUrl = resolveSiteUrl();
 
-if (!configuredSiteUrl) {
-  throw new Error(
-    'VITE_SITE_URL is required for production builds. Set it to the deployed site origin.',
-  );
-}
-
-const siteUrl = configuredSiteUrl.replace(/\/$/, '');
 const defaultSocialImage = `${siteUrl}/og/planora-social-preview.png`;
 const defaultSocialImageAlt = 'Planora — Explore more. Spend smarter.';
 

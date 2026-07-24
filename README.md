@@ -14,13 +14,14 @@ override it or configure other optional integrations.
 
 ## Production and Vercel
 
-Production builds require `VITE_SITE_URL` so canonical URLs, Open Graph URLs,
-`robots.txt`, and `sitemap.xml` point to the deployed origin.
+Canonical URLs, Open Graph URLs, `robots.txt`, and `sitemap.xml` are built from
+the live origin `https://www.plansti.com`, which is the default for production
+builds. Preview deployments use their own `VERCEL_URL` so they never claim the
+live domain as canonical. Set `VITE_SITE_URL` to override either default.
 
 1. Import the repository into Vercel.
-2. Add `VITE_SITE_URL` in the Vercel project environment variables for
-   Production (and Preview if preview builds should succeed), for example
-   `https://your-project.vercel.app`.
+2. Point the `www.plansti.com` domain at the project and redirect the apex
+   `plansti.com` to it, so live URLs match the canonical tags.
 3. Configure contact delivery:
    - `RESEND_API_KEY`: a Resend API key allowed to send from your domain.
    - `CONTACT_TO_EMAIL`: the mailbox that receives contact messages.
@@ -36,11 +37,11 @@ Production builds require `VITE_SITE_URL` so canonical URLs, Open Graph URLs,
 6. Deploy. `vercel.json` runs `npm run build` and publishes `dist`; Vercel also
    deploys the TypeScript function at `/api/contact`.
 
-Before promoting to production, open the Vercel preview URL, confirm its final
-origin is configured as `VITE_SITE_URL`, verify the social preview image and
-analytics events, submit the contact form, and confirm the message is actually
-delivered by Resend. Check both browser and server Sentry projects for a clean
-preview run.
+Before promoting to production, open the Vercel preview URL, confirm canonical
+and Open Graph URLs point at the preview origin, verify the social preview image
+and analytics events, submit the contact form, and confirm the message is
+actually delivered by Resend. Check both browser and server Sentry projects for
+a clean preview run.
 
 The build prerenders every supported route, creates `dist/404.html`, and
 generates `dist/robots.txt` and `dist/sitemap.xml`. Vercel serves those files
@@ -61,5 +62,5 @@ amounts, and expense details are not sent.
 To verify a production build locally in PowerShell:
 
 ```powershell
-$env:VITE_SITE_URL='https://planora-test.vercel.app'; npm run build
+npm run build
 ```

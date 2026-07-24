@@ -14,7 +14,7 @@ North-star metrics (track weekly):
 
 ### Technical SEO (do first)
 - [ ] Ship prerender/revenue branch to production domain
-- [ ] Set `VITE_SITE_URL` to the live domain
+- [x] Canonical origin set to `https://www.plansti.com`
 - [ ] Submit `sitemap.xml` in Google Search Console + Bing Webmaster
 - [ ] Verify mobile layout + page speed on top 5 city pages
 - [ ] Add basic analytics (Plausible/GA4) + CTA click events
