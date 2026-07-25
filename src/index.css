@@ -76,7 +76,6 @@ fieldset {
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
-  height: 100%;
 }
 
 .app-shell__brand {
@@ -1872,6 +1871,12 @@ a.explore-button {
 
 .estimate-disclaimer {
   padding: 0.75rem 0.2rem;
+}
+
+@media (max-width: 480px) {
+  .destination-page__actions {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
