@@ -7,10 +7,7 @@ import {
   formatTrackerAmount,
   type TrackerCurrency,
 } from '../utils/currencyTracker';
-import {
-  PLANNING_DATA_AS_OF,
-  PLANNING_DATA_AS_OF_LABEL,
-} from '../utils/pricingAssumptions';
+import { useExchangeRates } from './ExchangeRatesProvider';
 import { trackAnalyticsEvent } from '../utils/observability';
 
 export interface CurrencyTrackerProps {
@@ -32,6 +29,16 @@ interface ConversionEntry {
 
 const CURRENCIES = Object.keys(TRACKER_USD_RATES) as TrackerCurrency[];
 
+function rateCopy(source: string, status: string): string {
+  if (source === 'live' || source === 'cached') {
+    return 'Live ECB reference rates via Frankfurter, with planning fallbacks for unsupported currencies.';
+  }
+  if (status === 'loading') {
+    return 'Loading live reference rates… showing planning fallbacks until they arrive.';
+  }
+  return 'Planning fallback rates. Live market feed unavailable right now.';
+}
+
 export function CurrencyTracker({
   destinationId,
   destinationName,
@@ -39,6 +46,8 @@ export function CurrencyTracker({
   targetCurrency,
   targetCurrencyChangeKey,
 }: CurrencyTrackerProps) {
+  const { rates, status } = useExchangeRates();
+  const usdRates = rates.rates;
   const localCurrency =
     (destinationId && DESTINATION_LOCAL_CURRENCY[destinationId]) || 'EUR';
 
@@ -52,11 +61,14 @@ export function CurrencyTracker({
   }, [localCurrency, targetCurrency, targetCurrencyChangeKey]);
 
   const result = useMemo(
-    () => convertCurrency(amount, from, to),
-    [amount, from, to],
+    () => convertCurrency(amount, from, to, usdRates),
+    [amount, from, to, usdRates],
   );
 
-  const rate = useMemo(() => convertCurrency(1, from, to), [from, to]);
+  const rate = useMemo(
+    () => convertCurrency(1, from, to, usdRates),
+    [from, to, usdRates],
+  );
 
   function swapCurrencies() {
     setFrom(to);
@@ -73,6 +85,7 @@ export function CurrencyTracker({
       from_currency: from,
       to_currency: to,
       destination_id: destinationId ?? 'none',
+      fx_source: rates.source,
     });
     setHistory((current) => [
       {
@@ -97,9 +110,9 @@ export function CurrencyTracker({
           <p className="cost-summary__eyebrow">Currency converter</p>
           <h2 id="currency-tracker-heading">Currency conversion tool</h2>
           <p className="planner-help">
-            Planning rates for trip budgeting
-            {destinationName ? ` in ${destinationName}` : ''}. Not live market
-            quotes.
+            Reference rates for trip budgeting
+            {destinationName ? ` in ${destinationName}` : ''}.{' '}
+            {rateCopy(rates.source, status)}
           </p>
         </div>
         {destinationId && localCurrency !== 'USD' && (
@@ -187,25 +200,32 @@ export function CurrencyTracker({
                   list.indexOf(code) === index && code !== 'USD',
               )
               .slice(0, 5)
-              .map((code) => (
-                <div key={code} className="currency-tracker__rate-chip">
-                  <span>{code}</span>
-                  <strong>
-                    {TRACKER_USD_RATES[code].toLocaleString(undefined, {
-                      maximumFractionDigits:
-                        TRACKER_USD_RATES[code] >= 100 ? 0 : 2,
-                    })}
-                  </strong>
-                  <small>per USD</small>
-                </div>
-              ))}
+              .map((code) => {
+                const value = usdRates[code] ?? TRACKER_USD_RATES[code];
+                return (
+                  <div key={code} className="currency-tracker__rate-chip">
+                    <span>{code}</span>
+                    <strong>
+                      {value.toLocaleString(undefined, {
+                        maximumFractionDigits: value >= 100 ? 0 : 2,
+                      })}
+                    </strong>
+                    <small>per USD</small>
+                  </div>
+                );
+              })}
           </div>
           <p className="planner-help">
             Reference rates updated{' '}
-            <time dateTime={PLANNING_DATA_AS_OF}>
-              {PLANNING_DATA_AS_OF_LABEL}
-            </time>
-            . Approximate planning values, not live market quotes.
+            <time dateTime={rates.asOf}>{rates.asOfLabel}</time>
+            {rates.source === 'live' || rates.source === 'cached'
+              ? ' from the live FX feed'
+              : ' (planning fallback)'}
+            .
+            {rates.fallbackCurrencies.length > 0 &&
+            (rates.source === 'live' || rates.source === 'cached')
+              ? ` Planning values still used for ${rates.fallbackCurrencies.slice(0, 4).join(', ')}${rates.fallbackCurrencies.length > 4 ? '…' : ''}.`
+              : ''}
           </p>
         </>
       )}

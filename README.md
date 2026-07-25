@@ -35,7 +35,12 @@ live domain as canonical. Set `VITE_SITE_URL` to override either default.
 5. Enable Web Analytics in the Vercel project to receive page views and custom
    events from `@vercel/analytics`.
 6. Deploy. `vercel.json` runs `npm run build` and publishes `dist`; Vercel also
-   deploys the TypeScript function at `/api/contact`.
+   deploys TypeScript functions under `/api` (`/api/contact`, `/api/fx`).
+
+Currency conversion calls same-origin `GET /api/fx`, which loads ECB reference
+rates from Frankfurter, caches them in-memory on the function instance for six
+hours, and falls back to built-in planning rates if the upstream feed fails.
+No FX API key is required.
 
 Before promoting to production, open the Vercel preview URL, confirm canonical
 and Open Graph URLs point at the preview origin, verify the social preview image
@@ -51,7 +56,8 @@ unknown URLs return the real 404 document instead of a soft 404.
 The contact form sends same-origin JSON to `/api/contact`. It does not store
 submissions in the browser. Local `vite` development does not emulate Vercel
 Functions; use `vercel dev` with the three server-side contact variables when
-testing end-to-end email delivery locally.
+testing end-to-end email delivery locally. In `npm run dev`, the currency
+converter falls back to calling Frankfurter directly when `/api/fx` is absent.
 
 Custom analytics cover destination selection and estimate engagement, currency
 converter use, and contact submission outcomes. Events contain only coarse

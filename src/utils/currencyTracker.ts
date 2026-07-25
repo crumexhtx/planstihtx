@@ -1,8 +1,10 @@
 import { PLANNING_USD_RATES } from './pricingAssumptions';
+import type { UsdRateTable } from './exchangeRates';
 
 /** Broader currency set for the conversion tracker (USD is the base). */
 export type TrackerCurrency = keyof typeof PLANNING_USD_RATES;
 
+/** Fallback planning table — prefer live rates from ExchangeRatesProvider. */
 export const TRACKER_USD_RATES: Record<TrackerCurrency, number> =
   PLANNING_USD_RATES;
 
@@ -91,14 +93,25 @@ export const DESTINATION_LOCAL_CURRENCY: Record<string, TrackerCurrency> = {
   delhi: 'INR',
 };
 
+function rateFor(
+  currency: TrackerCurrency,
+  rates: UsdRateTable = TRACKER_USD_RATES,
+): number {
+  const rate = rates[currency] ?? TRACKER_USD_RATES[currency];
+  return typeof rate === 'number' && Number.isFinite(rate) && rate > 0
+    ? rate
+    : 1;
+}
+
 export function convertCurrency(
   amount: number,
   from: TrackerCurrency,
   to: TrackerCurrency,
+  rates: UsdRateTable = TRACKER_USD_RATES,
 ): number {
   if (!Number.isFinite(amount)) return 0;
-  const usd = amount / TRACKER_USD_RATES[from];
-  return Math.round(usd * TRACKER_USD_RATES[to] * 100) / 100;
+  const usd = amount / rateFor(from, rates);
+  return Math.round(usd * rateFor(to, rates) * 100) / 100;
 }
 
 export function formatTrackerAmount(

@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { CurrencyTracker } from './CurrencyTracker';
+import { useExchangeRates } from './ExchangeRatesProvider';
 import {
   TRACKER_USD_RATES,
   type TrackerCurrency,
@@ -36,16 +37,18 @@ const CURRENCY_FLAG_CODES: Partial<Record<TrackerCurrency, string>> = {
 };
 
 function CurrencyItems({
+  rates,
   onSelect,
   focusable = true,
 }: {
+  rates: Record<string, number>;
   onSelect: (currency: TrackerCurrency) => void;
   focusable?: boolean;
 }) {
   return (
     <>
       {BANNER_CURRENCIES.map((currency) => {
-        const rate = TRACKER_USD_RATES[currency];
+        const rate = rates[currency] ?? TRACKER_USD_RATES[currency];
         const flagCode = CURRENCY_FLAG_CODES[currency];
         return (
           <button
@@ -80,6 +83,7 @@ function CurrencyItems({
 }
 
 export function CurrencyFooter() {
+  const { rates } = useExchangeRates();
   const [selection, setSelection] = useState({
     currency: 'EUR' as TrackerCurrency,
     version: 0,
@@ -106,16 +110,24 @@ export function CurrencyFooter() {
         aria-label="Rotating reference currency values"
       >
         <div className="currency-banner__label">
-          <span>Currency snapshot</span>
+          <span>
+            {rates.source === 'live' || rates.source === 'cached'
+              ? 'Live FX snapshot'
+              : 'Currency snapshot'}
+          </span>
           <strong>1 USD</strong>
         </div>
         <div className="currency-banner__viewport">
           <div className="currency-banner__track">
             <div className="currency-banner__group">
-              <CurrencyItems onSelect={openConverter} />
+              <CurrencyItems rates={rates.rates} onSelect={openConverter} />
             </div>
             <div className="currency-banner__group" aria-hidden="true">
-              <CurrencyItems onSelect={openConverter} focusable={false} />
+              <CurrencyItems
+                rates={rates.rates}
+                onSelect={openConverter}
+                focusable={false}
+              />
             </div>
           </div>
         </div>

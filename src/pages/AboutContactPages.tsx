@@ -57,7 +57,7 @@ export function AboutPage() {
             <li>Compare destinations that fit a total budget.</li>
             <li>Estimate single-city and multi-city trips.</li>
             <li>Review seasonal airfare periods and five-day forecasts.</li>
-            <li>Convert currencies using clearly labeled planning rates.</li>
+            <li>Convert currencies using live ECB reference rates when available.</li>
             <li>Add attraction, food, drink, and custom expenses.</li>
           </ul>
         </section>
@@ -67,8 +67,9 @@ export function AboutPage() {
           <p>
             Weather is supplied by Open-Meteo. Destination and attraction
             imagery links back to Wikipedia or Wikimedia Commons. Currency and
-            destination prices are approximate planning values and are labeled
-            as such throughout the site.
+            destination prices are approximate planning values. Currency display
+            prefers live ECB reference rates and falls back to planning FX when
+            needed—both are labeled in the converter and cost summary.
           </p>
         </section>
 
