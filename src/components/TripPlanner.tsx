@@ -22,6 +22,7 @@ import {
   getTravelSeason,
 } from '../utils/costEngine';
 import { useExchangeRates } from './ExchangeRatesProvider';
+import { useLiveFlightQuote } from '../hooks/useLiveFlightQuote';
 import {
   alignLegsToDateRange,
   createTrip,
@@ -164,13 +165,50 @@ export function TripPlanner({
   const transportEstimate =
     modeEstimates.find((candidate) => candidate.value === trip.transportMode)
       ?.estimate ?? modeEstimates[0].estimate;
+
+  const singleDestination =
+    selectedDestinations.length === 1 ? selectedDestinations[0] : null;
+  const liveFlightEnabled =
+    trip.transportMode === 'flight' &&
+    Boolean(singleDestination?.iata) &&
+    Boolean(origin.iata) &&
+    origin.iata !== singleDestination?.iata;
+
+  const liveFlightRequest = liveFlightEnabled
+    ? {
+        originIata: origin.iata,
+        destinationIata: singleDestination!.iata,
+        departureDate: trip.startDate,
+        returnDate: trip.endDate,
+        adults: trip.groupSize,
+      }
+    : null;
+
+  const { quote: liveFlightQuote, status: liveFlightStatus } = useLiveFlightQuote(
+    liveFlightRequest,
+    liveFlightEnabled,
+  );
+
+  const liveFlightActive = Boolean(
+    liveFlightQuote?.available &&
+      (liveFlightQuote.source === 'live' || liveFlightQuote.source === 'cached'),
+  );
+
   const tripWithTransport = useMemo(
     () => ({
       ...trip,
       legs: alignedLegs,
-      longDistanceTransportUsd: transportEstimate.costUsd,
+      longDistanceTransportUsd: liveFlightActive
+        ? liveFlightQuote!.amountUsd
+        : transportEstimate.costUsd,
     }),
-    [trip, alignedLegs, transportEstimate.costUsd],
+    [
+      trip,
+      alignedLegs,
+      transportEstimate.costUsd,
+      liveFlightActive,
+      liveFlightQuote,
+    ],
   );
   const costs = useMemo(
     () =>
@@ -465,25 +503,53 @@ export function TripPlanner({
                 </select>
               </label>
               <div className="transport-estimate">
-                <span>Estimated round-trip itinerary cost</span>
+                <span>
+                  {liveFlightActive
+                    ? 'Live round-trip fare'
+                    : 'Estimated round-trip itinerary cost'}
+                </span>
                 <strong>
-                  {transportEstimate.available
-                    ? `$${transportEstimate.costUsd.toFixed(2)} USD`
-                    : 'Unavailable'}
+                  {liveFlightActive
+                    ? `$${liveFlightQuote!.amountUsd.toFixed(2)} USD`
+                    : transportEstimate.available
+                      ? `$${transportEstimate.costUsd.toFixed(2)} USD`
+                      : 'Unavailable'}
                 </strong>
                 <small>
-                  {transportEstimate.legs.length} leg
-                  {transportEstimate.legs.length === 1 ? '' : 's'} ·{' '}
-                  {transportEstimate.totalDistanceKm.toLocaleString()} km total ·{' '}
-                  {trip.groupSize} traveler
-                  {trip.groupSize === 1 ? '' : 's'} · includes return to{' '}
-                  {origin.name}.
+                  {liveFlightActive ? (
+                    <>
+                      {liveFlightQuote!.originIata} → {liveFlightQuote!.destinationIata}{' '}
+                      · {liveFlightQuote!.adults} traveler
+                      {liveFlightQuote!.adults === 1 ? '' : 's'}
+                      {liveFlightQuote!.carrier
+                        ? ` · ${liveFlightQuote!.carrier}`
+                        : ''}
+                      {typeof liveFlightQuote!.outboundStops === 'number'
+                        ? ` · ${liveFlightQuote!.outboundStops} outbound stop${liveFlightQuote!.outboundStops === 1 ? '' : 's'}`
+                        : ''}
+                      {liveFlightStatus === 'loading' ? ' · refreshing…' : ''}
+                    </>
+                  ) : (
+                    <>
+                      {transportEstimate.legs.length} leg
+                      {transportEstimate.legs.length === 1 ? '' : 's'} ·{' '}
+                      {transportEstimate.totalDistanceKm.toLocaleString()} km total ·{' '}
+                      {trip.groupSize} traveler
+                      {trip.groupSize === 1 ? '' : 's'} · includes return to{' '}
+                      {origin.name}
+                      {liveFlightStatus === 'loading' ? ' · checking live fares…' : ''}
+                    </>
+                  )}
                 </small>
               </div>
               <p className="planner-help">
-                Prices every stop in your itinerary plus the return home.
-                Figures are planning averages from route distance, not live
-                fares.
+                {liveFlightActive
+                  ? `Live fare via Amadeus as of ${new Date(liveFlightQuote!.asOf).toLocaleString()}. Ground costs still use planning averages.`
+                  : selectedDestinations.length > 1
+                    ? 'Multi-city trips use planning transport averages. Live fares are available for single-city round trips when configured.'
+                    : liveFlightQuote?.configured === false
+                      ? 'Live fares are not configured yet, so this uses a planning average from route distance.'
+                      : 'Prices every stop in your itinerary plus the return home. Figures are planning averages from route distance unless a live fare is available.'}
               </p>
             </section>
 
@@ -491,6 +557,7 @@ export function TripPlanner({
               trip={tripWithTransport}
               costs={costs}
               transport={transportEstimate}
+              flightQuote={liveFlightActive ? liveFlightQuote : null}
             />
 
             {mode === 'general' && (

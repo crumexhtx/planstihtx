@@ -18,6 +18,7 @@ const destination: Destination = {
   country: 'Testland',
   lat: 0,
   lng: 0,
+  iata: 'TST',
   dailyBudget: 100,
   seasonality: {
     cheapest: [1, 2, 11],
@@ -32,6 +33,7 @@ const secondCity: Destination = {
   name: 'Second City',
   lat: 10,
   lng: 10,
+  iata: 'SEC',
   dailyBudget: 80,
 };
 
@@ -41,6 +43,7 @@ const houston: Origin = {
   country: 'United States',
   lat: 29.7604,
   lng: -95.3698,
+  iata: 'HOU',
 };
 
 const mexicoCity: Destination = {

@@ -86,9 +86,12 @@ export function PrivacyPage() {
             Currency conversion loads European Central Bank reference rates
             through the Frankfurter API (via Plansti’s `/api/fx` endpoint) and
             falls back to built-in planning rates when the live feed is
-            unavailable. Those providers receive the technical information
-            normally sent with a web request and handle it under their own
-            privacy terms.
+            unavailable. When Amadeus credentials are configured, single-city
+            round-trip flight searches may call Amadeus through
+            `/api/flights/search`; fare searches do not include traveler names
+            or payment details. Those providers receive the technical
+            information normally sent with a web request and handle it under
+            their own privacy terms.
           </p>
         </section>
 

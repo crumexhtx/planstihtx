@@ -35,6 +35,7 @@ describe('destination food and beverage content', () => {
 
   it('uses complete, positive planning values', () => {
     destinations.forEach((destination) => {
+      expect(destination.iata).toMatch(/^[A-Z]{3}$/);
       const picks = [
         ...destinationDishes[destination.id],
         destinationBeverages[destination.id].localDrink,

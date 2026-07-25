@@ -8,12 +8,14 @@ import {
   PLANNING_DATA_AS_OF_LABEL,
 } from '../utils/pricingAssumptions';
 import type { TripPlan } from '../types';
+import type { FlightQuote } from '../utils/flightQuotes';
 import { useExchangeRates } from './ExchangeRatesProvider';
 
 export interface CostSummaryProps {
   trip: TripPlan;
   costs: TripCostBreakdown;
   transport?: TripTransportEstimate;
+  flightQuote?: FlightQuote | null;
 }
 
 const LINE_ITEMS: {
@@ -42,11 +44,16 @@ export function CostSummary({
   trip,
   costs,
   transport,
+  flightQuote = null,
 }: CostSummaryProps) {
   const { rates } = useExchangeRates();
   const currency = trip.displayCurrency;
   const money = (amountUsd: number) =>
     formatCurrency(amountUsd, currency, rates.rates);
+  const liveFlight = Boolean(
+    flightQuote?.available &&
+      (flightQuote.source === 'live' || flightQuote.source === 'cached'),
+  );
   const hasActualSpend = costs.actualSpend > 0;
   const varianceClass =
     costs.estimateVariance === 0
@@ -89,7 +96,12 @@ export function CostSummary({
       <dl className="cost-summary__lines">
         {LINE_ITEMS.map((item) => (
           <div key={item.key} className="cost-summary__line">
-            <dt>{item.label}</dt>
+            <dt>
+              {item.label}
+              {item.key === 'destinationTransport' && liveFlight ? (
+                <small className="cost-summary__source-pill">Live fare</small>
+              ) : null}
+            </dt>
             <dd>{money(costs[item.key])}</dd>
           </div>
         ))}
@@ -156,9 +168,24 @@ export function CostSummary({
         ) : (
           'planning FX fallbacks'
         )}
-        . Lodging uses nights ({costs.totalNights}), while food and local costs
+        .
+        {liveFlight ? (
+          <>
+            {' '}
+            Long-distance transport uses a live Amadeus round-trip fare
+            {flightQuote?.carrier ? ` (${flightQuote.carrier})` : ''} as of{' '}
+            <time dateTime={flightQuote!.asOf}>
+              {new Date(flightQuote!.asOf).toLocaleString()}
+            </time>
+            .
+          </>
+        ) : (
+          <> Long-distance transport uses a planning distance average.</>
+        )}{' '}
+        Lodging uses nights ({costs.totalNights}), while food and local costs
         use calendar days ({costs.totalDays}). Lodging assumes one room per two
-        travelers. Trip totals are planning averages, not live booking quotes.
+        travelers. Trip totals are planning averages unless a live fare line is
+        marked above.
       </p>
     </section>
   );

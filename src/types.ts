@@ -6,6 +6,8 @@ export interface Destination {
   country: string;
   lat: number;
   lng: number;
+  /** IATA city/airport code used for live flight search. */
+  iata: string;
   dailyBudget: number;
   seasonality: Record<TravelSeason, number[]>;
 }
@@ -19,6 +21,8 @@ export interface Origin {
   country: string;
   lat: number;
   lng: number;
+  /** IATA city/airport code used for live flight search. */
+  iata: string;
 }
 
 export interface TripLeg {
