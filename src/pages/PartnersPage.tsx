@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { NewsletterSignup } from '../components/NewsletterSignup';
+import { PARTNERS_EMAIL } from '../config/monetization';
 
 export function PartnersPage() {
   return (
@@ -46,7 +47,7 @@ export function PartnersPage() {
 
         <p>
           Ready to talk inventory? Email{' '}
-          <a href="mailto:partners@bugetroamers.com">partners@bugetroamers.com</a>
+          <a href={`mailto:${PARTNERS_EMAIL}`}>{PARTNERS_EMAIL}</a>
           {' '}or return to the <Link to="/">planner</Link>.
         </p>
       </main>

@@ -59,7 +59,21 @@ export function PrivacyPage() {
           <p>
             Plansti stores your light or dark theme choice in your browser’s
             local storage so the preference remains available on later visits.
-            Contact messages are not stored in local storage.
+            Contact messages are not stored in local storage. If you subscribe
+            to the newsletter once a provider endpoint is configured, we may
+            store a simple “subscribed” flag in local storage—not your email
+            address—so the form can show confirmation on later visits.
+          </p>
+        </section>
+
+        <section className="static-page__section">
+          <h2>Newsletter (when enabled)</h2>
+          <p>
+            Newsletter signup is optional and only submits your email when a
+            newsletter endpoint is configured. Until then, the form does not
+            send your address anywhere. When enabled, the email is processed by
+            the configured provider so we can send trip-planning updates. You
+            can unsubscribe using the link in those emails.
           </p>
         </section>
 
@@ -85,7 +99,7 @@ export function PrivacyPage() {
         </section>
 
         <p>
-          <small>Last updated: July 24, 2026.</small>
+          <small>Last updated: July 25, 2026.</small>
         </p>
       </main>
     </>

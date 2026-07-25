@@ -2,9 +2,9 @@ export const destinationDescriptions: Record<string, string> = {
   lisbon:
     'A colorful coastal capital known for historic trams, tiled streets, viewpoints, and easy day trips along the Portuguese coast.',
   bangkok:
-    'A high-energy city combining ornate temples, lively markets, rooftop dining, and some of Southeast Asia’s best street food.',
+    'Bangkok rewards travelers who want maximum city energy for a midrange daily budget. Ornate temples, canal boats, night markets, and rooftop views sit close enough that a week can mix culture and food without long transfers. Street meals and local transit keep on-the-ground costs flexible, while hotels range from simple rooms near transit to polished riverside stays. Plansti’s Bangkok estimate is strongest for first-timers comparing shoulder-season airfare against a food-heavy itinerary—pair temple mornings with evening markets, then watch how lodging choices move the trip total more than almost anything else.',
   'mexico-city':
-    'A vast cultural capital celebrated for museums, historic neighborhoods, creative cuisine, and nearby archaeological sites.',
+    'Mexico City is a strong value capital for travelers who want museums, neighborhoods, and serious food without coastal-resort pricing. Historic centers, creative districts, and day trips to nearby archaeological sites make a week feel full even at a moderate pace. Local dining and metro-friendly sightseeing help keep daily spend predictable, while boutique hotels and central apartments drive most of the lodging range. Use the Plansti estimate to test a culture-heavy midrange trip versus a higher-spend food-and-design itinerary before you lock flights.',
   budapest:
     'A Danube-side city famous for thermal baths, grand architecture, ruin bars, and dramatic views from Buda Castle.',
   hanoi:
@@ -12,11 +12,11 @@ export const destinationDescriptions: Record<string, string> = {
   marrakech:
     'A vibrant Moroccan city of maze-like souks, garden courtyards, palaces, and easy access to the Atlas Mountains.',
   paris:
-    'A global center for art, food, fashion, and architecture, with iconic landmarks and highly walkable historic neighborhoods.',
+    'Paris looks expensive at first glance, but a clear trip-cost plan separates museum-and-café weeks from luxury-hotel blowouts. Walkable historic neighborhoods, landmark clusters, and dense transit mean you can cover a lot without private transfers. Food and lodging set the tone: bakery breakfasts and bistros stay manageable; tasting menus and central suites move the total quickly. Plansti helps you stress-test a classic first-timer circuit—Louvre side of the river, a day in Montmartre, an evening along the Seine—against your real group size and season before fares climb.',
   london:
-    'A diverse world city packed with museums, royal landmarks, theater, markets, parks, and distinct local neighborhoods.',
+    'London packs museums, theater, markets, and royal landmarks into a transit-rich city where neighborhood choice shapes both vibe and budget. Free permanent museum collections help daytime costs, while West End shows, central hotels, and pub meals create the wider range travelers actually feel. A week works well for first visits if you cluster sights by Tube line and leave room for one or two paid experiences. Use Plansti to compare a compact central stay against a slightly farther neighborhood base—lodging usually explains more of the London total than local transport does.',
   rome:
-    'An open-air museum where ancient ruins, Renaissance art, lively piazzas, and classic Italian cooking share the same streets.',
+    'Rome is an open-air museum where ruins, piazzas, and trattorias sit close enough for a walkable week if you pace the heat and hills. Classic highlights—Forum and Colosseum, Vatican area, evening neighborhoods—pair well with simple Roman plates that keep food costs grounded. Hotels near major sights cost more; bases a short transit hop away often improve the estimate without losing the trip. Plansti’s Rome calculator is useful for travelers deciding whether a history-heavy midrange plan still fits after seasonal airfare and a few skip-the-line tickets.',
   barcelona:
     'A Mediterranean city combining Gaudí architecture, beaches, markets, nightlife, and a strong Catalan identity.',
   amsterdam:
@@ -26,15 +26,15 @@ export const destinationDescriptions: Record<string, string> = {
   dubai:
     'A modern Gulf destination offering striking architecture, beaches, desert excursions, shopping, and luxury hospitality.',
   tokyo:
-    'A vast, efficient metropolis mixing historic shrines with cutting-edge design, distinctive neighborhoods, and exceptional food.',
+    'Tokyo is a first-timer favorite because efficient transit, dense neighborhoods, and outstanding food make a week feel complete without constant long transfers. Historic shrines, department-store basements, late-night ramen counters, and viewpoint evenings can share the same itinerary if you cluster by rail line. Daily costs swing most with lodging class and how often you choose sit-down meals over convenience-store or counter stops. Use Plansti to model a midrange Tokyo trip cost before peak cherry-blossom or Golden Week airfare, then adjust nights and group size to see what still fits.',
   seoul:
     'A fast-moving capital where royal palaces, mountain trails, late-night markets, technology, and pop culture meet.',
   singapore:
     'A compact city-state known for hawker centers, futuristic gardens, multicultural districts, and excellent public transit.',
   bali:
-    'An Indonesian island destination offering beaches, temples, rice terraces, wellness retreats, and a strong arts culture.',
+    'Bali suits warm-weather planners who want beaches, temples, and rice-terrace days without committing to a big-city pace. South-coast resorts, Ubud culture stays, and day trips into the hills create very different totals even for the same trip length. Scooter or driver days, villa versus hotel stays, and how many paid activities you stack usually matter more than meals. Plansti’s Bali estimate helps compare a relaxed midrange week against a wellness-heavy or beach-club itinerary so airfare and lodging choices stay honest before you book.',
   'new-york':
-    'A landmark-filled global city with Broadway, major museums, diverse food, and neighborhoods that each feel distinct.',
+    'New York rewards neighborhood planning: Broadway, museums, food halls, and waterfront walks are easy to overstuff into a short stay if you ignore transit time and ticket stacks. A midrange week can stay workable with subway travel, a borough-smart hotel base, and a mix of free parks plus one or two paid icons. Lodging location and show tickets usually move the estimate more than meals. Use Plansti to test a classic Manhattan-heavy plan against a slightly wider base before shoulder-season or holiday fares lock in.',
   'los-angeles':
     'A sprawling Southern California city known for film culture, beaches, creative neighborhoods, food, and nearby outdoor escapes.',
   orlando:

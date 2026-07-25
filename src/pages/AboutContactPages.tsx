@@ -1,6 +1,7 @@
 import { type FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
+import { PartnerBanner } from '../components/PartnerBanner';
 import {
   CONTACT_CATEGORIES,
   CONTACT_LIMITS,
@@ -70,6 +71,8 @@ export function AboutPage() {
             as such throughout the site.
           </p>
         </section>
+
+        <PartnerBanner />
 
         <div className="static-page__actions">
           <Link className="explore-button" to="/">

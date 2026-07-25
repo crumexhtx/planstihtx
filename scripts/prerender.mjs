@@ -93,6 +93,15 @@ const staticRoutes = [
     body: `<main class="seo-static__panel"><h1>Privacy notice</h1><p>Learn how Plansti handles contact messages, browser preferences, hosting data, and third-party travel services.</p></main>`,
     jsonLd: null,
   },
+  {
+    routePath: '/partners',
+    filePath: path.join(distDir, 'partners', 'index.html'),
+    title: 'Partners — Plansti',
+    description:
+      'Advertise and affiliate with Plansti. Reach travelers who are actively estimating trip costs.',
+    body: `<main class="seo-static__panel"><h1>Partners</h1><p>Plansti offers affiliate placements, sponsored city guides, and newsletter sponsorships for travel brands.</p><p>Email <a href="mailto:partners@plansti.com">partners@plansti.com</a> to talk inventory.</p></main>`,
+    jsonLd: null,
+  },
 ];
 
 const notFoundRoute = {

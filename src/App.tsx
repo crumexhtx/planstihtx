@@ -6,11 +6,13 @@ import { DestinationPage } from './pages/DestinationPage';
 import { DestinationsIndexPage } from './pages/DestinationsIndexPage';
 import { AboutPage, ContactPage } from './pages/AboutContactPages';
 import { PrivacyPage } from './pages/PrivacyPage';
+import { PartnersPage } from './pages/PartnersPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { SiteFooter } from './components/SiteFooter';
 
 export default function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    // Read legacy theme keys once so returning visitors keep their preference.
     const savedTheme =
       localStorage.getItem('plansti.theme') ??
       localStorage.getItem('planora.theme') ??
@@ -41,6 +43,7 @@ export default function App() {
         />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/partners" element={<PartnersPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
