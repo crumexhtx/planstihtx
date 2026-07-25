@@ -28,6 +28,12 @@ describe('origin data integrity', () => {
     expect(createTrip().originId).toBe('houston');
   });
 
+  it('includes a 3-letter IATA code for every origin', () => {
+    origins.forEach((origin) => {
+      expect(origin.iata).toMatch(/^[A-Z]{3}$/);
+    });
+  });
+
   it('supports flight estimates from every origin', () => {
     const destination = destinations.find(({ id }) => id === 'bali');
     expect(destination).toBeDefined();

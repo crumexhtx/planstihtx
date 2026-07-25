@@ -998,6 +998,22 @@ a.explore-button {
 .cost-summary__line dt {
   margin: 0;
   color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.cost-summary__source-pill {
+  display: inline-flex;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(249, 115, 59, 0.14);
+  color: #f9733b;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .cost-summary__line dd {

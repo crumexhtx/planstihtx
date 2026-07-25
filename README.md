@@ -35,12 +35,21 @@ live domain as canonical. Set `VITE_SITE_URL` to override either default.
 5. Enable Web Analytics in the Vercel project to receive page views and custom
    events from `@vercel/analytics`.
 6. Deploy. `vercel.json` runs `npm run build` and publishes `dist`; Vercel also
-   deploys TypeScript functions under `/api` (`/api/contact`, `/api/fx`).
+   deploys TypeScript functions under `/api` (`/api/contact`, `/api/fx`,
+   `/api/flights/search`).
 
 Currency conversion calls same-origin `GET /api/fx`, which loads ECB reference
 rates from Frankfurter, caches them in-memory on the function instance for six
 hours, and falls back to built-in planning rates if the upstream feed fails.
 No FX API key is required.
+
+Optional live round-trip flight search uses Amadeus:
+- `AMADEUS_CLIENT_ID` / `AMADEUS_CLIENT_SECRET` (required to enable live fares)
+- `AMADEUS_API_HOST` (optional; defaults to `https://test.api.amadeus.com`)
+
+When credentials are missing or the search fails, the planner keeps the
+distance-based transport estimate. Live fares currently apply to single-city
+round trips only.
 
 Before promoting to production, open the Vercel preview URL, confirm canonical
 and Open Graph URLs point at the preview origin, verify the social preview image
