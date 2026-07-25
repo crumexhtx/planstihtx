@@ -35,6 +35,8 @@ export function RevenueOffers({
       ? getDestinationOffers(destinationId, destinationName)
       : HOME_PARTNER_OFFERS;
 
+  if (offers.length === 0) return null;
+
   return (
     <section className="revenue-offers planner-panel" aria-labelledby="revenue-offers-heading">
       <header>

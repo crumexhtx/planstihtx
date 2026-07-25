@@ -2,35 +2,50 @@ import { type FormEvent, useState } from 'react';
 import {
   NEWSLETTER_ENDPOINT,
   NEWSLETTER_STORAGE_KEY,
+  PARTNERS_EMAIL,
 } from '../config/monetization';
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'saved' | 'error'>('idle');
+  const [website, setWebsite] = useState('');
+  const [status, setStatus] = useState<'idle' | 'saved' | 'error' | 'unavailable'>(
+    'idle',
+  );
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (website.trim()) {
+      setStatus('saved');
+      setEmail('');
+      return;
+    }
+
     const trimmed = email.trim().toLowerCase();
-    if (!trimmed || !trimmed.includes('@')) {
+    if (!trimmed || !EMAIL_PATTERN.test(trimmed)) {
       setStatus('error');
       return;
     }
 
-    try {
-      const existing = JSON.parse(
-        localStorage.getItem(NEWSLETTER_STORAGE_KEY) ?? '[]',
-      ) as string[];
-      const next = Array.from(new Set([...existing, trimmed]));
-      localStorage.setItem(NEWSLETTER_STORAGE_KEY, JSON.stringify(next));
+    if (!NEWSLETTER_ENDPOINT) {
+      setStatus('unavailable');
+      return;
+    }
 
-      if (NEWSLETTER_ENDPOINT) {
-        await fetch(NEWSLETTER_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: trimmed, source: 'plansti' }),
-        });
+    try {
+      const response = await fetch(NEWSLETTER_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: trimmed, source: 'plansti' }),
+      });
+      if (!response.ok) {
+        setStatus('error');
+        return;
       }
 
+      // Remember subscribe success locally without storing the email address.
+      localStorage.setItem(NEWSLETTER_STORAGE_KEY, 'subscribed');
       setStatus('saved');
       setEmail('');
     } catch {
@@ -63,11 +78,28 @@ export function NewsletterSignup() {
             required
           />
         </label>
+        <label className="visually-hidden" aria-hidden="true">
+          Website
+          <input
+            type="text"
+            name="website"
+            value={website}
+            onChange={(event) => setWebsite(event.target.value)}
+            autoComplete="off"
+            tabIndex={-1}
+          />
+        </label>
         <button type="submit">Subscribe</button>
       </form>
       {status === 'saved' && (
         <p className="newsletter__status" role="status">
           You’re on the list. We’ll only send trip-planning value.
+        </p>
+      )}
+      {status === 'unavailable' && (
+        <p className="newsletter__status" role="status">
+          Newsletter signup is not open yet. Check back soon, or email{' '}
+          {PARTNERS_EMAIL}.
         </p>
       )}
       {status === 'error' && (

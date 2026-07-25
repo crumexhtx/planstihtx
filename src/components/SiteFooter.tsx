@@ -10,6 +10,7 @@ export function SiteFooter() {
       <nav aria-label="Footer navigation">
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
+        <Link to="/partners">Partners</Link>
         <Link to="/privacy">Privacy</Link>
         <Link to="/destinations">City guides</Link>
       </nav>

@@ -15,22 +15,25 @@ North-star metrics (track weekly):
 ### Technical SEO (do first)
 - [ ] Ship prerender/revenue branch to production domain
 - [x] Canonical origin set to `https://www.plansti.com`
+- [x] Fix stale `bugetroamers.example` public robots/sitemap placeholders
+- [x] Wire `/partners` route + Plansti partner email
+- [x] Gate placeholder affiliate `/out` CTAs until live programs are ready
 - [ ] Submit `sitemap.xml` in Google Search Console + Bing Webmaster
 - [ ] Verify mobile layout + page speed on top 5 city pages
-- [ ] Add basic analytics (Plausible/GA4) + CTA click events
+- [x] Add basic analytics (Vercel Analytics + CTA/interaction events)
 
-### City page content quality (existing 26 cities)
+### City page content quality (existing catalog)
 Upgrade each page beyond template feel: unique intro, budget notes, seasonal tips.
 
 **Wave A — publish/polish first (highest traffic potential)**
-1. `tokyo`
-2. `paris`
-3. `bali`
-4. `bangkok`
-5. `london`
-6. `rome`
-7. `new-york`
-8. `mexico-city`
+1. `tokyo` — deeper intro shipped
+2. `paris` — deeper intro shipped
+3. `bali` — deeper intro shipped
+4. `bangkok` — deeper intro shipped
+5. `london` — deeper intro shipped
+6. `rome` — deeper intro shipped
+7. `new-york` — deeper intro shipped
+8. `mexico-city` — deeper intro shipped
 
 **Wave B — next**
 9. `barcelona`
