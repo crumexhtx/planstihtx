@@ -4,7 +4,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-footer__brand">
-        <strong>Planora</strong>
+        <strong>Plansti</strong>
         <span>Plan with context. Book with confidence.</span>
       </div>
       <nav aria-label="Footer navigation">
@@ -23,7 +23,7 @@ export function SiteFooter() {
           official providers before booking.
         </p>
       </div>
-      <small>© {new Date().getFullYear()} Planora</small>
+      <small>© {new Date().getFullYear()} Plansti</small>
     </footer>
   );
 }

@@ -6,8 +6,8 @@ export function PartnersPage() {
   return (
     <>
       <PageMeta
-        title="Partners — Planora"
-        description="Advertise and affiliate with Planora. Reach travelers who are actively estimating trip costs."
+        title="Partners — Plansti"
+        description="Advertise and affiliate with Plansti. Reach travelers who are actively estimating trip costs."
         canonicalPath="/partners"
       />
       <main className="static-page partners-page">

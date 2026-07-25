@@ -83,7 +83,7 @@ export default async function handler(
     '',
     message,
   ].join('\n');
-  const html = `<h2>New Planora contact message</h2>
+  const html = `<h2>New Plansti contact message</h2>
 <p><strong>Category:</strong> ${escapeHtml(category)}</p>
 <p><strong>Name:</strong> ${escapeHtml(name)}</p>
 <p><strong>Email:</strong> ${escapeHtml(email)}</p>
@@ -96,7 +96,7 @@ export default async function handler(
       from,
       to,
       replyTo: email,
-      subject: `Planora contact: ${category}`,
+      subject: `Plansti contact: ${category}`,
       text,
       html,
     });

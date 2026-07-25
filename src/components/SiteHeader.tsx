@@ -16,7 +16,7 @@ export function SiteHeader({
       <div>
         <p className="app-shell__brand-mark">
           <NavLink to="/" className="app-shell__brand-link">
-            Planora
+            Plansti
           </NavLink>
         </p>
         <h1>{title}</h1>

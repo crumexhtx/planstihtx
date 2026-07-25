@@ -13,8 +13,8 @@ export function HomePage({ theme }: HomePageProps) {
   return (
     <>
       <PageMeta
-        title="Planora — Trip Cost Estimator"
-        description="Estimate your trip cost before you book. Compare destinations, dates, transport, and daily budgets with Planora."
+        title="Plansti — Trip Cost Estimator"
+        description="Estimate your trip cost before you book. Compare destinations, dates, transport, and daily budgets with Plansti."
         canonicalPath="/"
       />
       <JsonLd id="website" data={buildWebsiteJsonLd()} />

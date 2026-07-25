@@ -1890,7 +1890,13 @@ a.explore-button {
   }
 
   .app-shell__actions nav {
-    gap: 0.1rem;
+    flex-wrap: nowrap;
+    gap: 0.15rem;
+  }
+
+  .app-shell__actions nav a {
+    padding: 0.55rem 0.4rem;
+    font-size: 0.8rem;
   }
 
   .trip-controls__tier-options {

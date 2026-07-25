@@ -44,7 +44,7 @@ export function DestinationsIndexPage() {
   return (
     <>
       <PageMeta
-        title="City Trip Cost Guides — Planora"
+        title="City Trip Cost Guides — Plansti"
         description="Browse destination guides with trip cost calculators, top attractions, must-try dishes, and currency conversion."
         canonicalPath="/destinations"
       />

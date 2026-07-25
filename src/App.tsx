@@ -12,6 +12,7 @@ import { SiteFooter } from './components/SiteFooter';
 export default function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const savedTheme =
+      localStorage.getItem('plansti.theme') ??
       localStorage.getItem('planora.theme') ??
       localStorage.getItem('budget-roamers.theme');
     return savedTheme === 'dark' ? 'dark' : 'light';
@@ -19,7 +20,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    localStorage.setItem('planora.theme', theme);
+    localStorage.setItem('plansti.theme', theme);
   }, [theme]);
 
   return (

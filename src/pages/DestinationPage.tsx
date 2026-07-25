@@ -30,7 +30,7 @@ export function DestinationPage({ theme }: DestinationPageProps) {
   return (
     <>
       <PageMeta
-        title={`${destination.name} Trip Cost Estimate — Planora`}
+        title={`${destination.name} Trip Cost Estimate — Plansti`}
         description={`Plan a trip to ${destination.name}: cost calculator, top attractions, must-try dishes, and currency conversion. ${description}`}
         canonicalPath={`/destinations/${destination.id}`}
         image={culturalIcons[destination.id]?.imageUrl}

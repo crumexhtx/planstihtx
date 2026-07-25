@@ -1,4 +1,4 @@
-# Planora
+# Plansti
 Trip planning and cost estimation website.
 
 ## Local development
@@ -26,7 +26,7 @@ live domain as canonical. Set `VITE_SITE_URL` to override either default.
    - `RESEND_API_KEY`: a Resend API key allowed to send from your domain.
    - `CONTACT_TO_EMAIL`: the mailbox that receives contact messages.
    - `CONTACT_FROM_EMAIL`: a sender on a domain verified in Resend, such as
-     `Planora <contact@example.com>`.
+     `Plansti <contact@example.com>`.
 4. Optionally configure Sentry:
    - `VITE_SENTRY_DSN`: the public browser DSN. When present, Sentry initializes
      with a 2% traces sample rate, no default PII, and no session replay.
