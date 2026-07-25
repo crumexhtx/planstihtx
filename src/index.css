@@ -302,13 +302,13 @@ fieldset {
   padding: 1rem 1.1rem 1.5rem;
 }
 
-.destination-page__hero h2 {
+.destination-page__hero h1 {
   margin: 0.2rem 0 0.45rem;
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 1.9rem);
 }
 
-.destination-page__hero h2 span {
+.destination-page__hero h1 span {
   color: var(--muted);
   font-weight: 600;
 }

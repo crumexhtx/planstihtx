@@ -48,10 +48,10 @@ export function DestinationPage({ theme }: DestinationPageProps) {
       <article className="destination-page">
         <header className="destination-page__hero planner-panel">
           <p className="cost-summary__eyebrow">City guide</p>
-          <h2>
+          <h1>
             {destination.name}
             <span> trip cost estimate</span>
-          </h2>
+          </h1>
           <p>{description}</p>
           <DestinationSnapshot destination={destination} />
           <nav
