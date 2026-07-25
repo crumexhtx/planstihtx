@@ -37,7 +37,6 @@ export function HomePage({ theme }: HomePageProps) {
         </div>
         <div className="travel-hero__art" aria-hidden="true">
           <span className="travel-hero__earth">🌍</span>
-          <span className="travel-hero__route">✈</span>
         </div>
       </section>
       <BudgetDestinationMatcher />
