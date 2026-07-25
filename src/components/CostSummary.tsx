@@ -8,6 +8,7 @@ import {
   PLANNING_DATA_AS_OF_LABEL,
 } from '../utils/pricingAssumptions';
 import type { TripPlan } from '../types';
+import { useExchangeRates } from './ExchangeRatesProvider';
 
 export interface CostSummaryProps {
   trip: TripPlan;
@@ -42,7 +43,10 @@ export function CostSummary({
   costs,
   transport,
 }: CostSummaryProps) {
+  const { rates } = useExchangeRates();
   const currency = trip.displayCurrency;
+  const money = (amountUsd: number) =>
+    formatCurrency(amountUsd, currency, rates.rates);
   const hasActualSpend = costs.actualSpend > 0;
   const varianceClass =
     costs.estimateVariance === 0
@@ -67,17 +71,17 @@ export function CostSummary({
 
       <div className="cost-summary__grand">
         <span>Estimated total</span>
-        <strong>{formatCurrency(costs.grandTotal, currency)}</strong>
+        <strong>{money(costs.grandTotal)}</strong>
       </div>
 
       <div className="cost-summary__totals">
         <div className="cost-summary__stat">
           <span>Per person trip</span>
-          <strong>{formatCurrency(costs.perPersonTrip, currency)}</strong>
+          <strong>{money(costs.perPersonTrip)}</strong>
         </div>
         <div className="cost-summary__stat">
           <span>Per person / day</span>
-          <strong>{formatCurrency(costs.perPersonDaily, currency)}</strong>
+          <strong>{money(costs.perPersonDaily)}</strong>
         </div>
       </div>
 
@@ -86,7 +90,7 @@ export function CostSummary({
         {LINE_ITEMS.map((item) => (
           <div key={item.key} className="cost-summary__line">
             <dt>{item.label}</dt>
-            <dd>{formatCurrency(costs[item.key], currency)}</dd>
+            <dd>{money(costs[item.key])}</dd>
           </div>
         ))}
       </dl>
@@ -106,9 +110,7 @@ export function CostSummary({
                   </small>
                 </span>
                 <strong>
-                  {leg.available
-                    ? formatCurrency(leg.costUsd, currency)
-                    : '—'}
+                  {leg.available ? money(leg.costUsd) : '—'}
                 </strong>
               </li>
             ))}
@@ -126,7 +128,7 @@ export function CostSummary({
           <h3 className="cost-summary__breakdown-title">Estimate vs actual</h3>
           <div className="cost-summary__stat">
             <span>Actual spend logged</span>
-            <strong>{formatCurrency(costs.actualSpend, currency)}</strong>
+            <strong>{money(costs.actualSpend)}</strong>
           </div>
           <div className="cost-summary__stat">
             <span>
@@ -137,18 +139,26 @@ export function CostSummary({
                   : 'On estimate'}
             </span>
             <strong>
-              {formatCurrency(Math.abs(costs.estimateVariance), currency)}
+              {money(Math.abs(costs.estimateVariance))}
             </strong>
           </div>
         </div>
       )}
 
       <p className="cost-summary__note">
-        Planning assumptions updated{' '}
+        Ground-cost planning assumptions dated{' '}
         <time dateTime={PLANNING_DATA_AS_OF}>{PLANNING_DATA_AS_OF_LABEL}</time>.
-        Lodging uses nights ({costs.totalNights}), while food and local costs use
-        calendar days ({costs.totalDays}). Lodging assumes one room per two
-        travelers. Estimates use planning averages, not live quotes.
+        Display currency uses{' '}
+        {rates.source === 'live' || rates.source === 'cached' ? (
+          <>
+            live FX as of <time dateTime={rates.asOf}>{rates.asOfLabel}</time>
+          </>
+        ) : (
+          'planning FX fallbacks'
+        )}
+        . Lodging uses nights ({costs.totalNights}), while food and local costs
+        use calendar days ({costs.totalDays}). Lodging assumes one room per two
+        travelers. Trip totals are planning averages, not live booking quotes.
       </p>
     </section>
   );

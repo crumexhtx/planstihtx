@@ -27,6 +27,12 @@ describe('convertCurrency', () => {
   it('returns zero for invalid amounts', () => {
     expect(convertCurrency(Number.NaN, 'USD', 'EUR')).toBe(0);
   });
+
+  it('accepts an override rate table for live FX', () => {
+    expect(
+      convertCurrency(100, 'USD', 'EUR', { ...TRACKER_USD_RATES, EUR: 0.9 }),
+    ).toBe(90);
+  });
 });
 
 describe('destination local currency mapping', () => {

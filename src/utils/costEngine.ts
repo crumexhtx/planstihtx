@@ -162,6 +162,7 @@ export function calculateTripCost({
 export function calculateTripPlanCost(
   trip: TripPlan,
   destinations: Destination[],
+  rates: Record<string, number> = USD_EXCHANGE_RATES,
 ): TripCostBreakdown {
   const totals: CostBreakdown = {
     lodging: 0,
@@ -211,7 +212,7 @@ export function calculateTripPlanCost(
     ),
   );
   const travelers = positiveInteger(trip.groupSize);
-  const actualSpend = calculateActualSpendUsd(trip);
+  const actualSpend = calculateActualSpendUsd(trip, rates);
 
   totals.lodging = roundCurrency(totals.lodging);
   totals.food = roundCurrency(totals.food);
@@ -447,21 +448,29 @@ export function getTravelSeason(
 export function convertFromUsd(
   amountUsd: number,
   currency: CurrencyCode,
+  rates: Record<string, number> = USD_EXCHANGE_RATES,
 ): number {
-  return roundCurrency(amountUsd * USD_EXCHANGE_RATES[currency]);
+  const rate = rates[currency] ?? USD_EXCHANGE_RATES[currency] ?? 1;
+  return roundCurrency(amountUsd * rate);
 }
 
 export function convertToUsd(
   amount: number,
   currency: CurrencyCode,
+  rates: Record<string, number> = USD_EXCHANGE_RATES,
 ): number {
-  return roundCurrency(amount / USD_EXCHANGE_RATES[currency]);
+  const rate = rates[currency] ?? USD_EXCHANGE_RATES[currency] ?? 1;
+  return roundCurrency(amount / rate);
 }
 
-export function calculateActualSpendUsd(trip: TripPlan): number {
+export function calculateActualSpendUsd(
+  trip: TripPlan,
+  rates: Record<string, number> = USD_EXCHANGE_RATES,
+): number {
   return roundCurrency(
     trip.expenses.reduce(
-      (sum, expense) => sum + convertToUsd(expense.amount, expense.currency),
+      (sum, expense) =>
+        sum + convertToUsd(expense.amount, expense.currency, rates),
       0,
     ),
   );
@@ -470,8 +479,9 @@ export function calculateActualSpendUsd(trip: TripPlan): number {
 export function formatCurrency(
   amountUsd: number,
   currency: CurrencyCode = 'USD',
+  rates: Record<string, number> = USD_EXCHANGE_RATES,
 ): string {
-  const amount = convertFromUsd(amountUsd, currency);
+  const amount = convertFromUsd(amountUsd, currency, rates);
   return new Intl.NumberFormat(undefined, {
     style: 'currency',
     currency,

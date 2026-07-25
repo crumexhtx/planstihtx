@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { SiteHeader } from './components/SiteHeader';
 import { SiteFooter } from './components/SiteFooter';
+import { ExchangeRatesProvider } from './components/ExchangeRatesProvider';
 
 const HomePage = lazy(() =>
   import('./pages/HomePage').then((module) => ({ default: module.HomePage })),
@@ -87,29 +88,31 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      <SiteHeader
-        title={titleForPath(location.pathname)}
-        theme={theme}
-        onToggleTheme={() =>
-          setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
-        }
-      />
-      <Suspense fallback={<RouteFallback />}>
-        <Routes>
-          <Route path="/" element={<HomePage theme={theme} />} />
-          <Route path="/destinations" element={<DestinationsIndexPage />} />
-          <Route
-            path="/destinations/:destinationId"
-            element={<DestinationPage theme={theme} />}
-          />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/partners" element={<PartnersPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-      <SiteFooter />
+      <ExchangeRatesProvider>
+        <SiteHeader
+          title={titleForPath(location.pathname)}
+          theme={theme}
+          onToggleTheme={() =>
+            setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
+          }
+        />
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            <Route path="/" element={<HomePage theme={theme} />} />
+            <Route path="/destinations" element={<DestinationsIndexPage />} />
+            <Route
+              path="/destinations/:destinationId"
+              element={<DestinationPage theme={theme} />}
+            />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/partners" element={<PartnersPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+        <SiteFooter />
+      </ExchangeRatesProvider>
     </div>
   );
 }

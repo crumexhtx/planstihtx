@@ -21,6 +21,7 @@ import {
   estimateTripTransport,
   getTravelSeason,
 } from '../utils/costEngine';
+import { useExchangeRates } from './ExchangeRatesProvider';
 import {
   alignLegsToDateRange,
   createTrip,
@@ -84,6 +85,7 @@ export function TripPlanner({
   theme,
   showDestinationSnapshot = true,
 }: TripPlannerProps) {
+  const { rates } = useExchangeRates();
   const lockedId = lockedDestination?.id ?? '';
   const [trip, setTrip] = useState<TripPlan>(() => createTrip(lockedId));
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -171,8 +173,9 @@ export function TripPlanner({
     [trip, alignedLegs, transportEstimate.costUsd],
   );
   const costs = useMemo(
-    () => calculateTripPlanCost(tripWithTransport, destinations),
-    [tripWithTransport],
+    () =>
+      calculateTripPlanCost(tripWithTransport, destinations, rates.rates),
+    [tripWithTransport, rates.rates],
   );
 
   useEffect(() => {

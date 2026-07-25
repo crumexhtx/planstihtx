@@ -83,8 +83,12 @@ export function PrivacyPage() {
             Weather requests are sent to Open-Meteo using destination
             coordinates and forecast parameters. Destination imagery and
             attribution may be requested from Wikipedia and Wikimedia services.
-            Those providers receive the technical information normally sent
-            with a web request and handle it under their own privacy terms.
+            Currency conversion loads European Central Bank reference rates
+            through the Frankfurter API (via Plansti’s `/api/fx` endpoint) and
+            falls back to built-in planning rates when the live feed is
+            unavailable. Those providers receive the technical information
+            normally sent with a web request and handle it under their own
+            privacy terms.
           </p>
         </section>
 
