@@ -15,20 +15,20 @@ describe('SEO structured data', () => {
     const schema = buildWebsiteJsonLd();
 
     expect(schema['@type']).toBe('WebSite');
-    expect(schema.name).toBe('Planora');
+    expect(schema.name).toBe('Plansti');
     expect(schema).not.toHaveProperty('potentialAction');
   });
 
   it('configures an absolute, correctly sized default social preview', () => {
     expect(DEFAULT_SOCIAL_IMAGE_PATH).toBe(
-      '/og/planora-social-preview.png',
+      '/og/plansti-social-preview.png',
     );
     expect(DEFAULT_SOCIAL_IMAGE_URL).toBe(
       `${SITE_URL}${DEFAULT_SOCIAL_IMAGE_PATH}`,
     );
     expect(DEFAULT_SOCIAL_IMAGE_WIDTH).toBe(1200);
     expect(DEFAULT_SOCIAL_IMAGE_HEIGHT).toBe(630);
-    expect(DEFAULT_SOCIAL_IMAGE_ALT).toContain('Planora');
+    expect(DEFAULT_SOCIAL_IMAGE_ALT).toContain('Plansti');
   });
 
   it('builds destination geo, country, page, and offer data', () => {

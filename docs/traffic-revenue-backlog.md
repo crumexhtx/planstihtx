@@ -1,4 +1,4 @@
-# Planora — 5-Month Traffic & Revenue Backlog
+# Plansti — 5-Month Traffic & Revenue Backlog
 
 Goal: grow organic traffic hard for ~5 months, then turn on live affiliate monetization.
 

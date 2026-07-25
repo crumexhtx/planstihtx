@@ -42,7 +42,7 @@ interface WikipediaArticleSearchResponse {
   };
 }
 
-const CACHE_PREFIX = 'planora:media:v2:';
+const CACHE_PREFIX = 'plansti:media:v2:';
 export const WIKIMEDIA_CACHE_TTL_MS = 6 * 60 * 60 * 1000;
 
 type CacheValue =

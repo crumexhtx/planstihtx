@@ -30,7 +30,7 @@ export function DestinationPage({ theme }: DestinationPageProps) {
   return (
     <>
       <PageMeta
-        title={`${destination.name} Trip Cost Estimate — Planora`}
+        title={`${destination.name} Trip Cost Estimate — Plansti`}
         description={`Plan a trip to ${destination.name}: cost calculator, top attractions, must-try dishes, and currency conversion. ${description}`}
         canonicalPath={`/destinations/${destination.id}`}
         image={culturalIcons[destination.id]?.imageUrl}
@@ -48,10 +48,10 @@ export function DestinationPage({ theme }: DestinationPageProps) {
       <article className="destination-page">
         <header className="destination-page__hero planner-panel">
           <p className="cost-summary__eyebrow">City guide</p>
-          <h2>
+          <h1>
             {destination.name}
             <span> trip cost estimate</span>
-          </h2>
+          </h1>
           <p>{description}</p>
           <DestinationSnapshot destination={destination} />
           <nav

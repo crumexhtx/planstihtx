@@ -14,8 +14,8 @@ const root = path.resolve(__dirname, '..');
 const distDir = path.join(root, 'dist');
 const siteUrl = resolveSiteUrl();
 
-const defaultSocialImage = `${siteUrl}/og/planora-social-preview.png`;
-const defaultSocialImageAlt = 'Planora — Explore more. Spend smarter.';
+const defaultSocialImage = `${siteUrl}/og/plansti-social-preview.png`;
+const defaultSocialImageAlt = 'Plansti — Explore more. Spend smarter.';
 
 const destinations = require(path.join(root, 'src/data/destinations.json'));
 const descriptions = await loadTsObjectExport(
@@ -41,21 +41,21 @@ const staticRoutes = [
   {
     routePath: '/',
     filePath: path.join(distDir, 'index.html'),
-    title: 'Planora — Trip Cost Estimator',
+    title: 'Plansti — Trip Cost Estimator',
     description:
-      'Estimate your trip cost before you book. Compare destinations, dates, transport, and daily budgets with Planora.',
+      'Estimate your trip cost before you book. Compare destinations, dates, transport, and daily budgets with Plansti.',
     body: homeBody(),
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      name: 'Planora',
+      name: 'Plansti',
       url: siteUrl,
     },
   },
   {
     routePath: '/destinations',
     filePath: path.join(distDir, 'destinations', 'index.html'),
-    title: 'City Trip Cost Guides — Planora',
+    title: 'City Trip Cost Guides — Plansti',
     description:
       'Browse destination guides with trip cost calculators, top attractions, must-try dishes, and currency conversion.',
     body: destinationsIndexBody(),
@@ -69,28 +69,28 @@ const staticRoutes = [
   {
     routePath: '/about',
     filePath: path.join(distDir, 'about', 'index.html'),
-    title: 'About — Planora',
+    title: 'About — Plansti',
     description:
-      'Learn how Planora helps travelers estimate trip costs before booking.',
-    body: `<main class="seo-static__panel"><h1>About Planora</h1><p>We help travelers estimate trip costs before they book.</p></main>`,
+      'Learn how Plansti helps travelers estimate trip costs before booking.',
+    body: `<main class="seo-static__panel"><h1>About Plansti</h1><p>We help travelers estimate trip costs before they book.</p></main>`,
     jsonLd: null,
   },
   {
     routePath: '/contact',
     filePath: path.join(distDir, 'contact', 'index.html'),
-    title: 'Contact — Planora',
+    title: 'Contact — Plansti',
     description:
-      'Contact Planora with feedback, destination suggestions, or questions about trip estimates.',
+      'Contact Plansti with feedback, destination suggestions, or questions about trip estimates.',
     body: `<main class="seo-static__panel"><h1>Contact</h1><p>Partner and traveler inquiries are welcome.</p></main>`,
     jsonLd: null,
   },
   {
     routePath: '/privacy',
     filePath: path.join(distDir, 'privacy', 'index.html'),
-    title: 'Privacy — Planora',
+    title: 'Privacy — Plansti',
     description:
-      'Learn what information Planora processes and which service providers support the site.',
-    body: `<main class="seo-static__panel"><h1>Privacy notice</h1><p>Learn how Planora handles contact messages, browser preferences, hosting data, and third-party travel services.</p></main>`,
+      'Learn what information Plansti processes and which service providers support the site.',
+    body: `<main class="seo-static__panel"><h1>Privacy notice</h1><p>Learn how Plansti handles contact messages, browser preferences, hosting data, and third-party travel services.</p></main>`,
     jsonLd: null,
   },
 ];
@@ -98,8 +98,8 @@ const staticRoutes = [
 const notFoundRoute = {
   routePath: '/404',
   filePath: path.join(distDir, '404.html'),
-  title: 'Page Not Found — Planora',
-  description: 'The Planora page you requested could not be found.',
+  title: 'Page Not Found — Plansti',
+  description: 'The Plansti page you requested could not be found.',
   body: `<main class="seo-static__panel"><p class="cost-summary__eyebrow">404 error</p><h1>That page could not be found</h1><p>The address may be incorrect, or the page may have moved.</p><p><a href="/">Open the calculator</a> or <a href="/destinations">browse city guides</a>.</p></main>`,
   jsonLd: null,
   canonical: false,
@@ -117,7 +117,7 @@ for (const destination of destinations) {
   staticRoutes.push({
     routePath: `/destinations/${destination.id}`,
     filePath: path.join(distDir, 'destinations', destination.id, 'index.html'),
-    title: `${destination.name} Trip Cost Estimate — Planora`,
+    title: `${destination.name} Trip Cost Estimate — Plansti`,
     description: `Plan a trip to ${destination.name}: cost calculator, top attractions, must-try dishes, and currency conversion. ${description}`,
     body: destinationBody(destination, description, info, topAttractions, mustTry),
     image: culturalIcons[destination.id]?.imageUrl,
@@ -175,7 +175,7 @@ function renderHtml(route) {
   html = upsertMeta(html, 'property', 'og:title', route.title);
   html = upsertMeta(html, 'property', 'og:description', route.description);
   html = upsertMeta(html, 'property', 'og:type', 'website');
-  html = upsertMeta(html, 'property', 'og:site_name', 'Planora');
+  html = upsertMeta(html, 'property', 'og:site_name', 'Plansti');
   html = upsertMeta(
     html,
     'property',

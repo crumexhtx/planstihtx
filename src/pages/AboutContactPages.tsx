@@ -11,20 +11,20 @@ export function AboutPage() {
   return (
     <>
       <PageMeta
-        title="About — Planora"
-        description="Learn how Planora helps travelers estimate trip costs before booking."
+        title="About — Plansti"
+        description="Learn how Plansti helps travelers estimate trip costs before booking."
         canonicalPath="/about"
       />
       <main className="static-page">
         <p className="cost-summary__eyebrow">About</p>
         <h1>Plan with a clearer picture of the cost</h1>
         <p>
-          Planora helps travelers answer an important early question:
+          Plansti helps travelers answer an important early question:
           “What might this trip cost?” Compare destinations before opening
           dozens of booking tabs or committing to an itinerary.
         </p>
 
-        <section className="static-page__grid" aria-label="How Planora works">
+        <section className="static-page__grid" aria-label="How Plansti works">
           <article>
             <h2>What we estimate</h2>
             <p>
@@ -44,7 +44,7 @@ export function AboutPage() {
           <article>
             <h2>What it is not</h2>
             <p>
-              Planora is not a booking agency and does not guarantee
+              Plansti is not a booking agency and does not guarantee
               fares, room prices, weather, availability, or entry requirements.
             </p>
           </article>
@@ -137,8 +137,8 @@ export function ContactPage() {
   return (
     <>
       <PageMeta
-        title="Contact — Planora"
-        description="Contact Planora with feedback, destination suggestions, or questions about trip estimates."
+        title="Contact — Plansti"
+        description="Contact Plansti with feedback, destination suggestions, or questions about trip estimates."
         canonicalPath="/contact"
       />
       <main className="static-page">
@@ -270,7 +270,7 @@ export function ContactPage() {
         <section className="static-page__section">
           <h2>For urgent travel questions</h2>
           <p>
-            Planora cannot provide emergency, immigration, medical, or
+            Plansti cannot provide emergency, immigration, medical, or
             safety advice. Contact the relevant government office, transport
             provider, accommodation, insurer, or local emergency service.
           </p>

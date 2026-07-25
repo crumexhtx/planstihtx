@@ -5,8 +5,8 @@ export function NotFoundPage() {
   return (
     <>
       <PageMeta
-        title="Page Not Found — Planora"
-        description="The Planora page you requested could not be found."
+        title="Page Not Found — Plansti"
+        description="The Plansti page you requested could not be found."
         noIndex
       />
       <main className="static-page">

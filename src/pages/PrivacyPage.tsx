@@ -5,15 +5,15 @@ export function PrivacyPage() {
   return (
     <>
       <PageMeta
-        title="Privacy — Planora"
-        description="Learn what information Planora processes and which service providers support the site."
+        title="Privacy — Plansti"
+        description="Learn what information Plansti processes and which service providers support the site."
         canonicalPath="/privacy"
       />
       <main className="static-page">
         <p className="cost-summary__eyebrow">Privacy</p>
         <h1>Privacy notice</h1>
         <p>
-          This notice explains the limited information Planora processes when
+          This notice explains the limited information Plansti processes when
           you use the site or contact us.
         </p>
 
@@ -22,7 +22,7 @@ export function PrivacyPage() {
           <p>
             When you submit the contact form, we process your name, email
             address, feedback category, message, and basic anti-spam timing
-            information. The message is sent through Resend to the Planora
+            information. The message is sent through Resend to the Plansti
             contact mailbox so we can read and respond to it. Resend processes
             this information as our email delivery provider. Do not include
             sensitive personal information in your message.
@@ -32,13 +32,13 @@ export function PrivacyPage() {
         <section className="static-page__section">
           <h2>Hosting and email delivery</h2>
           <p>
-            Vercel hosts Planora and may process technical request information
+            Vercel hosts Plansti and may process technical request information
             such as IP address, browser details, requested URLs, and timestamps
             to deliver and secure the site. Resend processes contact form
             details to deliver the message to our mailbox. Vercel Web Analytics
             measures page use and a small set of product interactions without
             receiving contact contents or exact budget amounts. Sentry receives
-            sampled performance data and unexpected application errors. Planora
+            sampled performance data and unexpected application errors. Plansti
             does not use session replay or advertising trackers.
           </p>
         </section>
@@ -57,7 +57,7 @@ export function PrivacyPage() {
         <section className="static-page__section">
           <h2>Browser storage</h2>
           <p>
-            Planora stores your light or dark theme choice in your browser’s
+            Plansti stores your light or dark theme choice in your browser’s
             local storage so the preference remains available on later visits.
             Contact messages are not stored in local storage.
           </p>

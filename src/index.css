@@ -302,13 +302,13 @@ fieldset {
   padding: 1rem 1.1rem 1.5rem;
 }
 
-.destination-page__hero h2 {
+.destination-page__hero h1 {
   margin: 0.2rem 0 0.45rem;
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 1.9rem);
 }
 
-.destination-page__hero h2 span {
+.destination-page__hero h1 span {
   color: var(--muted);
   font-weight: 600;
 }
@@ -1890,7 +1890,13 @@ a.explore-button {
   }
 
   .app-shell__actions nav {
-    gap: 0.1rem;
+    flex-wrap: nowrap;
+    gap: 0.15rem;
+  }
+
+  .app-shell__actions nav a {
+    padding: 0.55rem 0.4rem;
+    font-size: 0.8rem;
   }
 
   .trip-controls__tier-options {
