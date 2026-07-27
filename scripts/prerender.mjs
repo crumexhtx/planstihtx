@@ -17,6 +17,52 @@ const siteUrl = resolveSiteUrl();
 const defaultSocialImage = `${siteUrl}/og/plansti-social-preview.png`;
 const defaultSocialImageAlt = 'Plansti — Explore more. Spend smarter.';
 
+const MONTH_LABELS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
+function formatMonthList(months) {
+  const labels = (months ?? [])
+    .map((month) => MONTH_LABELS[month - 1])
+    .filter(Boolean);
+  if (labels.length === 0) return '';
+  if (labels.length === 1) return labels[0];
+  if (labels.length === 2) return `${labels[0]} and ${labels[1]}`;
+  return `${labels.slice(0, -1).join(', ')}, and ${labels[labels.length - 1]}`;
+}
+
+function formatSeasonalityHtml(destination) {
+  const best = formatMonthList(destination.seasonality?.best);
+  const cheapest = formatMonthList(destination.seasonality?.cheapest);
+  const busiest = formatMonthList(destination.seasonality?.busiest);
+  if (!best && !cheapest && !busiest) return '';
+
+  const variants = [
+    `Aim for ${best || 'shoulder months'} if you want the best overall window. ${cheapest ? `${cheapest} usually bring lower trip costs` : 'Off-peak dates usually cost less'}, while ${busiest || 'peak months'} draw the biggest crowds.`,
+    `Travelers chasing value often prefer ${cheapest || 'quieter months'}, but the sweet spot for conditions is typically ${best || 'the shoulder season'}. Expect denser crowds in ${busiest || 'peak season'}.`,
+    `Plan around ${best || 'balanced months'} for a smoother visit. Budget-minded trips lean toward ${cheapest || 'low season'}, and ${busiest || 'high season'} is when demand—and often fares—spike.`,
+  ];
+  const index =
+    Math.abs(
+      String(destination.id)
+        .split('')
+        .reduce((sum, char) => sum + char.charCodeAt(0), 0),
+    ) % variants.length;
+
+  return `<h2>Best time to visit</h2><p>${escapeHtml(variants[index])}</p>`;
+}
+
 const destinations = require(path.join(root, 'src/data/destinations.json'));
 const descriptions = await loadTsObjectExport(
   path.join(root, 'src/data/destinationDescriptions.ts'),
@@ -123,11 +169,27 @@ for (const destination of destinations) {
   const topAttractions = (info.topAttractions ?? []).slice(0, 5);
   const mustTry = dishes[destination.id] ?? [];
 
+  const bestMonths = (destination.seasonality?.best ?? [])
+    .map((month) => MONTH_LABELS[month - 1])
+    .filter(Boolean);
+  const bestTimePhrase =
+    bestMonths.length > 0
+      ? `Best time to visit ${destination.name}: ${formatMonthList(destination.seasonality.best)}.`
+      : '';
+  const metaDescription = [
+    `Plan a trip to ${destination.name}: cost calculator, top attractions, must-try dishes, and currency conversion.`,
+    bestTimePhrase,
+    description,
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .slice(0, 300);
+
   staticRoutes.push({
     routePath: `/destinations/${destination.id}`,
     filePath: path.join(distDir, 'destinations', destination.id, 'index.html'),
     title: `${destination.name} Trip Cost Estimate — Plansti`,
-    description: `Plan a trip to ${destination.name}: cost calculator, top attractions, must-try dishes, and currency conversion. ${description}`,
+    description: metaDescription,
     body: destinationBody(destination, description, info, topAttractions, mustTry),
     image: culturalIcons[destination.id]?.imageUrl,
     imageAlt: culturalIcons[destination.id]?.imageUrl
@@ -255,8 +317,8 @@ function destinationsIndexBody() {
 function destinationBody(destination, description, info, topAttractions, mustTry) {
   const attractions = topAttractions
     .map(
-      (item, index) =>
-        `<li><strong>${index + 1}. ${escapeHtml(item.name)}</strong> — ${escapeHtml(item.blurb)}</li>`,
+      (item) =>
+        `<li><strong>${escapeHtml(item.name)}</strong> — ${escapeHtml(item.blurb)}</li>`,
     )
     .join('');
   const food = mustTry
@@ -265,10 +327,12 @@ function destinationBody(destination, description, info, topAttractions, mustTry
         `<li><strong>${escapeHtml(dish.name)}</strong> — ${escapeHtml(dish.blurb)} (avg $${Number(dish.averagePriceUsd).toFixed(2)})</li>`,
     )
     .join('');
+  const seasonality = formatSeasonalityHtml(destination);
   return `<main class="seo-static__panel">
     <h1>${escapeHtml(destination.name)} trip cost estimate</h1>
     <p>${escapeHtml(description)}</p>
     <p>Daily budget baseline: $${destination.dailyBudget} USD. ${escapeHtml(info.bestFor ?? '')}</p>
+    ${seasonality}
     <h2>Top attractions</h2>
     <ol>${attractions || '<li>Coming soon</li>'}</ol>
     <h2>Must-try dishes</h2>

@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { destinations } from '../utils/tripHelpers';
+import {
+  buildBestTimeMetaPhrase,
+  buildBestTimeToVisitCopy,
+} from '../utils/seasonalityCopy';
 import { destinationBeverages } from './destinationBeverages';
 import { destinationDescriptions } from './destinationDescriptions';
 import { destinationDishes } from './destinationDishes';
@@ -16,8 +20,10 @@ const WAVE_A = [
   'mexico-city',
 ] as const;
 
+const LEADING_ORDINAL = /^\d+\.\s/;
+
 describe('destination food and beverage content', () => {
-  it('covers every destination with two dishes, a drink, and a beer pick', () => {
+  it('covers every destination with 4–5 dishes, a drink, and a beer pick', () => {
     const destinationIds = destinations.map((destination) => destination.id);
 
     expect(Object.keys(destinationDishes).sort()).toEqual(
@@ -28,7 +34,9 @@ describe('destination food and beverage content', () => {
     );
 
     destinationIds.forEach((destinationId) => {
-      expect(destinationDishes[destinationId]).toHaveLength(2);
+      const dishCount = destinationDishes[destinationId].length;
+      expect(dishCount).toBeGreaterThanOrEqual(4);
+      expect(dishCount).toBeLessThanOrEqual(5);
       expect(destinationBeverages[destinationId]).toBeDefined();
     });
   });
@@ -74,6 +82,28 @@ describe('destination guide copy', () => {
         destinationExplore[destinationId].topAttractions.length,
       ).toBeGreaterThanOrEqual(5);
     });
+  });
+
+  it('keeps attraction names free of baked-in ordinal prefixes', () => {
+    destinations.forEach((destination) => {
+      destinationExplore[destination.id].topAttractions.forEach((attraction) => {
+        expect(attraction.name).not.toMatch(LEADING_ORDINAL);
+      });
+    });
+  });
+
+  it('surfaces seasonality with varied best-time copy', () => {
+    const copies = destinations.map((destination) =>
+      buildBestTimeToVisitCopy(destination),
+    );
+
+    destinations.forEach((destination, index) => {
+      expect(destination.seasonality.best.length).toBeGreaterThan(0);
+      expect(copies[index]).toContain(destination.name);
+      expect(buildBestTimeMetaPhrase(destination)).toMatch(/^Best time to visit /);
+    });
+
+    expect(new Set(copies).size).toBeGreaterThan(1);
   });
 
   it('gives Wave A cities deeper trip-cost intros', () => {

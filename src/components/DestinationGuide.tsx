@@ -204,7 +204,7 @@ export function DestinationGuide({
           <section className="planner-panel">
             <h2>Top 5 attractions</h2>
             {attractions.length > 0 ? (
-              <ol className="explore-modal__attractions attraction-gallery">
+              <ul className="explore-modal__attractions attraction-gallery">
                 {attractions.map((attraction, index) => (
                   <li key={attraction.name}>
                     <AttractionImage
@@ -233,7 +233,7 @@ export function DestinationGuide({
                     </div>
                   </li>
                 ))}
-              </ol>
+              </ul>
             ) : (
               <p className="planner-help">Attraction details coming soon.</p>
             )}
