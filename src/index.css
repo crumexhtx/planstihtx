@@ -2010,9 +2010,9 @@ a.explore-button {
 }
 
 :root[data-theme='light'] .planner-panel input,
-:root[data-theme='light'] .planner-panel select,
-:root[data-theme='light'] .planner-panel button {
+:root[data-theme='light'] .planner-panel select {
   background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
 }
 
 .estimate-disclaimer {
@@ -2382,10 +2382,10 @@ body {
 }
 
 :root[data-theme='light'] .planner-panel input,
-:root[data-theme='light'] .planner-panel select,
-:root[data-theme='light'] .planner-panel button {
+:root[data-theme='light'] .planner-panel select {
   border-color: rgba(24, 48, 68, 0.14);
   background: #fbfcf9;
+  color: var(--ink);
 }
 
 .featured-destinations {
@@ -2417,6 +2417,13 @@ body {
 .explore-button,
 .planner-panel button:not(:disabled),
 .newsletter__form button {
+  border-color: #f9733b;
+  background: #f9733b;
+  color: #ffffff;
+}
+
+:root[data-theme='light'] .planner-panel button:not(:disabled),
+:root[data-theme='light'] .recommendation-add-button {
   border-color: #f9733b;
   background: #f9733b;
   color: #ffffff;
@@ -2464,22 +2471,66 @@ body {
 :root[data-theme='light'] .dish-card {
   border-color: #cfb894;
   background: #e8dcc8;
+  color: #173349;
 }
 
 :root[data-theme='light'] .explore-modal__facts span,
 :root[data-theme='light'] .dish-card p:not(.cost-summary__eyebrow) {
-  color: #71624f;
+  color: #5f4d38;
+}
+
+:root[data-theme='light'] .explore-modal__facts strong,
+:root[data-theme='light'] .dish-card h3,
+:root[data-theme='light'] .attraction-gallery__content strong {
+  color: #173349;
+}
+
+:root[data-theme='light'] .dish-card strong {
+  color: #9a3412;
+}
+
+:root[data-theme='light'] .dish-card .cost-summary__eyebrow {
+  color: #9a3412;
+}
+
+:root[data-theme='light'] .explore-modal__rank {
+  border-color: rgba(249, 115, 59, 0.45);
+  background: #f9733b;
+  color: #ffffff;
+}
+
+:root[data-theme='light'] .attraction-gallery__content p,
+:root[data-theme='light'] .explore-modal__attractions p {
+  color: #5f4d38;
 }
 
 :root[data-theme='dark'] .explore-modal__facts div,
 :root[data-theme='dark'] .dish-card {
   border-color: #806b50;
   background: #4a3d2f;
+  color: #fff5e7;
 }
 
 :root[data-theme='dark'] .explore-modal__facts span,
 :root[data-theme='dark'] .dish-card p:not(.cost-summary__eyebrow) {
   color: #d8c6ae;
+}
+
+:root[data-theme='dark'] .explore-modal__facts strong,
+:root[data-theme='dark'] .dish-card h3,
+:root[data-theme='dark'] .dish-card strong,
+:root[data-theme='dark'] .attraction-gallery__content strong {
+  color: #fff5e7;
+}
+
+:root[data-theme='dark'] .dish-card .cost-summary__eyebrow {
+  color: #fdba74;
+}
+
+:root[data-theme='dark'] .explore-modal__rank {
+  border-color: rgba(47, 212, 194, 0.45);
+  background: rgba(47, 212, 194, 0.18);
+  color: #8fe8dc;
 }
 
 .home-newsletter {
