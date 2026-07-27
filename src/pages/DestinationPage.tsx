@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { DestinationGuide } from '../components/DestinationGuide';
+import { BestTimeToVisit } from '../components/BestTimeToVisit';
 import { TripPlanner } from '../components/TripPlanner';
 import { DestinationSnapshot } from '../components/DestinationSnapshot';
 import { CurrencyTracker } from '../components/CurrencyTracker';
@@ -10,6 +11,7 @@ import { getDestinationById } from '../utils/tripHelpers';
 import { destinationDescriptions } from '../data/destinationDescriptions';
 import { culturalIcons } from '../data/culturalIcons';
 import { buildDestinationJsonLd } from '../utils/seo';
+import { buildBestTimeMetaPhrase } from '../utils/seasonalityCopy';
 
 export interface DestinationPageProps {
   theme: 'light' | 'dark';
@@ -26,12 +28,21 @@ export function DestinationPage({ theme }: DestinationPageProps) {
   const description =
     destinationDescriptions[destination.id] ??
     `Estimate trip costs for ${destination.name}, ${destination.country}.`;
+  const bestTimePhrase = buildBestTimeMetaPhrase(destination);
+  const metaDescription = [
+    `Plan a trip to ${destination.name}: cost calculator, top attractions, must-try dishes, and currency conversion.`,
+    bestTimePhrase,
+    description,
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .slice(0, 300);
 
   return (
     <>
       <PageMeta
         title={`${destination.name} Trip Cost Estimate — Plansti`}
-        description={`Plan a trip to ${destination.name}: cost calculator, top attractions, must-try dishes, and currency conversion. ${description}`}
+        description={metaDescription}
         canonicalPath={`/destinations/${destination.id}`}
         image={culturalIcons[destination.id]?.imageUrl}
         imageAlt={
@@ -69,6 +80,8 @@ export function DestinationPage({ theme }: DestinationPageProps) {
             </Link>
           </nav>
         </header>
+
+        <BestTimeToVisit destination={destination} />
 
         <DestinationGuide
           destination={destination}

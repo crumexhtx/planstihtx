@@ -97,7 +97,7 @@ export function ExploreDestination({
 
           <h3>Top 5 attractions</h3>
           {attractions.length > 0 ? (
-            <ol className="explore-modal__attractions">
+            <ul className="explore-modal__attractions">
               {attractions.map((attraction, index) => (
                 <li key={attraction.name}>
                   <span className="explore-modal__rank">{index + 1}</span>
@@ -107,7 +107,7 @@ export function ExploreDestination({
                   </div>
                 </li>
               ))}
-            </ol>
+            </ul>
           ) : (
             <p className="planner-help">
               Attraction details for this destination are coming soon.
