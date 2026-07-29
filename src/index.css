@@ -133,13 +133,15 @@ textarea {
   gap: 0.5rem;
 }
 
-.app-shell__actions nav {
+.app-shell__actions nav,
+.app-shell__menu nav {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
 }
 
-.app-shell__actions nav a {
+.app-shell__actions nav a,
+.app-shell__menu nav a {
   color: var(--muted);
   text-decoration: none;
   padding: 0.35rem 0.55rem;
@@ -149,7 +151,9 @@ textarea {
 }
 
 .app-shell__actions nav a:hover,
-.app-shell__actions nav a.active {
+.app-shell__actions nav a.active,
+.app-shell__menu nav a:hover,
+.app-shell__menu nav a.active {
   color: var(--ink);
   background: rgba(47, 212, 194, 0.12);
 }
@@ -2151,7 +2155,7 @@ body {
 .app-shell__brand {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 200;
   padding: 1rem clamp(1rem, 4vw, 4.5rem);
   border-bottom: 0;
   background: rgba(255, 255, 255, 0.96);
@@ -2177,19 +2181,23 @@ body {
   color: var(--accent);
 }
 
-.app-shell__actions nav {
+.app-shell__actions nav,
+.app-shell__menu nav {
   align-items: center;
   gap: 0.25rem;
 }
 
-.app-shell__actions nav a {
+.app-shell__actions nav a,
+.app-shell__menu nav a {
   padding: 0.55rem 0.75rem;
   color: #405766;
   font-size: 0.88rem;
 }
 
 .app-shell__actions nav a:hover,
-.app-shell__actions nav a.active {
+.app-shell__actions nav a.active,
+.app-shell__menu nav a:hover,
+.app-shell__menu nav a.active {
   color: #f9733b;
   background: rgba(249, 115, 59, 0.1);
 }
@@ -3041,19 +3049,23 @@ body {
   .app-shell__brand {
     position: sticky;
     top: 0;
+    z-index: 200;
     gap: 0.75rem;
   }
 
   .nav-toggle {
+    position: relative;
+    z-index: 220;
     display: inline-flex;
   }
 
   .app-shell__menu {
-    position: absolute;
-    top: calc(100% + 0.35rem);
+    /* Fixed so overflow-x: clip on app-shell/html does not hide the panel after scroll. */
+    position: fixed;
+    top: calc(var(--site-header-height, 4.5rem) + 0.35rem);
     right: clamp(0.75rem, 4vw, 1.5rem);
     left: clamp(0.75rem, 4vw, 1.5rem);
-    z-index: 30;
+    z-index: 210;
     display: none;
     flex-direction: column;
     align-items: stretch;
@@ -3077,14 +3089,16 @@ body {
     position: static;
   }
 
-  .app-shell__actions nav {
+  .app-shell__actions nav,
+  .app-shell__menu nav {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.35rem;
     width: 100%;
   }
 
-  .app-shell__actions nav a {
+  .app-shell__actions nav a,
+  .app-shell__menu nav a {
     width: 100%;
     padding: 0.75rem 0.85rem;
     font-size: 1rem;
