@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { NavLink, useLocation } from 'react-router-dom';
 
 export interface SiteHeaderProps {
@@ -26,13 +27,49 @@ export function SiteHeader({
 }: SiteHeaderProps) {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [portalReady, setPortalReady] = useState(false);
+  const [useMobilePortal, setUseMobilePortal] = useState(false);
   const menuId = useId();
+  const headerRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    setPortalReady(true);
+    const media = window.matchMedia('(max-width: 760px)');
+    const syncMobile = () => setUseMobilePortal(media.matches);
+    syncMobile();
+    media.addEventListener('change', syncMobile);
+    return () => media.removeEventListener('change', syncMobile);
+  }, []);
+
+  useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header || typeof ResizeObserver === 'undefined') {
+      document.documentElement.style.setProperty('--site-header-height', '4.5rem');
+      return;
+    }
+
+    const syncHeaderHeight = () => {
+      document.documentElement.style.setProperty(
+        '--site-header-height',
+        `${Math.ceil(header.getBoundingClientRect().height)}px`,
+      );
+    };
+
+    syncHeaderHeight();
+    const observer = new ResizeObserver(syncHeaderHeight);
+    observer.observe(header);
+    window.addEventListener('resize', syncHeaderHeight);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', syncHeaderHeight);
+    };
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -70,8 +107,32 @@ export function SiteHeader({
     return () => document.body.classList.remove('nav-open');
   }, [menuOpen]);
 
+  const menu = (
+    <div
+      ref={menuRef}
+      id={menuId}
+      className={`app-shell__menu${menuOpen ? ' is-open' : ''}`}
+    >
+      <nav aria-label="Main navigation">
+        {NAV_LINKS.map((link) => (
+          <NavLink key={link.to} to={link.to} end={link.end === true}>
+            {link.label}
+          </NavLink>
+        ))}
+      </nav>
+      <button
+        className="theme-toggle"
+        type="button"
+        aria-pressed={theme === 'light'}
+        onClick={onToggleTheme}
+      >
+        {theme === 'dark' ? '☀ Light' : '☾ Dark'}
+      </button>
+    </div>
+  );
+
   return (
-    <header className="app-shell__brand">
+    <header ref={headerRef} className="app-shell__brand">
       <div className="app-shell__brand-copy">
         <p className="app-shell__brand-mark">
           <NavLink to="/" className="app-shell__brand-link">
@@ -95,27 +156,14 @@ export function SiteHeader({
           </span>
         </button>
 
-        <div
-          ref={menuRef}
-          id={menuId}
-          className={`app-shell__menu${menuOpen ? ' is-open' : ''}`}
-        >
-          <nav aria-label="Main navigation">
-            {NAV_LINKS.map((link) => (
-              <NavLink key={link.to} to={link.to} end={link.end === true}>
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
-          <button
-            className="theme-toggle"
-            type="button"
-            aria-pressed={theme === 'light'}
-            onClick={onToggleTheme}
-          >
-            {theme === 'dark' ? '☀ Light' : '☾ Dark'}
-          </button>
-        </div>
+        {/*
+          On mobile, portal to document.body so overflow-x: clip on .app-shell
+          cannot hide the sticky-header dropdown after page scroll. Desktop
+          keeps the menu in-header for normal flex layout.
+        */}
+        {portalReady && useMobilePortal
+          ? createPortal(menu, document.body)
+          : menu}
       </div>
     </header>
   );
