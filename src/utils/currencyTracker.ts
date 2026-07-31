@@ -119,6 +119,24 @@ export const DESTINATION_LOCAL_CURRENCY: Record<string, TrackerCurrency> = {
   'kuala-lumpur': 'MYR',
   shanghai: 'CNY',
   mumbai: 'INR',
+
+  'washington-dc': 'USD',
+  seattle: 'USD',
+  'san-diego': 'USD',
+  'new-orleans': 'USD',
+  nashville: 'USD',
+  austin: 'USD',
+  denver: 'USD',
+  philadelphia: 'USD',
+  atlanta: 'USD',
+  portland: 'USD',
+  phoenix: 'USD',
+  charleston: 'USD',
+  savannah: 'USD',
+  dallas: 'USD',
+  houston: 'USD',
+  'key-west': 'USD',
+
 };
 
 function rateFor(

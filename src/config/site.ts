@@ -13,7 +13,7 @@ if (import.meta.env.PROD && !envSiteUrl) {
 export const SITE_URL = (envSiteUrl || 'http://localhost:5173').replace(/\/$/, '');
 
 export const DEFAULT_DESCRIPTION =
-  'Estimate your trip cost before you book. Compare destinations, dates, transport, and daily budgets with Plansti.';
+  'See how expensive a trip will be before you book. Estimate flights, stays, food, and daily spend with Plansti’s free trip cost calculator.';
 
 export const DEFAULT_SOCIAL_IMAGE_PATH = '/og/plansti-social-preview.png';
 export const DEFAULT_SOCIAL_IMAGE_URL = `${SITE_URL}${DEFAULT_SOCIAL_IMAGE_PATH}`;

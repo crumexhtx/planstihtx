@@ -1907,5 +1907,432 @@
         1
       ]
     }
+  },
+  {
+    "id": "washington-dc",
+    "name": "Washington, D.C.",
+    "country": "United States",
+    "lat": 38.9072,
+    "lng": -77.0369,
+    "dailyBudget": 165,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        8
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        9,
+        10
+      ],
+      "busiest": [
+        4,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "id": "seattle",
+    "name": "Seattle",
+    "country": "United States",
+    "lat": 47.6062,
+    "lng": -122.3321,
+    "dailyBudget": 160,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        5,
+        6,
+        7,
+        9
+      ],
+      "busiest": [
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "san-diego",
+    "name": "San Diego",
+    "country": "United States",
+    "lat": 32.7157,
+    "lng": -117.1611,
+    "dailyBudget": 150,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        9,
+        10
+      ],
+      "busiest": [
+        6,
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "new-orleans",
+    "name": "New Orleans",
+    "country": "United States",
+    "lat": 29.9511,
+    "lng": -90.0715,
+    "dailyBudget": 140,
+    "seasonality": {
+      "cheapest": [
+        6,
+        7,
+        8
+      ],
+      "best": [
+        2,
+        3,
+        4,
+        10,
+        11
+      ],
+      "busiest": [
+        2,
+        3,
+        12
+      ]
+    }
+  },
+  {
+    "id": "nashville",
+    "name": "Nashville",
+    "country": "United States",
+    "lat": 36.1627,
+    "lng": -86.7816,
+    "dailyBudget": 145,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        8
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        9,
+        10
+      ],
+      "busiest": [
+        6,
+        7,
+        10
+      ]
+    }
+  },
+  {
+    "id": "austin",
+    "name": "Austin",
+    "country": "United States",
+    "lat": 30.2672,
+    "lng": -97.7431,
+    "dailyBudget": 145,
+    "seasonality": {
+      "cheapest": [
+        1,
+        8,
+        9
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        10,
+        11
+      ],
+      "busiest": [
+        3,
+        4,
+        10
+      ]
+    }
+  },
+  {
+    "id": "denver",
+    "name": "Denver",
+    "country": "United States",
+    "lat": 39.7392,
+    "lng": -104.9903,
+    "dailyBudget": 150,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        5,
+        6,
+        9,
+        10
+      ],
+      "busiest": [
+        6,
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "philadelphia",
+    "name": "Philadelphia",
+    "country": "United States",
+    "lat": 39.9526,
+    "lng": -75.1652,
+    "dailyBudget": 145,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        3
+      ],
+      "best": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "busiest": [
+        6,
+        7,
+        12
+      ]
+    }
+  },
+  {
+    "id": "atlanta",
+    "name": "Atlanta",
+    "country": "United States",
+    "lat": 33.749,
+    "lng": -84.388,
+    "dailyBudget": 140,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        8
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        10,
+        11
+      ],
+      "busiest": [
+        3,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "id": "portland",
+    "name": "Portland",
+    "country": "United States",
+    "lat": 45.5152,
+    "lng": -122.6784,
+    "dailyBudget": 145,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        5,
+        6,
+        7,
+        9
+      ],
+      "busiest": [
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "phoenix",
+    "name": "Phoenix",
+    "country": "United States",
+    "lat": 33.4484,
+    "lng": -112.074,
+    "dailyBudget": 135,
+    "seasonality": {
+      "cheapest": [
+        6,
+        7,
+        8
+      ],
+      "best": [
+        1,
+        2,
+        3,
+        11
+      ],
+      "busiest": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": "charleston",
+    "name": "Charleston",
+    "country": "United States",
+    "lat": 32.7765,
+    "lng": -79.9311,
+    "dailyBudget": 155,
+    "seasonality": {
+      "cheapest": [
+        1,
+        8,
+        9
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        10,
+        11
+      ],
+      "busiest": [
+        3,
+        4,
+        10
+      ]
+    }
+  },
+  {
+    "id": "savannah",
+    "name": "Savannah",
+    "country": "United States",
+    "lat": 32.0809,
+    "lng": -81.0912,
+    "dailyBudget": 140,
+    "seasonality": {
+      "cheapest": [
+        1,
+        8,
+        9
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        10,
+        11
+      ],
+      "busiest": [
+        3,
+        4,
+        10
+      ]
+    }
+  },
+  {
+    "id": "dallas",
+    "name": "Dallas",
+    "country": "United States",
+    "lat": 32.7767,
+    "lng": -96.797,
+    "dailyBudget": 140,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        8
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        10,
+        11
+      ],
+      "busiest": [
+        3,
+        6,
+        12
+      ]
+    }
+  },
+  {
+    "id": "houston",
+    "name": "Houston",
+    "country": "United States",
+    "lat": 29.7604,
+    "lng": -95.3698,
+    "dailyBudget": 135,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        8
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        10,
+        11
+      ],
+      "busiest": [
+        3,
+        10,
+        12
+      ]
+    }
+  },
+  {
+    "id": "key-west",
+    "name": "Key West",
+    "country": "United States",
+    "lat": 24.5551,
+    "lng": -81.78,
+    "dailyBudget": 175,
+    "seasonality": {
+      "cheapest": [
+        5,
+        6,
+        9,
+        10
+      ],
+      "best": [
+        1,
+        2,
+        3,
+        4,
+        11
+      ],
+      "busiest": [
+        1,
+        2,
+        3,
+        7
+      ]
+    }
   }
 ]

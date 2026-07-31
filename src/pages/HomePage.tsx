@@ -4,6 +4,7 @@ import { BudgetDestinationMatcher } from '../components/BudgetDestinationMatcher
 import { CurrencyFooter } from '../components/CurrencyFooter';
 import { JsonLd } from '../components/JsonLd';
 import { buildWebsiteJsonLd } from '../utils/seo';
+import { HOME_META } from '../utils/pageMetaCopy';
 
 export interface HomePageProps {
   theme: 'light' | 'dark';
@@ -13,8 +14,8 @@ export function HomePage({ theme }: HomePageProps) {
   return (
     <>
       <PageMeta
-        title="Plansti — Trip Cost Estimator"
-        description="Estimate your trip cost before you book. Compare destinations, dates, transport, and daily budgets with Plansti."
+        title={HOME_META.title}
+        description={HOME_META.description}
         canonicalPath="/"
       />
       <JsonLd id="website" data={buildWebsiteJsonLd()} />

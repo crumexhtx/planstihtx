@@ -596,8 +596,12 @@ body.nav-open {
 
 .destination-page__actions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65rem;
+}
+
+.destination-page__calculator {
+  scroll-margin-top: 5.5rem;
 }
 
 .destination-page__actions .explore-button {
@@ -694,6 +698,55 @@ body.nav-open {
   margin-top: 0.55rem;
   padding: 0.45rem 0.6rem;
   font-size: 0.78rem;
+}
+
+.destinations-index__filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding: 0.9rem;
+  border: 1px solid var(--panel-edge);
+  border-radius: 0.85rem;
+  background: var(--accent-soft);
+}
+
+.destinations-index__filters label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.destinations-index__filters input,
+.destinations-index__filters select {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.7rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--panel-edge);
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.72);
+  color: #173349;
+  font: inherit;
+}
+
+:root[data-theme='dark'] .destinations-index__filters {
+  background: #4a3d2f;
+}
+
+:root[data-theme='dark'] .destinations-index__filters input,
+:root[data-theme='dark'] .destinations-index__filters select {
+  background: rgba(18, 24, 32, 0.72);
+  color: #f5efe6;
+}
+
+.destinations-index__count,
+.destinations-index__empty {
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  font-weight: 650;
 }
 
 .destinations-index__list {
@@ -3119,6 +3172,11 @@ body {
     width: min(100% - 1.5rem, 1000px);
     margin: 0.75rem auto 1rem;
     padding: 1rem;
+  }
+
+  .destinations-index__filters,
+  .destination-page__actions {
+    grid-template-columns: 1fr;
   }
 
   .static-page__grid,

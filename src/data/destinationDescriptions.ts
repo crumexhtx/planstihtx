@@ -140,4 +140,38 @@ export const destinationDescriptions: Record<string, string> = {
   mumbai:
     'India’s coastal commercial capital of seafront promenades, cinema energy, street food, and dense neighborhood contrasts.',
 
+
+  'washington-dc':
+    'The U.S. capital of free museums, monuments, and walkable National Mall days.',
+  seattle:
+    'A Pacific Northwest city of coffee culture, waterfront views, and nearby mountain day trips.',
+  'san-diego':
+    'A sunny Southern California city of beaches, balboa park museums, and easy Baja day trips.',
+  'new-orleans':
+    'A Gulf Coast city of jazz, Creole cooking, historic neighborhoods, and lively evenings.',
+  nashville:
+    'A music capital of honky-tonks, Southern food, and walkable downtown entertainment.',
+  austin:
+    'A Texas capital known for live music, outdoor swimming holes, and a serious food scene.',
+  denver:
+    'A Rocky Mountain gateway city of craft beer, parks, and easy access to alpine day trips.',
+  philadelphia:
+    'A historic East Coast city of Independence landmarks, murals, and beloved sandwich shops.',
+  atlanta:
+    'A Southern hub of civil rights history, sprawling neighborhoods, and a strong food scene.',
+  portland:
+    'A Pacific Northwest city of food carts, bridges, parks, and nearby waterfall day trips.',
+  phoenix:
+    'A desert metropolis of sunshine, resort pools, and nearby canyon and trail day trips.',
+  charleston:
+    'A Lowcountry city of pastel streets, harbor views, and classic Southern coastal cooking.',
+  savannah:
+    'A Georgia coastal city of oak-lined squares, historic homes, and riverfront evenings.',
+  dallas:
+    'A North Texas city of arts districts, sports energy, and a broad dining scene.',
+  houston:
+    'A diverse Gulf Coast metropolis known for museums, space history, and outstanding food.',
+  'key-west':
+    'A Florida Keys island town of sunset piers, pastel streets, and easy Caribbean vibes.',
+
 };

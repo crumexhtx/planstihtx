@@ -126,9 +126,9 @@ const staticRoutes = [
   {
     routePath: '/',
     filePath: path.join(distDir, 'index.html'),
-    title: 'Plansti — Trip Cost Estimator',
+    title: '✈️ Plansti Value Travel — Free Trip Cost Calculator | Plansti',
     description:
-      'Estimate your trip cost before you book. Compare destinations, dates, transport, and daily budgets with Plansti.',
+      'See how expensive a trip will be before you book. Estimate flights, stays, food, and daily spend with Plansti’s free trip cost calculator.',
     body: homeBody(),
     jsonLd: {
       '@context': 'https://schema.org',
@@ -140,9 +140,10 @@ const staticRoutes = [
   {
     routePath: '/destinations',
     filePath: path.join(distDir, 'destinations', 'index.html'),
-    title: 'City Trip Cost Guides — Plansti',
+    title:
+      '🌍 City Trip Cost Guides — How Expensive Is Each Destination? | Plansti',
     description:
-      'Browse destination guides with trip cost calculators, top attractions, must-try dishes, and currency conversion.',
+      'Browse city trip cost guides and find out how expensive each destination is. Compare daily budgets, attractions, food prices, and trip cost calculators.',
     body: destinationsIndexBody(),
     jsonLd: {
       '@context': 'https://schema.org',
@@ -230,7 +231,7 @@ for (const destination of destinations) {
       ? `Best time to visit ${destination.name}: ${formatMonthList(destination.seasonality.best)}.`
       : '';
   const metaDescription = [
-    `Plan a trip to ${destination.name}: cost calculator, top attractions, must-try dishes, and currency conversion.`,
+    `Find the cost of a ${destination.name}, ${destination.country} trip. See how expensive it is to visit with Plansti’s trip cost calculator.`,
     bestTimePhrase,
     description,
   ]
@@ -241,7 +242,7 @@ for (const destination of destinations) {
   staticRoutes.push({
     routePath: `/destinations/${destination.id}`,
     filePath: path.join(distDir, 'destinations', destination.id, 'index.html'),
-    title: `${destination.name} Trip Cost Estimate — Plansti`,
+    title: `💰 How Expensive Is ${destination.name}? Trip Cost & Budget Calculator | Plansti`,
     description: metaDescription,
     body: destinationBody(destination, description, info, topAttractions, mustTry),
     image: culturalIcons[destination.id]?.imageUrl,
@@ -427,7 +428,7 @@ function destinationBody(destination, description, info, topAttractions, mustTry
     <h2>Must-try food in ${escapeHtml(destination.name)}</h2>
     ${foodLead}
     <ul>${food || '<li>Coming soon</li>'}</ul>
-    <p><a href="/destinations/${destination.id}">Open the ${escapeHtml(destination.name)} calculator</a></p>
+    <p><a href="/destinations/${destination.id}#trip-calculator">Jump to the ${escapeHtml(destination.name)} calculator</a> or <a href="/">open the general calculator</a></p>
   </main>`;
 }
 

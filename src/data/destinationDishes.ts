@@ -497,4 +497,102 @@ export const destinationDishes: Record<string, MustTryDish[]> = {
     { name: 'Bhel puri', blurb: 'Puffed-rice chaat with tamarind and onion.', averagePriceUsd: 2 },
   ],
 
+
+  'washington-dc': [
+    { name: 'Half-smoke', blurb: 'Spicy smoked sausage dog often topped with chili.', averagePriceUsd: 8 },
+    { name: 'Crab cake sandwich', blurb: 'Mid-Atlantic crab cake on a soft roll.', averagePriceUsd: 16 },
+    { name: 'Mumbo sauce chicken wings', blurb: 'Sweet-tangy local wing sauce classic.', averagePriceUsd: 12 },
+    { name: 'Ethiopian platter', blurb: 'Shared injera meal from D.C.’s strong Ethiopian scene.', averagePriceUsd: 18 },
+  ],
+  seattle: [
+    { name: 'Fresh oyster plate', blurb: 'Pacific oysters with mignonette at the market.', averagePriceUsd: 16 },
+    { name: 'Cedar-plank salmon', blurb: 'Wood-roasted salmon with Northwest seasoning.', averagePriceUsd: 24 },
+    { name: 'Teriyaki chicken plate', blurb: 'Local lunch classic with rice and salad.', averagePriceUsd: 12 },
+    { name: 'Dungeness crab roll', blurb: 'Sweet local crab in a toasted bun.', averagePriceUsd: 22 },
+  ],
+  'san-diego': [
+    { name: 'California burrito', blurb: 'Carne asada burrito with fries inside.', averagePriceUsd: 12 },
+    { name: 'Fish taco plate', blurb: 'Baja-style fried or grilled fish tacos.', averagePriceUsd: 14 },
+    { name: 'Carne asada fries', blurb: 'Loaded fries with grilled steak and toppings.', averagePriceUsd: 13 },
+    { name: 'Birria tacos', blurb: 'Consommé-dipped braised beef tacos.', averagePriceUsd: 14 },
+  ],
+  'new-orleans': [
+    { name: 'Gumbo', blurb: 'Dark-roux stew with seafood or sausage.', averagePriceUsd: 12 },
+    { name: 'Beignets', blurb: 'Square fried dough buried in powdered sugar.', averagePriceUsd: 5 },
+    { name: 'Po’ boy sandwich', blurb: 'Crusty loaf stuffed with fried seafood or roast beef.', averagePriceUsd: 14 },
+    { name: 'Crawfish étouffée', blurb: 'Smothered crawfish over rice when in season.', averagePriceUsd: 18 },
+  ],
+  nashville: [
+    { name: 'Hot chicken', blurb: 'Cayenne-fried chicken served over white bread.', averagePriceUsd: 14 },
+    { name: 'Meat-and-three plate', blurb: 'Meat entrée with three Southern sides.', averagePriceUsd: 15 },
+    { name: 'Hot chicken sandwich', blurb: 'Spicy fried chicken on a soft bun.', averagePriceUsd: 13 },
+    { name: 'Banana pudding', blurb: 'Southern dessert with vanilla wafers.', averagePriceUsd: 6 },
+  ],
+  austin: [
+    { name: 'Breakfast taco', blurb: 'Egg, potato, or bacon taco for morning fuel.', averagePriceUsd: 4 },
+    { name: 'Brisket plate', blurb: 'Central Texas smoked brisket with sides.', averagePriceUsd: 22 },
+    { name: 'Migas breakfast', blurb: 'Scrambled eggs with tortilla strips and salsa.', averagePriceUsd: 12 },
+    { name: 'Kolache', blurb: 'Czech-Tex pastry with savory or sweet filling.', averagePriceUsd: 4 },
+  ],
+  denver: [
+    { name: 'Green chile smothered burrito', blurb: 'Burrito covered in Colorado green chile.', averagePriceUsd: 14 },
+    { name: 'Rocky Mountain oysters', blurb: 'Fried bull fries, a regional novelty plate.', averagePriceUsd: 12 },
+    { name: 'Bison burger', blurb: 'Lean bison patty common on local menus.', averagePriceUsd: 16 },
+    { name: 'Colorado peach cobbler', blurb: 'Seasonal fruit dessert when peaches are in.', averagePriceUsd: 8 },
+  ],
+  philadelphia: [
+    { name: 'Cheesesteak', blurb: 'Thin-sliced beef with cheese on an Amoroso roll.', averagePriceUsd: 12 },
+    { name: 'Soft pretzel', blurb: 'Salty street pretzel often with mustard.', averagePriceUsd: 3 },
+    { name: 'Roast pork sandwich', blurb: 'Italian roast pork with broccoli rabe and provolone.', averagePriceUsd: 13 },
+    { name: 'Tomato pie slice', blurb: 'Thick focaccia-style pizza with tomato topping.', averagePriceUsd: 4 },
+  ],
+  atlanta: [
+    { name: 'Fried chicken plate', blurb: 'Southern fried chicken with classic sides.', averagePriceUsd: 15 },
+    { name: 'Shrimp and grits', blurb: 'Savory shrimp over creamy grits.', averagePriceUsd: 16 },
+    { name: 'Peach cobbler', blurb: 'Georgia peach dessert, especially in summer.', averagePriceUsd: 7 },
+    { name: 'Collard greens and cornbread', blurb: 'Soul-food sides that often steal the meal.', averagePriceUsd: 8 },
+  ],
+  portland: [
+    { name: 'Food-cart plate', blurb: 'Pod-hop meal from Portland’s cart culture.', averagePriceUsd: 12 },
+    { name: 'Voodoo doughnut', blurb: 'Novelty doughnut from the local shop scene.', averagePriceUsd: 4 },
+    { name: 'Hazelnut pancake stack', blurb: 'Oregon hazelnuts in a brunch classic.', averagePriceUsd: 14 },
+    { name: 'Seafood chowder', blurb: 'Creamy Northwest chowder with local catch.', averagePriceUsd: 12 },
+  ],
+  phoenix: [
+    { name: 'Sonoran hot dog', blurb: 'Bacon-wrapped dog in a bolillo with beans and salsa.', averagePriceUsd: 6 },
+    { name: 'Navajo taco', blurb: 'Fry bread topped with savory chile and fixings.', averagePriceUsd: 12 },
+    { name: 'Carne asada plate', blurb: 'Grilled steak with rice, beans, and tortillas.', averagePriceUsd: 16 },
+    { name: 'Prickly pear dessert', blurb: 'Cactus-fruit sweet common in Southwest menus.', averagePriceUsd: 8 },
+  ],
+  charleston: [
+    { name: 'Shrimp and grits', blurb: 'Lowcountry shrimp over creamy grits.', averagePriceUsd: 18 },
+    { name: 'She-crab soup', blurb: 'Rich crab soup finished with a splash of sherry.', averagePriceUsd: 10 },
+    { name: 'Fried green tomatoes', blurb: 'Crisp Southern starter with remoulade.', averagePriceUsd: 9 },
+    { name: 'Benne wafer cookies', blurb: 'Sesame cookies tied to Lowcountry baking.', averagePriceUsd: 5 },
+  ],
+  savannah: [
+    { name: 'Fried chicken biscuit', blurb: 'Crispy chicken on a soft Southern biscuit.', averagePriceUsd: 10 },
+    { name: 'Lowcountry boil', blurb: 'Shrimp, corn, potatoes, and sausage feast.', averagePriceUsd: 22 },
+    { name: 'Praline', blurb: 'Sweet pecan candy sold throughout the historic district.', averagePriceUsd: 3 },
+    { name: 'Shrimp and grits', blurb: 'Coastal Savannah take on the Lowcountry classic.', averagePriceUsd: 16 },
+  ],
+  dallas: [
+    { name: 'Brisket sandwich', blurb: 'Smoked beef brisket on a soft bun.', averagePriceUsd: 14 },
+    { name: 'Tex-Mex enchilada plate', blurb: 'Cheese or beef enchiladas with chili gravy.', averagePriceUsd: 13 },
+    { name: 'Chicken-fried steak', blurb: 'Breaded steak with cream gravy.', averagePriceUsd: 16 },
+    { name: 'Frito pie', blurb: 'Chili over corn chips, a casual Texas classic.', averagePriceUsd: 8 },
+  ],
+  houston: [
+    { name: 'Viet-Cajun crawfish', blurb: 'Garlic-butter crawfish boil popular in Houston.', averagePriceUsd: 20 },
+    { name: 'Breakfast taco plate', blurb: 'Tex-Mex morning tacos with salsa.', averagePriceUsd: 8 },
+    { name: 'Kolache', blurb: 'Czech-Tex pastry common across the region.', averagePriceUsd: 4 },
+    { name: 'BBQ brisket plate', blurb: 'Smoked brisket with pickles and sides.', averagePriceUsd: 18 },
+  ],
+  'key-west': [
+    { name: 'Key lime pie', blurb: 'Tart lime custard pie with graham crust.', averagePriceUsd: 7 },
+    { name: 'Conch fritters', blurb: 'Fried conch bites with dipping sauce.', averagePriceUsd: 12 },
+    { name: 'Cuban sandwich', blurb: 'Pressed pork, ham, and cheese sandwich.', averagePriceUsd: 12 },
+    { name: 'Fresh catch sandwich', blurb: 'Grilled local fish on a soft roll.', averagePriceUsd: 16 },
+  ],
+
 };

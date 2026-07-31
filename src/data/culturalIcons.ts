@@ -100,4 +100,22 @@ export const culturalIcons: Record<string, CulturalIcon> = {
   shanghai: { title: 'The Bund', label: 'The Bund' },
   mumbai: { title: 'Gateway of India', label: 'Gateway of India' },
 
+
+  'washington-dc': { title: 'U.S. Capitol', label: 'U.S. Capitol' },
+  seattle: { title: 'Space Needle', label: 'Space Needle' },
+  'san-diego': { title: 'Hotel del Coronado', label: 'Hotel del Coronado' },
+  'new-orleans': { title: 'St. Louis Cathedral', label: 'St. Louis Cathedral' },
+  nashville: { title: 'Country Music Hall of Fame', label: 'Country Music Hall of Fame' },
+  austin: { title: 'Texas State Capitol', label: 'Texas State Capitol' },
+  denver: { title: 'Red Rocks Amphitheatre', label: 'Red Rocks Amphitheatre' },
+  philadelphia: { title: 'Liberty Bell', label: 'Liberty Bell' },
+  atlanta: { title: 'Georgia State Capitol', label: 'Georgia State Capitol' },
+  portland: { title: 'International Rose Test Garden', label: 'Portland Rose Garden' },
+  phoenix: { title: 'Camelback Mountain', label: 'Camelback Mountain' },
+  charleston: { title: 'Rainbow Row', label: 'Rainbow Row' },
+  savannah: { title: 'Forsyth Park Fountain', label: 'Forsyth Park Fountain' },
+  dallas: { title: 'Reunion Tower', label: 'Reunion Tower' },
+  houston: { title: 'Space Center Houston', label: 'Space Center Houston' },
+  'key-west': { title: 'Southernmost Point Buoy', label: 'Southernmost Point' },
+
 };

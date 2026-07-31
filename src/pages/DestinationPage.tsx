@@ -14,6 +14,7 @@ import { culturalIcons } from '../data/culturalIcons';
 import { buildDestinationJsonLd } from '../utils/seo';
 import { buildBestTimeMetaPhrase } from '../utils/seasonalityCopy';
 import { cityComparisons } from '../data/comparisons';
+import { destinationPageMeta } from '../utils/pageMetaCopy';
 
 export interface DestinationPageProps {
   theme: 'light' | 'dark';
@@ -31,14 +32,12 @@ export function DestinationPage({ theme }: DestinationPageProps) {
     destinationDescriptions[destination.id] ??
     `Estimate trip costs for ${destination.name}, ${destination.country}.`;
   const bestTimePhrase = buildBestTimeMetaPhrase(destination);
-  const metaDescription = [
-    `Plan a trip to ${destination.name}: cost calculator, top attractions, must-try dishes, and currency conversion.`,
-    bestTimePhrase,
+  const meta = destinationPageMeta(
+    destination.name,
+    destination.country,
     description,
-  ]
-    .filter(Boolean)
-    .join(' ')
-    .slice(0, 300);
+    bestTimePhrase,
+  );
 
   const relatedComparisons = cityComparisons.filter(
     (comparison) =>
@@ -48,8 +47,8 @@ export function DestinationPage({ theme }: DestinationPageProps) {
   return (
     <>
       <PageMeta
-        title={`${destination.name} Trip Cost Estimate — Plansti`}
-        description={metaDescription}
+        title={meta.title}
+        description={meta.description}
         canonicalPath={`/destinations/${destination.id}`}
         image={culturalIcons[destination.id]?.imageUrl}
         imageAlt={
@@ -77,13 +76,19 @@ export function DestinationPage({ theme }: DestinationPageProps) {
             aria-label="Destination page actions"
           >
             <a className="explore-button" href="#trip-calculator">
-              Open calculator
+              Jump to calculator
             </a>
             <Link
               className="explore-button explore-button--secondary"
               to="/destinations"
             >
               All cities
+            </Link>
+            <Link
+              className="explore-button explore-button--secondary"
+              to="/#trip-planner"
+            >
+              General calculator
             </Link>
           </nav>
         </header>

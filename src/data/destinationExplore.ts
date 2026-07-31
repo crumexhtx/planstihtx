@@ -852,4 +852,198 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
     ],
   },
 
+
+  'washington-dc': {
+    highlights:
+      'Monuments, free museums, and Mall walks.',
+    bestFor: 'History-focused U.S. city trips',
+    topAttractions: [
+      { name: 'National Mall', blurb: 'Monument-lined park connecting major museums.' },
+      { name: 'Smithsonian museums', blurb: 'Free museum campuses along the Mall.' },
+      { name: 'U.S. Capitol', blurb: 'Iconic dome and Capitol Hill grounds.' },
+      { name: 'Lincoln Memorial', blurb: 'Reflecting Pool views at the Mall’s west end.' },
+      { name: 'Georgetown', blurb: 'Historic neighborhood of shops and waterfront paths.' },
+    ],
+  },
+  seattle: {
+    highlights:
+      'Waterfront views, coffee, and mountain day trips.',
+    bestFor: 'Pacific Northwest city breaks',
+    topAttractions: [
+      { name: 'Pike Place Market', blurb: 'Historic market with seafood, crafts, and views.' },
+      { name: 'Space Needle', blurb: 'Observation tower above Seattle Center.' },
+      { name: 'Chihuly Garden and Glass', blurb: 'Striking glass art next to the Needle.' },
+      { name: 'Ferry to Bainbridge', blurb: 'Short ride with skyline views across the Sound.' },
+      { name: 'Museum of Pop Culture', blurb: 'Music and pop-culture exhibits at Seattle Center.' },
+    ],
+  },
+  'san-diego': {
+    highlights:
+      'Beaches, Balboa Park, and easy coastal days.',
+    bestFor: 'Sunny Southern California trips',
+    topAttractions: [
+      { name: 'Balboa Park', blurb: 'Museum cluster and gardens in the city core.' },
+      { name: 'La Jolla Cove', blurb: 'Clifftop views, seals, and clear water.' },
+      { name: 'Gaslamp Quarter', blurb: 'Historic downtown dining and nightlife district.' },
+      { name: 'Coronado Beach', blurb: 'Broad sandy beach by the Hotel del Coronado.' },
+      { name: 'USS Midway Museum', blurb: 'Aircraft-carrier museum on the Embarcadero.' },
+    ],
+  },
+  'new-orleans': {
+    highlights:
+      'Jazz, Creole food, and historic quarters.',
+    bestFor: 'Music and food city getaways',
+    topAttractions: [
+      { name: 'French Quarter', blurb: 'Historic streets, balconies, and live music.' },
+      { name: 'Garden District', blurb: 'Streetcar-accessible mansions and oak canopies.' },
+      { name: 'Jackson Square', blurb: 'Plaza framed by St. Louis Cathedral.' },
+      { name: 'National WWII Museum', blurb: 'Major museum on the American war effort.' },
+      { name: 'Mardi Gras World', blurb: 'Float workshop tours year-round.' },
+    ],
+  },
+  nashville: {
+    highlights:
+      'Live music, Southern food, and downtown energy.',
+    bestFor: 'Music-focused weekend trips',
+    topAttractions: [
+      { name: 'Broadway honky-tonks', blurb: 'Live-country corridor in downtown Nashville.' },
+      { name: 'Country Music Hall of Fame', blurb: 'Museum covering artists, instruments, and history.' },
+      { name: 'Ryman Auditorium', blurb: 'Historic stage known as the Mother Church of Country.' },
+      { name: 'Parthenon', blurb: 'Full-scale replica in Centennial Park.' },
+      { name: 'Grand Ole Opry', blurb: 'Famous country music stage and tours.' },
+    ],
+  },
+  austin: {
+    highlights:
+      'Live music, food trucks, and outdoor swims.',
+    bestFor: 'Music and outdoor city trips',
+    topAttractions: [
+      { name: 'Congress Avenue Bridge bats', blurb: 'Evening bat emergence in warm months.' },
+      { name: 'Lady Bird Lake Trail', blurb: 'Lakeside path for walks and skyline views.' },
+      { name: 'Texas State Capitol', blurb: 'Pink-granite capitol and grounds downtown.' },
+      { name: 'Barton Springs Pool', blurb: 'Spring-fed swimming hole in Zilker Park.' },
+      { name: 'South Congress', blurb: 'Shops, murals, and casual dining strip.' },
+    ],
+  },
+  denver: {
+    highlights:
+      'Craft beer, parks, and mountain day trips.',
+    bestFor: 'Rocky Mountain trip bases',
+    topAttractions: [
+      { name: 'Red Rocks Park & Amphitheatre', blurb: 'Iconic outdoor venue in the foothills.' },
+      { name: 'Denver Art Museum', blurb: 'Major collection with a striking downtown campus.' },
+      { name: 'Union Station', blurb: 'Restored transit hub with shops and restaurants.' },
+      { name: 'LoDo / Larimer Square', blurb: 'Historic warehouse district for dining and nightlife.' },
+      { name: 'Mount Evans / Echo Lake day trip', blurb: 'High-alpine scenery west of the city.' },
+    ],
+  },
+  philadelphia: {
+    highlights:
+      'Independence history, murals, and sandwiches.',
+    bestFor: 'History and food city breaks',
+    topAttractions: [
+      { name: 'Independence Hall', blurb: 'Birthplace of the Declaration and Constitution.' },
+      { name: 'Liberty Bell', blurb: 'Iconic cracked bell beside Independence Mall.' },
+      { name: 'Philadelphia Museum of Art', blurb: 'Major museum known for the Rocky steps.' },
+      { name: 'Reading Terminal Market', blurb: 'Indoor market for local snacks and produce.' },
+      { name: 'Old City', blurb: 'Cobblestone streets and early American landmarks.' },
+    ],
+  },
+  atlanta: {
+    highlights:
+      'Civil rights history, parks, and food.',
+    bestFor: 'Southern city culture trips',
+    topAttractions: [
+      { name: 'Martin Luther King Jr. National Historical Park', blurb: 'Birth home, church, and memorial sites.' },
+      { name: 'Georgia Aquarium', blurb: 'Large aquarium in the downtown tourist core.' },
+      { name: 'Centennial Olympic Park', blurb: 'Open downtown park from the 1996 Games.' },
+      { name: 'Atlanta BeltLine', blurb: 'Multi-use trail linking neighborhoods and murals.' },
+      { name: 'World of Coca-Cola', blurb: 'Brand museum and tasting experience downtown.' },
+    ],
+  },
+  portland: {
+    highlights:
+      'Food carts, bridges, and waterfall day trips.',
+    bestFor: 'Food and outdoors Pacific Northwest trips',
+    topAttractions: [
+      { name: 'Powell’s City of Books', blurb: 'Vast independent bookstore in the Pearl District.' },
+      { name: 'Washington Park', blurb: 'Zoo, rose garden, and forested parkland.' },
+      { name: 'Pearl District', blurb: 'Warehouses turned galleries, cafés, and shops.' },
+      { name: 'International Rose Test Garden', blurb: 'Hillside roses with city views.' },
+      { name: 'Columbia River Gorge', blurb: 'Waterfall corridor for an easy day trip.' },
+    ],
+  },
+  phoenix: {
+    highlights:
+      'Desert sun, resorts, and canyon day trips.',
+    bestFor: 'Warm-weather Southwest getaways',
+    topAttractions: [
+      { name: 'Desert Botanical Garden', blurb: 'Native plant trails in Papago Park.' },
+      { name: 'Heard Museum', blurb: 'Native American art and culture museum.' },
+      { name: 'Camelback Mountain', blurb: 'Popular hike with valley views.' },
+      { name: 'Musical Instrument Museum', blurb: 'Global instrument collection north of downtown.' },
+      { name: 'Old Town Scottsdale', blurb: 'Nearby dining, galleries, and resort energy.' },
+    ],
+  },
+  charleston: {
+    highlights:
+      'Pastel streets, harbor views, and Lowcountry food.',
+    bestFor: 'Historic Southern coastal weekends',
+    topAttractions: [
+      { name: 'Historic District walking streets', blurb: 'Rainbow Row and antebellum architecture.' },
+      { name: 'Waterfront Park', blurb: 'Harbor promenade with the pineapple fountain.' },
+      { name: 'Fort Sumter', blurb: 'Harbor fort reached by boat tour.' },
+      { name: 'Charleston City Market', blurb: 'Crafts and sweetgrass baskets downtown.' },
+      { name: 'Angel Oak', blurb: 'Massive live oak on Johns Island.' },
+    ],
+  },
+  savannah: {
+    highlights:
+      'Oak-lined squares and riverfront evenings.',
+    bestFor: 'Historic Southern city strolls',
+    topAttractions: [
+      { name: 'Forsyth Park', blurb: 'Large square with a landmark fountain.' },
+      { name: 'River Street', blurb: 'Cobblestone waterfront of shops and restaurants.' },
+      { name: 'Historic District squares', blurb: 'Grid of shaded parks and townhomes.' },
+      { name: 'Cathedral Basilica of St. John the Baptist', blurb: 'Twin-spired landmark near Lafayette Square.' },
+      { name: 'Bonaventure Cemetery', blurb: 'Scenic riverside cemetery of mossy oaks.' },
+    ],
+  },
+  dallas: {
+    highlights:
+      'Arts districts, skyline views, and dining.',
+    bestFor: 'Big-city Texas weekends',
+    topAttractions: [
+      { name: 'Dallas Arts District', blurb: 'Museums and performance halls downtown.' },
+      { name: 'Reunion Tower', blurb: 'Observation deck with city panorama.' },
+      { name: 'Sixth Floor Museum', blurb: 'JFK history exhibit in Dealey Plaza.' },
+      { name: 'Dallas Arboretum', blurb: 'Gardens on White Rock Lake.' },
+      { name: 'Deep Ellum', blurb: 'Murals, live music, and nightlife east of downtown.' },
+    ],
+  },
+  houston: {
+    highlights:
+      'Museums, space history, and diverse food.',
+    bestFor: 'Culture and food city trips',
+    topAttractions: [
+      { name: 'Space Center Houston', blurb: 'Official NASA visitor center for space history.' },
+      { name: 'Museum District', blurb: 'Cluster of major museums near Hermann Park.' },
+      { name: 'Buffalo Bayou Park', blurb: 'Greenway with skyline trails and bridges.' },
+      { name: 'Minute Maid Park / downtown', blurb: 'Sports and skyline core for an urban day.' },
+      { name: 'Kemah Boardwalk', blurb: 'Nearby waterfront amusement and dining day trip.' },
+    ],
+  },
+  'key-west': {
+    highlights:
+      'Sunset piers, pastel streets, and island pace.',
+    bestFor: 'Relaxed Florida Keys getaways',
+    topAttractions: [
+      { name: 'Duval Street', blurb: 'Main strip of shops, bars, and galleries.' },
+      { name: 'Mallory Square sunset', blurb: 'Evening pier gathering for sunset and street acts.' },
+      { name: 'Southernmost Point buoy', blurb: 'Photo landmark at the island’s tip.' },
+      { name: 'Fort Zachary Taylor', blurb: 'Historic fort with a popular beach.' },
+      { name: 'Ernest Hemingway Home', blurb: 'Writer’s house museum known for its polydactyl cats.' },
+    ],
+  },
+
 };

@@ -297,4 +297,70 @@ export const destinationBeverages: Record<string, DestinationBeveragePair> = {
     beer: { name: 'Kingfisher Premium', blurb: 'Indian lager commonly available in licensed venues.', averagePriceUsd: 4 },
   },
 
+
+  'washington-dc': {
+    localDrink: { name: 'Cherry blossom lemonade', blurb: 'Seasonal pink lemonade tied to spring bloom festivals.', averagePriceUsd: 5 },
+    beer: { name: 'DC Brau Public Ale', blurb: 'Local pale ale from a District brewery.', averagePriceUsd: 7 },
+  },
+  seattle: {
+    localDrink: { name: 'Cafe latte', blurb: 'Classic Seattle espresso drink from the city’s coffee culture.', averagePriceUsd: 5 },
+    beer: { name: 'Georgetown Manny’s Pale Ale', blurb: 'Widely poured Seattle pale ale.', averagePriceUsd: 7 },
+  },
+  'san-diego': {
+    localDrink: { name: 'Horchata', blurb: 'Cinnamon rice drink common with local Mexican meals.', averagePriceUsd: 3.5 },
+    beer: { name: 'Karl Strauss Red Trolley Ale', blurb: 'San Diego amber ale from a hometown brewery.', averagePriceUsd: 7 },
+  },
+  'new-orleans': {
+    localDrink: { name: 'Café au lait with chicory', blurb: 'Chicory coffee with steamed milk, often with beignets.', averagePriceUsd: 4 },
+    beer: { name: 'Abita Amber', blurb: 'Louisiana amber lager common around New Orleans.', averagePriceUsd: 6 },
+  },
+  nashville: {
+    localDrink: { name: 'Sweet tea', blurb: 'Southern iced tea served very sweet.', averagePriceUsd: 3 },
+    beer: { name: 'Yazoo Pale Ale', blurb: 'Nashville craft pale ale from Yazoo Brewing.', averagePriceUsd: 7 },
+  },
+  austin: {
+    localDrink: { name: 'Frozen margarita', blurb: 'Icy tequila classic common on Austin patios.', averagePriceUsd: 10 },
+    beer: { name: 'Austin Beerworks Pearl-Snap', blurb: 'Crisp German-style pilsner from Austin.', averagePriceUsd: 6 },
+  },
+  denver: {
+    localDrink: { name: 'Colorado iced tea', blurb: 'Refreshing iced tea common after mountain days.', averagePriceUsd: 3.5 },
+    beer: { name: 'Great Divide Titan IPA', blurb: 'Bold Denver IPA from Great Divide.', averagePriceUsd: 7 },
+  },
+  philadelphia: {
+    localDrink: { name: 'Water ice', blurb: 'Italian ice treat sold throughout Philly summers.', averagePriceUsd: 4 },
+    beer: { name: 'Victory Prima Pils', blurb: 'Crisp Pennsylvania pilsner widely available in Philly.', averagePriceUsd: 7 },
+  },
+  atlanta: {
+    localDrink: { name: 'Coca-Cola (fountain)', blurb: 'Hometown soft drink tasting stop in Atlanta.', averagePriceUsd: 3 },
+    beer: { name: 'SweetWater 420', blurb: 'Atlanta pale ale long associated with the city.', averagePriceUsd: 6 },
+  },
+  portland: {
+    localDrink: { name: 'Stumptown cold brew', blurb: 'Portland-roasted cold brew coffee.', averagePriceUsd: 5 },
+    beer: { name: 'Deschutes Fresh Squeezed IPA', blurb: 'Oregon IPA commonly poured in Portland.', averagePriceUsd: 7 },
+  },
+  phoenix: {
+    localDrink: { name: 'Prickly pear lemonade', blurb: 'Cactus-fruit lemonade popular in the desert Southwest.', averagePriceUsd: 5 },
+    beer: { name: 'Four Peaks Kilt Lifter', blurb: 'Scottish-style ale from an Arizona brewery.', averagePriceUsd: 6 },
+  },
+  charleston: {
+    localDrink: { name: 'Sweet tea', blurb: 'Iced Southern sweet tea with Lowcountry meals.', averagePriceUsd: 3 },
+    beer: { name: 'Holy City Pluff Mud Porter', blurb: 'Dark local porter from a Charleston brewery.', averagePriceUsd: 7 },
+  },
+  savannah: {
+    localDrink: { name: 'Sweet tea', blurb: 'House sweet tea served across Savannah restaurants.', averagePriceUsd: 3 },
+    beer: { name: 'Service Brewing IPA', blurb: 'Savannah craft IPA from a local brewery.', averagePriceUsd: 7 },
+  },
+  dallas: {
+    localDrink: { name: 'Big Red soda', blurb: 'Texas cream soda often paired with barbecue.', averagePriceUsd: 3 },
+    beer: { name: 'Deep Ellum IPA', blurb: 'Dallas craft IPA from Deep Ellum Brewing.', averagePriceUsd: 7 },
+  },
+  houston: {
+    localDrink: { name: 'Mexican Coke', blurb: 'Bottle Coke with cane sugar common in Houston taquerías.', averagePriceUsd: 3 },
+    beer: { name: 'Saint Arnold Fancy Lawnmower', blurb: 'Light Houston lager from Texas’s oldest craft brewery.', averagePriceUsd: 6 },
+  },
+  'key-west': {
+    localDrink: { name: 'Key lime mojito', blurb: 'Mojito brightened with Key lime instead of plain lime.', averagePriceUsd: 12 },
+    beer: { name: 'Key West Sunset Ale', blurb: 'Local Keys ale easy to find on Duval Street.', averagePriceUsd: 7 },
+  },
+
 };
