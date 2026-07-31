@@ -611,4 +611,245 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       { name: 'Chandni Chowk', blurb: 'Dense Old Delhi market lanes.' },
     ],
   },
+  florence: {
+    highlights:
+      'Galleries, piazzas, and Tuscan food.',
+    bestFor: 'Art and culture city breaks',
+    topAttractions: [
+      { name: 'Uffizi Gallery', blurb: 'World-class Renaissance painting collection.' },
+      { name: 'Duomo complex', blurb: 'Cathedral, dome climb, and baptistery.' },
+      { name: 'Ponte Vecchio', blurb: 'Historic bridge lined with shops.' },
+      { name: 'Accademia Gallery', blurb: 'Home of Michelangelo’s David.' },
+      { name: 'Piazzale Michelangelo', blurb: 'Hilltop sunset view over the city.' },
+    ],
+  },
+  venice: {
+    highlights:
+      'Canals, islands, and lagoon views.',
+    bestFor: 'Unique city exploration',
+    topAttractions: [
+      { name: 'St. Mark’s Square', blurb: 'Basilica, campanile, and the city’s main plaza.' },
+      { name: 'Rialto Bridge', blurb: 'Famous arched bridge over the Grand Canal.' },
+      { name: 'Doge’s Palace', blurb: 'Gothic palace with bridge-of-sighs views.' },
+      { name: 'Murano', blurb: 'Island known for historic glass workshops.' },
+      { name: 'Burano', blurb: 'Colorful fishing island for a quieter lagoon day.' },
+    ],
+  },
+  porto: {
+    highlights:
+      'Riverfront walks and port tasting.',
+    bestFor: 'Food and wine city breaks',
+    topAttractions: [
+      { name: 'Ribeira district', blurb: 'Historic riverside lanes and viewpoints.' },
+      { name: 'Dom Luís I Bridge', blurb: 'Double-deck iron bridge over the Douro.' },
+      { name: 'Livraria Lello', blurb: 'Ornate bookstore with a famous staircase.' },
+      { name: 'Port wine cellars', blurb: 'Cross to Vila Nova de Gaia for lodge tastings.' },
+      { name: 'Clérigos Tower', blurb: 'Baroque tower with city-wide views.' },
+    ],
+  },
+  seville: {
+    highlights:
+      'Alcázar, tapas, and flamenco nights.',
+    bestFor: 'Culture and food trips',
+    topAttractions: [
+      { name: 'Real Alcázar', blurb: 'Royal palace complex with lush gardens.' },
+      { name: 'Seville Cathedral', blurb: 'Gothic cathedral and Giralda tower climb.' },
+      { name: 'Plaza de España', blurb: 'Grand semicircular plaza in María Luisa Park.' },
+      { name: 'Triana', blurb: 'Neighborhood known for ceramics and tapas.' },
+      { name: 'Metropol Parasol', blurb: 'Modern timber structure with rooftop views.' },
+    ],
+  },
+  munich: {
+    highlights:
+      'Parks, museums, and beer gardens.',
+    bestFor: 'City plus Alps side trips',
+    topAttractions: [
+      { name: 'Marienplatz', blurb: 'Central square with the Glockenspiel.' },
+      { name: 'Englischer Garten', blurb: 'Vast park with river surfing and beer gardens.' },
+      { name: 'Nymphenburg Palace', blurb: 'Baroque palace and formal gardens.' },
+      { name: 'Deutsches Museum', blurb: 'Huge science and technology museum.' },
+      { name: 'BMW Museum / Welt', blurb: 'Car culture campus near Olympiapark.' },
+    ],
+  },
+  stockholm: {
+    highlights:
+      'Islands, design, and waterfront walks.',
+    bestFor: 'Scandinavian city exploration',
+    topAttractions: [
+      { name: 'Gamla Stan', blurb: 'Cobblestone old town with palace and alleys.' },
+      { name: 'Vasa Museum', blurb: 'Intact 17th-century warship in a dramatic hall.' },
+      { name: 'Djurgården', blurb: 'Green island of museums and parkland.' },
+      { name: 'Fotografiska', blurb: 'Contemporary photography museum with a view.' },
+      { name: 'City Hall', blurb: 'Brick landmark known for Nobel banquet halls.' },
+    ],
+  },
+  reykjavik: {
+    highlights:
+      'Day trips to springs and waterfalls.',
+    bestFor: 'Nature-based trip planning',
+    topAttractions: [
+      { name: 'Hallgrímskirkja', blurb: 'Iconic church tower with city views.' },
+      { name: 'Harpa', blurb: 'Glass concert hall on the waterfront.' },
+      { name: 'Sun Voyager', blurb: 'Sculptural steel boat on the shoreline.' },
+      { name: 'Blue Lagoon', blurb: 'Geothermal spa day trip from the city.' },
+      { name: 'Golden Circle', blurb: 'Classic loop of geysers, falls, and parkland.' },
+    ],
+  },
+  krakow: {
+    highlights:
+      'Old Town, Kazimierz, and day trips.',
+    bestFor: 'Affordable European culture trips',
+    topAttractions: [
+      { name: 'Main Market Square', blurb: 'One of Europe’s largest medieval plazas.' },
+      { name: 'Wawel Castle', blurb: 'Royal complex above the Vistula River.' },
+      { name: 'Kazimierz', blurb: 'Historic Jewish Quarter with cafés and synagogues.' },
+      { name: 'St. Mary’s Basilica', blurb: 'Gothic church with the famous altarpiece.' },
+      { name: 'Wieliczka Salt Mine', blurb: 'Underground chapel day trip from the city.' },
+    ],
+  },
+  dubrovnik: {
+    highlights:
+      'City walls and Adriatic island hops.',
+    bestFor: 'Coastal summer city breaks',
+    topAttractions: [
+      { name: 'City Walls walk', blurb: 'Circuit above rooftops and the harbor.' },
+      { name: 'Old Town Stradun', blurb: 'Main limestone promenade through the center.' },
+      { name: 'Cable car to Mount Srđ', blurb: 'Panoramic lookout above the bay.' },
+      { name: 'Lokrum Island', blurb: 'Short boat hop for gardens and swimming.' },
+      { name: 'Fort Lovrijenac', blurb: 'Sea cliff fortress with dramatic views.' },
+    ],
+  },
+  zurich: {
+    highlights:
+      'Lake walks, museums, and day trips.',
+    bestFor: 'Efficient Switzerland trip bases',
+    topAttractions: [
+      { name: 'Old Town (Altstadt)', blurb: 'Lindenhof views and riverside lanes.' },
+      { name: 'Lake Zurich promenade', blurb: 'Waterfront path for swimming and sunsets.' },
+      { name: 'Kunsthaus Zürich', blurb: 'Major art museum with a strong modern collection.' },
+      { name: 'Bahnhofstrasse', blurb: 'Polished shopping avenue from the main station.' },
+      { name: 'Uetliberg', blurb: 'Local mountain viewpoint above the city.' },
+    ],
+  },
+  chicago: {
+    highlights:
+      'Architecture, museums, and deep-dish debates.',
+    bestFor: 'Big-city U.S. culture trips',
+    topAttractions: [
+      { name: 'Millennium Park', blurb: 'Cloud Gate and lakefront parkland.' },
+      { name: 'Art Institute of Chicago', blurb: 'Major museum on Michigan Avenue.' },
+      { name: 'Architecture River Cruise', blurb: 'Best introduction to the skyline.' },
+      { name: 'Navy Pier', blurb: 'Lakefront pier with rides and views.' },
+      { name: '360 CHICAGO', blurb: 'Observation deck on the Magnificent Mile.' },
+    ],
+  },
+  boston: {
+    highlights:
+      'Freedom Trail, campuses, and seafood.',
+    bestFor: 'History and food city breaks',
+    topAttractions: [
+      { name: 'Freedom Trail', blurb: 'Marked walk linking key Revolutionary sites.' },
+      { name: 'Boston Common & Public Garden', blurb: 'Central green spaces for an easy stroll.' },
+      { name: 'Fenway Park', blurb: 'Historic ballpark tours even without a game.' },
+      { name: 'Museum of Fine Arts', blurb: 'Major art museum near the Fenway.' },
+      { name: 'Harborwalk', blurb: 'Waterfront path with skyline and ferry views.' },
+    ],
+  },
+  'las-vegas': {
+    highlights:
+      'Strip spectacle and desert day trips.',
+    bestFor: 'Entertainment-focused getaways',
+    topAttractions: [
+      { name: 'Las Vegas Strip', blurb: 'Resort corridor of hotels, fountains, and neon.' },
+      { name: 'Fremont Street Experience', blurb: 'Downtown canopy light show and casinos.' },
+      { name: 'Bellagio Fountains', blurb: 'Choreographed water show on the Strip.' },
+      { name: 'Red Rock Canyon', blurb: 'Scenic loop drive west of the city.' },
+      { name: 'Hoover Dam', blurb: 'Engineering landmark day trip on the Colorado River.' },
+    ],
+  },
+  montreal: {
+    highlights:
+      'Old Montreal, festivals, and food.',
+    bestFor: 'Culture and food city trips',
+    topAttractions: [
+      { name: 'Old Montreal', blurb: 'Cobblestone waterfront district with plazas.' },
+      { name: 'Mount Royal Park', blurb: 'Hilltop park with skyline lookouts.' },
+      { name: 'Notre-Dame Basilica', blurb: 'Ornate Gothic Revival church interior.' },
+      { name: 'Jean-Talon Market', blurb: 'Large public market for local produce and snacks.' },
+      { name: 'Underground City', blurb: 'Indoor pedestrian network useful in winter.' },
+    ],
+  },
+  cusco: {
+    highlights:
+      'Inca sites and Sacred Valley trips.',
+    bestFor: 'Machu Picchu trip planning',
+    topAttractions: [
+      { name: 'Plaza de Armas', blurb: 'Main square framed by churches and arcades.' },
+      { name: 'Sacsayhuamán', blurb: 'Massive Inca stone fortress above town.' },
+      { name: 'Qorikancha', blurb: 'Temple of the Sun beneath a colonial convent.' },
+      { name: 'San Blas', blurb: 'Artisan neighborhood of steep lanes and viewpoints.' },
+      { name: 'Sacred Valley / Machu Picchu', blurb: 'Core day-trip and multi-day route from Cusco.' },
+    ],
+  },
+  cartagena: {
+    highlights:
+      'Old Town walls and island days.',
+    bestFor: 'Caribbean city-and-beach trips',
+    topAttractions: [
+      { name: 'Walled Old Town', blurb: 'Colorful streets, plazas, and boutique hotels.' },
+      { name: 'Castillo San Felipe', blurb: 'Hilltop fortress overlooking the city.' },
+      { name: 'Getsemaní', blurb: 'Street-art neighborhood with nightlife.' },
+      { name: 'Rosario Islands', blurb: 'Boat-day beaches and snorkeling offshore.' },
+      { name: 'Clock Tower Gate', blurb: 'Main entrance into the historic center.' },
+    ],
+  },
+  santiago: {
+    highlights:
+      'Andes views, wine valleys, and museums.',
+    bestFor: 'South America city hubs',
+    topAttractions: [
+      { name: 'Cerro San Cristóbal', blurb: 'Hilltop park with a city and Andes panorama.' },
+      { name: 'Plaza de Armas', blurb: 'Historic center square and cathedral.' },
+      { name: 'La Chascona', blurb: 'Pablo Neruda house museum in Bellavista.' },
+      { name: 'Sky Costanera', blurb: 'Observation decks in South America’s tall tower.' },
+      { name: 'Maipo Valley', blurb: 'Nearby wine valley for tasting day trips.' },
+    ],
+  },
+  'kuala-lumpur': {
+    highlights:
+      'Towers, hawkers, and city parks.',
+    bestFor: 'Food-focused Southeast Asia hubs',
+    topAttractions: [
+      { name: 'Petronas Twin Towers', blurb: 'Iconic skyline pair with a skybridge visit.' },
+      { name: 'Batu Caves', blurb: 'Limestone temple caves just outside the city.' },
+      { name: 'Merdeka Square', blurb: 'Historic field and colonial landmarks.' },
+      { name: 'KL Tower', blurb: 'Observation deck with broad city views.' },
+      { name: 'Jalan Alor', blurb: 'Night street-food strip in Bukit Bintang.' },
+    ],
+  },
+  shanghai: {
+    highlights:
+      'Bund views, neighborhoods, and museums.',
+    bestFor: 'First-time China megacity trips',
+    topAttractions: [
+      { name: 'The Bund', blurb: 'Waterfront promenade facing Pudong towers.' },
+      { name: 'Yu Garden', blurb: 'Classical garden beside busy bazaar streets.' },
+      { name: 'Shanghai Tower / Lujiazui', blurb: 'Skyscraper district observation decks.' },
+      { name: 'French Concession', blurb: 'Tree-lined streets, cafés, and boutiques.' },
+      { name: 'Shanghai Museum', blurb: 'Strong collection of Chinese art and bronzes.' },
+    ],
+  },
+  mumbai: {
+    highlights:
+      'Seafront walks and street-food crawls.',
+    bestFor: 'Big-city India trips',
+    topAttractions: [
+      { name: 'Gateway of India', blurb: 'Harbor monument and boat departure point.' },
+      { name: 'Marine Drive', blurb: 'Curving seafront promenade at sunset.' },
+      { name: 'Chhatrapati Shivaji Terminus', blurb: 'Victorian-Gothic railway landmark.' },
+      { name: 'Elephanta Caves', blurb: 'Island cave temples by harbor ferry.' },
+      { name: 'Colaba Causeway', blurb: 'Shopping street near the southern tip.' },
+    ],
+  },
+
 };

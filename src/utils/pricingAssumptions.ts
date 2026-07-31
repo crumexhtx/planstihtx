@@ -33,4 +33,12 @@ export const PLANNING_USD_RATES = {
   HKD: 7.82,
   PEN: 3.72,
   INR: 85.5,
+  SEK: 10.85,
+  ISK: 138,
+  PLN: 3.72,
+  CHF: 0.81,
+  COP: 4100,
+  CLP: 940,
+  MYR: 4.3,
+  CNY: 7.2,
 } as const;

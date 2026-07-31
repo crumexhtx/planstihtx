@@ -36,6 +36,14 @@ export const TRACKER_CURRENCY_LABELS: Record<TrackerCurrency, string> = {
   HKD: 'Hong Kong Dollar',
   PEN: 'Peruvian Sol',
   INR: 'Indian Rupee',
+  SEK: 'Swedish Krona',
+  ISK: 'Icelandic Króna',
+  PLN: 'Polish Złoty',
+  CHF: 'Swiss Franc',
+  COP: 'Colombian Peso',
+  CLP: 'Chilean Peso',
+  MYR: 'Malaysian Ringgit',
+  CNY: 'Chinese Yuan',
 };
 
 /** Default local currency for a destination when available. */
@@ -91,6 +99,26 @@ export const DESTINATION_LOCAL_CURRENCY: Record<string, TrackerCurrency> = {
   'ho-chi-minh-city': 'VND',
   lima: 'PEN',
   delhi: 'INR',
+  florence: 'EUR',
+  venice: 'EUR',
+  porto: 'EUR',
+  seville: 'EUR',
+  munich: 'EUR',
+  stockholm: 'SEK',
+  reykjavik: 'ISK',
+  krakow: 'PLN',
+  dubrovnik: 'EUR',
+  zurich: 'CHF',
+  chicago: 'USD',
+  boston: 'USD',
+  'las-vegas': 'USD',
+  montreal: 'CAD',
+  cusco: 'PEN',
+  cartagena: 'COP',
+  santiago: 'CLP',
+  'kuala-lumpur': 'MYR',
+  shanghai: 'CNY',
+  mumbai: 'INR',
 };
 
 function rateFor(
@@ -118,7 +146,16 @@ export function formatTrackerAmount(
   amount: number,
   currency: TrackerCurrency,
 ): string {
-  const zeroDecimal = new Set(['JPY', 'KRW', 'VND', 'HUF', 'IDR']);
+  const zeroDecimal = new Set([
+    'JPY',
+    'KRW',
+    'VND',
+    'HUF',
+    'IDR',
+    'ISK',
+    'CLP',
+    'COP',
+  ]);
   return new Intl.NumberFormat(undefined, {
     style: 'currency',
     currency,

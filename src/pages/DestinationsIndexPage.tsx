@@ -38,6 +38,14 @@ const COUNTRY_FLAG_CODES: Record<string, string> = {
   China: 'cn',
   Peru: 'pe',
   India: 'in',
+  Sweden: 'se',
+  Iceland: 'is',
+  Poland: 'pl',
+  Croatia: 'hr',
+  Switzerland: 'ch',
+  Colombia: 'co',
+  Chile: 'cl',
+  Malaysia: 'my',
 };
 
 export function DestinationsIndexPage() {
