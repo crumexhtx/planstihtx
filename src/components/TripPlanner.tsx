@@ -77,6 +77,8 @@ export interface TripPlannerProps {
   lockedDestination?: Destination;
   theme: 'light' | 'dark';
   showDestinationSnapshot?: boolean;
+  /** City-mode guide blocks (attractions / must-try). Default true. */
+  showCityGuideRecommendations?: boolean;
 }
 
 export function TripPlanner({
@@ -84,6 +86,7 @@ export function TripPlanner({
   lockedDestination,
   theme,
   showDestinationSnapshot = true,
+  showCityGuideRecommendations = true,
 }: TripPlannerProps) {
   const { rates } = useExchangeRates();
   const lockedId = lockedDestination?.id ?? '';
@@ -589,7 +592,9 @@ export function TripPlanner({
               </section>
             )}
 
-            {mode === 'city' && lockedDestination && (
+            {mode === 'city' &&
+              lockedDestination &&
+              showCityGuideRecommendations && (
               <DestinationGuide
                 destination={lockedDestination}
                 showIntro={false}

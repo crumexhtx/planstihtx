@@ -60,10 +60,45 @@ function formatSeasonalityHtml(destination) {
         .reduce((sum, char) => sum + char.charCodeAt(0), 0),
     ) % variants.length;
 
-  return `<h2>Best time to visit</h2><p>${escapeHtml(variants[index])}</p>`;
+  return `<h2>Best time to visit ${escapeHtml(destination.name)}</h2><p>${escapeHtml(variants[index])}</p>`;
+}
+
+/** Matches calculateTripCost for 7 days / 2 travelers / 6 nights. */
+function weekGroundTotal(destination) {
+  const daily = Number(destination.dailyBudget) || 0;
+  const lodging = daily * 0.38 * 6;
+  const food = daily * 0.28 * 7 * 2;
+  const localTransport = daily * 0.14 * 7 * 2;
+  const activities = daily * 0.14 * 7 * 2;
+  const contingency = daily * 0.06 * 7 * 2;
+  return Math.round((lodging + food + localTransport + activities + contingency) * 100) / 100;
+}
+
+function formatCostSnapshotHtml(destination, mustTry) {
+  const week = weekGroundTotal(destination);
+  const cheapest = formatMonthList(destination.seasonality?.cheapest);
+  const busiest = formatMonthList(destination.seasonality?.busiest);
+  const samples = (mustTry ?? [])
+    .slice(0, 3)
+    .map(
+      (dish) =>
+        `<li><strong>${escapeHtml(dish.name)}</strong> — avg $${Number(dish.averagePriceUsd).toFixed(2)} USD</li>`,
+    )
+    .join('');
+  return `<h2>How much does a trip to ${escapeHtml(destination.name)} cost?</h2>
+    <p>A practical midrange budget for ${escapeHtml(destination.name)} is about $${destination.dailyBudget} USD per traveler per day. For a 7-day trip for two people, ground costs land around $${Math.round(week).toLocaleString('en-US')} USD before long-haul flights${cheapest ? `—usually cheapest in ${escapeHtml(cheapest)}` : ''}.</p>
+    <ul>
+      <li>Daily budget baseline: $${destination.dailyBudget} USD / traveler</li>
+      <li>7 days for 2 people: ~$${Math.round(week).toLocaleString('en-US')} USD ground costs</li>
+      <li>Usually cheapest: ${escapeHtml(cheapest || 'Varies')}</li>
+      <li>Busiest months: ${escapeHtml(busiest || 'Varies')}</li>
+    </ul>
+    ${samples ? `<h3>Sample food prices</h3><ul>${samples}</ul>` : ''}
+    <p>Ground-cost planning assumptions dated July 2026. Use the calculator to personalize origin, dates, and group size.</p>`;
 }
 
 const destinations = require(path.join(root, 'src/data/destinations.json'));
+const destinationById = new Map(destinations.map((destination) => [destination.id, destination]));
 const descriptions = await loadTsObjectExport(
   path.join(root, 'src/data/destinationDescriptions.ts'),
   'destinationDescriptions',
@@ -79,6 +114,10 @@ const dishes = await loadTsObjectExport(
 const culturalIcons = await loadTsObjectExport(
   path.join(root, 'src/data/culturalIcons.ts'),
   'culturalIcons',
+);
+const comparisons = await loadTsCollectionExport(
+  path.join(root, 'src/data/comparisons.ts'),
+  'cityComparisons',
 );
 
 const template = await readFile(path.join(distDir, 'index.html'), 'utf8');
@@ -110,6 +149,20 @@ const staticRoutes = [
       '@type': 'CollectionPage',
       name: 'City Trip Cost Guides',
       url: `${siteUrl}/destinations`,
+    },
+  },
+  {
+    routePath: '/compare',
+    filePath: path.join(distDir, 'compare', 'index.html'),
+    title: 'City Trip Cost Comparisons — Plansti',
+    description:
+      'Compare trip costs between popular city pairs, with 7-day ground estimates for two travelers and links to each city calculator.',
+    body: compareIndexBody(),
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'City Trip Cost Comparisons',
+      url: `${siteUrl}/compare`,
     },
   },
   {
@@ -206,6 +259,31 @@ for (const destination of destinations) {
         latitude: destination.lat,
         longitude: destination.lng,
       },
+    },
+  });
+}
+
+for (const comparison of comparisons) {
+  const a = destinationById.get(comparison.aId);
+  const b = destinationById.get(comparison.bId);
+  if (!a || !b) continue;
+  const metaDescription =
+    `${a.name} vs ${b.name} trip cost: compare daily budgets and 7-day ground estimates for two travelers. ${comparison.summary}`.slice(
+      0,
+      300,
+    );
+  staticRoutes.push({
+    routePath: `/compare/${comparison.slug}`,
+    filePath: path.join(distDir, 'compare', comparison.slug, 'index.html'),
+    title: `${a.name} vs ${b.name} Trip Cost — Plansti`,
+    description: metaDescription,
+    body: compareBody(comparison, a, b),
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: `${a.name} vs ${b.name} Trip Cost`,
+      description: comparison.summary,
+      url: `${siteUrl}/compare/${comparison.slug}`,
     },
   });
 }
@@ -328,16 +406,60 @@ function destinationBody(destination, description, info, topAttractions, mustTry
     )
     .join('');
   const seasonality = formatSeasonalityHtml(destination);
+  const costSnapshot = formatCostSnapshotHtml(destination, mustTry);
+  const foodLead =
+    mustTry.length > 0
+      ? `<p>Must-try food in ${escapeHtml(destination.name)} usually includes ${escapeHtml(
+          mustTry
+            .slice(0, 3)
+            .map((dish) => dish.name)
+            .join(', '),
+        )}. Typical plates below help you budget meals before you go.</p>`
+      : '';
   return `<main class="seo-static__panel">
     <h1>${escapeHtml(destination.name)} trip cost estimate</h1>
     <p>${escapeHtml(description)}</p>
     <p>Daily budget baseline: $${destination.dailyBudget} USD. ${escapeHtml(info.bestFor ?? '')}</p>
+    ${costSnapshot}
     ${seasonality}
-    <h2>Top attractions</h2>
+    <h2>Top attractions in ${escapeHtml(destination.name)}</h2>
     <ol>${attractions || '<li>Coming soon</li>'}</ol>
-    <h2>Must-try dishes</h2>
+    <h2>Must-try food in ${escapeHtml(destination.name)}</h2>
+    ${foodLead}
     <ul>${food || '<li>Coming soon</li>'}</ul>
-    <p><a href="/">Open the general calculator</a></p>
+    <p><a href="/destinations/${destination.id}">Open the ${escapeHtml(destination.name)} calculator</a></p>
+  </main>`;
+}
+
+function compareIndexBody() {
+  const cards = (comparisons ?? [])
+    .map((comparison) => {
+      const a = destinationById.get(comparison.aId);
+      const b = destinationById.get(comparison.bId);
+      if (!a || !b) return '';
+      return `<li><a href="/compare/${comparison.slug}"><strong>${escapeHtml(a.name)} vs ${escapeHtml(b.name)}</strong> — ${escapeHtml(comparison.theme)}</a></li>`;
+    })
+    .join('');
+  return `<main class="seo-static__panel"><h1>City trip cost comparisons</h1><p>Side-by-side planning estimates for popular city pairs.</p><ul>${cards}</ul></main>`;
+}
+
+function compareBody(comparison, a, b) {
+  const aWeek = weekGroundTotal(a);
+  const bWeek = weekGroundTotal(b);
+  return `<main class="seo-static__panel">
+    <h1>${escapeHtml(a.name)} vs ${escapeHtml(b.name)} trip cost</h1>
+    <p>${escapeHtml(comparison.summary)}</p>
+    <h2>Ground costs for 2 travelers, 7 days</h2>
+    <ul>
+      <li>${escapeHtml(a.name)}: $${a.dailyBudget}/day baseline · ~$${Math.round(aWeek).toLocaleString('en-US')} USD for 7 days</li>
+      <li>${escapeHtml(b.name)}: $${b.dailyBudget}/day baseline · ~$${Math.round(bWeek).toLocaleString('en-US')} USD for 7 days</li>
+    </ul>
+    <h2>When to pick each city</h2>
+    <p><strong>Choose ${escapeHtml(a.name)}:</strong> ${escapeHtml(comparison.pickA)}</p>
+    <p><strong>Choose ${escapeHtml(b.name)}:</strong> ${escapeHtml(comparison.pickB)}</p>
+    <h2>Verdict</h2>
+    <p>${escapeHtml(comparison.verdict)}</p>
+    <p><a href="/destinations/${a.id}">${escapeHtml(a.name)} calculator</a> · <a href="/destinations/${b.id}">${escapeHtml(b.name)} calculator</a></p>
   </main>`;
 }
 
@@ -387,29 +509,38 @@ function escapeAttr(value) {
 }
 
 async function loadTsObjectExport(filePath, exportName) {
+  return loadTsCollectionExport(filePath, exportName, '{}');
+}
+
+async function loadTsCollectionExport(filePath, exportName, fallback = '[]') {
   const source = await readFile(filePath, 'utf8');
   const marker = `export const ${exportName}`;
   const start = source.indexOf(marker);
-  if (start === -1) return {};
+  if (start === -1) return Function(`"use strict"; return (${fallback});`)();
   const after = source.slice(start + marker.length);
   const eq = after.indexOf('=');
-  const body = after.slice(eq + 1).trim();
-  const end = findMatchingBrace(body);
-  const objectLiteral = body.slice(0, end + 1);
+  let body = after.slice(eq + 1).trim();
+  // Skip TypeScript type annotations: `: Type[] =` already consumed at `=`.
+  const openIndex = body.search(/[\[{]/);
+  if (openIndex === -1) return Function(`"use strict"; return (${fallback});`)();
+  body = body.slice(openIndex);
+  const end = findMatchingBracket(body);
+  const literal = body.slice(0, end + 1);
   try {
-    // Object literals in these data files are plain JS-compatible values.
-    return Function(`"use strict"; return (${objectLiteral});`)();
+    return Function(`"use strict"; return (${literal});`)();
   } catch (error) {
     console.warn(`Failed to parse ${exportName} from ${filePath}`, error);
-    return {};
+    return Function(`"use strict"; return (${fallback});`)();
   }
 }
 
-function findMatchingBrace(text) {
+function findMatchingBracket(text) {
+  const open = text[0];
+  const close = open === '[' ? ']' : '}';
   let depth = 0;
   for (let i = 0; i < text.length; i += 1) {
-    if (text[i] === '{') depth += 1;
-    if (text[i] === '}') {
+    if (text[i] === open) depth += 1;
+    if (text[i] === close) {
       depth -= 1;
       if (depth === 0) return i;
     }

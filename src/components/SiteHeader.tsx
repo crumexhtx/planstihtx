@@ -15,6 +15,7 @@ const NAV_LINKS: ReadonlyArray<{
 }> = [
   { to: '/', label: 'Home', end: true },
   { to: '/destinations', label: 'Cities' },
+  { to: '/compare', label: 'Compare' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
   { to: '/partners', label: 'Partners' },

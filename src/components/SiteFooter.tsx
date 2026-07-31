@@ -13,6 +13,7 @@ export function SiteFooter() {
         <Link to="/partners">Partners</Link>
         <Link to="/privacy">Privacy</Link>
         <Link to="/destinations">City guides</Link>
+        <Link to="/compare">Compare cities</Link>
       </nav>
       <div className="site-footer__disclaimer">
         <strong>Planning disclaimer</strong>
