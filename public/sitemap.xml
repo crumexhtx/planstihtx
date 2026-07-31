@@ -2,10 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.plansti.com/</loc></url>
   <url><loc>https://www.plansti.com/destinations</loc></url>
+  <url><loc>https://www.plansti.com/compare</loc></url>
   <url><loc>https://www.plansti.com/about</loc></url>
   <url><loc>https://www.plansti.com/contact</loc></url>
-  <url><loc>https://www.plansti.com/partners</loc></url>
   <url><loc>https://www.plansti.com/privacy</loc></url>
+  <url><loc>https://www.plansti.com/partners</loc></url>
   <url><loc>https://www.plansti.com/destinations/lisbon</loc></url>
   <url><loc>https://www.plansti.com/destinations/bangkok</loc></url>
   <url><loc>https://www.plansti.com/destinations/mexico-city</loc></url>
@@ -56,4 +57,14 @@
   <url><loc>https://www.plansti.com/destinations/ho-chi-minh-city</loc></url>
   <url><loc>https://www.plansti.com/destinations/lima</loc></url>
   <url><loc>https://www.plansti.com/destinations/delhi</loc></url>
+  <url><loc>https://www.plansti.com/compare/tokyo-vs-seoul</loc></url>
+  <url><loc>https://www.plansti.com/compare/paris-vs-rome</loc></url>
+  <url><loc>https://www.plansti.com/compare/bali-vs-bangkok</loc></url>
+  <url><loc>https://www.plansti.com/compare/london-vs-amsterdam</loc></url>
+  <url><loc>https://www.plansti.com/compare/mexico-city-vs-cancun</loc></url>
+  <url><loc>https://www.plansti.com/compare/new-york-vs-los-angeles</loc></url>
+  <url><loc>https://www.plansti.com/compare/lisbon-vs-barcelona</loc></url>
+  <url><loc>https://www.plansti.com/compare/dubai-vs-singapore</loc></url>
+  <url><loc>https://www.plansti.com/compare/hanoi-vs-bangkok</loc></url>
+  <url><loc>https://www.plansti.com/compare/cape-town-vs-cairo</loc></url>
 </urlset>

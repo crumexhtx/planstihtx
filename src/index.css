@@ -408,10 +408,145 @@ body.nav-open {
   padding: 1rem 1.1rem 1.5rem;
 }
 
-.best-time-panel p {
+.best-time-panel p,
+.answer-lead {
   margin: 0.35rem 0 1rem;
   color: var(--muted);
   max-width: 52rem;
+}
+
+.answer-lead {
+  color: var(--ink);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.cost-snapshot__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.cost-snapshot__grid div {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--panel-edge);
+  border-radius: 0.75rem;
+  background: rgba(249, 115, 59, 0.06);
+}
+
+.cost-snapshot__grid dt {
+  margin: 0 0 0.25rem;
+  color: #f9733b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cost-snapshot__grid dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cost-snapshot__dishes h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.cost-snapshot__dishes ul {
+  list-style: none;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.cost-snapshot__dishes li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--panel-edge);
+  border-radius: 0.55rem;
+}
+
+.cost-snapshot__dishes span,
+.cost-snapshot__footnote {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.cost-snapshot__footnote {
+  margin: 0;
+}
+
+.compare-page__table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0 1rem;
+}
+
+.compare-page__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.compare-page__table th,
+.compare-page__table td {
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--panel-edge);
+  text-align: left;
+  vertical-align: top;
+}
+
+.compare-page__table thead th {
+  background: rgba(249, 115, 59, 0.1);
+  font-weight: 800;
+}
+
+.compare-page__picks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+
+.compare-page__picks h3 {
+  margin: 0 0 0.4rem;
+}
+
+.compare-page__picks .explore-button {
+  margin-top: 0.75rem;
+}
+
+.compare-page__related {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.compare-page__related a {
+  display: block;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--panel-edge);
+  border-radius: 0.65rem;
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.compare-page__related a:hover,
+.compare-page__related a:focus-visible {
+  border-color: rgba(249, 115, 59, 0.45);
+  color: #f9733b;
+}
+
+:root[data-theme='dark'] .cost-snapshot__grid div {
+  background: rgba(249, 115, 59, 0.1);
 }
 
 .best-time-panel__grid {

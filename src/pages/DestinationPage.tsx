@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { DestinationGuide } from '../components/DestinationGuide';
 import { BestTimeToVisit } from '../components/BestTimeToVisit';
+import { DestinationCostSnapshot } from '../components/DestinationCostSnapshot';
 import { TripPlanner } from '../components/TripPlanner';
 import { DestinationSnapshot } from '../components/DestinationSnapshot';
 import { CurrencyTracker } from '../components/CurrencyTracker';
@@ -12,6 +13,7 @@ import { destinationDescriptions } from '../data/destinationDescriptions';
 import { culturalIcons } from '../data/culturalIcons';
 import { buildDestinationJsonLd } from '../utils/seo';
 import { buildBestTimeMetaPhrase } from '../utils/seasonalityCopy';
+import { cityComparisons } from '../data/comparisons';
 
 export interface DestinationPageProps {
   theme: 'light' | 'dark';
@@ -37,6 +39,11 @@ export function DestinationPage({ theme }: DestinationPageProps) {
     .filter(Boolean)
     .join(' ')
     .slice(0, 300);
+
+  const relatedComparisons = cityComparisons.filter(
+    (comparison) =>
+      comparison.aId === destination.id || comparison.bId === destination.id,
+  );
 
   return (
     <>
@@ -69,9 +76,9 @@ export function DestinationPage({ theme }: DestinationPageProps) {
             className="destination-page__actions"
             aria-label="Destination page actions"
           >
-            <Link className="explore-button" to="/">
-              ← Back to calculator
-            </Link>
+            <a className="explore-button" href="#trip-calculator">
+              Open calculator
+            </a>
             <Link
               className="explore-button explore-button--secondary"
               to="/destinations"
@@ -81,12 +88,39 @@ export function DestinationPage({ theme }: DestinationPageProps) {
           </nav>
         </header>
 
+        <DestinationCostSnapshot destination={destination} />
+
         <BestTimeToVisit destination={destination} />
 
         <DestinationGuide
           destination={destination}
-          showRecommendations={false}
+          showIntro={false}
+          showRecommendations
         />
+
+        {relatedComparisons.length > 0 && (
+          <section className="planner-panel" aria-label="Related comparisons">
+            <p className="cost-summary__eyebrow">Compare</p>
+            <h2>Compare {destination.name} with similar trips</h2>
+            <ul className="compare-page__related">
+              {relatedComparisons.map((comparison) => {
+                const otherId =
+                  comparison.aId === destination.id
+                    ? comparison.bId
+                    : comparison.aId;
+                const other = getDestinationById(otherId);
+                if (!other) return null;
+                return (
+                  <li key={comparison.slug}>
+                    <Link to={`/compare/${comparison.slug}`}>
+                      {destination.name} vs {other.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
 
         <CurrencyTracker
           destinationId={destination.id}
@@ -94,15 +128,17 @@ export function DestinationPage({ theme }: DestinationPageProps) {
         />
 
         <section
+          id="trip-calculator"
           className="destination-page__calculator"
           aria-label={`${destination.name} trip calculator`}
         >
           <div className="planner-panel">
             <p className="cost-summary__eyebrow">City calculator</p>
             <h2>Estimate your {destination.name} trip</h2>
-            <p className="planner-help">
-              Destination is locked to {destination.name}. Change origin, dates,
-              group size, and transport to update the total.
+            <p className="answer-lead">
+              Personalize the {destination.name} estimate with your origin,
+              dates, group size, and transport. The snapshot above is a baseline;
+              this calculator updates the full trip total.
             </p>
           </div>
           <TripPlanner
@@ -110,6 +146,7 @@ export function DestinationPage({ theme }: DestinationPageProps) {
             lockedDestination={destination}
             theme={theme}
             showDestinationSnapshot={false}
+            showCityGuideRecommendations={false}
           />
         </section>
       </article>

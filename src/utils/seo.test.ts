@@ -7,8 +7,13 @@ import {
   DEFAULT_SOCIAL_IMAGE_WIDTH,
   SITE_URL,
 } from '../config/site';
-import { destinations } from './tripHelpers';
-import { buildDestinationJsonLd, buildWebsiteJsonLd } from './seo';
+import { cityComparisons } from '../data/comparisons';
+import { destinations, getDestinationById } from './tripHelpers';
+import {
+  buildCompareJsonLd,
+  buildDestinationJsonLd,
+  buildWebsiteJsonLd,
+} from './seo';
 
 describe('SEO structured data', () => {
   it('builds a valid website entity without advertising nonexistent search', () => {
@@ -48,5 +53,18 @@ describe('SEO structured data', () => {
     expect(schema.makesOffer.every((offer) => offer.priceCurrency === 'USD')).toBe(
       true,
     );
+  });
+
+  it('builds comparison page structured data for valid city pairs', () => {
+    const comparison = cityComparisons[0];
+    const a = getDestinationById(comparison.aId);
+    const b = getDestinationById(comparison.bId);
+    if (!a || !b) throw new Error('Expected comparison cities');
+
+    const schema = buildCompareJsonLd(comparison, a, b);
+    expect(schema['@type']).toBe('WebPage');
+    expect(schema.url).toContain(`/compare/${comparison.slug}`);
+    expect(schema.about).toHaveLength(2);
+    expect(schema.mainEntity.itemListElement).toHaveLength(2);
   });
 });

@@ -37,6 +37,16 @@ const PartnersPage = lazy(() =>
     default: module.PartnersPage,
   })),
 );
+const CompareIndexPage = lazy(() =>
+  import('./pages/ComparePage').then((module) => ({
+    default: module.CompareIndexPage,
+  })),
+);
+const ComparePage = lazy(() =>
+  import('./pages/ComparePage').then((module) => ({
+    default: module.ComparePage,
+  })),
+);
 const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage').then((module) => ({
     default: module.NotFoundPage,
@@ -46,6 +56,7 @@ const NotFoundPage = lazy(() =>
 const PAGE_TITLES: Record<string, string> = {
   '/': 'Estimate your trip cost before you book',
   '/destinations': 'City trip cost guides',
+  '/compare': 'City trip cost comparisons',
   '/about': 'About Plansti',
   '/contact': 'Contact Plansti',
   '/partners': 'Partner with Plansti',
@@ -55,6 +66,7 @@ const PAGE_TITLES: Record<string, string> = {
 function titleForPath(pathname: string): string {
   if (PAGE_TITLES[pathname]) return PAGE_TITLES[pathname];
   if (pathname.startsWith('/destinations/')) return 'Destination trip cost estimate';
+  if (pathname.startsWith('/compare/')) return 'City trip cost comparison';
   return 'Plansti';
 }
 
@@ -104,6 +116,8 @@ export default function App() {
               path="/destinations/:destinationId"
               element={<DestinationPage theme={theme} />}
             />
+            <Route path="/compare" element={<CompareIndexPage />} />
+            <Route path="/compare/:slug" element={<ComparePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/partners" element={<PartnersPage />} />

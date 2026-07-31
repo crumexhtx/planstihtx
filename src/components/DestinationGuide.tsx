@@ -5,6 +5,7 @@ import { destinationExplore } from '../data/destinationExplore';
 import { destinationDishes } from '../data/destinationDishes';
 import { destinationBeverages } from '../data/destinationBeverages';
 import { DESTINATION_LOCAL_CURRENCY } from '../utils/currencyTracker';
+import { buildMustTryFoodAnswer } from '../utils/destinationAnswers';
 import {
   searchWikipediaArticleImage,
   type WikimediaImage,
@@ -202,7 +203,18 @@ export function DestinationGuide({
       {showRecommendations && (
         <>
           <section className="planner-panel">
-            <h2>Top 5 attractions</h2>
+            <h2>Top 5 attractions in {destination.name}</h2>
+            <p className="answer-lead">
+              The top things to do in {destination.name} for most first-time
+              visitors start with{' '}
+              {attractions
+                .slice(0, 3)
+                .map((item) => item.name)
+                .join(', ')}
+              {attractions.length > 3 ? ', and the stops below' : ''}. Use this
+              shortlist to sketch a realistic day plan before you add ticket
+              costs to your estimate.
+            </p>
             {attractions.length > 0 ? (
               <ul className="explore-modal__attractions attraction-gallery">
                 {attractions.map((attraction, index) => (
@@ -240,7 +252,10 @@ export function DestinationGuide({
           </section>
 
           <section className="planner-panel">
-            <h2>Must try</h2>
+            <h2>Must-try food in {destination.name}</h2>
+            <p className="answer-lead">
+              {buildMustTryFoodAnswer(destination)}
+            </p>
             <p className="planner-help">
               Local dishes and drinks with typical serving prices for budgeting.
               Alcohol laws and availability vary by destination.
