@@ -99,4 +99,45 @@ export const destinationDescriptions: Record<string, string> = {
     'Peru’s coastal capital is a food powerhouse with colonial centers and Pacific viewpoints.',
   delhi:
     'India’s capital region layers Mughal monuments, markets, temples, and intense street-food culture.',
+  florence:
+    'Renaissance capital of museums, bridges, and Tuscan day trips, with walkable historic streets and rich regional cooking.',
+  venice:
+    'A canal city of lagoon islands, piazzas, and ferry hops, where walking and vaporetto rides replace cars.',
+  porto:
+    'Portugal’s riverside northern city of tiled façades, port-wine lodges, and steep walkable neighborhoods.',
+  seville:
+    'Andalusia’s warm capital of orange-scented courtyards, tapas bars, flamenco, and monumental Moorish-Christian architecture.',
+  munich:
+    'Bavaria’s polished capital mixes royal parks, museums, beer halls, and easy alpine day trips.',
+  stockholm:
+    'Sweden’s archipelago capital of linked islands, design museums, waterfront walks, and excellent seasonal food.',
+  reykjavik:
+    'Iceland’s compact capital is the launch point for hot springs, lava fields, and Ring Road adventures.',
+  krakow:
+    'Poland’s historic royal city of a vast market square, castle hill, Jewish Quarter cafés, and nearby day trips.',
+  dubrovnik:
+    'Croatia’s walled Adriatic city of cliffside views, island ferries, and polished Old Town lanes.',
+  zurich:
+    'Switzerland’s lakeside financial hub pairs museum quality, clean transit, and easy mountain escapes.',
+  chicago:
+    'A Great Lakes metropolis of architecture river cruises, museum campuses, neighborhood food, and lakefront parks.',
+  boston:
+    'A walkable East Coast city of colonial history, university energy, harbor views, and serious seafood.',
+  'las-vegas':
+    'A desert entertainment capital of mega-resorts, shows, and easy day trips to red-rock landscapes.',
+  montreal:
+    'A bilingual Canadian city of festivals, European-feeling streets, bagels, and lively food neighborhoods.',
+  cusco:
+    'The high-Andean gateway to Machu Picchu, with Inca stonework, plazas, and acclimatization walks before the Sacred Valley.',
+  cartagena:
+    'A Caribbean walled city of colorful balconies, plazas, and nearby island beaches on Colombia’s coast.',
+  santiago:
+    'Chile’s basin capital sits between Andes peaks and wine valleys, with strong museums and neighborhood food scenes.',
+  'kuala-lumpur':
+    'Malaysia’s capital mixes mega-malls and towers with hawker courts, parks, and easy Batu Caves day trips.',
+  shanghai:
+    'China’s showcase waterfront metropolis pairs Bund skyline views with lanes of shikumen houses and ambitious museums.',
+  mumbai:
+    'India’s coastal commercial capital of seafront promenades, cinema energy, street food, and dense neighborhood contrasts.',
+
 };

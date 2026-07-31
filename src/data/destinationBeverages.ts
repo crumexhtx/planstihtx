@@ -216,4 +216,85 @@ export const destinationBeverages: Record<string, DestinationBeveragePair> = {
     localDrink: { name: 'Masala chai', blurb: 'Black tea simmered with milk, sugar, and aromatic spices.', averagePriceUsd: 1 },
     beer: { name: 'Kingfisher Premium', blurb: 'Indian lager widely stocked in licensed Delhi restaurants and shops.', averagePriceUsd: 4 },
   },
+  florence: {
+    localDrink: { name: 'Espresso', blurb: 'Short, strong coffee served standing at the bar.', averagePriceUsd: 1.5 },
+    beer: { name: 'Moretti', blurb: 'Italian pale lager widely poured in Florence bars.', averagePriceUsd: 5 },
+  },
+  venice: {
+    localDrink: { name: 'Spritz', blurb: 'Aperol or Select spritz served with cicchetti.', averagePriceUsd: 6 },
+    beer: { name: 'Birra Moretti', blurb: 'Easy-drinking Italian lager common in bacari.', averagePriceUsd: 5 },
+  },
+  porto: {
+    localDrink: { name: 'White port and tonic', blurb: 'Refreshing Porto aperitif with tonic and citrus.', averagePriceUsd: 5 },
+    beer: { name: 'Super Bock', blurb: 'Northern Portuguese lager strongly tied to Porto.', averagePriceUsd: 3 },
+  },
+  seville: {
+    localDrink: { name: 'Tinto de verano', blurb: 'Red wine mixed with lemon soda over ice.', averagePriceUsd: 4 },
+    beer: { name: 'Cruzcampo', blurb: 'Andalusian lager closely associated with Seville.', averagePriceUsd: 3.5 },
+  },
+  munich: {
+    localDrink: { name: 'Apfelschorle', blurb: 'Apple juice mixed with sparkling water.', averagePriceUsd: 3.5 },
+    beer: { name: 'Augustiner Helles', blurb: 'Classic Munich lager from a historic local brewery.', averagePriceUsd: 5 },
+  },
+  stockholm: {
+    localDrink: { name: 'Filter coffee for fika', blurb: 'Strong drip coffee central to Swedish fika culture.', averagePriceUsd: 3.5 },
+    beer: { name: 'Norrlands Guld', blurb: 'Popular Swedish lager found across Stockholm.', averagePriceUsd: 6 },
+  },
+  reykjavik: {
+    localDrink: { name: 'Coffee', blurb: 'Strong café coffee from Reykjavík’s dense coffee scene.', averagePriceUsd: 5 },
+    beer: { name: 'Gull', blurb: 'Mainstream Icelandic lager widely available in the capital.', averagePriceUsd: 9 },
+  },
+  krakow: {
+    localDrink: { name: 'Kompot', blurb: 'House-made fruit drink served with many Polish meals.', averagePriceUsd: 2 },
+    beer: { name: 'Żywiec', blurb: 'Popular Polish pale lager common in Kraków pubs.', averagePriceUsd: 3 },
+  },
+  dubrovnik: {
+    localDrink: { name: 'Rakija', blurb: 'Fruit brandy often offered as a welcome drink.', averagePriceUsd: 4 },
+    beer: { name: 'Ožujsko', blurb: 'Widely available Croatian pale lager.', averagePriceUsd: 4 },
+  },
+  zurich: {
+    localDrink: { name: 'Rivella', blurb: 'Swiss whey soft drink found throughout Zurich.', averagePriceUsd: 3.5 },
+    beer: { name: 'Calanda', blurb: 'Swiss lager commonly stocked in Zurich bars.', averagePriceUsd: 7 },
+  },
+  chicago: {
+    localDrink: { name: 'Malört and soda', blurb: 'Bitter Chicago herbal liqueur often tried as a local rite.', averagePriceUsd: 7 },
+    beer: { name: 'Goose Island 312', blurb: 'Wheat ale named for Chicago’s area code.', averagePriceUsd: 7 },
+  },
+  boston: {
+    localDrink: { name: 'Dunkin’ iced coffee', blurb: 'Ubiquitous New England iced coffee run.', averagePriceUsd: 4 },
+    beer: { name: 'Samuel Adams Boston Lager', blurb: 'Amber lager long associated with the city.', averagePriceUsd: 7 },
+  },
+  'las-vegas': {
+    localDrink: { name: 'Frozen cocktail on the Strip', blurb: 'Giant yard-style mixed drink sold along the Strip.', averagePriceUsd: 18 },
+    beer: { name: 'Tenaya Creek IPA', blurb: 'Local craft IPA from a Las Vegas brewery.', averagePriceUsd: 8 },
+  },
+  montreal: {
+    localDrink: { name: 'Maple latte', blurb: 'Coffee sweetened with local maple syrup.', averagePriceUsd: 5 },
+    beer: { name: 'La Fin du Monde', blurb: 'Belgian-style strong ale from Unibroue in Quebec.', averagePriceUsd: 8 },
+  },
+  cusco: {
+    localDrink: { name: 'Coca tea', blurb: 'Mild herbal tea commonly used while acclimatizing.', averagePriceUsd: 1.5 },
+    beer: { name: 'Cusqueña', blurb: 'Peruvian lager branded for the Cusco region.', averagePriceUsd: 3 },
+  },
+  cartagena: {
+    localDrink: { name: 'Limonada de coco', blurb: 'Icy coconut-lime drink sold throughout the city.', averagePriceUsd: 3 },
+    beer: { name: 'Águila', blurb: 'Colombian pale lager common on the Caribbean coast.', averagePriceUsd: 2.5 },
+  },
+  santiago: {
+    localDrink: { name: 'Mote con huesillo', blurb: 'Sweet dried-peach drink with wheat mote.', averagePriceUsd: 2.5 },
+    beer: { name: 'Kunstmann Torobayo', blurb: 'Amber ale from a well-known Chilean brewery.', averagePriceUsd: 5 },
+  },
+  'kuala-lumpur': {
+    localDrink: { name: 'Teh tarik', blurb: 'Pulled milk tea poured for a frothy top.', averagePriceUsd: 1.5 },
+    beer: { name: 'Tiger Beer', blurb: 'Regional lager widely available in Kuala Lumpur.', averagePriceUsd: 4 },
+  },
+  shanghai: {
+    localDrink: { name: 'Soy milk with youtiao', blurb: 'Warm breakfast soy milk with fried dough.', averagePriceUsd: 2 },
+    beer: { name: 'Tsingtao', blurb: 'Nationwide Chinese lager easy to find in Shanghai.', averagePriceUsd: 3 },
+  },
+  mumbai: {
+    localDrink: { name: 'Cutting chai', blurb: 'Strong, small glass of milky spiced tea.', averagePriceUsd: 0.5 },
+    beer: { name: 'Kingfisher Premium', blurb: 'Indian lager commonly available in licensed venues.', averagePriceUsd: 4 },
+  },
+
 };
