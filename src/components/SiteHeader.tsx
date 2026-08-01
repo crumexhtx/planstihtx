@@ -70,7 +70,7 @@ export function SiteHeader({
       observer.disconnect();
       window.removeEventListener('resize', syncHeaderHeight);
     };
-  }, []);
+  }, [portalReady, useMobilePortal]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -108,31 +108,7 @@ export function SiteHeader({
     return () => document.body.classList.remove('nav-open');
   }, [menuOpen]);
 
-  const menu = (
-    <div
-      ref={menuRef}
-      id={menuId}
-      className={`app-shell__menu${menuOpen ? ' is-open' : ''}`}
-    >
-      <nav aria-label="Main navigation">
-        {NAV_LINKS.map((link) => (
-          <NavLink key={link.to} to={link.to} end={link.end === true}>
-            {link.label}
-          </NavLink>
-        ))}
-      </nav>
-      <button
-        className="theme-toggle"
-        type="button"
-        aria-pressed={theme === 'light'}
-        onClick={onToggleTheme}
-      >
-        {theme === 'dark' ? '☀ Light' : '☾ Dark'}
-      </button>
-    </div>
-  );
-
-  return (
+  const header = (
     <header ref={headerRef} className="app-shell__brand">
       <div className="app-shell__brand-copy">
         <p className="app-shell__brand-mark">
@@ -157,17 +133,41 @@ export function SiteHeader({
           </span>
         </button>
 
-        {/*
-          On mobile, portal to document.body so overflow-x: clip on .app-shell
-          cannot hide the sticky-header dropdown after page scroll. Desktop
-          keeps the menu in-header for normal flex layout.
-        */}
-        {portalReady && useMobilePortal
-          ? createPortal(menu, document.body)
-          : menu}
+        <div
+          ref={menuRef}
+          id={menuId}
+          className={`app-shell__menu${menuOpen ? ' is-open' : ''}`}
+        >
+          <nav aria-label="Main navigation">
+            {NAV_LINKS.map((link) => (
+              <NavLink key={link.to} to={link.to} end={link.end === true}>
+                {link.label}
+              </NavLink>
+            ))}
+          </nav>
+          <button
+            className="theme-toggle"
+            type="button"
+            aria-pressed={theme === 'light'}
+            onClick={onToggleTheme}
+          >
+            {theme === 'dark' ? '☀ Light' : '☾ Dark'}
+          </button>
+        </div>
       </div>
     </header>
   );
+
+  /*
+   * On mobile, portal the full header (logo + burger) to document.body and
+   * pin it with position:fixed so overflow-x: clip on .app-shell cannot stop
+   * it following the viewport while scrolling.
+   */
+  if (portalReady && useMobilePortal) {
+    return createPortal(header, document.body);
+  }
+
+  return header;
 }
 
 export default SiteHeader;
