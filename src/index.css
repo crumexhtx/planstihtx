@@ -11,6 +11,7 @@
   --danger-soft: rgba(255, 170, 120, 0.12);
   --track: rgba(148, 176, 210, 0.22);
   --map-min: min(50dvh, 420px);
+  --site-header-height: 4.5rem;
   --font-display: 'Syne', 'Avenir Next', sans-serif;
   --font-body: 'Figtree', 'Avenir Next', sans-serif;
   font-family: var(--font-body);
@@ -3239,11 +3240,24 @@ body {
     justify-content: center;
   }
 
+  /*
+   * Fixed (not sticky): overflow-x: clip on html/app-shell breaks sticky
+   * containing blocks. The header is also portaled to document.body in JS.
+   */
+  .app-shell {
+    padding-top: var(--site-header-height, 4.5rem);
+  }
+
   .app-shell__brand {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 200;
     gap: 0.75rem;
+    padding-top: max(0.85rem, env(safe-area-inset-top, 0px));
+    box-sizing: border-box;
   }
 
   .nav-toggle {
@@ -3303,6 +3317,19 @@ body {
 }
 
 @media (min-width: 761px) {
+  .app-shell {
+    padding-top: 0;
+  }
+
+  .app-shell__brand {
+    position: sticky;
+    top: 0;
+    left: auto;
+    right: auto;
+    width: auto;
+    padding-top: 1rem;
+  }
+
   .nav-toggle {
     display: none !important;
   }
