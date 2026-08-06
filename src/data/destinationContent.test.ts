@@ -113,4 +113,28 @@ describe('destination guide copy', () => {
       ).toBeGreaterThanOrEqual(280);
     });
   });
+
+  it('never lists a month in more than one seasonality bucket', () => {
+    destinations.forEach((destination) => {
+      const { cheapest, best, busiest } = destination.seasonality;
+      const seen = new Map<number, string>();
+
+      (
+        [
+          ['cheapest', cheapest],
+          ['best', best],
+          ['busiest', busiest],
+        ] as const
+      ).forEach(([bucket, months]) => {
+        months.forEach((month) => {
+          const existingBucket = seen.get(month);
+          expect(
+            existingBucket,
+            `${destination.id}: month ${month} is in both "${existingBucket}" and "${bucket}"`,
+          ).toBeUndefined();
+          seen.set(month, bucket);
+        });
+      });
+    });
+  });
 });
