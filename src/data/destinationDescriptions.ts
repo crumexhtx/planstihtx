@@ -174,4 +174,105 @@ export const destinationDescriptions: Record<string, string> = {
   'key-west':
     'A Florida Keys island town of sunset piers, pastel streets, and easy Caribbean vibes.',
 
+  milan:
+    'Italy’s fashion and design capital, with a soaring Gothic cathedral, world-class shopping, and da Vinci’s Last Supper.',
+  naples:
+    'The birthplace of pizza, with chaotic historic streets, Baroque churches, and Vesuvius and Pompeii close by.',
+  nice:
+    'The French Riviera’s breezy capital, with a pebbled bayfront promenade, pastel old-town streets, and Mediterranean light.',
+  lyon:
+    'France’s food capital, known for cozy bouchons, Roman ruins, and a hilltop basilica over two rivers.',
+  marseille:
+    'A gritty, sun-bleached port city with a historic harbor, calanque cliffs nearby, and deep Mediterranean food roots.',
+  brussels:
+    'The EU’s home base, with an ornate Grand Place, world-famous fries and chocolate, and hundreds of beer styles to try.',
+  bruges:
+    'A storybook medieval town of canals, cobblestones, and belfry views, easily covered on foot in a couple of days.',
+  warsaw:
+    'A rebuilt-from-ruins capital blending a picture-perfect Old Town with modern skyscrapers and a serious food scene.',
+  ljubljana:
+    'A small, green riverside capital with a hilltop castle, car-free center, and easy access to the Julian Alps.',
+  santorini:
+    'A volcanic island of whitewashed clifftop villages, blue-domed churches, and some of the Aegean’s best sunsets.',
+  mykonos:
+    'A glamorous Cycladic island of whitewashed lanes, iconic windmills, and a beach-club nightlife scene.',
+  oslo:
+    'A fjord-side capital mixing sleek modern architecture, Viking-age history, and quick access to forest and water.',
+  helsinki:
+    'A design-forward Baltic capital of clean architecture, island ferries, and easy sauna culture.',
+  valencia:
+    'Paella’s hometown, with a futuristic arts complex, a dried-up riverbed turned park, and an easy-access beach.',
+  salzburg:
+    'Mozart’s birthplace and The Sound of Music’s backdrop, framed by a hilltop fortress and Alpine scenery.',
+  interlaken:
+    'A small Alpine town squeezed between two lakes, built around access to Jungfrau peaks and adventure sports.',
+  beijing:
+    'China’s capital, home to the Forbidden City, Tiananmen Square, and the closest major gateway to the Great Wall.',
+  chengdu:
+    'Sichuan’s laid-back capital, famous for numbing-spicy hotpot, teahouse culture, and giant pandas.',
+  manila:
+    'A dense, historic harbor capital mixing Spanish-colonial Intramuros with modern skylines and lively food streets.',
+  cebu:
+    'A beach-adjacent city blending centuries-old Spanish landmarks with easy access to island-hopping and whale sharks.',
+  'siem-reap':
+    'Gateway to Angkor Wat, with a walkable night-market center built entirely around temple exploring.',
+  'phnom-penh':
+    'Cambodia’s riverside capital, mixing French-colonial architecture, a gilded Royal Palace, and sobering modern history.',
+  kathmandu:
+    'A temple-packed valley capital and the classic starting point for Himalayan trekking.',
+  jaipur:
+    'India’s Pink City, famous for a hilltop fort, a palace of a thousand windows, and Rajasthani craft markets.',
+  goa:
+    'India’s beach state, mixing Portuguese-colonial churches with palm-lined coastline and a laid-back party scene.',
+  busan:
+    'South Korea’s coastal second city, with beach neighborhoods, a colorful hillside village, and a huge seafood market.',
+  sapporo:
+    'Hokkaido’s snowy capital, known for its winter snow festival, seafood markets, and namesake beer.',
+  yogyakarta:
+    'Java’s cultural heart, home to two of Southeast Asia’s greatest temple complexes and a living royal court.',
+  'tel-aviv':
+    'A Mediterranean beach city known for Bauhaus architecture, a nonstop food scene, and late-night nightlife.',
+  jerusalem:
+    'One of the world’s oldest and most sacred cities, with a walled Old City holy to three major faiths.',
+  doha:
+    'A futuristic Gulf skyline paired with a restored waterfront souq and one of the region’s best art museums.',
+  amman:
+    'A hillside capital built over Roman ruins, and the launch point for Petra and the Dead Sea.',
+  nairobi:
+    'East Africa’s safari hub, with a wildlife park right at the city’s edge and a springboard to the Maasai Mara.',
+  zanzibar:
+    'A spice-island archipelago off Tanzania, mixing Swahili-Arab Stone Town history with turquoise beaches.',
+  fes:
+    'Morocco’s spiritual and artisan capital, home to the world’s largest car-free urban area and centuries-old tanneries.',
+  'sao-paulo':
+    'South America’s largest city, driven by world-class dining, street art, and a nonstop cultural calendar.',
+  salvador:
+    'Brazil’s Afro-Brazilian cultural heart, with a colorful colonial old town and a coastline of palm-lined beaches.',
+  medellin:
+    'The ’City of Eternal Spring,’ reinvented with cable cars, hillside barrios, and a fast-growing food and coffee scene.',
+  quito:
+    'A high-Andes capital with the best-preserved historic center in Latin America and the equator line at its doorstep.',
+  'san-jose-costa-rica':
+    'Costa Rica’s central capital and the usual gateway to volcanoes, cloud forests, and both coasts.',
+  'punta-cana':
+    'The Dominican Republic’s all-inclusive resort coast, built around long white-sand beaches and calm turquoise water.',
+  montevideo:
+    'A relaxed riverside capital of grilled beef, tango roots, and a long coastal boardwalk (rambla).',
+  'panama-city':
+    'A skyline of glass towers beside a restored colonial old town, with the Panama Canal as the headline day trip.',
+  nassau:
+    'The Bahamas’ cruise-ship capital, with pastel colonial streets, swimmable pig beaches nearby, and reef-lined water.',
+  'montego-bay':
+    'Jamaica’s resort coast, with reggae roots, reef-lined beaches, and a laid-back all-inclusive scene.',
+  queenstown:
+    'New Zealand’s adventure-sports capital, ringed by the Remarkables mountains and Lake Wakatipu.',
+  'gold-coast':
+    'Australia’s surf-and-theme-park coast, with high-rise beach towns backed by rainforest hinterland.',
+  'quebec-city':
+    'North America’s only walled city north of Mexico, with cobblestone streets straight out of old France.',
+  calgary:
+    'Alberta’s cowboy-culture city, best known for its huge summer rodeo and quick access to the Canadian Rockies.',
+  'san-antonio':
+    'A Texas city built around a lively downtown river walk and the historic Alamo mission.',
+
 };

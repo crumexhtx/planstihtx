@@ -1046,4 +1046,605 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
     ],
   },
 
+  milan: {
+    highlights:
+      'Runway-worthy shopping, opera at La Scala, and quick trips to the Italian Lakes.',
+    bestFor: 'Design, fashion, and city-break travelers',
+    topAttractions: [
+      { name: 'Duomo di Milano', blurb: 'Vast Gothic cathedral with a rooftop terrace view.' },
+      { name: 'Galleria Vittorio Emanuele II', blurb: 'Ornate 19th-century shopping arcade.' },
+      { name: 'The Last Supper', blurb: 'Da Vinci’s mural at Santa Maria delle Grazie.' },
+      { name: 'Sforza Castle', blurb: 'Renaissance fortress with museums and courtyards.' },
+      { name: 'Navigli District', blurb: 'Canal-side neighborhood known for evening aperitivo.' },
+    ],
+  },
+  naples: {
+    highlights:
+      'Street-level history, legendary pizza, and easy day trips to Pompeii and the Amalfi Coast.',
+    bestFor: 'Food-focused travel and ancient history',
+    topAttractions: [
+      { name: 'Naples Historic Center', blurb: 'UNESCO old town of narrow lanes and churches.' },
+      { name: 'Pompeii', blurb: 'Ancient Roman city preserved by Vesuvius’s ash.' },
+      { name: 'Mount Vesuvius', blurb: 'Active volcano with a hikeable crater rim.' },
+      { name: 'Naples National Archaeological Museum', blurb: 'Treasures recovered from Pompeii and Herculaneum.' },
+      { name: 'Spaccanapoli', blurb: 'Straight-line street cutting through the old center.' },
+    ],
+  },
+  nice: {
+    highlights:
+      'Beach-town pace with an art-filled old town and easy trains to Monaco and Cannes.',
+    bestFor: 'Coastal relaxation and Riviera day trips',
+    topAttractions: [
+      { name: 'Promenade des Anglais', blurb: 'Iconic palm-lined bayfront walkway.' },
+      { name: 'Old Town (Vieux Nice)', blurb: 'Pastel alleys, markets, and Baroque churches.' },
+      { name: 'Castle Hill', blurb: 'Hilltop park with panoramic Riviera views.' },
+      { name: 'Cours Saleya Market', blurb: 'Daily flower and produce market.' },
+      { name: 'Matisse Museum', blurb: 'Collection spanning the artist’s career.' },
+    ],
+  },
+  lyon: {
+    highlights:
+      'Traditional bouchon dining and a walkable old town at the meeting of two rivers.',
+    bestFor: 'Serious food travelers and culture on a moderate budget',
+    topAttractions: [
+      { name: 'Vieux Lyon', blurb: 'Renaissance old town with hidden traboules passageways.' },
+      { name: 'Basilica of Notre-Dame de Fourvière', blurb: 'Hilltop basilica overlooking the city.' },
+      { name: 'Les Halles de Lyon Paul Bocuse', blurb: 'Covered food market of regional producers.' },
+      { name: 'Presqu’île', blurb: 'Peninsula district between the Rhône and Saône.' },
+      { name: 'Roman Theatres of Fourvière', blurb: 'Ancient amphitheaters still used for concerts.' },
+    ],
+  },
+  marseille: {
+    highlights:
+      'Working harbor energy, hidden calanque swimming coves, and bouillabaisse done right.',
+    bestFor: 'Coastal exploring on a lighter France budget',
+    topAttractions: [
+      { name: 'Vieux Port', blurb: 'Historic harbor lined with cafés and fishing boats.' },
+      { name: 'Notre-Dame de la Garde', blurb: 'Hilltop basilica watching over the city.' },
+      { name: 'Calanques National Park', blurb: 'Dramatic limestone cliffs and turquoise coves.' },
+      { name: 'Le Panier', blurb: 'Oldest neighborhood, full of street art and alleys.' },
+      { name: 'MuCEM', blurb: 'Modern museum of Mediterranean civilizations.' },
+    ],
+  },
+  brussels: {
+    highlights:
+      'Gilded guild halls, comic-book murals, and a beer culture with hundreds of styles.',
+    bestFor: 'Beer, chocolate, and compact city sightseeing',
+    topAttractions: [
+      { name: 'Grand Place', blurb: 'UNESCO square ringed by gilded guild halls.' },
+      { name: 'Atomium', blurb: 'Giant stainless-steel molecule-shaped landmark.' },
+      { name: 'Manneken Pis', blurb: 'Famous small bronze fountain statue.' },
+      { name: 'Royal Museums of Fine Arts', blurb: 'Major collection spanning Flemish masters.' },
+      { name: 'Comic Strip Route', blurb: 'Building murals honoring Belgian comic artists.' },
+    ],
+  },
+  bruges: {
+    highlights:
+      'Fairy-tale canals, chocolate shops, and a car-free medieval core.',
+    bestFor: 'Slow-paced romantic getaways',
+    topAttractions: [
+      { name: 'Markt Square', blurb: 'Central square beneath the historic belfry.' },
+      { name: 'Belfry of Bruges', blurb: 'Climbable medieval bell tower.' },
+      { name: 'Canal boat tour', blurb: 'Classic way to see the old town from the water.' },
+      { name: 'Church of Our Lady', blurb: 'Home to a rare Michelangelo sculpture.' },
+      { name: 'Minnewater (Lake of Love)', blurb: 'Quiet park lake framed by swans.' },
+    ],
+  },
+  warsaw: {
+    highlights:
+      'A meticulously reconstructed Old Town alongside a fast-modernizing capital.',
+    bestFor: 'Budget-friendly Central European history',
+    topAttractions: [
+      { name: 'Warsaw Old Town', blurb: 'Rebuilt UNESCO square and cobblestone streets.' },
+      { name: 'Royal Castle', blurb: 'Restored seat of Polish kings.' },
+      { name: 'Warsaw Uprising Museum', blurb: 'Powerful look at WWII resistance history.' },
+      { name: 'Łazienki Park', blurb: 'Palace grounds with peacocks and open-air concerts.' },
+      { name: 'Palace of Culture and Science', blurb: 'Soviet-era skyscraper with a city-view deck.' },
+    ],
+  },
+  ljubljana: {
+    highlights:
+      'A walkable, pedestrian-first riverside center with an easy lake day trip.',
+    bestFor: 'Slow travel and Alpine day trips on a light budget',
+    topAttractions: [
+      { name: 'Ljubljana Castle', blurb: 'Hilltop castle reached by funicular.' },
+      { name: 'Triple Bridge', blurb: 'Trio of pedestrian bridges over the Ljubljanica.' },
+      { name: 'Central Market', blurb: 'Riverside market by architect Jože Plečnik.' },
+      { name: 'Lake Bled day trip', blurb: 'Alpine lake with an island church, an hour away.' },
+      { name: 'Metelkova', blurb: 'Alternative art squat turned cultural hub.' },
+    ],
+  },
+  santorini: {
+    highlights:
+      'Caldera-view sunsets, black-sand beaches, and boutique clifftop stays.',
+    bestFor: 'Honeymoons and scenic island splurges',
+    topAttractions: [
+      { name: 'Oia sunset viewpoint', blurb: 'Famous cliffside sunset-watching spot.' },
+      { name: 'Fira caldera walk', blurb: 'Path along the volcanic cliff with sea views.' },
+      { name: 'Akrotiri archaeological site', blurb: 'Bronze Age ruins preserved by ash.' },
+      { name: 'Red Beach', blurb: 'Volcanic red-sand cove near Akrotiri.' },
+      { name: 'Santo Wines caldera tasting', blurb: 'Cliffside vineyard tastings over the caldera.' },
+    ],
+  },
+  mykonos: {
+    highlights:
+      'Cube-house alleys, windmill views, and some of Greece’s liveliest beach clubs.',
+    bestFor: 'Nightlife-forward island getaways',
+    topAttractions: [
+      { name: 'Mykonos Windmills', blurb: 'Iconic row of whitewashed windmills.' },
+      { name: 'Little Venice', blurb: 'Waterfront houses built right against the sea.' },
+      { name: 'Paradise Beach', blurb: 'Famous beach-club and party strip.' },
+      { name: 'Delos day trip', blurb: 'Sacred ancient island ruins offshore.' },
+      { name: 'Chora old town', blurb: 'Maze of whitewashed lanes and boutiques.' },
+    ],
+  },
+  oslo: {
+    highlights:
+      'Fjord views, Viking ship history, and easy forest hikes right from the city.',
+    bestFor: 'Nordic design and nature within city limits',
+    topAttractions: [
+      { name: 'Vigeland Sculpture Park', blurb: 'Open-air park of over 200 sculptures.' },
+      { name: 'Viking Ship Museum', blurb: 'Preserved 9th-century Viking burial ships.' },
+      { name: 'Oslo Opera House', blurb: 'Walkable-roof waterfront opera house.' },
+      { name: 'Akershus Fortress', blurb: 'Medieval fortress overlooking the fjord.' },
+      { name: 'Holmenkollen Ski Jump', blurb: 'Iconic ski jump with a city-view platform.' },
+    ],
+  },
+  helsinki: {
+    highlights:
+      'Design-district shopping, archipelago ferries, and public saunas by the sea.',
+    bestFor: 'Design lovers and Nordic city breaks',
+    topAttractions: [
+      { name: 'Suomenlinna', blurb: 'Sea fortress island reached by ferry.' },
+      { name: 'Helsinki Cathedral', blurb: 'Neoclassical white cathedral over Senate Square.' },
+      { name: 'Design District', blurb: 'Concentration of studios, galleries, and shops.' },
+      { name: 'Market Square (Kauppatori)', blurb: 'Harborside stalls for food and crafts.' },
+      { name: 'Löyly Sauna', blurb: 'Modern waterfront public sauna.' },
+    ],
+  },
+  valencia: {
+    highlights:
+      'Futuristic architecture, a beach in the city, and the birthplace of paella.',
+    bestFor: 'Beach time paired with real Spanish city life',
+    topAttractions: [
+      { name: 'City of Arts and Sciences', blurb: 'Futuristic complex of museums and an aquarium.' },
+      { name: 'Valencia Cathedral', blurb: 'Gothic cathedral said to house the Holy Grail.' },
+      { name: 'Turia Gardens', blurb: 'Riverbed converted into a long green park.' },
+      { name: 'Central Market', blurb: 'Grand Art Nouveau produce market.' },
+      { name: 'Malvarrosa Beach', blurb: 'City beach lined with paella restaurants.' },
+    ],
+  },
+  salzburg: {
+    highlights:
+      'Baroque old-town streets under a fortress, with Alpine day trips close by.',
+    bestFor: 'Music history and Alpine scenery',
+    topAttractions: [
+      { name: 'Hohensalzburg Fortress', blurb: 'Hilltop medieval fortress over the old town.' },
+      { name: 'Mozart’s Birthplace', blurb: 'Museum in the composer’s childhood home.' },
+      { name: 'Mirabell Palace and Gardens', blurb: 'Baroque gardens used in The Sound of Music.' },
+      { name: 'Salzburg Cathedral', blurb: 'Baroque cathedral in the historic center.' },
+      { name: 'Salzkammergut lakes', blurb: 'Alpine lake district within day-trip range.' },
+    ],
+  },
+  interlaken: {
+    highlights:
+      'Base camp for the Jungfrau region’s peaks, glaciers, and adrenaline sports.',
+    bestFor: 'Alpine adventure and scenic train rides',
+    topAttractions: [
+      { name: 'Jungfraujoch', blurb: 'Rail journey to ’Top of Europe’ glacier station.' },
+      { name: 'Lake Brienz', blurb: 'Turquoise glacial lake beside the town.' },
+      { name: 'Harder Kulm', blurb: 'Funicular viewpoint over both lakes.' },
+      { name: 'Trümmelbach Falls', blurb: 'Glacial waterfalls inside the mountain.' },
+      { name: 'Lauterbrunnen Valley', blurb: 'Cliff-lined valley with dozens of waterfalls.' },
+    ],
+  },
+  beijing: {
+    highlights:
+      'Imperial palaces, ancient hutong alleys, and Great Wall day trips.',
+    bestFor: 'History-heavy first trips to China',
+    topAttractions: [
+      { name: 'Forbidden City', blurb: 'Vast former imperial palace complex.' },
+      { name: 'Great Wall (Mutianyu)', blurb: 'Well-preserved wall section within day-trip range.' },
+      { name: 'Temple of Heaven', blurb: 'Ming-dynasty complex for imperial prayer ceremonies.' },
+      { name: 'Tiananmen Square', blurb: 'One of the world’s largest public squares.' },
+      { name: 'Hutong alleys', blurb: 'Historic lanes best explored by rickshaw or on foot.' },
+    ],
+  },
+  chengdu: {
+    highlights:
+      'Panda research bases, fiery Sichuan food, and an unhurried teahouse pace.',
+    bestFor: 'Food travelers and panda encounters',
+    topAttractions: [
+      { name: 'Chengdu Research Base of Giant Panda Breeding', blurb: 'Panda sanctuary open for close viewing.' },
+      { name: 'Jinli Ancient Street', blurb: 'Restored Qing-dynasty shopping street.' },
+      { name: 'Wenshu Monastery', blurb: 'Active Buddhist temple with a teahouse garden.' },
+      { name: 'Kuanzhai Alley', blurb: 'Historic lanes turned into cafés and shops.' },
+      { name: 'Leshan Giant Buddha', blurb: 'Cliffside carved Buddha, a day trip away.' },
+    ],
+  },
+  manila: {
+    highlights:
+      'Walled-city history, rooftop bars, and a launch point for island-hopping.',
+    bestFor: 'City energy before heading to the islands',
+    topAttractions: [
+      { name: 'Intramuros', blurb: 'Walled Spanish-colonial old town.' },
+      { name: 'Fort Santiago', blurb: 'Historic citadel within Intramuros.' },
+      { name: 'Rizal Park', blurb: 'Large urban park honoring national hero José Rizal.' },
+      { name: 'Binondo (Chinatown)', blurb: 'One of the world’s oldest Chinatowns.' },
+      { name: 'Manila Bay sunset', blurb: 'Classic evening view along the bayfront.' },
+    ],
+  },
+  cebu: {
+    highlights:
+      'Colonial-era landmarks paired with island-hopping trips and whale shark swims.',
+    bestFor: 'Combining a city stop with island beach time',
+    topAttractions: [
+      { name: 'Magellan’s Cross', blurb: 'Historic cross marking Spanish arrival in 1521.' },
+      { name: 'Basilica del Santo Niño', blurb: 'Oldest Roman Catholic church in the country.' },
+      { name: 'Fort San Pedro', blurb: 'Small colonial-era military fortress.' },
+      { name: 'Kawasan Falls', blurb: 'Turquoise waterfalls south of the city.' },
+      { name: 'Oslob whale shark swim', blurb: 'Day trip to swim beside whale sharks.' },
+    ],
+  },
+  'siem-reap': {
+    highlights:
+      'Sunrise at Angkor Wat and a compact, easygoing town built for temple-hopping.',
+    bestFor: 'Temple exploring on a low daily budget',
+    topAttractions: [
+      { name: 'Angkor Wat', blurb: 'The world’s largest religious monument at sunrise.' },
+      { name: 'Angkor Thom & Bayon', blurb: 'Walled city of giant carved stone faces.' },
+      { name: 'Ta Prohm', blurb: 'Temple famously overtaken by jungle tree roots.' },
+      { name: 'Pub Street', blurb: 'Central strip of restaurants and night markets.' },
+      { name: 'Tonlé Sap floating villages', blurb: 'Boat trip through stilted lake communities.' },
+    ],
+  },
+  'phnom-penh': {
+    highlights:
+      'A riverside promenade, royal architecture, and essential modern-history sites.',
+    bestFor: 'Culture and history on a light budget',
+    topAttractions: [
+      { name: 'Royal Palace', blurb: 'Gilded royal residence and Silver Pagoda.' },
+      { name: 'National Museum of Cambodia', blurb: 'Khmer art and sculpture collection.' },
+      { name: 'Tuol Sleng Genocide Museum', blurb: 'Former prison turned Khmer Rouge history site.' },
+      { name: 'Sisowath Quay', blurb: 'Riverside promenade of cafés and restaurants.' },
+      { name: 'Central Market', blurb: 'Art Deco market hall for shopping and food.' },
+    ],
+  },
+  kathmandu: {
+    highlights:
+      'Ancient temple squares and the launch point for Everest and Annapurna treks.',
+    bestFor: 'Trekking preparation and Himalayan culture',
+    topAttractions: [
+      { name: 'Kathmandu Durbar Square', blurb: 'Historic royal square of temples and palaces.' },
+      { name: 'Swayambhunath (Monkey Temple)', blurb: 'Hilltop stupa overlooking the valley.' },
+      { name: 'Boudhanath Stupa', blurb: 'One of the largest stupas in the world.' },
+      { name: 'Pashupatinath Temple', blurb: 'Sacred Hindu temple complex on the Bagmati River.' },
+      { name: 'Thamel district', blurb: 'Trekking-gear shops, cafés, and guesthouses.' },
+    ],
+  },
+  jaipur: {
+    highlights:
+      'Rose-hued old-city architecture and forts overlooking the desert edge.',
+    bestFor: 'Rajasthan’s classic Golden Triangle stop',
+    topAttractions: [
+      { name: 'Amber Fort', blurb: 'Hilltop Rajput fort with mirrored halls.' },
+      { name: 'Hawa Mahal', blurb: 'Pink sandstone ’Palace of Winds’ facade.' },
+      { name: 'City Palace', blurb: 'Royal residence still partly used by the former family.' },
+      { name: 'Jantar Mantar', blurb: '18th-century astronomical instrument complex.' },
+      { name: 'Johari Bazaar', blurb: 'Old-city market for gems and textiles.' },
+    ],
+  },
+  goa: {
+    highlights:
+      'Beach shacks, Portuguese-era churches, and an easygoing coastal pace.',
+    bestFor: 'Beach time with a dose of colonial history',
+    topAttractions: [
+      { name: 'Basilica of Bom Jesus', blurb: 'UNESCO baroque church in Old Goa.' },
+      { name: 'Baga Beach', blurb: 'Popular beach strip for shacks and nightlife.' },
+      { name: 'Fort Aguada', blurb: '17th-century Portuguese coastal fort.' },
+      { name: 'Anjuna Flea Market', blurb: 'Weekly beachside market for crafts and clothes.' },
+      { name: 'Dudhsagar Falls', blurb: 'Multi-tiered waterfall on the Goa–Karnataka border.' },
+    ],
+  },
+  busan: {
+    highlights:
+      'City beaches, a rainbow hillside village, and Korea’s largest seafood market.',
+    bestFor: 'Coastal Korea beyond Seoul',
+    topAttractions: [
+      { name: 'Haeundae Beach', blurb: 'Busan’s most popular city beach.' },
+      { name: 'Gamcheon Culture Village', blurb: 'Colorful hillside village of murals and cafés.' },
+      { name: 'Jagalchi Fish Market', blurb: 'Korea’s largest seafood market.' },
+      { name: 'Haedong Yonggungsa Temple', blurb: 'Rare seaside Buddhist temple.' },
+      { name: 'Gwangalli Beach', blurb: 'Beach with a lit-up bridge backdrop.' },
+    ],
+  },
+  sapporo: {
+    highlights:
+      'Powder snow, an enormous winter snow festival, and Hokkaido seafood.',
+    bestFor: 'Winter sports and seafood lovers',
+    topAttractions: [
+      { name: 'Sapporo Snow Festival', blurb: 'Massive February festival of ice and snow sculptures.' },
+      { name: 'Sapporo Beer Museum', blurb: 'History of Japan’s oldest beer brand.' },
+      { name: 'Nijo Fish Market', blurb: 'Fresh-catch market for Hokkaido seafood.' },
+      { name: 'Odori Park', blurb: 'Central green corridor through downtown.' },
+      { name: 'Mount Moiwa', blurb: 'Ropeway peak with skyline night views.' },
+    ],
+  },
+  yogyakarta: {
+    highlights:
+      'Sunrise at ancient temple complexes and a living Javanese royal court.',
+    bestFor: 'Temple history and Javanese culture',
+    topAttractions: [
+      { name: 'Borobudur', blurb: 'The world’s largest Buddhist temple, best at sunrise.' },
+      { name: 'Prambanan', blurb: 'Towering Hindu temple complex.' },
+      { name: 'Kraton (Sultan’s Palace)', blurb: 'Still-active royal palace and cultural center.' },
+      { name: 'Malioboro Street', blurb: 'Main shopping and street-food strip.' },
+      { name: 'Taman Sari', blurb: 'Former royal water castle and gardens.' },
+    ],
+  },
+  'tel-aviv': {
+    highlights:
+      'Beach-club days, Bauhaus streets, and an all-night restaurant scene.',
+    bestFor: 'Beach city energy with strong food culture',
+    topAttractions: [
+      { name: 'Tel Aviv Beachfront', blurb: 'Long promenade of city beaches.' },
+      { name: 'Old Jaffa', blurb: 'Ancient port town attached to the modern city.' },
+      { name: 'Carmel Market', blurb: 'Bustling market for produce and street food.' },
+      { name: 'White City (Bauhaus)', blurb: 'UNESCO district of Bauhaus architecture.' },
+      { name: 'Rothschild Boulevard', blurb: 'Tree-lined boulevard of cafés and galleries.' },
+    ],
+  },
+  jerusalem: {
+    highlights:
+      'A walled Old City sacred to three religions, packed into a few square kilometers.',
+    bestFor: 'Deep history and religious heritage travel',
+    topAttractions: [
+      { name: 'Western Wall', blurb: 'Ancient retaining wall of the Second Temple.' },
+      { name: 'Church of the Holy Sepulchre', blurb: 'Site venerated as Christ’s burial place.' },
+      { name: 'Dome of the Rock', blurb: 'Golden-domed Islamic shrine on the Temple Mount.' },
+      { name: 'Old City markets (shuks)', blurb: 'Narrow lanes of spice and craft stalls.' },
+      { name: 'Mount of Olives', blurb: 'Panoramic viewpoint over the Old City.' },
+    ],
+  },
+  doha: {
+    highlights:
+      'A gleaming modern skyline next to a restored traditional souq.',
+    bestFor: 'Luxury layovers and Gulf modern architecture',
+    topAttractions: [
+      { name: 'Museum of Islamic Art', blurb: 'I.M. Pei-designed museum on the waterfront.' },
+      { name: 'Souq Waqif', blurb: 'Restored traditional market of stalls and cafés.' },
+      { name: 'The Pearl-Qatar', blurb: 'Man-made island of marinas and boutiques.' },
+      { name: 'Katara Cultural Village', blurb: 'Beachfront arts and culture district.' },
+      { name: 'Doha Corniche', blurb: 'Long waterfront promenade facing the skyline.' },
+    ],
+  },
+  amman: {
+    highlights:
+      'Roman ruins downtown and the gateway to Petra and the Dead Sea.',
+    bestFor: 'History-heavy trips through Jordan',
+    topAttractions: [
+      { name: 'Amman Citadel', blurb: 'Hilltop ruins overlooking the whole city.' },
+      { name: 'Roman Theatre', blurb: 'Well-preserved 2nd-century amphitheater downtown.' },
+      { name: 'Rainbow Street', blurb: 'Café- and gallery-lined hillside street.' },
+      { name: 'Petra day trip', blurb: 'Rock-carved ancient city, a few hours south.' },
+      { name: 'Dead Sea day trip', blurb: 'Buoyant salt lake, an easy drive away.' },
+    ],
+  },
+  nairobi: {
+    highlights:
+      'A national park inside the city limits and an easy gateway to Maasai Mara safaris.',
+    bestFor: 'Safari trip staging and East African culture',
+    topAttractions: [
+      { name: 'Nairobi National Park', blurb: 'Wildlife park with a skyline backdrop.' },
+      { name: 'Giraffe Centre', blurb: 'Up-close feeding with endangered Rothschild giraffes.' },
+      { name: 'David Sheldrick Wildlife Trust', blurb: 'Elephant orphanage open for visits.' },
+      { name: 'Karen Blixen Museum', blurb: 'Former farmhouse of the Out of Africa author.' },
+      { name: 'Maasai Market', blurb: 'Rotating market for beadwork and crafts.' },
+    ],
+  },
+  zanzibar: {
+    highlights:
+      'A UNESCO Stone Town paired with some of the Indian Ocean’s clearest water.',
+    bestFor: 'Beach relaxation after a safari',
+    topAttractions: [
+      { name: 'Stone Town', blurb: 'UNESCO old town of carved doors and narrow lanes.' },
+      { name: 'Nungwi Beach', blurb: 'White-sand beach on the island’s north tip.' },
+      { name: 'Spice Farm Tour', blurb: 'Guided walk through clove, vanilla, and nutmeg farms.' },
+      { name: 'Prison Island', blurb: 'Former quarantine island now home to giant tortoises.' },
+      { name: 'Jozani Forest', blurb: 'Home to the rare red colobus monkey.' },
+    ],
+  },
+  fes: {
+    highlights:
+      'A labyrinthine medina, working leather tanneries, and centuries of craft tradition.',
+    bestFor: 'Deep, unfiltered Moroccan medina culture',
+    topAttractions: [
+      { name: 'Fes el Bali medina', blurb: 'UNESCO old city and one of the world’s largest car-free zones.' },
+      { name: 'Chouara Tannery', blurb: 'Historic leather tannery viewed from rooftop terraces.' },
+      { name: 'Al Quaraouiyine', blurb: 'One of the world’s oldest continuously operating universities.' },
+      { name: 'Bou Inania Madrasa', blurb: 'Ornate 14th-century Islamic school.' },
+      { name: 'Royal Palace gates', blurb: 'Elaborate brass-studded palace entrance.' },
+    ],
+  },
+  'sao-paulo': {
+    highlights:
+      'A massive dining scene, gallery-filled street art, and nonstop city energy.',
+    bestFor: 'Food, art, and big-city culture',
+    topAttractions: [
+      { name: 'Avenida Paulista', blurb: 'Main avenue for museums and Sunday street life.' },
+      { name: 'Beco do Batman', blurb: 'Alley famous for rotating street-art murals.' },
+      { name: 'São Paulo Museum of Art (MASP)', blurb: 'Modernist glass-and-concrete art museum.' },
+      { name: 'Municipal Market', blurb: 'Historic market famous for its mortadella sandwich.' },
+      { name: 'Ibirapuera Park', blurb: 'The city’s largest urban green space.' },
+    ],
+  },
+  salvador: {
+    highlights:
+      'Colorful colonial architecture and the deepest Afro-Brazilian food and music roots in the country.',
+    bestFor: 'Music, food, and Afro-Brazilian heritage',
+    topAttractions: [
+      { name: 'Pelourinho', blurb: 'UNESCO colonial old town of pastel buildings.' },
+      { name: 'Elevador Lacerda', blurb: 'Art Deco elevator linking the upper and lower city.' },
+      { name: 'Church of São Francisco', blurb: 'Gilded Baroque church interior.' },
+      { name: 'Porto da Barra Beach', blurb: 'Popular city beach near the old fort.' },
+      { name: 'Mercado Modelo', blurb: 'Craft and food market in a historic building.' },
+    ],
+  },
+  medellin: {
+    highlights:
+      'Year-round mild weather, cable-car transit, and a striking urban transformation story.',
+    bestFor: 'Digital-nomad-friendly city life and coffee-region access',
+    topAttractions: [
+      { name: 'Comuna 13', blurb: 'Once-troubled hillside barrio now known for street art.' },
+      { name: 'Metrocable', blurb: 'Cable-car transit system with sweeping valley views.' },
+      { name: 'Plaza Botero', blurb: 'Public plaza of oversized Botero sculptures.' },
+      { name: 'Parque Arví', blurb: 'Mountain nature reserve reached by cable car.' },
+      { name: 'Pueblito Paisa', blurb: 'Hilltop replica of a traditional Antioquian village.' },
+    ],
+  },
+  quito: {
+    highlights:
+      'A UNESCO colonial old town at 9,000 feet, with the equator a short drive away.',
+    bestFor: 'Andean history and equator novelty stops',
+    topAttractions: [
+      { name: 'Quito Old Town', blurb: 'Best-preserved colonial center in Latin America.' },
+      { name: 'Basílica del Voto Nacional', blurb: 'Neo-Gothic basilica with tower climbs.' },
+      { name: 'TelefériQo', blurb: 'Cable car up the slopes of Pichincha volcano.' },
+      { name: 'Mitad del Mundo', blurb: 'Monument marking the equatorial line.' },
+      { name: 'Plaza Grande', blurb: 'Central square ringed by the presidential palace.' },
+    ],
+  },
+  'san-jose-costa-rica': {
+    highlights:
+      'A compact capital used as a springboard to volcanoes, cloud forest, and beach country.',
+    bestFor: 'Staging a wider Costa Rica nature trip',
+    topAttractions: [
+      { name: 'National Theatre of Costa Rica', blurb: 'Ornate 19th-century theater downtown.' },
+      { name: 'Poás Volcano day trip', blurb: 'Active volcano crater within driving distance.' },
+      { name: 'Central Market', blurb: 'Traditional market for food stalls and crafts.' },
+      { name: 'Pre-Columbian Gold Museum', blurb: 'Underground museum of indigenous gold work.' },
+      { name: 'La Sabana Park', blurb: 'Large city park with lake and sports fields.' },
+    ],
+  },
+  'punta-cana': {
+    highlights:
+      'Long white-sand beaches and an all-inclusive resort corridor built for easy relaxation.',
+    bestFor: 'All-inclusive beach vacations',
+    topAttractions: [
+      { name: 'Bavaro Beach', blurb: 'Signature stretch of white sand and calm water.' },
+      { name: 'Isla Saona day trip', blurb: 'Boat trip to a postcard island off the coast.' },
+      { name: 'Hoyo Azul', blurb: 'Turquoise cenote sinkhole in a nature park.' },
+      { name: 'Punta Cana Resorts golf courses', blurb: 'Oceanfront courses along the coast.' },
+      { name: 'Altos de Chavón', blurb: 'Recreated 16th-century artisan village.' },
+    ],
+  },
+  montevideo: {
+    highlights:
+      'A long riverside boardwalk, laid-back café culture, and outstanding grilled beef.',
+    bestFor: 'A quieter, budget-friendly South American capital',
+    topAttractions: [
+      { name: 'Rambla de Montevideo', blurb: 'Coastal boardwalk stretching the length of the city.' },
+      { name: 'Ciudad Vieja', blurb: 'Historic old town of plazas and colonial buildings.' },
+      { name: 'Mercado del Puerto', blurb: 'Historic market hall famous for parrilla grills.' },
+      { name: 'Palacio Salvo', blurb: 'Landmark early-20th-century tower on Plaza Independencia.' },
+      { name: 'Museo del Carnaval', blurb: 'Museum on Uruguay’s long carnival tradition.' },
+    ],
+  },
+  'panama-city': {
+    highlights:
+      'A modern skyline next to a restored colonial quarter, with the Canal a short ride away.',
+    bestFor: 'Canal history paired with a modern Latin American skyline',
+    topAttractions: [
+      { name: 'Panama Canal (Miraflores Locks)', blurb: 'Working locks with a visitor viewing deck.' },
+      { name: 'Casco Viejo', blurb: 'Restored colonial old town of plazas and rooftop bars.' },
+      { name: 'Panama Viejo', blurb: 'Ruins of the original 16th-century city.' },
+      { name: 'Biomuseo', blurb: 'Frank Gehry-designed biodiversity museum.' },
+      { name: 'Amador Causeway', blurb: 'Waterfront path with skyline views.' },
+    ],
+  },
+  nassau: {
+    highlights:
+      'Turquoise water minutes from downtown, plus easy boat trips to swimming pigs and reefs.',
+    bestFor: 'Caribbean beach breaks and cruise stopovers',
+    topAttractions: [
+      { name: 'Cable Beach', blurb: 'Long resort-lined stretch of white sand.' },
+      { name: 'Queen’s Staircase', blurb: 'Historic 65-step limestone staircase.' },
+      { name: 'Straw Market', blurb: 'Downtown market for local crafts and souvenirs.' },
+      { name: 'Blue Lagoon Island', blurb: 'Boat-trip beach island with dolphin encounters.' },
+      { name: 'Pig Beach day trip', blurb: 'Famous swimming pigs on a nearby cay.' },
+    ],
+  },
+  'montego-bay': {
+    highlights:
+      'Reggae culture, reef snorkeling, and an easygoing all-inclusive resort strip.',
+    bestFor: 'Beach vacations with live music and reggae heritage',
+    topAttractions: [
+      { name: 'Doctor’s Cave Beach', blurb: 'Iconic white-sand beach with calm, clear water.' },
+      { name: 'Rose Hall Great House', blurb: 'Restored plantation great house with local legend.' },
+      { name: 'Martha Brae River rafting', blurb: 'Bamboo raft float down a jungle river.' },
+      { name: 'Dunn’s River Falls day trip', blurb: 'Terraced waterfall climb near Ocho Rios.' },
+      { name: 'Hip Strip', blurb: 'Main strip of shops, bars, and live music.' },
+    ],
+  },
+  queenstown: {
+    highlights:
+      'Bungee jumping, jet boating, and some of the South Island’s most dramatic mountain scenery.',
+    bestFor: 'Adventure sports and alpine scenery',
+    topAttractions: [
+      { name: 'Skyline Gondola', blurb: 'Cable car up to panoramic lake and mountain views.' },
+      { name: 'Lake Wakatipu', blurb: 'Glacial lake framed by the Remarkables range.' },
+      { name: 'Kawarau Bridge Bungy', blurb: 'The world’s original commercial bungee jump.' },
+      { name: 'Shotover Jet', blurb: 'High-speed jet boat ride through a river canyon.' },
+      { name: 'Milford Sound day trip', blurb: 'Fjord day trip through dramatic mountain scenery.' },
+    ],
+  },
+  'gold-coast': {
+    highlights:
+      'Surf beaches, theme parks, and a rainforest hinterland just inland.',
+    bestFor: 'Beach and theme-park family trips',
+    topAttractions: [
+      { name: 'Surfers Paradise Beach', blurb: 'High-rise beach strip and the region’s namesake beach.' },
+      { name: 'Warner Bros. Movie World', blurb: 'Film-themed amusement park.' },
+      { name: 'SkyPoint Observation Deck', blurb: 'Coastal skyline views from a beachfront tower.' },
+      { name: 'Burleigh Heads National Park', blurb: 'Coastal rainforest walking trails.' },
+      { name: 'Currumbin Wildlife Sanctuary', blurb: 'Native Australian wildlife park.' },
+    ],
+  },
+  'quebec-city': {
+    highlights:
+      'A UNESCO walled old town that feels transplanted from provincial France.',
+    bestFor: 'French-Canadian history without leaving North America',
+    topAttractions: [
+      { name: 'Château Frontenac', blurb: 'Iconic castle-like hotel dominating the skyline.' },
+      { name: 'Old Quebec (Vieux-Québec)', blurb: 'UNESCO walled city of cobblestone streets.' },
+      { name: 'Dufferin Terrace', blurb: 'Boardwalk overlooking the St. Lawrence River.' },
+      { name: 'Montmorency Falls', blurb: 'Waterfall taller than Niagara, just outside the city.' },
+      { name: 'Petit Champlain', blurb: 'Historic shopping street at the base of the cliff.' },
+    ],
+  },
+  calgary: {
+    highlights:
+      'Rodeo culture in July, plus the fastest city gateway to Banff and the Rockies.',
+    bestFor: 'Combining a city stop with Canadian Rockies road trips',
+    topAttractions: [
+      { name: 'Calgary Stampede', blurb: 'Massive July rodeo and festival.' },
+      { name: 'Calgary Tower', blurb: 'Downtown observation tower with a glass floor.' },
+      { name: 'Banff day trip', blurb: 'Rockies mountain town about 90 minutes away.' },
+      { name: 'Studio Bell (National Music Centre)', blurb: 'Museum of Canadian music history.' },
+      { name: 'Prince’s Island Park', blurb: 'Riverside park in the heart of downtown.' },
+    ],
+  },
+  'san-antonio': {
+    highlights:
+      'A river-level downtown walk and deep Texas mission history.',
+    bestFor: 'History plus an easygoing walkable downtown',
+    topAttractions: [
+      { name: 'The Alamo', blurb: 'Historic 1836 mission and battle site.' },
+      { name: 'San Antonio River Walk', blurb: 'Below-street-level river path of shops and restaurants.' },
+      { name: 'Mission San José', blurb: 'Best-preserved of the city’s Spanish colonial missions.' },
+      { name: 'Pearl District', blurb: 'Former brewery turned dining and market district.' },
+      { name: 'Tower of the Americas', blurb: 'Observation tower left from the 1968 World’s Fair.' },
+    ],
+  },
+
 };

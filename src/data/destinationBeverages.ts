@@ -363,4 +363,205 @@ export const destinationBeverages: Record<string, DestinationBeveragePair> = {
     beer: { name: 'Key West Sunset Ale', blurb: 'Local Keys ale easy to find on Duval Street.', averagePriceUsd: 7 },
   },
 
+  milan: {
+    localDrink: { name: 'Aperol Spritz', blurb: 'Bright orange aperitif poured all over Milan’s bars.', averagePriceUsd: 8 },
+    beer: { name: 'Birra Menabrea', blurb: 'Crisp Italian lager brewed in the Alps foothills.', averagePriceUsd: 6 },
+  },
+  naples: {
+    localDrink: { name: 'Caffè sospeso', blurb: 'Espresso tradition of paying it forward for a stranger.', averagePriceUsd: 1.5 },
+    beer: { name: 'Peroni Napoli', blurb: 'Southern Italian pale lager.', averagePriceUsd: 5 },
+  },
+  nice: {
+    localDrink: { name: 'Citron pressé', blurb: 'Freshly squeezed lemonade mixed at the table.', averagePriceUsd: 4 },
+    beer: { name: '1664', blurb: 'Widely poured French lager along the Riviera.', averagePriceUsd: 6 },
+  },
+  lyon: {
+    localDrink: { name: 'Diabolo menthe', blurb: 'Mint syrup and lemonade favorite in local cafés.', averagePriceUsd: 3.5 },
+    beer: { name: 'Brasserie Georges', blurb: 'House lager from Lyon’s historic brasserie.', averagePriceUsd: 6 },
+  },
+  marseille: {
+    localDrink: { name: 'Pastis', blurb: 'Anise-flavored aperitif mixed with water over ice.', averagePriceUsd: 6 },
+    beer: { name: 'La Cagole', blurb: 'Marseille-brewed pale lager.', averagePriceUsd: 6 },
+  },
+  brussels: {
+    localDrink: { name: 'Belgian hot chocolate', blurb: 'Thick drinking chocolate from a chocolatier café.', averagePriceUsd: 5 },
+    beer: { name: 'Trappist ale', blurb: 'Monastery-brewed abbey ale, a Belgian specialty.', averagePriceUsd: 7 },
+  },
+  bruges: {
+    localDrink: { name: 'Hot spiced wine', blurb: 'Warm mulled wine sold at canal-side stalls.', averagePriceUsd: 5 },
+    beer: { name: 'Brugse Zot', blurb: 'Bruges’s own city beer, brewed downtown.', averagePriceUsd: 6 },
+  },
+  warsaw: {
+    localDrink: { name: 'Kompot', blurb: 'Traditional lightly sweet fruit drink.', averagePriceUsd: 2 },
+    beer: { name: 'Żywiec', blurb: 'Widely poured Polish lager.', averagePriceUsd: 3 },
+  },
+  ljubljana: {
+    localDrink: { name: 'Elderflower cordial', blurb: 'Homemade-style syrup drink common in cafés.', averagePriceUsd: 3 },
+    beer: { name: 'Union', blurb: 'Ljubljana’s own city-brewed lager.', averagePriceUsd: 4 },
+  },
+  santorini: {
+    localDrink: { name: 'Vinsanto', blurb: 'Sweet amber wine made from sun-dried Santorini grapes.', averagePriceUsd: 6 },
+    beer: { name: 'Yellow Donkey', blurb: 'Craft lager brewed on the island.', averagePriceUsd: 6 },
+  },
+  mykonos: {
+    localDrink: { name: 'Rakomelo', blurb: 'Warm raki sweetened with honey and spices.', averagePriceUsd: 6 },
+    beer: { name: 'Mykonos Brewery lager', blurb: 'Craft beer made on the island.', averagePriceUsd: 7 },
+  },
+  oslo: {
+    localDrink: { name: 'Solo', blurb: 'Norway’s classic citrus soda.', averagePriceUsd: 4 },
+    beer: { name: 'Ringnes', blurb: 'Norway’s most common lager.', averagePriceUsd: 9 },
+  },
+  helsinki: {
+    localDrink: { name: 'Glögi', blurb: 'Warm spiced Nordic mulled wine.', averagePriceUsd: 5 },
+    beer: { name: 'Karhu', blurb: 'Popular Finnish lager.', averagePriceUsd: 8 },
+  },
+  valencia: {
+    localDrink: { name: 'Horchata de chufa', blurb: 'Iced tiger-nut milk sipped with fartons pastry.', averagePriceUsd: 3 },
+    beer: { name: 'Estrella Levante', blurb: 'Regional Spanish lager.', averagePriceUsd: 4 },
+  },
+  salzburg: {
+    localDrink: { name: 'Almdudler', blurb: 'Austrian herbal soda served everywhere.', averagePriceUsd: 3 },
+    beer: { name: 'Stiegl', blurb: 'Salzburg’s own long-brewed lager.', averagePriceUsd: 6 },
+  },
+  interlaken: {
+    localDrink: { name: 'Rivella', blurb: 'Swiss soda made from milk whey.', averagePriceUsd: 4 },
+    beer: { name: 'Rugenbräu', blurb: 'Local Interlaken-brewed lager.', averagePriceUsd: 7 },
+  },
+  beijing: {
+    localDrink: { name: 'Suanmeitang', blurb: 'Sweet-and-sour smoked plum drink.', averagePriceUsd: 2 },
+    beer: { name: 'Yanjing', blurb: 'Beijing’s own everyday lager.', averagePriceUsd: 3 },
+  },
+  chengdu: {
+    localDrink: { name: 'Sour plum juice', blurb: 'Cooling drink to offset the local spice.', averagePriceUsd: 2 },
+    beer: { name: 'Snow Beer', blurb: 'China’s best-selling light lager.', averagePriceUsd: 2.5 },
+  },
+  manila: {
+    localDrink: { name: 'Calamansi juice', blurb: 'Tart Filipino citrus drink.', averagePriceUsd: 1.5 },
+    beer: { name: 'San Miguel', blurb: 'The Philippines’ iconic pale pilsen.', averagePriceUsd: 2 },
+  },
+  cebu: {
+    localDrink: { name: 'Buko juice', blurb: 'Fresh coconut water served straight from the shell.', averagePriceUsd: 1.5 },
+    beer: { name: 'Red Horse', blurb: 'Strong Filipino lager popular island-wide.', averagePriceUsd: 2 },
+  },
+  'siem-reap': {
+    localDrink: { name: 'Sugarcane juice', blurb: 'Pressed fresh at street carts around town.', averagePriceUsd: 1 },
+    beer: { name: 'Angkor Beer', blurb: 'Cambodia’s most popular lager.', averagePriceUsd: 1.5 },
+  },
+  'phnom-penh': {
+    localDrink: { name: 'Iced Cambodian coffee', blurb: 'Strong coffee with sweetened condensed milk.', averagePriceUsd: 1.5 },
+    beer: { name: 'Cambodia Beer', blurb: 'Popular budget-friendly local lager.', averagePriceUsd: 1 },
+  },
+  kathmandu: {
+    localDrink: { name: 'Masala chai', blurb: 'Spiced milk tea sold at every corner stall.', averagePriceUsd: 0.5 },
+    beer: { name: 'Everest Beer', blurb: 'Nepal’s popular local lager.', averagePriceUsd: 3 },
+  },
+  jaipur: {
+    localDrink: { name: 'Masala chai', blurb: 'Spiced milk tea from street stalls.', averagePriceUsd: 0.5 },
+    beer: { name: 'Kingfisher', blurb: 'India’s most widely available lager.', averagePriceUsd: 3 },
+  },
+  goa: {
+    localDrink: { name: 'Feni', blurb: 'Goa’s own cashew or coconut spirit.', averagePriceUsd: 3 },
+    beer: { name: 'Kings Beer', blurb: 'Popular local Goan lager.', averagePriceUsd: 2.5 },
+  },
+  busan: {
+    localDrink: { name: 'Sikhye', blurb: 'Sweet fermented rice punch.', averagePriceUsd: 2 },
+    beer: { name: 'Cass', blurb: 'South Korea’s best-selling lager.', averagePriceUsd: 4 },
+  },
+  sapporo: {
+    localDrink: { name: 'Hokkaido milk', blurb: 'Rich, famously creamy Hokkaido dairy milk.', averagePriceUsd: 3 },
+    beer: { name: 'Sapporo Classic', blurb: 'Hokkaido-only draft version of Sapporo beer.', averagePriceUsd: 6 },
+  },
+  yogyakarta: {
+    localDrink: { name: 'Wedang uwuh', blurb: 'Spiced herbal tea from Yogyakarta.', averagePriceUsd: 1.5 },
+    beer: { name: 'Bintang', blurb: 'Indonesia’s most popular lager.', averagePriceUsd: 3 },
+  },
+  'tel-aviv': {
+    localDrink: { name: 'Fresh pomegranate juice', blurb: 'Hand-pressed juice sold at market stalls.', averagePriceUsd: 4 },
+    beer: { name: 'Goldstar', blurb: 'Israel’s classic dark lager.', averagePriceUsd: 6 },
+  },
+  jerusalem: {
+    localDrink: { name: 'Sahlab', blurb: 'Warm, thick milk drink with cinnamon.', averagePriceUsd: 3 },
+    beer: { name: 'Taybeh', blurb: 'Palestine’s own craft lager.', averagePriceUsd: 6 },
+  },
+  doha: {
+    localDrink: { name: 'Karak chai', blurb: 'Strong, sweet spiced milk tea.', averagePriceUsd: 1 },
+    beer: { name: 'Imported lager (hotel bars only)', blurb: 'Alcohol is limited to licensed hotel venues.', averagePriceUsd: 12 },
+  },
+  amman: {
+    localDrink: { name: 'Fresh mint lemonade', blurb: 'Blended lemon-mint drink found citywide.', averagePriceUsd: 3 },
+    beer: { name: 'Petra Beer', blurb: 'Jordan’s own locally brewed lager.', averagePriceUsd: 6 },
+  },
+  nairobi: {
+    localDrink: { name: 'Dawa cocktail', blurb: 'Honey-lime vodka drink, Swahili for ’medicine’.', averagePriceUsd: 6 },
+    beer: { name: 'Tusker', blurb: 'Kenya’s iconic safari-branded lager.', averagePriceUsd: 3 },
+  },
+  zanzibar: {
+    localDrink: { name: 'Fresh coconut water', blurb: 'Served straight from the coconut at beach stalls.', averagePriceUsd: 1 },
+    beer: { name: 'Kilimanjaro', blurb: 'Tanzania’s popular pale lager.', averagePriceUsd: 3 },
+  },
+  fes: {
+    localDrink: { name: 'Moroccan mint tea', blurb: 'Sweet green tea poured from height, a daily ritual.', averagePriceUsd: 2 },
+    beer: { name: 'Casablanca Beer', blurb: 'Morocco’s most common lager.', averagePriceUsd: 4 },
+  },
+  'sao-paulo': {
+    localDrink: { name: 'Caipirinha', blurb: 'Brazil’s cachaça, lime, and sugar cocktail.', averagePriceUsd: 6 },
+    beer: { name: 'Brahma', blurb: 'Widely poured Brazilian pilsner.', averagePriceUsd: 3 },
+  },
+  salvador: {
+    localDrink: { name: 'Caipirinha de cupuaçu', blurb: 'Amazonian fruit twist on Brazil’s classic cocktail.', averagePriceUsd: 6 },
+    beer: { name: 'Skol', blurb: 'Everyday light Brazilian lager.', averagePriceUsd: 3 },
+  },
+  medellin: {
+    localDrink: { name: 'Colombian tinto', blurb: 'Small strong black coffee sold by street vendors.', averagePriceUsd: 0.5 },
+    beer: { name: 'Club Colombia', blurb: 'Colombia’s well-regarded national lager.', averagePriceUsd: 3 },
+  },
+  quito: {
+    localDrink: { name: 'Canelazo', blurb: 'Warm cinnamon-spiced sugarcane drink.', averagePriceUsd: 3 },
+    beer: { name: 'Pilsener', blurb: 'Ecuador’s most popular everyday lager.', averagePriceUsd: 2.5 },
+  },
+  'san-jose-costa-rica': {
+    localDrink: { name: 'Agua dulce', blurb: 'Warm drink made from raw sugarcane blocks.', averagePriceUsd: 2 },
+    beer: { name: 'Imperial', blurb: 'Costa Rica’s iconic eagle-branded lager.', averagePriceUsd: 3 },
+  },
+  'punta-cana': {
+    localDrink: { name: 'Morir Soñando', blurb: 'Orange juice and condensed milk blended drink.', averagePriceUsd: 3 },
+    beer: { name: 'Presidente', blurb: 'The Dominican Republic’s iconic lager.', averagePriceUsd: 4 },
+  },
+  montevideo: {
+    localDrink: { name: 'Mate', blurb: 'Shared herbal tea sipped from a gourd, a daily ritual.', averagePriceUsd: 2 },
+    beer: { name: 'Pilsen', blurb: 'Uruguay’s most common everyday lager.', averagePriceUsd: 4 },
+  },
+  'panama-city': {
+    localDrink: { name: 'Chicha de frutas', blurb: 'Fresh fruit juices blended with water and sugar.', averagePriceUsd: 2 },
+    beer: { name: 'Balboa', blurb: 'Panama’s classic national lager.', averagePriceUsd: 3 },
+  },
+  nassau: {
+    localDrink: { name: 'Sky Juice', blurb: 'Coconut water, gin, and condensed milk drink.', averagePriceUsd: 8 },
+    beer: { name: 'Kalik', blurb: 'The Bahamas’ own island-brewed lager.', averagePriceUsd: 5 },
+  },
+  'montego-bay': {
+    localDrink: { name: 'Sorrel drink', blurb: 'Spiced hibiscus drink, especially around the holidays.', averagePriceUsd: 3 },
+    beer: { name: 'Red Stripe', blurb: 'Jamaica’s iconic national lager.', averagePriceUsd: 4 },
+  },
+  queenstown: {
+    localDrink: { name: 'Central Otago pinot noir', blurb: 'Regionally famous wine from nearby vineyards.', averagePriceUsd: 9 },
+    beer: { name: 'Speight’s', blurb: 'Popular South Island New Zealand lager.', averagePriceUsd: 7 },
+  },
+  'gold-coast': {
+    localDrink: { name: 'Flat white', blurb: 'Australia’s smooth, strong espresso-milk coffee.', averagePriceUsd: 4.5 },
+    beer: { name: 'XXXX Gold', blurb: 'Popular Queensland lager.', averagePriceUsd: 7 },
+  },
+  'quebec-city': {
+    localDrink: { name: 'Caribou', blurb: 'Warming Québécois mix of red wine and whisky.', averagePriceUsd: 6 },
+    beer: { name: 'Unibroue Blanche de Chambly', blurb: 'Well-known Quebec craft wheat beer.', averagePriceUsd: 7 },
+  },
+  calgary: {
+    localDrink: { name: 'Caesar cocktail', blurb: 'Canadian brunch classic with clamato juice and vodka.', averagePriceUsd: 9 },
+    beer: { name: 'Big Rock Traditional Ale', blurb: 'Well-known Calgary-brewed craft ale.', averagePriceUsd: 7 },
+  },
+  'san-antonio': {
+    localDrink: { name: 'Micheladas', blurb: 'Spiced beer cocktail popular along the River Walk.', averagePriceUsd: 8 },
+    beer: { name: 'Shiner Bock', blurb: 'Iconic Texas amber lager.', averagePriceUsd: 5 },
+  },
+
 };
