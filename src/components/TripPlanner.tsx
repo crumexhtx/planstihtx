@@ -23,6 +23,7 @@ import {
 } from '../utils/costEngine';
 import { useExchangeRates } from './ExchangeRatesProvider';
 import {
+  addDays,
   alignLegsToDateRange,
   createTrip,
   currencies,
@@ -376,11 +377,17 @@ export function TripPlanner({
                 <input
                   type="date"
                   value={trip.startDate}
-                  max={trip.endDate}
                   onChange={(event) => {
                     const startDate = event.target.value;
+                    const previousDays = dateRangeDays(
+                      trip.startDate,
+                      trip.endDate,
+                    );
+                    // Allow any future start; keep trip length if start moves past end.
                     const endDate =
-                      trip.endDate < startDate ? startDate : trip.endDate;
+                      trip.endDate < startDate
+                        ? addDays(startDate, previousDays - 1)
+                        : trip.endDate;
                     updateTrip({
                       startDate,
                       endDate,
