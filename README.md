@@ -15,13 +15,13 @@ override it or configure other optional integrations.
 ## Production and Vercel
 
 Canonical URLs, Open Graph URLs, `robots.txt`, and `sitemap.xml` are built from
-the live origin `https://www.plansti.com`, which is the default for production
+the live origin `https://plansti.com`, which is the default for production
 builds. Preview deployments use their own `VERCEL_URL` so they never claim the
 live domain as canonical. Set `VITE_SITE_URL` to override either default.
 
 1. Import the repository into Vercel.
-2. Point the `www.plansti.com` domain at the project and redirect the apex
-   `plansti.com` to it, so live URLs match the canonical tags.
+2. Point `plansti.com` at the project as the primary domain and redirect
+   `www.plansti.com` to it, so live URLs match the canonical tags.
 3. Configure contact delivery:
    - `RESEND_API_KEY`: a Resend API key allowed to send from your domain.
    - `CONTACT_TO_EMAIL`: the mailbox that receives contact messages.

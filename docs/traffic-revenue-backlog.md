@@ -14,7 +14,7 @@ North-star metrics (track weekly):
 
 ### Technical SEO (do first)
 - [ ] Ship prerender/revenue branch to production domain
-- [x] Canonical origin set to `https://www.plansti.com`
+- [x] Canonical origin set to `https://plansti.com`
 - [x] Fix stale `bugetroamers.example` public robots/sitemap placeholders
 - [x] Wire `/partners` route + Plansti partner email
 - [x] Gate placeholder affiliate `/out` CTAs until live programs are ready

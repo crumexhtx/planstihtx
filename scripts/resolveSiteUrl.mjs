@@ -2,7 +2,7 @@
  * Resolve the public site origin used for canonical URLs, Open Graph tags,
  * robots.txt, and sitemap.xml.
  */
-export const PRODUCTION_SITE_URL = 'https://www.plansti.com';
+export const PRODUCTION_SITE_URL = 'https://plansti.com';
 
 export function resolveSiteUrl(env = process.env) {
   const configured = env.VITE_SITE_URL?.trim();
