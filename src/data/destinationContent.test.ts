@@ -8,6 +8,10 @@ import { destinationBeverages } from './destinationBeverages';
 import { destinationDescriptions } from './destinationDescriptions';
 import { destinationDishes } from './destinationDishes';
 import { destinationExplore } from './destinationExplore';
+import {
+  destinationEvents,
+  getDestinationEvents,
+} from './destinationEvents';
 
 const WAVE_A = [
   'tokyo',
@@ -136,5 +140,27 @@ describe('destination guide copy', () => {
         });
       });
     });
+  });
+
+  it('only attaches notable events to real destinations, with approximate timing', () => {
+    const destinationIds = new Set(destinations.map((destination) => destination.id));
+
+    expect(Object.keys(destinationEvents).length).toBeGreaterThan(0);
+    expect(Object.keys(destinationEvents).length).toBeLessThan(
+      destinations.length,
+    );
+
+    Object.entries(destinationEvents).forEach(([destinationId, events]) => {
+      expect(destinationIds.has(destinationId)).toBe(true);
+      expect(events.length).toBeGreaterThan(0);
+      events.forEach((event) => {
+        expect(event.name.trim().length).toBeGreaterThan(2);
+        expect(event.typicalTiming.toLowerCase()).toMatch(/typical/);
+        expect(event.crowdCostNote.trim().length).toBeGreaterThan(40);
+      });
+    });
+
+    expect(getDestinationEvents('munich')?.[0]?.name).toBe('Oktoberfest');
+    expect(getDestinationEvents('paris')).toBeUndefined();
   });
 });

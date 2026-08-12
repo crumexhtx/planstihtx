@@ -584,6 +584,45 @@ body.nav-open {
   background: rgba(249, 115, 59, 0.1);
 }
 
+.notable-events-panel__list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.notable-events-panel__list li {
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--panel-edge);
+  border-radius: 0.75rem;
+  background: rgba(249, 115, 59, 0.06);
+}
+
+.notable-events-panel__list h3 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.notable-events-panel__timing {
+  margin: 0 0 0.45rem;
+  color: #f9733b;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.notable-events-panel__list p:last-child {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+:root[data-theme='dark'] .notable-events-panel__list li {
+  background: rgba(249, 115, 59, 0.1);
+}
+
 .destination-page__hero h1 {
   margin: 0.2rem 0 0.45rem;
   font-family: var(--font-display);

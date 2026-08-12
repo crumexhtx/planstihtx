@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { DestinationGuide } from '../components/DestinationGuide';
 import { BestTimeToVisit } from '../components/BestTimeToVisit';
+import { NotableEvents } from '../components/NotableEvents';
 import { DestinationCostSnapshot } from '../components/DestinationCostSnapshot';
 import { TripPlanner } from '../components/TripPlanner';
 import { DestinationSnapshot } from '../components/DestinationSnapshot';
@@ -96,6 +97,8 @@ export function DestinationPage({ theme }: DestinationPageProps) {
         <DestinationCostSnapshot destination={destination} />
 
         <BestTimeToVisit destination={destination} />
+
+        <NotableEvents destination={destination} />
 
         <DestinationGuide
           destination={destination}
