@@ -79,7 +79,6 @@ function formatCostSnapshotHtml(destination, mustTry) {
   const cheapest = formatMonthList(destination.seasonality?.cheapest);
   const busiest = formatMonthList(destination.seasonality?.busiest);
   const samples = (mustTry ?? [])
-    .slice(0, 3)
     .map(
       (dish) =>
         `<li><strong>${escapeHtml(dish.name)}</strong> — avg $${Number(dish.averagePriceUsd).toFixed(2)} USD</li>`,
@@ -94,7 +93,7 @@ function formatCostSnapshotHtml(destination, mustTry) {
       <li>Busiest months: ${escapeHtml(busiest || 'Varies')}</li>
     </ul>
     ${samples ? `<h3>Sample food prices</h3><ul>${samples}</ul>` : ''}
-    <p>Ground-cost planning assumptions dated July 2026. Use the calculator to personalize origin, dates, and group size.</p>`;
+    <p>Ground-cost planning assumptions dated July 2026. The 2-traveler, 7-day total above assumes one shared room and 6 lodging nights. Use the calculator to personalize origin, dates, and group size.</p>`;
 }
 
 const destinations = require(path.join(root, 'src/data/destinations.json'));
@@ -455,6 +454,7 @@ function compareBody(comparison, a, b) {
       <li>${escapeHtml(a.name)}: $${a.dailyBudget}/day baseline · ~$${Math.round(aWeek).toLocaleString('en-US')} USD for 7 days</li>
       <li>${escapeHtml(b.name)}: $${b.dailyBudget}/day baseline · ~$${Math.round(bWeek).toLocaleString('en-US')} USD for 7 days</li>
     </ul>
+    <p>The 2-traveler, 7-day totals above assume one shared room and 6 lodging nights.</p>
     <h2>When to pick each city</h2>
     <p><strong>Choose ${escapeHtml(a.name)}:</strong> ${escapeHtml(comparison.pickA)}</p>
     <p><strong>Choose ${escapeHtml(b.name)}:</strong> ${escapeHtml(comparison.pickB)}</p>

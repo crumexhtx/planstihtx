@@ -64,7 +64,9 @@ export function buildMustTryFoodAnswer(destination: Destination): string {
 }
 
 export function buildCostSnapshot(destination: Destination) {
-  const dishes = (destinationDishes[destination.id] ?? []).slice(0, 3);
+  // Show every dish here, matching the full "Must-try food" list further down
+  // the page—an earlier version sliced this to 3 and the counts disagreed.
+  const dishes = destinationDishes[destination.id] ?? [];
   const weekForTwo = calculateTripCost({
     destination,
     numberOfDays: 7,

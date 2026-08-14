@@ -60,7 +60,8 @@ export function DestinationCostSnapshot({
 
       <p className="cost-snapshot__footnote">
         Ground-cost planning assumptions dated{' '}
-        <time dateTime={snapshot.asOf}>{snapshot.asOfLabel}</time>. Totals
+        <time dateTime={snapshot.asOf}>{snapshot.asOfLabel}</time>. The 2-traveler,
+        7-day total above assumes one shared room and 6 lodging nights. Totals
         exclude long-haul flights—use the calculator below to personalize dates,
         origin, and group size.{' '}
         <Link to="#trip-calculator">Jump to calculator</Link>

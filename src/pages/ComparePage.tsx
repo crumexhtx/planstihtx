@@ -165,7 +165,8 @@ export function ComparePage() {
             <time dateTime={PLANNING_DATA_AS_OF}>
               {PLANNING_DATA_AS_OF_LABEL}
             </time>
-            . Flights vary by origin and season.
+            . The 2-traveler, 7-day totals above assume one shared room and 6
+            lodging nights. Flights vary by origin and season.
           </p>
         </section>
 
