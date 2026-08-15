@@ -139,8 +139,14 @@ export function ComparePage() {
                 </tr>
                 <tr>
                   <th scope="row">7 days for 2 people</th>
-                  <td>~${Math.round(aWeek).toLocaleString('en-US')} USD</td>
-                  <td>~${Math.round(bWeek).toLocaleString('en-US')} USD</td>
+                  <td>
+                    ~${Math.round(aWeek).toLocaleString('en-US')} USD
+                    <small>2nd traveler ≈ 62% of daily rate (shared room)</small>
+                  </td>
+                  <td>
+                    ~${Math.round(bWeek).toLocaleString('en-US')} USD
+                    <small>2nd traveler ≈ 62% of daily rate (shared room)</small>
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">Usually cheapest</th>
@@ -165,8 +171,8 @@ export function ComparePage() {
             <time dateTime={PLANNING_DATA_AS_OF}>
               {PLANNING_DATA_AS_OF_LABEL}
             </time>
-            . The 2-traveler, 7-day totals above assume one shared room and 6
-            lodging nights. Flights vary by origin and season.
+            . Flights vary by origin and season. See{' '}
+            <Link to="/about#group-size-cost">how group size affects cost</Link>.
           </p>
         </section>
 

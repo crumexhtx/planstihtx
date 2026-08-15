@@ -62,6 +62,31 @@ export function AboutPage() {
           </ul>
         </section>
 
+        <section className="static-page__section" id="group-size-cost">
+          <h2>How group size affects your total</h2>
+          <p>
+            Lodging is priced per room, not per traveler—Plansti assumes two
+            travelers share one room. Food, local transport, activities, and
+            trip contingency are priced per traveler and scale directly with
+            your group size.
+          </p>
+          <p>
+            In practice, a travel companion who shares your existing room
+            adds about 62% of the destination’s daily rate per day (the
+            combined weight of food, transport, activities, and
+            contingency)—lodging itself doesn’t increase. A third, fifth, or
+            seventh traveler, who needs a new room, costs closer to the full
+            daily rate, since that room is a new expense rather than a
+            shared one.
+          </p>
+          <p>
+            The trip cost snapshot on every destination and comparison page
+            is always a fixed 2-traveler, 7-day baseline. Use the calculator
+            on any destination page to see the total for your actual group
+            size, up to 8 travelers.
+          </p>
+        </section>
+
         <section className="static-page__section">
           <h2>Data and transparency</h2>
           <p>
