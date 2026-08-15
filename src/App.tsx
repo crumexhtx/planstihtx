@@ -95,8 +95,26 @@ export default function App() {
   }, [theme]);
 
   useEffect(() => {
+    if (location.hash) {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const scrollToHash = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView();
+          return true;
+        }
+        return false;
+      };
+      // Lazy-loaded route content may not be mounted yet on the same tick
+      // this effect runs, so retry once shortly after.
+      if (!scrollToHash()) {
+        const timer = window.setTimeout(scrollToHash, 50);
+        return () => window.clearTimeout(timer);
+      }
+      return;
+    }
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return (
     <div className="app-shell">

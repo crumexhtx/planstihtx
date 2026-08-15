@@ -452,6 +452,15 @@ body.nav-open {
   line-height: 1.35;
 }
 
+.cost-snapshot__grid small {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
 .cost-snapshot__dishes h3 {
   margin: 0 0 0.5rem;
   font-size: 1rem;
@@ -506,6 +515,15 @@ body.nav-open {
 .compare-page__table thead th {
   background: rgba(249, 115, 59, 0.1);
   font-weight: 800;
+}
+
+.compare-page__table td small {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .compare-page__picks {

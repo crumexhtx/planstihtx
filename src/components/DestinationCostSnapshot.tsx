@@ -33,6 +33,7 @@ export function DestinationCostSnapshot({
             ~${Math.round(snapshot.weekForTwoTotal).toLocaleString('en-US')} USD
             ground costs
           </dd>
+          <small>2nd traveler ≈ 62% of daily rate (shared room)</small>
         </div>
         <div>
           <dt>Usually cheapest</dt>
@@ -60,10 +61,10 @@ export function DestinationCostSnapshot({
 
       <p className="cost-snapshot__footnote">
         Ground-cost planning assumptions dated{' '}
-        <time dateTime={snapshot.asOf}>{snapshot.asOfLabel}</time>. The 2-traveler,
-        7-day total above assumes one shared room and 6 lodging nights. Totals
+        <time dateTime={snapshot.asOf}>{snapshot.asOfLabel}</time>. Totals
         exclude long-haul flights—use the calculator below to personalize dates,
-        origin, and group size.{' '}
+        origin, and group size. See{' '}
+        <Link to="/about#group-size-cost">how group size affects cost</Link>.{' '}
         <Link to="#trip-calculator">Jump to calculator</Link>
       </p>
     </section>

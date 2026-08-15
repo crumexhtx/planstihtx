@@ -88,12 +88,12 @@ function formatCostSnapshotHtml(destination, mustTry) {
     <p>A practical midrange budget for ${escapeHtml(destination.name)} is about $${destination.dailyBudget} USD per traveler per day. For a 7-day trip for two people, ground costs land around $${Math.round(week).toLocaleString('en-US')} USD before long-haul flights${cheapest ? `—usually cheapest in ${escapeHtml(cheapest)}` : ''}.</p>
     <ul>
       <li>Daily budget baseline: $${destination.dailyBudget} USD / traveler</li>
-      <li>7 days for 2 people: ~$${Math.round(week).toLocaleString('en-US')} USD ground costs</li>
+      <li>7 days for 2 people: ~$${Math.round(week).toLocaleString('en-US')} USD ground costs (2nd traveler ≈ 62% of daily rate, shared room)</li>
       <li>Usually cheapest: ${escapeHtml(cheapest || 'Varies')}</li>
       <li>Busiest months: ${escapeHtml(busiest || 'Varies')}</li>
     </ul>
     ${samples ? `<h3>Sample food prices</h3><ul>${samples}</ul>` : ''}
-    <p>Ground-cost planning assumptions dated July 2026. The 2-traveler, 7-day total above assumes one shared room and 6 lodging nights. Use the calculator to personalize origin, dates, and group size.</p>`;
+    <p>Ground-cost planning assumptions dated July 2026. Use the calculator to personalize origin, dates, and group size. See <a href="/about#group-size-cost">how group size affects cost</a>.</p>`;
 }
 
 const destinations = require(path.join(root, 'src/data/destinations.json'));
@@ -451,10 +451,10 @@ function compareBody(comparison, a, b) {
     <p>${escapeHtml(comparison.summary)}</p>
     <h2>Ground costs for 2 travelers, 7 days</h2>
     <ul>
-      <li>${escapeHtml(a.name)}: $${a.dailyBudget}/day baseline · ~$${Math.round(aWeek).toLocaleString('en-US')} USD for 7 days</li>
-      <li>${escapeHtml(b.name)}: $${b.dailyBudget}/day baseline · ~$${Math.round(bWeek).toLocaleString('en-US')} USD for 7 days</li>
+      <li>${escapeHtml(a.name)}: $${a.dailyBudget}/day baseline · ~$${Math.round(aWeek).toLocaleString('en-US')} USD for 7 days (2nd traveler ≈ 62% of daily rate, shared room)</li>
+      <li>${escapeHtml(b.name)}: $${b.dailyBudget}/day baseline · ~$${Math.round(bWeek).toLocaleString('en-US')} USD for 7 days (2nd traveler ≈ 62% of daily rate, shared room)</li>
     </ul>
-    <p>The 2-traveler, 7-day totals above assume one shared room and 6 lodging nights.</p>
+    <p>See <a href="/about#group-size-cost">how group size affects cost</a>.</p>
     <h2>When to pick each city</h2>
     <p><strong>Choose ${escapeHtml(a.name)}:</strong> ${escapeHtml(comparison.pickA)}</p>
     <p><strong>Choose ${escapeHtml(b.name)}:</strong> ${escapeHtml(comparison.pickB)}</p>
