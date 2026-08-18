@@ -2,6 +2,7 @@ import { PageMeta } from '../components/PageMeta';
 import { TripPlanner } from '../components/TripPlanner';
 import { BudgetDestinationMatcher } from '../components/BudgetDestinationMatcher';
 import { CurrencyFooter } from '../components/CurrencyFooter';
+import { HeroGlobe } from '../components/HeroGlobe';
 import { JsonLd } from '../components/JsonLd';
 import { buildWebsiteJsonLd } from '../utils/seo';
 import { HOME_META } from '../utils/pageMetaCopy';
@@ -37,7 +38,7 @@ export function HomePage({ theme }: HomePageProps) {
           </div>
         </div>
         <div className="travel-hero__art" aria-hidden="true">
-          <span className="travel-hero__earth">🌍</span>
+          <HeroGlobe />
         </div>
       </section>
       <BudgetDestinationMatcher />

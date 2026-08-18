@@ -1,64 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import type { Destination } from '../types';
 import { culturalIcons } from '../data/culturalIcons';
-import { searchWikipediaSummary } from '../utils/wikimediaImages';
+import destinationMedia from '../data/destinationMedia.json';
 
 interface FeaturedDestinationsProps {
   destinations: Destination[];
   onSelect?: (destinationId: string) => void;
 }
 
+const mediaLookup = destinationMedia as Record<
+  string,
+  { url: string; pageUrl?: string; alt?: string } | undefined
+>;
+
 export function FeaturedDestinations({
   destinations,
   onSelect,
 }: FeaturedDestinationsProps) {
-  const [images, setImages] = useState<Record<string, string>>({});
-  const imageQueryKey = destinations
-    .map(
-      (destination) =>
-        `${destination.id}:${culturalIcons[destination.id]?.imageUrl ?? culturalIcons[destination.id]?.title ?? destination.name}`,
-    )
-    .join('|');
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    Promise.all(
-      destinations.map(async (destination) => {
-        const culturalIcon = culturalIcons[destination.id];
-        if (culturalIcon?.imageUrl) {
-          return [destination.id, culturalIcon.imageUrl] as const;
-        }
-        const title = culturalIcon?.title ?? destination.name;
-        try {
-          const summary = await searchWikipediaSummary(
-            title,
-            controller.signal,
-          );
-          const imageUrl =
-            summary?.thumbnail?.source ?? summary?.originalimage?.source;
-          return imageUrl
-            ? ([destination.id, imageUrl] as const)
-            : null;
-        } catch {
-          return null;
-        }
-      }),
-    ).then((entries) => {
-      if (controller.signal.aborted) return;
-      setImages(
-        Object.fromEntries(
-          entries.filter(
-            (entry): entry is readonly [string, string] => entry !== null,
-          ),
-        ),
-      );
-    });
-
-    return () => controller.abort();
-  }, [destinations, imageQueryKey]);
-
   return (
     <section className="featured-destinations" aria-labelledby="featured-heading">
       <div className="featured-destinations__header">
@@ -67,12 +25,17 @@ export function FeaturedDestinations({
       </div>
       <div className="featured-destinations__grid">
         {destinations.map((destination) => {
+          const imageUrl =
+            culturalIcons[destination.id]?.imageUrl ??
+            mediaLookup[destination.id]?.url;
           const content = (
             <>
-              {images[destination.id] ? (
+              {imageUrl ? (
                 <img
-                  src={images[destination.id]}
+                  src={imageUrl}
                   alt=""
+                  width={400}
+                  height={150}
                   aria-hidden="true"
                   loading="lazy"
                   decoding="async"

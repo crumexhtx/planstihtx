@@ -64,8 +64,11 @@ function CurrencyItems({
                 className="currency-banner__flag"
                 src={`https://flagcdn.com/w160/${flagCode}.png`}
                 alt=""
+                width={160}
+                height={107}
                 aria-hidden="true"
                 loading="lazy"
+                decoding="async"
               />
             )}
             <strong>{currency}</strong>

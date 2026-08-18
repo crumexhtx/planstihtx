@@ -166,8 +166,11 @@ export function DestinationsIndexPage() {
                     className="destinations-index__flag"
                     src={`https://flagcdn.com/w320/${flagCodeFor(destination.id, destination.country)}.png`}
                     alt=""
+                    width={320}
+                    height={213}
                     aria-hidden="true"
                     loading="lazy"
+                    decoding="async"
                   />
                   <strong>{destination.name}</strong>
                   <span>

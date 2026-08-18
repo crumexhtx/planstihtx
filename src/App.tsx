@@ -3,10 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { SiteHeader } from './components/SiteHeader';
 import { SiteFooter } from './components/SiteFooter';
 import { ExchangeRatesProvider } from './components/ExchangeRatesProvider';
-
-const HomePage = lazy(() =>
-  import('./pages/HomePage').then((module) => ({ default: module.HomePage })),
-);
+import { HomePage } from './pages/HomePage';
 const DestinationPage = lazy(() =>
   import('./pages/DestinationPage').then((module) => ({
     default: module.DestinationPage,

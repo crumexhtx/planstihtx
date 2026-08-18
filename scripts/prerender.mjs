@@ -114,6 +114,7 @@ const culturalIcons = await loadTsObjectExport(
   path.join(root, 'src/data/culturalIcons.ts'),
   'culturalIcons',
 );
+const destinationMedia = require(path.join(root, 'src/data/destinationMedia.json'));
 const comparisons = await loadTsCollectionExport(
   path.join(root, 'src/data/comparisons.ts'),
   'cityComparisons',
@@ -244,10 +245,14 @@ for (const destination of destinations) {
     title: `💰 How Expensive Is ${destination.name}? Trip Cost & Budget Calculator | Plansti`,
     description: metaDescription,
     body: destinationBody(destination, description, info, topAttractions, mustTry),
-    image: culturalIcons[destination.id]?.imageUrl,
-    imageAlt: culturalIcons[destination.id]?.imageUrl
+    image:
+      culturalIcons[destination.id]?.imageUrl ??
+      destinationMedia[destination.id]?.url,
+    imageAlt: culturalIcons[destination.id]
       ? `${culturalIcons[destination.id].label} in ${destination.name}`
-      : undefined,
+      : destinationMedia[destination.id]
+        ? `${destinationMedia[destination.id].alt} in ${destination.name}`
+        : undefined,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'TouristDestination',
@@ -342,6 +347,10 @@ function renderHtml(route) {
   html = upsertMeta(html, 'name', 'twitter:description', route.description);
   html = upsertMeta(html, 'name', 'twitter:image', socialImage);
   html = upsertMeta(html, 'name', 'twitter:image:alt', socialImageAlt);
+  html = html.replace(
+    '</head>',
+    `<style id="seo-static-cls">.seo-static{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}</style></head>`,
+  );
   if (canonical) {
     html = upsertLink(html, 'canonical', canonical);
   }
@@ -407,6 +416,10 @@ function destinationBody(destination, description, info, topAttractions, mustTry
     .join('');
   const seasonality = formatSeasonalityHtml(destination);
   const costSnapshot = formatCostSnapshotHtml(destination, mustTry);
+  const media = destinationMedia[destination.id];
+  const imageHtml = media?.url
+    ? `<figure class="destination-snapshot"><div class="destination-snapshot__gallery"><img src="${escapeAttr(media.url)}" alt="${escapeAttr(media.alt || destination.name)} in ${escapeAttr(destination.name)}" width="960" height="640"></div></figure>`
+    : '';
   const foodLead =
     mustTry.length > 0
       ? `<p>Must-try food in ${escapeHtml(destination.name)} usually includes ${escapeHtml(
@@ -419,6 +432,7 @@ function destinationBody(destination, description, info, topAttractions, mustTry
   return `<main class="seo-static__panel">
     <h1>${escapeHtml(destination.name)} trip cost estimate</h1>
     <p>${escapeHtml(description)}</p>
+    ${imageHtml}
     <p>Daily budget baseline: $${destination.dailyBudget} USD. ${escapeHtml(info.bestFor ?? '')}</p>
     ${costSnapshot}
     ${seasonality}

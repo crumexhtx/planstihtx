@@ -8,6 +8,7 @@ import { initializeClientObservability } from './utils/observability';
 import './index.css';
 
 initializeClientObservability();
+document.getElementById('seo-static')?.setAttribute('hidden', '');
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

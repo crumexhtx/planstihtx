@@ -12,6 +12,7 @@ import { NotFoundPage } from './NotFoundPage';
 import { getDestinationById } from '../utils/tripHelpers';
 import { destinationDescriptions } from '../data/destinationDescriptions';
 import { culturalIcons } from '../data/culturalIcons';
+import destinationMedia from '../data/destinationMedia.json';
 import { buildDestinationJsonLd } from '../utils/seo';
 import { buildBestTimeMetaPhrase } from '../utils/seasonalityCopy';
 import { cityComparisons } from '../data/comparisons';
@@ -40,6 +41,13 @@ export function DestinationPage({ theme }: DestinationPageProps) {
     bestTimePhrase,
   );
 
+  const icon = culturalIcons[destination.id];
+  const media = (
+    destinationMedia as Record<
+      string,
+      { url: string; pageUrl?: string; alt?: string } | undefined
+    >
+  )[destination.id];
   const relatedComparisons = cityComparisons.filter(
     (comparison) =>
       comparison.aId === destination.id || comparison.bId === destination.id,
@@ -51,10 +59,10 @@ export function DestinationPage({ theme }: DestinationPageProps) {
         title={meta.title}
         description={meta.description}
         canonicalPath={`/destinations/${destination.id}`}
-        image={culturalIcons[destination.id]?.imageUrl}
+        image={icon?.imageUrl ?? media?.url}
         imageAlt={
-          culturalIcons[destination.id]?.imageUrl
-            ? `${culturalIcons[destination.id].label} in ${destination.name}`
+          icon || media
+            ? `${icon?.label ?? media?.alt ?? destination.name} in ${destination.name}`
             : undefined
         }
       />

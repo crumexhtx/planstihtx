@@ -1,0 +1,527 @@
+{
+  "bangkok": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B8%E0%B8%932.jpg/330px-%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B8%E0%B8%932.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Wat_Arun",
+    "alt": "Wat Arun"
+  },
+  "paris": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Eiffel_Tower_in_2022_02.jpg/960px-Eiffel_Tower_in_2022_02.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_in_2022_02.jpg",
+    "alt": "Eiffel Tower"
+  },
+  "lisbon": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg/330px-Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Bel%C3%A9m_Tower",
+    "alt": "Belém Tower"
+  },
+  "mexico-city": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Bellas_Artes_01.jpg/330px-Bellas_Artes_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Palacio_de_Bellas_Artes",
+    "alt": "Palacio de Bellas Artes"
+  },
+  "budapest": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Hungarian_Parliament_Building_from_across_the_Danube%2C_2025-01-11.jpg/330px-Hungarian_Parliament_Building_from_across_the_Danube%2C_2025-01-11.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Hungarian_Parliament_Building",
+    "alt": "Hungarian Parliament Building"
+  },
+  "marrakech": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Marokko0112_%28retouched%29.jpg/330px-Marokko0112_%28retouched%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Kutubiyya_Mosque",
+    "alt": "Koutoubia Mosque"
+  },
+  "rome": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/330px-Colosseo_2020.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Colosseum",
+    "alt": "Colosseum"
+  },
+  "amsterdam": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/South_facade_of_the_Rijksmuseum_Amsterdam_%28DSCF0528%29.jpg/330px-South_facade_of_the_Rijksmuseum_Amsterdam_%28DSCF0528%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Rijksmuseum",
+    "alt": "Rijksmuseum"
+  },
+  "london": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Elizabeth_Tower_and_the_north_front_of_the_Palace_of_Westminster%2C_London.jpg/330px-Elizabeth_Tower_and_the_north_front_of_the_Palace_of_Westminster%2C_London.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Big_Ben",
+    "alt": "Big Ben"
+  },
+  "barcelona": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/330px-SF_maig_2_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia",
+    "alt": "Sagrada Família"
+  },
+  "istanbul": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hagia_Sophia_%28228968325%29.jpeg/330px-Hagia_Sophia_%28228968325%29.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Hagia_Sophia",
+    "alt": "Hagia Sophia"
+  },
+  "tokyo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Sensoji_2023.jpg/330px-Sensoji_2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Sens%C5%8D-ji",
+    "alt": "Sensō-ji"
+  },
+  "bali": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/TanahLot_2014.JPG/330px-TanahLot_2014.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Tanah_Lot",
+    "alt": "Tanah Lot"
+  },
+  "seoul": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/%EA%B4%91%ED%99%94%EB%AC%B8_%EC%9B%94%EB%8C%80.jpg/330px-%EA%B4%91%ED%99%94%EB%AC%B8_%EC%9B%94%EB%8C%80.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Gyeongbokgung",
+    "alt": "Gyeongbokgung Palace"
+  },
+  "dubai": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Burj_Khalifa_%28worlds_tallest_building%29_and_the_Dubai_skyline_%2825781049892%29.jpg/330px-Burj_Khalifa_%28worlds_tallest_building%29_and_the_Dubai_skyline_%2825781049892%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Burj_Khalifa",
+    "alt": "Burj Khalifa"
+  },
+  "singapore": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Singapore_Skyline_2019-10.jpg/330px-Singapore_Skyline_2019-10.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Merlion",
+    "alt": "Merlion"
+  },
+  "new-york": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Front_view_of_Statue_of_Liberty_%28cropped%29.jpg/330px-Front_view_of_Statue_of_Liberty_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
+    "alt": "Statue of Liberty"
+  },
+  "los-angeles": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Hollywood_sign_%288485145044%29.jpg/330px-Hollywood_sign_%288485145044%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Hollywood_Sign",
+    "alt": "Hollywood Sign"
+  },
+  "orlando": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cinderella_Castle%2C_Magic_Kingdom_%282026%29.jpg/330px-Cinderella_Castle%2C_Magic_Kingdom_%282026%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Cinderella_Castle",
+    "alt": "Cinderella Castle"
+  },
+  "cancun": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Chichen_Itza_3.jpg/330px-Chichen_Itza_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Chichen_Itza",
+    "alt": "Chichén Itzá"
+  },
+  "rio-de-janeiro": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Christ_the_Redeemer_-_Cristo_Redentor.jpg/330px-Christ_the_Redeemer_-_Cristo_Redentor.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)",
+    "alt": "Christ the Redeemer"
+  },
+  "buenos-aires": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Buenos_Aires_%2820234294752%29.jpg/330px-Buenos_Aires_%2820234294752%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Obelisco_de_Buenos_Aires",
+    "alt": "Obelisk of Buenos Aires"
+  },
+  "sydney": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sydney_Australia._%2821339175489%29.jpg/330px-Sydney_Australia._%2821339175489%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Sydney_Opera_House",
+    "alt": "Sydney Opera House"
+  },
+  "cape-town": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Table_Mountain_DanieVDM.jpg/330px-Table_Mountain_DanieVDM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Table_Mountain",
+    "alt": "Table Mountain"
+  },
+  "cairo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Sphinx_with_the_third_pyramid.jpg/330px-Sphinx_with_the_third_pyramid.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Great_Sphinx_of_Giza",
+    "alt": "Great Sphinx of Giza"
+  },
+  "vienna": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wien_-_Schloss_Sch%C3%B6nbrunn.JPG/330px-Wien_-_Schloss_Sch%C3%B6nbrunn.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Sch%C3%B6nbrunn_Palace",
+    "alt": "Schönbrunn Palace"
+  },
+  "prague": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Karl%C5%AFv_most_Praha%2C_Star%C3%A9_M%C4%9Bsto_20170810_007.jpg/330px-Karl%C5%AFv_most_Praha%2C_Star%C3%A9_M%C4%9Bsto_20170810_007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Prague_Castle",
+    "alt": "Prague Castle"
+  },
+  "berlin": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/330px-Brandenburger_Tor_abends.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Brandenburg_Gate",
+    "alt": "Brandenburg Gate"
+  },
+  "athens": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg/330px-1029_Acropolis_of_Athens_in_Greece_at_night_Photo_by_Giles_Laurent.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Acropolis_of_Athens",
+    "alt": "Acropolis"
+  },
+  "madrid": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Museo_del_Prado_2016_%2825185969599%29.jpg/330px-Museo_del_Prado_2016_%2825185969599%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Museo_del_Prado",
+    "alt": "Prado Museum"
+  },
+  "dublin": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/The_entrance_of_the_historic_Trinity_College_%28Unsplash%29.jpg/330px-The_entrance_of_the_historic_Trinity_College_%28Unsplash%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Trinity_College_Dublin",
+    "alt": "Trinity College"
+  },
+  "edinburgh": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/City_of_Edinburgh_-_Edinburgh_Castle_-_20140421004403.jpg/330px-City_of_Edinburgh_-_Edinburgh_Castle_-_20140421004403.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Edinburgh_Castle",
+    "alt": "Edinburgh Castle"
+  },
+  "copenhagen": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/The_Nyhavn_Canal_3.jpg/330px-The_Nyhavn_Canal_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Nyhavn",
+    "alt": "Nyhavn"
+  },
+  "vancouver": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Stanley_Park_Labeled_Aerial_Map.png/330px-Stanley_Park_Labeled_Aerial_Map.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Stanley_Park",
+    "alt": "Stanley Park"
+  },
+  "toronto": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/CN_Tower_logo.png/330px-CN_Tower_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/CN_Tower",
+    "alt": "CN Tower"
+  },
+  "miami": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Ocean_drive_day_2009j.JPG/330px-Ocean_drive_day_2009j.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Ocean_Drive_(South_Beach)",
+    "alt": "South Beach"
+  },
+  "san-francisco": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Golden_Gate_Bridge_as_seen_from_Battery_East.jpg/330px-Golden_Gate_Bridge_as_seen_from_Battery_East.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge",
+    "alt": "Golden Gate Bridge"
+  },
+  "honolulu": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/City_of_Waikiki_view.jpg/330px-City_of_Waikiki_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Waik%C4%ABk%C4%AB",
+    "alt": "Waikiki Beach"
+  },
+  "melbourne": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Fed_Square%2C_Melbourne%2C_west_view_20230219_1.jpg/330px-Fed_Square%2C_Melbourne%2C_west_view_20230219_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Federation_Square",
+    "alt": "Federation Square"
+  },
+  "kyoto": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg/330px-Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
+    "alt": "Fushimi Inari"
+  },
+  "osaka": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/330px-Osaka_Castle_03bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Osaka_Castle",
+    "alt": "Osaka Castle"
+  },
+  "taipei": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Taipei_101_logo.svg/330px-Taipei_101_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Taipei_101",
+    "alt": "Taipei 101"
+  },
+  "hong-kong": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/High_West_and_Victoria_Peak_from_Victoria_Gap_%28crop1%29.jpg/330px-High_West_and_Victoria_Peak_from_Victoria_Gap_%28crop1%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Victoria_Peak",
+    "alt": "Victoria Peak"
+  },
+  "chiang-mai": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Wat_Phra_That_Doi_Suthep_-_Chiang_Mai.jpg/330px-Wat_Phra_That_Doi_Suthep_-_Chiang_Mai.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Wat_Phra_That_Doi_Suthep",
+    "alt": "Doi Suthep"
+  },
+  "phuket": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/The_Big_Buddha%2C_Phuket.jpg/330px-The_Big_Buddha%2C_Phuket.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Phuket_Big_Buddha",
+    "alt": "Big Buddha"
+  },
+  "ho-chi-minh-city": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora%2C_Ciudad_Ho_Chi_Minh%2C_Vietnam%2C_2013-08-14%2C_DD_03.JPG/330px-Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora%2C_Ciudad_Ho_Chi_Minh%2C_Vietnam%2C_2013-08-14%2C_DD_03.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Notre-Dame_Cathedral_Basilica_of_Saigon",
+    "alt": "Notre-Dame Cathedral"
+  },
+  "lima": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Plaza_de_Armas%2C_Lima.jpg/330px-Plaza_de_Armas%2C_Lima.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Historic_Centre_of_Lima",
+    "alt": "Lima Historic Center"
+  },
+  "delhi": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Delhi_fort.jpg/330px-Delhi_fort.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Red_Fort",
+    "alt": "Red Fort"
+  },
+  "venice": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Venezia_Basilica_di_San_Marco_Fassade_2.jpg/330px-Venezia_Basilica_di_San_Marco_Fassade_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/St_Mark's_Basilica",
+    "alt": "St. Mark’s Basilica"
+  },
+  "porto": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Dom_Lu%C3%ADs_I_Bridge_%2836961760686%29.jpg/330px-Dom_Lu%C3%ADs_I_Bridge_%2836961760686%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Dom_Lu%C3%ADs_I_Bridge",
+    "alt": "Dom Luís I Bridge"
+  },
+  "seville": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Sevilla_Cathedral_-_Southeast.jpg/330px-Sevilla_Cathedral_-_Southeast.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Seville_Cathedral",
+    "alt": "Seville Cathedral"
+  },
+  "munich": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Rathaus_and_Marienplatz_from_Peterskirche_-_August_2006.jpg/330px-Rathaus_and_Marienplatz_from_Peterskirche_-_August_2006.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Marienplatz",
+    "alt": "Marienplatz"
+  },
+  "stockholm": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Stockholms_Stadshuset_City_Hall_Stockholm_2016_01.jpg/330px-Stockholms_Stadshuset_City_Hall_Stockholm_2016_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Stockholm_City_Hall",
+    "alt": "Stockholm City Hall"
+  },
+  "reykjavik": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Hallgrimskirkja_mai_2026.jpg/330px-Hallgrimskirkja_mai_2026.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Hallgr%C3%ADmskirkja",
+    "alt": "Hallgrímskirkja"
+  },
+  "dubrovnik": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Dubrovnik_s_24.jpg/330px-Dubrovnik_s_24.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Walls_of_Dubrovnik",
+    "alt": "Dubrovnik City Walls"
+  },
+  "krakow": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Wawel_%284%29.jpg/330px-Wawel_%284%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Wawel_Castle",
+    "alt": "Wawel Castle"
+  },
+  "zurich": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Grossm%C3%BCnster_-_M%C3%BCnsterhof_2014-05-23_12-08-43.JPG/330px-Grossm%C3%BCnster_-_M%C3%BCnsterhof_2014-05-23_12-08-43.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Grossm%C3%BCnster",
+    "alt": "Grossmünster"
+  },
+  "chicago": {
+    "url": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Cloud_Gate_%28The_Bean%29_from_east%27.jpg/330px-Cloud_Gate_%28The_Bean%29_from_east%27.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Cloud_Gate",
+    "alt": "Cloud Gate"
+  },
+  "boston": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Massachusetts_State_House_Boston_November_2016.jpg/330px-Massachusetts_State_House_Boston_November_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Massachusetts_State_House",
+    "alt": "Massachusetts State House"
+  },
+  "las-vegas": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Welcome_to_Fabulous_Las_Vegas.jpg/330px-Welcome_to_Fabulous_Las_Vegas.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Welcome_to_Fabulous_Las_Vegas_sign",
+    "alt": "Las Vegas Welcome Sign"
+  },
+  "montreal": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Bas%C3%ADlica_de_Notre-Dame%2C_Montreal%2C_Canad%C3%A1%2C_2017-08-11%2C_DD_26-28_HDR.jpg/330px-Bas%C3%ADlica_de_Notre-Dame%2C_Montreal%2C_Canad%C3%A1%2C_2017-08-11%2C_DD_26-28_HDR.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Notre-Dame_Basilica_(Montreal)",
+    "alt": "Notre-Dame Basilica"
+  },
+  "cusco": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sacsayhuam%C3%A1n%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_27.JPG/330px-Sacsayhuam%C3%A1n%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_27.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Sacsayhuam%C3%A1n",
+    "alt": "Sacsayhuamán"
+  },
+  "kuala-lumpur": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Petronas_Towers_Logo.svg/330px-Petronas_Towers_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Petronas_Towers",
+    "alt": "Petronas Twin Towers"
+  },
+  "shanghai": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Bund_2.jpg/330px-The_Bund_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/The_Bund",
+    "alt": "The Bund"
+  },
+  "mumbai": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Mumbai_03-2016_30_Gateway_of_India.jpg/330px-Mumbai_03-2016_30_Gateway_of_India.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Gateway_of_India",
+    "alt": "Gateway of India"
+  },
+  "washington-dc": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Capitol_Building_Full_View.jpg/330px-Capitol_Building_Full_View.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/United_States_Capitol",
+    "alt": "U.S. Capitol"
+  },
+  "seattle": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Space_Needle_2011-07-04.jpg/330px-Space_Needle_2011-07-04.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Space_Needle",
+    "alt": "Space Needle"
+  },
+  "san-diego": {
+    "url": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Hotel_del_Coronado_logo.svg/330px-Hotel_del_Coronado_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Hotel_del_Coronado",
+    "alt": "Hotel del Coronado"
+  },
+  "santiago": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/San_Crist%C3%B3bal_altura.jpg/330px-San_Crist%C3%B3bal_altura.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/San_Crist%C3%B3bal_Hill",
+    "alt": "Cerro San Cristóbal"
+  },
+  "austin": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/TexasStateCapitol-2010-01.JPG/330px-TexasStateCapitol-2010-01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Texas_State_Capitol",
+    "alt": "Texas State Capitol"
+  },
+  "denver": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/RedRocksAMP.png/330px-RedRocksAMP.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Red_Rocks_Amphitheatre",
+    "alt": "Red Rocks Amphitheatre"
+  },
+  "hanoi": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Hanoi_Temple_of_Literature_%28cropped%29.jpg/330px-Hanoi_Temple_of_Literature_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Temple_of_Literature%2C_Hanoi",
+    "alt": "Temple of Literature"
+  },
+  "philadelphia": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Liberty_Bell_2017a.jpg/330px-Liberty_Bell_2017a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Liberty_Bell",
+    "alt": "Liberty Bell"
+  },
+  "atlanta": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Georgia_State_Capitol%2C_Atlanta%2C_West_view_20160716_1.jpg/330px-Georgia_State_Capitol%2C_Atlanta%2C_West_view_20160716_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Georgia_State_Capitol",
+    "alt": "Georgia State Capitol"
+  },
+  "phoenix": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Camelback_Mountain_2.jpg/330px-Camelback_Mountain_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Camelback_Mountain",
+    "alt": "Camelback Mountain"
+  },
+  "dallas": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Reunion_Tower_2026.jpg/330px-Reunion_Tower_2026.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Reunion_Tower",
+    "alt": "Reunion Tower"
+  },
+  "nashville": {
+    "url": "https://upload.wikimedia.org/wikipedia/en/c/c8/Official_logo_for_the_Country_Music_Hall_of_Fame_an_Museum.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "pageUrl": "https://en.wikipedia.org/wiki/Country_Music_Hall_of_Fame_and_Museum",
+    "alt": "Country Music Hall of Fame"
+  },
+  "milan": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Milan_Cathedral_from_Piazza_del_Duomo.jpg/330px-Milan_Cathedral_from_Piazza_del_Duomo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Milan_Cathedral",
+    "alt": "Milan Cathedral"
+  },
+  "naples": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Il_cratere_del_Vulcano_-_panoramio.jpg/330px-Il_cratere_del_Vulcano_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Mount_Vesuvius",
+    "alt": "Mount Vesuvius"
+  },
+  "nice": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/CollineDuChateau_NiceFrance2022.png/330px-CollineDuChateau_NiceFrance2022.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Promenade_des_Anglais",
+    "alt": "Promenade des Anglais"
+  },
+  "lyon": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Fourviere_Lyon.jpg/330px-Fourviere_Lyon.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Basilica_of_Notre-Dame_de_Fourvi%C3%A8re",
+    "alt": "Basilica of Fourvière"
+  },
+  "marseille": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Notre-Dame_de_la_Garde_aerial_view_2020.jpeg/330px-Notre-Dame_de_la_Garde_aerial_view_2020.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Notre-Dame_de_la_Garde",
+    "alt": "Notre-Dame de la Garde"
+  },
+  "brussels": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg/330px-Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Grand-Place",
+    "alt": "Grand Place"
+  },
+  "bruges": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Brugge_Belfort_HDR.jpg/330px-Brugge_Belfort_HDR.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Belfry_of_Bruges",
+    "alt": "Belfry of Bruges"
+  },
+  "florence": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Cattedrale_di_Santa_Maria_del_Fiore_%E2%80%93_Il_Duomo_di_Firenze.jpg/330px-Cattedrale_di_Santa_Maria_del_Fiore_%E2%80%93_Il_Duomo_di_Firenze.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Florence_Cathedral",
+    "alt": "Florence Cathedral"
+  },
+  "houston": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Space_Center_Houston_2025.08.jpg/330px-Space_Center_Houston_2025.08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Space_Center_Houston",
+    "alt": "Space Center Houston"
+  },
+  "mykonos": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Against_Greek_skies%2C_one_of_the_Mykonos_Island_Windmills%2C_Chora._Cyclades%2C_Agean_Sea%2C_Greece.jpg/330px-Against_Greek_skies%2C_one_of_the_Mykonos_Island_Windmills%2C_Chora._Cyclades%2C_Agean_Sea%2C_Greece.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Mykonos_windmills",
+    "alt": "Mykonos windmills"
+  },
+  "helsinki": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Kirkko3.png/330px-Kirkko3.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Helsinki_Cathedral",
+    "alt": "Helsinki Cathedral"
+  },
+  "valencia": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Logo_Ciudad_de_las_Artes_y_de_las_Ciencias.svg/330px-Logo_Ciudad_de_las_Artes_y_de_las_Ciencias.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/City_of_Arts_and_Sciences",
+    "alt": "City of Arts and Sciences"
+  },
+  "salzburg": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Salzburg_-_Festung_Hohensalzburg.JPG/330px-Salzburg_-_Festung_Hohensalzburg.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Hohensalzburg_Fortress",
+    "alt": "Hohensalzburg Fortress"
+  },
+  "key-west": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Southernmost_point_buoy%2C_NE_view.jpg/330px-Southernmost_point_buoy%2C_NE_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Southernmost_Point_Buoy",
+    "alt": "Southernmost Point"
+  },
+  "interlaken": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Sphinx_et_Jungfrau_-_img_06980.jpg/330px-Sphinx_et_Jungfrau_-_img_06980.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Jungfraujoch",
+    "alt": "Jungfraujoch"
+  },
+  "beijing": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/The_Forbidden_City_-_View_from_Coal_Hill.jpg/330px-The_Forbidden_City_-_View_from_Coal_Hill.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Forbidden_City",
+    "alt": "Forbidden City"
+  },
+  "ljubljana": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Ljubljanski_grad_in_Grajski_gri%C4%8D.jpg/330px-Ljubljanski_grad_in_Grajski_gri%C4%8D.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Ljubljana_Castle",
+    "alt": "Ljubljana Castle"
+  },
+  "oslo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Oslo_Opera_House_-_2025.jpg/330px-Oslo_Opera_House_-_2025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Oslo_Opera_House",
+    "alt": "Oslo Opera House"
+  },
+  "siem-reap": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Angkor_Wat.jpg/330px-Angkor_Wat.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Angkor_Wat",
+    "alt": "Angkor Wat"
+  },
+  "phnom-penh": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Le_Palais_Royal_%28Phnom_Penh%29_%286997773481%29.jpg/330px-Le_Palais_Royal_%28Phnom_Penh%29_%286997773481%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Royal_Palace_of_Cambodia",
+    "alt": "Royal Palace"
+  },
+  "jaipur": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/330px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Hawa_Mahal",
+    "alt": "Hawa Mahal"
+  },
+  "goa": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Front_Elevation_of_Basilica_of_Bom_Jesus.jpg/330px-Front_Elevation_of_Basilica_of_Bom_Jesus.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Basilica_of_Bom_Jesus",
+    "alt": "Basilica of Bom Jesus"
+  },
+  "busan": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Gamcheon_Houses%2C_2024.jpg/330px-Gamcheon_Houses%2C_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Gamcheon_Culture_Village",
+    "alt": "Gamcheon Culture Village"
+  },
+  "yogyakarta": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Pradaksina.jpg/330px-Pradaksina.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Borobudur",
+    "alt": "Borobudur"
+  },
+  "sapporo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Sapporo-Clock-Tower-2018.jpg/330px-Sapporo-Clock-Tower-2018.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Sapporo_Clock_Tower",
+    "alt": "Sapporo Clock Tower"
+  },
+  "tel-aviv": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Jaffa_old_city_2.jpg/330px-Jaffa_old_city_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Old_Jaffa",
+    "alt": "Old Jaffa"
+  },
+  "jerusalem": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Westernwall2.jpg/330px-Westernwall2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Western_Wall",
+    "alt": "Western Wall"
+  },
+  "kathmandu": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Boudhanath_stupa_%2C_Kathmandu%2C_Nepal.jpg/330px-Boudhanath_stupa_%2C_Kathmandu%2C_Nepal.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "pageUrl": "https://en.wikipedia.org/wiki/Boudha_Stupa",
+    "alt": "Boudhanath Stupa"
+  }
+}

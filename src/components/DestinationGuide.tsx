@@ -92,6 +92,8 @@ function AttractionImage({
       <img
         src={image.url}
         alt={`${attractionName} in ${destinationName}`}
+        width={800}
+        height={450}
         loading="lazy"
         decoding="async"
       />
@@ -148,6 +150,8 @@ function GuideItemImage({
       <img
         src={image.url}
         alt={`${name}, a ${kind} pick for ${destinationName}`}
+        width={800}
+        height={450}
         loading="lazy"
         decoding="async"
       />

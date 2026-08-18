@@ -12,6 +12,7 @@ import {
   destinationEvents,
   getDestinationEvents,
 } from './destinationEvents';
+import destinationMedia from './destinationMedia.json';
 
 const WAVE_A = [
   'tokyo',
@@ -162,5 +163,20 @@ describe('destination guide copy', () => {
 
     expect(getDestinationEvents('munich')?.[0]?.name).toBe('Oktoberfest');
     expect(getDestinationEvents('paris')).toBeUndefined();
+  });
+
+  it('bakes Wikipedia thumbnails for most destinations', () => {
+    const destinationIds = new Set(destinations.map((destination) => destination.id));
+    const media = destinationMedia as Record<
+      string,
+      { url: string; pageUrl: string; alt: string } | undefined
+    >;
+
+    expect(Object.keys(media).length).toBeGreaterThan(destinations.length * 0.6);
+    Object.entries(media).forEach(([destinationId, image]) => {
+      expect(destinationIds.has(destinationId)).toBe(true);
+      expect(image?.url).toMatch(/^https:\/\//);
+      expect(image?.alt?.length).toBeGreaterThan(1);
+    });
   });
 });

@@ -219,6 +219,7 @@ textarea {
 
 .route-fallback {
   width: min(100% - 2rem, 1000px);
+  min-height: 32rem;
   margin: 1.5rem auto;
   padding: 1.25rem;
   border: 1px solid var(--panel-edge);
@@ -243,10 +244,15 @@ body.nav-open {
 }
 
 .seo-static {
-  max-width: 52rem;
-  margin: 0 auto;
-  padding: 1.25rem 1.1rem 0.5rem;
-  color: var(--ink);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .seo-static[hidden] {
@@ -1859,14 +1865,19 @@ a.explore-button {
 .destination-snapshot__gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, 90px);
+  grid-template-rows: repeat(2, minmax(90px, 1fr));
   gap: 0.35rem;
+  min-height: 180px;
+  aspect-ratio: 16 / 9;
 }
 
-.destination-snapshot__gallery a {
+.destination-snapshot__gallery a,
+.destination-snapshot__placeholder {
   display: block;
+  min-height: 0;
   overflow: hidden;
   border-radius: 0.5rem;
+  background: var(--track);
 }
 
 .destination-snapshot__gallery a:only-child {
@@ -1891,6 +1902,7 @@ a.explore-button {
   grid-template-columns: 1fr auto;
   gap: 0.1rem 0.75rem;
   align-items: baseline;
+  min-height: 4.35rem;
   margin: 0;
   padding: 0.65rem 0.75rem;
   border: 1px solid var(--panel-edge);
@@ -1908,6 +1920,7 @@ a.explore-button {
 
 .destination-snapshot__caption {
   margin-top: -0.4rem;
+  min-height: 1.05em;
 }
 
 .destination-snapshot__weather strong {
@@ -1924,6 +1937,7 @@ a.explore-button {
   display: grid;
   grid-template-columns: repeat(5, minmax(90px, 1fr));
   gap: 0.5rem;
+  min-height: 6.75rem;
   overflow-x: auto;
   padding-bottom: 0.15rem;
 }
@@ -2531,16 +2545,18 @@ body {
 
 .travel-hero__art {
   position: relative;
-  min-height: 310px;
+  width: min(42vw, 320px);
+  aspect-ratio: 1 / 1;
+  justify-self: end;
+  contain: layout;
 }
 
 .travel-hero__earth {
   position: absolute;
-  top: 50%;
-  right: 3%;
-  font-size: clamp(12rem, 24vw, 20rem);
-  line-height: 1;
-  transform: translateY(-50%);
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
   filter: drop-shadow(0 24px 24px rgba(23, 51, 73, 0.2));
 }
 
@@ -3280,12 +3296,12 @@ body {
   }
 
   .travel-hero__art {
-    min-height: 190px;
+    width: min(58vw, 220px);
+    justify-self: center;
   }
 
   .travel-hero__earth {
-    right: 8%;
-    font-size: 11rem;
+    inset: 0;
   }
 
   .travel-hero__actions {
