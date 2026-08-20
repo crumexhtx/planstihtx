@@ -64,10 +64,19 @@ export function DestinationCostSnapshot({
         Ground-cost planning assumptions dated{' '}
         <time dateTime={snapshot.asOf}>{snapshot.asOfLabel}</time>. Totals
         exclude long-haul flights—use the calculator below to personalize dates,
-        origin, and group size. See{' '}
-        <Link to="/about#group-size-cost">how group size affects cost</Link>.{' '}
-        <Link to="#trip-calculator">Jump to calculator</Link>
+        origin, and group size.
       </p>
+      <div className="cost-snapshot__actions">
+        <Link
+          className="explore-button explore-button--secondary"
+          to="/about#group-size-cost"
+        >
+          How group size affects cost
+        </Link>
+        <a className="explore-button" href="#trip-calculator">
+          Jump to calculator
+        </a>
+      </div>
     </section>
   );
 }

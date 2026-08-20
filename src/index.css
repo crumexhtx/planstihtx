@@ -499,6 +499,17 @@ body.nav-open {
   margin: 0;
 }
 
+.cost-snapshot__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+
+.cost-snapshot__actions .explore-button {
+  margin: 0;
+}
+
 .compare-page__table-wrap {
   overflow-x: auto;
   margin: 0.75rem 0 1rem;
