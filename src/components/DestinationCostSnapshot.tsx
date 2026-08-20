@@ -13,10 +13,11 @@ export function DestinationCostSnapshot({
 
   return (
     <section
+      id="trip-cost"
       className="planner-panel cost-snapshot"
       aria-labelledby="cost-snapshot-heading"
     >
-      <p className="cost-summary__eyebrow">Trip cost snapshot</p>
+      <p className="cost-summary__eyebrow">Cost breakdown</p>
       <h2 id="cost-snapshot-heading">
         How much does a trip to {destination.name} cost?
       </h2>

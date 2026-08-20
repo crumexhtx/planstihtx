@@ -55,5 +55,5 @@ export function buildBestTimeToVisitCopy(destination: Destination): string {
 export function buildBestTimeMetaPhrase(destination: Destination): string {
   const best = formatMonthList(destination.seasonality.best);
   if (!best) return '';
-  return `Best time to visit ${destination.name}: ${best}.`;
+  return `When is the best time to visit ${destination.name}? Typically ${best}.`;
 }

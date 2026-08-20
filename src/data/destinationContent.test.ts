@@ -105,7 +105,9 @@ describe('destination guide copy', () => {
     destinations.forEach((destination, index) => {
       expect(destination.seasonality.best.length).toBeGreaterThan(0);
       expect(copies[index]).toContain(destination.name);
-      expect(buildBestTimeMetaPhrase(destination)).toMatch(/^Best time to visit /);
+      expect(buildBestTimeMetaPhrase(destination)).toMatch(
+        /^When is the best time to visit /,
+      );
     });
 
     expect(new Set(copies).size).toBeGreaterThan(1);

@@ -206,8 +206,11 @@ export function DestinationGuide({
 
       {showRecommendations && (
         <>
-          <section className="planner-panel">
-            <h2>Top 5 attractions in {destination.name}</h2>
+          <section id="attractions" className="planner-panel">
+            <p className="cost-summary__eyebrow">Things to do</p>
+            <h2 id="attractions-heading">
+              What are the top things to do in {destination.name}?
+            </h2>
             <p className="answer-lead">
               The top things to do in {destination.name} for most first-time
               visitors start with{' '}
@@ -255,8 +258,11 @@ export function DestinationGuide({
             )}
           </section>
 
-          <section className="planner-panel">
-            <h2>Must-try food in {destination.name}</h2>
+          <section id="food-dining" className="planner-panel">
+            <p className="cost-summary__eyebrow">Food & dining</p>
+            <h2 id="food-dining-heading">
+              What&apos;s the food and dining like in {destination.name}?
+            </h2>
             <p className="answer-lead">
               {buildMustTryFoodAnswer(destination)}
             </p>

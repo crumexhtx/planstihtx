@@ -664,7 +664,33 @@ body.nav-open {
   gap: 0.65rem;
 }
 
-.destination-page__calculator {
+.destination-page__toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  margin: 1rem 0 0;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--panel-edge);
+}
+
+.destination-page__toc a {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.destination-page__toc a:hover,
+.destination-page__toc a:focus-visible {
+  text-decoration: underline;
+}
+
+.destination-page__calculator,
+#trip-cost,
+#best-time,
+#attractions,
+#food-dining,
+#notable-events {
   scroll-margin-top: 5.5rem;
 }
 

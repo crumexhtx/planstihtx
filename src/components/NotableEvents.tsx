@@ -11,14 +11,15 @@ export function NotableEvents({ destination }: NotableEventsProps) {
 
   return (
     <section
+      id="notable-events"
       className="planner-panel notable-events-panel"
       aria-labelledby="notable-events-heading"
     >
       <p className="cost-summary__eyebrow">Calendar</p>
       <h2 id="notable-events-heading">
-        Notable events in {destination.name}
+        What notable events happen in {destination.name}?
       </h2>
-      <p>
+      <p className="answer-lead">
         Recurring festivals and peak weekends that often explain busy or pricey
         months on this page. Dates shift year to year — treat timing as a
         planning window, not a fixed calendar.

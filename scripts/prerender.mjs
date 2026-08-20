@@ -60,7 +60,7 @@ function formatSeasonalityHtml(destination) {
         .reduce((sum, char) => sum + char.charCodeAt(0), 0),
     ) % variants.length;
 
-  return `<h2>Best time to visit ${escapeHtml(destination.name)}</h2><p>${escapeHtml(variants[index])}</p>`;
+  return `<h2>When is the best time to visit ${escapeHtml(destination.name)}?</h2><p>${escapeHtml(variants[index])}</p>`;
 }
 
 /** Matches calculateTripCost for 7 days / 2 travelers / 6 nights. */
@@ -115,6 +115,10 @@ const culturalIcons = await loadTsObjectExport(
   'culturalIcons',
 );
 const destinationMedia = require(path.join(root, 'src/data/destinationMedia.json'));
+const destinationEvents = await loadTsObjectExport(
+  path.join(root, 'src/data/destinationEvents.ts'),
+  'destinationEvents',
+);
 const comparisons = await loadTsCollectionExport(
   path.join(root, 'src/data/comparisons.ts'),
   'cityComparisons',
@@ -228,7 +232,7 @@ for (const destination of destinations) {
     .filter(Boolean);
   const bestTimePhrase =
     bestMonths.length > 0
-      ? `Best time to visit ${destination.name}: ${formatMonthList(destination.seasonality.best)}.`
+      ? `When is the best time to visit ${destination.name}? Typically ${formatMonthList(destination.seasonality.best)}.`
       : '';
   const metaDescription = [
     `Find the cost of a ${destination.name}, ${destination.country} trip. See how expensive it is to visit with Plansti’s trip cost calculator.`,
@@ -417,9 +421,14 @@ function destinationBody(destination, description, info, topAttractions, mustTry
   const seasonality = formatSeasonalityHtml(destination);
   const costSnapshot = formatCostSnapshotHtml(destination, mustTry);
   const media = destinationMedia[destination.id];
+  const events = destinationEvents[destination.id] ?? [];
   const imageHtml = media?.url
     ? `<figure class="destination-snapshot"><div class="destination-snapshot__gallery"><img src="${escapeAttr(media.url)}" alt="${escapeAttr(media.alt || destination.name)} in ${escapeAttr(destination.name)}" width="960" height="640"></div></figure>`
     : '';
+  const lead = escapeHtml(
+    (info.highlights || description || '').split(/(?<=[.!?])\s/)[0] ||
+      description,
+  );
   const foodLead =
     mustTry.length > 0
       ? `<p>Must-try food in ${escapeHtml(destination.name)} usually includes ${escapeHtml(
@@ -429,19 +438,31 @@ function destinationBody(destination, description, info, topAttractions, mustTry
             .join(', '),
         )}. Typical plates below help you budget meals before you go.</p>`
       : '';
+  const eventsHtml =
+    events.length > 0
+      ? `<h2>What notable events happen in ${escapeHtml(destination.name)}?</h2>
+    <p>Recurring festivals and peak weekends that often explain busy or pricey months. Dates shift year to year — treat timing as a planning window.</p>
+    <ul>${events
+      .map(
+        (event) =>
+          `<li><strong>${escapeHtml(event.name)}</strong> — ${escapeHtml(event.typicalTiming)}. ${escapeHtml(event.crowdCostNote)}</li>`,
+      )
+      .join('')}</ul>`
+      : '';
   return `<main class="seo-static__panel">
-    <h1>${escapeHtml(destination.name)} trip cost estimate</h1>
-    <p>${escapeHtml(description)}</p>
+    <h1>${escapeHtml(destination.name)}, ${escapeHtml(destination.country)}</h1>
+    <p>${lead}</p>
     ${imageHtml}
     <p>Daily budget baseline: $${destination.dailyBudget} USD. ${escapeHtml(info.bestFor ?? '')}</p>
     ${costSnapshot}
     ${seasonality}
-    <h2>Top attractions in ${escapeHtml(destination.name)}</h2>
+    <h2>What are the top things to do in ${escapeHtml(destination.name)}?</h2>
     <ol>${attractions || '<li>Coming soon</li>'}</ol>
-    <h2>Must-try food in ${escapeHtml(destination.name)}</h2>
+    <h2>What's the food and dining like in ${escapeHtml(destination.name)}?</h2>
     ${foodLead}
     <ul>${food || '<li>Coming soon</li>'}</ul>
-    <p><a href="/destinations/${destination.id}#trip-calculator">Jump to the ${escapeHtml(destination.name)} calculator</a> or <a href="/">open the general calculator</a></p>
+    ${eventsHtml}
+    <p><a href="/destinations/${destination.id}#trip-calculator">Estimate your ${escapeHtml(destination.name)} trip</a> or <a href="/">open the general calculator</a></p>
   </main>`;
 }
 

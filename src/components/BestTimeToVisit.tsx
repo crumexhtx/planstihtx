@@ -13,12 +13,15 @@ export function BestTimeToVisit({ destination }: BestTimeToVisitProps) {
 
   return (
     <section
+      id="best-time"
       className="planner-panel best-time-panel"
       aria-labelledby="best-time-heading"
     >
       <p className="cost-summary__eyebrow">Seasonality</p>
-      <h2 id="best-time-heading">Best time to visit {destination.name}</h2>
-      <p>{copy}</p>
+      <h2 id="best-time-heading">
+        When is the best time to visit {destination.name}?
+      </h2>
+      <p className="answer-lead">{copy}</p>
       <dl className="best-time-panel__grid">
         <div>
           <dt>Best overall</dt>
