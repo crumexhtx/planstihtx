@@ -2,10 +2,12 @@ import { type FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { PartnerBanner } from '../components/PartnerBanner';
+import { MAKER } from '../config/maker';
 import {
   CONTACT_CATEGORIES,
   CONTACT_LIMITS,
 } from '../utils/contactValidation';
+import { SAMPLE_TRIP_LOCATION } from '../utils/plannerQuery';
 import { trackAnalyticsEvent } from '../utils/observability';
 
 export function AboutPage() {
@@ -98,10 +100,66 @@ export function AboutPage() {
           </p>
         </section>
 
+        <section className="static-page__section" id="how-its-built">
+          <h2>How Plansti is built</h2>
+          <p>
+            Plansti is a production React and TypeScript app: prerendered city
+            and comparison routes for search, a cost engine for group size and
+            room sharing, and Vercel functions for contact delivery and
+            exchange rates. Live ECB rates are cached and fall back to planning
+            figures when the feed is unavailable. Analytics stay coarse—city
+            IDs and statuses, not names, emails, or exact budgets.
+          </p>
+          <p>
+            The interesting constraints were keeping estimates honest (planning
+            totals, not live fares), making city pages crawlable without
+            abandoning a client-side planner, and failing visibly when weather,
+            FX, or maps cannot load.
+          </p>
+          <p>
+            Source is on{' '}
+            <a
+              href={MAKER.githubRepoUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </a>.
+          </p>
+        </section>
+
+        <section className="static-page__section" id="built-by">
+          <h2>Who built this</h2>
+          <p>
+            Plansti is built by {MAKER.name}. It is a live product at{' '}
+            <a href="https://plansti.com">plansti.com</a>, not a mock
+            portfolio page.
+          </p>
+          <p className="about-maker-links">
+            <a
+              href={MAKER.githubUrl}
+              rel="me noopener noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </a>
+            <a
+              href={MAKER.linkedinUrl}
+              rel="me noopener noreferrer"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
+          </p>
+        </section>
+
         <PartnerBanner />
 
         <div className="static-page__actions">
-          <Link className="explore-button" to="/">
+          <Link className="explore-button" to={SAMPLE_TRIP_LOCATION}>
+            Try a sample trip
+          </Link>
+          <Link className="explore-button explore-button--secondary" to="/">
             Start planning
           </Link>
           <Link

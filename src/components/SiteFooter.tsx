@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { MAKER } from '../config/maker';
 
 export function SiteFooter() {
   return (
@@ -6,6 +7,23 @@ export function SiteFooter() {
       <div className="site-footer__brand">
         <strong>Plansti</strong>
         <span>Plan with context. Book with confidence.</span>
+        <p className="site-footer__maker">
+          Built by {MAKER.name}
+          <a
+            href={MAKER.githubUrl}
+            rel="me noopener noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </a>
+          <a
+            href={MAKER.linkedinUrl}
+            rel="me noopener noreferrer"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+        </p>
       </div>
       <nav aria-label="Footer navigation">
         <Link to="/about">About</Link>

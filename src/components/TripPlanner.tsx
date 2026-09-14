@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { destinationDescriptions } from '../data/destinationDescriptions';
 import { DestinationSnapshot } from './DestinationSnapshot';
 import { FeaturedDestinations } from './FeaturedDestinations';
@@ -25,7 +25,6 @@ import { useExchangeRates } from './ExchangeRatesProvider';
 import {
   addDays,
   alignLegsToDateRange,
-  createTrip,
   currencies,
   dateRangeDays,
   destinations,
@@ -46,6 +45,11 @@ import {
   trackAnalyticsEvent,
   trackAnalyticsEventOnce,
 } from '../utils/observability';
+import {
+  createTripFromQuery,
+  plannerQueriesEqual,
+  serializePlannerQuery,
+} from '../utils/plannerQuery';
 
 const BudgetTravelMap = lazy(() => import('./BudgetTravelMap'));
 
@@ -90,8 +94,12 @@ export function TripPlanner({
   showCityGuideRecommendations = true,
 }: TripPlannerProps) {
   const { rates } = useExchangeRates();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const skipPlannerUrlSync = useRef(true);
   const lockedId = lockedDestination?.id ?? '';
-  const [trip, setTrip] = useState<TripPlan>(() => createTrip(lockedId));
+  const [trip, setTrip] = useState<TripPlan>(() =>
+    createTripFromQuery(searchParams, lockedId),
+  );
   const [exploreOpen, setExploreOpen] = useState(false);
   const [customName, setCustomName] = useState('');
   const [customAmount, setCustomAmount] = useState(0);
@@ -123,6 +131,28 @@ export function TripPlanner({
       };
     });
   }, [lockedId]);
+
+  useEffect(() => {
+    if (skipPlannerUrlSync.current) {
+      skipPlannerUrlSync.current = false;
+      return;
+    }
+
+    const destinationId = trip.legs[0]?.destinationId;
+    if (mode === 'general' && !destinationId) {
+      if (!plannerQueriesEqual(searchParams, new URLSearchParams())) {
+        setSearchParams(new URLSearchParams(), { replace: true });
+      }
+      return;
+    }
+
+    const next = serializePlannerQuery(trip, {
+      includeDestination: mode === 'general',
+    });
+    if (!plannerQueriesEqual(searchParams, next)) {
+      setSearchParams(next, { replace: true });
+    }
+  }, [mode, searchParams, setSearchParams, trip]);
 
   const primaryDestinationId = trip.legs[0]?.destinationId;
   const totalDays = dateRangeDays(trip.startDate, trip.endDate);

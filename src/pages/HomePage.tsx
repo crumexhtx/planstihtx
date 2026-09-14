@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { TripPlanner } from '../components/TripPlanner';
 import { BudgetDestinationMatcher } from '../components/BudgetDestinationMatcher';
@@ -6,6 +7,7 @@ import { HeroGlobe } from '../components/HeroGlobe';
 import { JsonLd } from '../components/JsonLd';
 import { buildWebsiteJsonLd } from '../utils/seo';
 import { HOME_META } from '../utils/pageMetaCopy';
+import { SAMPLE_TRIP_LOCATION } from '../utils/plannerQuery';
 
 export interface HomePageProps {
   theme: 'light' | 'dark';
@@ -29,13 +31,20 @@ export function HomePage({ theme }: HomePageProps) {
             planning estimate for flights, stays, food, and local experiences.
           </p>
           <div className="travel-hero__actions">
-            <a className="travel-hero__cta" href="#trip-planner">
+            <Link className="travel-hero__cta" to={SAMPLE_TRIP_LOCATION}>
+              Try a sample trip
+            </Link>
+            <a className="travel-hero__cta travel-hero__cta--secondary" href="#trip-planner">
               Start planning
             </a>
-            <a className="travel-hero__cta" href="#currency-converter">
+            <a className="travel-hero__cta travel-hero__cta--secondary" href="#currency-converter">
               Currency converter
             </a>
           </div>
+          <p className="travel-hero__demo">
+            Opens a Houston to Tokyo week with 2 travelers. Then compare{' '}
+            <Link to="/compare/tokyo-vs-seoul">Tokyo vs Seoul</Link>.
+          </p>
         </div>
         <div className="travel-hero__art" aria-hidden="true">
           <HeroGlobe />

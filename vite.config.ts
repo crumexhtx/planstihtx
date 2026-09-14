@@ -13,6 +13,14 @@ export default defineConfig(({ command }) => {
     plugins: [react()],
     test: {
       environment: 'node',
+      exclude: [
+        '**/node_modules/**',
+        '**/dist/**',
+        '**/e2e/**',
+        '**/.git/**',
+        '**/playwright-report/**',
+        '**/test-results/**',
+      ],
     },
   };
 });
