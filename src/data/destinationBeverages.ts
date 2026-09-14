@@ -563,5 +563,85 @@ export const destinationBeverages: Record<string, DestinationBeveragePair> = {
     localDrink: { name: 'Micheladas', blurb: 'Spiced beer cocktail popular along the River Walk.', averagePriceUsd: 8 },
     beer: { name: 'Shiner Bock', blurb: 'Iconic Texas amber lager.', averagePriceUsd: 5 },
   },
+  bogota: {
+    localDrink: { name: 'Aguardiente', blurb: 'Anise-flavored Colombian spirit, often shared neat.', averagePriceUsd: 4 },
+    beer: { name: 'Club Colombia', blurb: 'Widely available Colombian lager.', averagePriceUsd: 3 },
+  },
+  oaxaca: {
+    localDrink: { name: 'Mezcal', blurb: 'Smoky agave spirit, Oaxaca’s signature pour.', averagePriceUsd: 5 },
+    beer: { name: 'Victoria', blurb: 'Popular Mexican Vienna-style lager.', averagePriceUsd: 3 },
+  },
+  'puerto-vallarta': {
+    localDrink: { name: 'Paloma', blurb: 'Tequila highball with grapefruit soda and lime.', averagePriceUsd: 6 },
+    beer: { name: 'Pacifico', blurb: 'Crisp Pacific-coast Mexican lager.', averagePriceUsd: 3 },
+  },
+  tulum: {
+    localDrink: { name: 'Xtabentún', blurb: 'Yucatán anise-and-honey liqueur with Maya roots.', averagePriceUsd: 6 },
+    beer: { name: 'Sol', blurb: 'Light Mexican lager common on the Riviera Maya.', averagePriceUsd: 3 },
+  },
+  casablanca: {
+    localDrink: { name: 'Mint tea', blurb: 'Sweet gunpowder green tea with fresh mint.', averagePriceUsd: 2 },
+    beer: { name: 'Casablanca Beer', blurb: 'Morocco’s namesake lager for the city.', averagePriceUsd: 4 },
+  },
+  johannesburg: {
+    localDrink: { name: 'Amarula', blurb: 'Creamy liqueur made from marula fruit.', averagePriceUsd: 6 },
+    beer: { name: 'Castle Lager', blurb: 'Classic South African pale lager.', averagePriceUsd: 3 },
+  },
+  granada: {
+    localDrink: { name: 'Tinto de verano', blurb: 'Red wine mixed with lemon soda, a local refresher.', averagePriceUsd: 4 },
+    beer: { name: 'Alhambra Reserva 1925', blurb: 'Granada-brewed amber lager.', averagePriceUsd: 4 },
+  },
+  split: {
+    localDrink: { name: 'Rakija', blurb: 'Fruit brandy, often plum or grape, served as a welcome shot.', averagePriceUsd: 3 },
+    beer: { name: 'Karlovačko', blurb: 'Popular Croatian pale lager.', averagePriceUsd: 4 },
+  },
+  belgrade: {
+    localDrink: { name: 'Rakija', blurb: 'Serbian fruit brandy, typically šljivovica (plum).', averagePriceUsd: 3 },
+    beer: { name: 'Jelen Pivo', blurb: 'Widely drunk Serbian lager named for the stag.', averagePriceUsd: 3 },
+  },
+  bucharest: {
+    localDrink: { name: 'Țuică', blurb: 'Traditional Romanian plum brandy.', averagePriceUsd: 3 },
+    beer: { name: 'Ursus', blurb: 'Romania’s best-known lager brand.', averagePriceUsd: 3 },
+  },
+  tallinn: {
+    localDrink: { name: 'Vana Tallinn', blurb: 'Sweet rum-based liqueur flavored with citrus and spices.', averagePriceUsd: 5 },
+    beer: { name: 'Saku Originaal', blurb: 'Estonia’s classic pale lager.', averagePriceUsd: 4 },
+  },
+  geneva: {
+    localDrink: { name: 'Fendant', blurb: 'Crisp Valais white wine traditionally poured with fondue.', averagePriceUsd: 9 },
+    beer: { name: 'Cardinal', blurb: 'Long-standing Swiss lager brand.', averagePriceUsd: 7 },
+  },
+  bologna: {
+    localDrink: { name: 'Pignoletto', blurb: 'Local sparkling or still white from the Bologna hills.', averagePriceUsd: 6 },
+    beer: { name: 'Peroni Nastro Azzurro', blurb: 'Italy’s widely available pale lager.', averagePriceUsd: 5 },
+  },
+  valletta: {
+    localDrink: { name: 'Kinnie', blurb: 'Bittersweet Maltese soft drink of orange and herbs.', averagePriceUsd: 3 },
+    beer: { name: 'Cisk Lager', blurb: 'Malta’s flagship pale lager.', averagePriceUsd: 4 },
+  },
+  antalya: {
+    localDrink: { name: 'Ayran', blurb: 'Salty yogurt drink served with kebabs.', averagePriceUsd: 2 },
+    beer: { name: 'Efes Pilsen', blurb: 'Turkey’s ubiquitous pale lager.', averagePriceUsd: 4 },
+  },
+  'da-nang': {
+    localDrink: { name: 'Cà phê sữa đá', blurb: 'Iced Vietnamese coffee with sweetened condensed milk.', averagePriceUsd: 2 },
+    beer: { name: 'Larue', blurb: 'Regional lager popular in central Vietnam.', averagePriceUsd: 1 },
+  },
+  'hoi-an': {
+    localDrink: { name: 'Trà sen', blurb: 'Lotus tea often served in old-town cafés.', averagePriceUsd: 2 },
+    beer: { name: 'Huda Beer', blurb: 'Hue-region lager common across central Vietnam.', averagePriceUsd: 1 },
+  },
+  brisbane: {
+    localDrink: { name: 'Bundaberg ginger beer', blurb: 'Queensland-made spicy ginger soft drink or mixer.', averagePriceUsd: 4 },
+    beer: { name: 'XXXX Gold', blurb: 'Queensland’s best-known mid-strength lager.', averagePriceUsd: 6 },
+  },
+  wellington: {
+    localDrink: { name: 'Flat white', blurb: 'Velvety espresso drink NZ helped popularize.', averagePriceUsd: 4 },
+    beer: { name: 'Garage Project', blurb: 'Cult Wellington craft brewery pours.', averagePriceUsd: 8 },
+  },
+  'xi-an': {
+    localDrink: { name: 'Suanmeitang', blurb: 'Sweet-tart smoked plum drink sold street-side.', averagePriceUsd: 1 },
+    beer: { name: 'Tsingtao', blurb: 'China’s widely available pale lager.', averagePriceUsd: 2 },
+  },
 
 };

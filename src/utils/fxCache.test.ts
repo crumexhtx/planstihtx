@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { clearFxCache, readFxCache, writeFxCache } from '../../api/_lib/fxCache';
-import { planningExchangeRates } from '../utils/exchangeRates';
+import { planningExchangeRates } from '../../api/_lib/fxRates';
 
 describe('fx memory cache', () => {
   afterEach(() => {

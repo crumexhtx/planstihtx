@@ -1939,7 +1939,7 @@ a.explore-button {
   grid-template-columns: 1fr auto;
   gap: 0.1rem 0.75rem;
   align-items: baseline;
-  min-height: 4.35rem;
+  min-height: 5.1rem;
   margin: 0;
   padding: 0.65rem 0.75rem;
   border: 1px solid var(--panel-edge);
@@ -1968,6 +1968,10 @@ a.explore-button {
 
 .destination-snapshot__weather small {
   grid-column: 1 / -1;
+}
+
+.destination-snapshot__weather-source {
+  opacity: 0.85;
 }
 
 .destination-snapshot__forecast {

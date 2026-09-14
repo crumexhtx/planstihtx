@@ -57,6 +57,8 @@ export const TRACKER_CURRENCY_LABELS: Record<TrackerCurrency, string> = {
   UYU: 'Uruguayan Peso',
   BSD: 'Bahamian Dollar',
   JMD: 'Jamaican Dollar',
+  RON: 'Romanian Leu',
+  RSD: 'Serbian Dinar',
 };
 
 /** Default local currency for a destination when available. */
@@ -200,6 +202,26 @@ export const DESTINATION_LOCAL_CURRENCY: Record<string, TrackerCurrency> = {
   'quebec-city': 'CAD',
   calgary: 'CAD',
   'san-antonio': 'USD',
+  bogota: 'COP',
+  oaxaca: 'MXN',
+  'puerto-vallarta': 'MXN',
+  tulum: 'MXN',
+  casablanca: 'MAD',
+  johannesburg: 'ZAR',
+  granada: 'EUR',
+  split: 'EUR',
+  belgrade: 'RSD',
+  bucharest: 'RON',
+  tallinn: 'EUR',
+  geneva: 'CHF',
+  bologna: 'EUR',
+  valletta: 'EUR',
+  antalya: 'TRY',
+  'da-nang': 'VND',
+  'hoi-an': 'VND',
+  brisbane: 'AUD',
+  wellington: 'NZD',
+  'xi-an': 'CNY',
 
 };
 

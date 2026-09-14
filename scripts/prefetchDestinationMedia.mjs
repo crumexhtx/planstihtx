@@ -67,7 +67,7 @@ let fetched = 0;
 let reused = 0;
 let missed = 0;
 
-await mapPool(destinations, 6, async (destination) => {
+await mapPool(destinations, 2, async (destination) => {
   const icon = culturalIcons[destination.id];
   if (icon?.imageUrl) {
     media[destination.id] = {
@@ -79,8 +79,13 @@ await mapPool(destinations, 6, async (destination) => {
     return;
   }
   const title = icon?.title ?? destination.name;
+  // Gentle pacing — Wikipedia REST returns 429 under burst concurrency.
+  await new Promise((resolve) => setTimeout(resolve, 350));
   try {
-    const summary = await fetchSummary(title);
+    let summary = await fetchSummary(title);
+    if (!summary?.thumbnail?.source && !summary?.originalimage?.source) {
+      summary = await fetchSummary(destination.name);
+    }
     const url = summary?.thumbnail?.source ?? summary?.originalimage?.source;
     if (!url) {
       missed += 1;

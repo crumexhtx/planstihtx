@@ -3542,5 +3542,542 @@
         7
       ]
     }
+  },
+  {
+    "id": "bogota",
+    "name": "Bogotá",
+    "country": "Colombia",
+    "lat": 4.711,
+    "lng": -74.0721,
+    "dailyBudget": 52,
+    "seasonality": {
+      "cheapest": [
+        4,
+        5,
+        10,
+        11
+      ],
+      "best": [
+        1,
+        2,
+        8,
+        9
+      ],
+      "busiest": [
+        6,
+        7,
+        12
+      ]
+    }
+  },
+  {
+    "id": "oaxaca",
+    "name": "Oaxaca",
+    "country": "Mexico",
+    "lat": 17.0732,
+    "lng": -96.7266,
+    "dailyBudget": 70,
+    "seasonality": {
+      "cheapest": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "best": [
+        2,
+        3,
+        4,
+        11
+      ],
+      "busiest": [
+        10,
+        12,
+        1
+      ]
+    }
+  },
+  {
+    "id": "puerto-vallarta",
+    "name": "Puerto Vallarta",
+    "country": "Mexico",
+    "lat": 20.6534,
+    "lng": -105.2253,
+    "dailyBudget": 75,
+    "seasonality": {
+      "cheapest": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "best": [
+        2,
+        4,
+        5,
+        11
+      ],
+      "busiest": [
+        12,
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "id": "tulum",
+    "name": "Tulum",
+    "country": "Mexico",
+    "lat": 20.2114,
+    "lng": -87.4654,
+    "dailyBudget": 85,
+    "seasonality": {
+      "cheapest": [
+        6,
+        9,
+        10
+      ],
+      "best": [
+        2,
+        3,
+        4,
+        11
+      ],
+      "busiest": [
+        12,
+        1,
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "casablanca",
+    "name": "Casablanca",
+    "country": "Morocco",
+    "lat": 33.5731,
+    "lng": -7.5898,
+    "dailyBudget": 58,
+    "seasonality": {
+      "cheapest": [
+        1,
+        7,
+        8
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        10,
+        11
+      ],
+      "busiest": [
+        6,
+        9,
+        12
+      ]
+    }
+  },
+  {
+    "id": "johannesburg",
+    "name": "Johannesburg",
+    "country": "South Africa",
+    "lat": -26.2041,
+    "lng": 28.0473,
+    "dailyBudget": 80,
+    "seasonality": {
+      "cheapest": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "best": [
+        3,
+        4,
+        9,
+        10
+      ],
+      "busiest": [
+        12,
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "id": "granada",
+    "name": "Granada",
+    "country": "Spain",
+    "lat": 37.1773,
+    "lng": -3.5986,
+    "dailyBudget": 85,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        10
+      ],
+      "busiest": [
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "id": "split",
+    "name": "Split",
+    "country": "Croatia",
+    "lat": 43.5081,
+    "lng": 16.4402,
+    "dailyBudget": 100,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        3,
+        11
+      ],
+      "best": [
+        5,
+        6,
+        9,
+        10
+      ],
+      "busiest": [
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "belgrade",
+    "name": "Belgrade",
+    "country": "Serbia",
+    "lat": 44.7866,
+    "lng": 20.4489,
+    "dailyBudget": 75,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "busiest": [
+        6,
+        7,
+        8,
+        12
+      ]
+    }
+  },
+  {
+    "id": "bucharest",
+    "name": "Bucharest",
+    "country": "Romania",
+    "lat": 44.4268,
+    "lng": 26.1025,
+    "dailyBudget": 70,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "busiest": [
+        6,
+        7,
+        8,
+        12
+      ]
+    }
+  },
+  {
+    "id": "tallinn",
+    "name": "Tallinn",
+    "country": "Estonia",
+    "lat": 59.437,
+    "lng": 24.7536,
+    "dailyBudget": 95,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        3,
+        11
+      ],
+      "best": [
+        5,
+        6,
+        9
+      ],
+      "busiest": [
+        7,
+        8,
+        12
+      ]
+    }
+  },
+  {
+    "id": "geneva",
+    "name": "Geneva",
+    "country": "Switzerland",
+    "lat": 46.2044,
+    "lng": 6.1432,
+    "dailyBudget": 200,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        4,
+        5,
+        6,
+        9
+      ],
+      "busiest": [
+        7,
+        8,
+        12
+      ]
+    }
+  },
+  {
+    "id": "bologna",
+    "name": "Bologna",
+    "country": "Italy",
+    "lat": 44.4949,
+    "lng": 11.3426,
+    "dailyBudget": 100,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        10
+      ],
+      "busiest": [
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "id": "valletta",
+    "name": "Valletta",
+    "country": "Malta",
+    "lat": 35.8989,
+    "lng": 14.5146,
+    "dailyBudget": 95,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        10
+      ],
+      "busiest": [
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "id": "antalya",
+    "name": "Antalya",
+    "country": "Türkiye",
+    "lat": 36.8969,
+    "lng": 30.7133,
+    "dailyBudget": 80,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        11
+      ],
+      "best": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "busiest": [
+        6,
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "da-nang",
+    "name": "Da Nang",
+    "country": "Vietnam",
+    "lat": 16.0544,
+    "lng": 108.2022,
+    "dailyBudget": 48,
+    "seasonality": {
+      "cheapest": [
+        9,
+        10,
+        11
+      ],
+      "best": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "busiest": [
+        1,
+        7,
+        8,
+        12
+      ]
+    }
+  },
+  {
+    "id": "hoi-an",
+    "name": "Hoi An",
+    "country": "Vietnam",
+    "lat": 15.8801,
+    "lng": 108.338,
+    "dailyBudget": 45,
+    "seasonality": {
+      "cheapest": [
+        9,
+        10,
+        11
+      ],
+      "best": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "busiest": [
+        1,
+        7,
+        8,
+        12
+      ]
+    }
+  },
+  {
+    "id": "brisbane",
+    "name": "Brisbane",
+    "country": "Australia",
+    "lat": -27.4698,
+    "lng": 153.0251,
+    "dailyBudget": 135,
+    "seasonality": {
+      "cheapest": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "best": [
+        3,
+        4,
+        9,
+        10
+      ],
+      "busiest": [
+        12,
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "id": "wellington",
+    "name": "Wellington",
+    "country": "New Zealand",
+    "lat": -41.2865,
+    "lng": 174.7762,
+    "dailyBudget": 135,
+    "seasonality": {
+      "cheapest": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "best": [
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "busiest": [
+        12,
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "id": "xi-an",
+    "name": "Xi'an",
+    "country": "China",
+    "lat": 34.3416,
+    "lng": 108.9398,
+    "dailyBudget": 60,
+    "seasonality": {
+      "cheapest": [
+        1,
+        2,
+        7
+      ],
+      "best": [
+        3,
+        4,
+        5,
+        9,
+        11
+      ],
+      "busiest": [
+        6,
+        8,
+        10
+      ]
+    }
   }
 ]

@@ -1,5 +1,7 @@
-import type { ExchangeRatesSnapshot } from '../../src/utils/exchangeRates';
-import { FX_CACHE_TTL_MS } from '../../src/utils/exchangeRates';
+import {
+  FX_CACHE_TTL_MS,
+  type ExchangeRatesSnapshot,
+} from './fxRates';
 
 interface CacheEntry {
   snapshot: ExchangeRatesSnapshot;

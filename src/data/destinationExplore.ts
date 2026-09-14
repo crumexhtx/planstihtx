@@ -1646,5 +1646,245 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       { name: 'Tower of the Americas', blurb: 'Observation tower left from the 1968 World’s Fair.' },
     ],
   },
+  bogota: {
+    highlights:
+      'High-Andes capital with a walkable historic center and mountain viewpoints.',
+    bestFor: 'City culture before or after Colombia’s coffee region',
+    topAttractions: [
+      { name: 'Monserrate', blurb: 'Hilltop shrine and viewpoint above the city.' },
+      { name: 'La Candelaria', blurb: 'Colonial historic quarter of plazas and museums.' },
+      { name: 'Gold Museum (Museo del Oro)', blurb: 'World-class collection of pre-Columbian gold.' },
+      { name: 'Plaza de Bolívar', blurb: 'Main square framed by cathedral and government buildings.' },
+      { name: 'Usaquén', blurb: 'Village-like neighborhood with weekend craft market.' },
+    ],
+  },
+  oaxaca: {
+    highlights:
+      'Mole, mezcal, and indigenous crafts around a lively highland zócalo.',
+    bestFor: 'Food travelers and day trips to ruins and villages',
+    topAttractions: [
+      { name: 'Monte Albán', blurb: 'Zapotec mountaintop ruins overlooking the valley.' },
+      { name: 'Templo de Santo Domingo', blurb: 'Baroque church and cultural center.' },
+      { name: 'Zócalo', blurb: 'Shaded main square of cafés and street life.' },
+      { name: 'Mercado 20 de Noviembre', blurb: 'Market famous for grilled meats and moles.' },
+      { name: 'Hierve el Agua', blurb: 'Petrified waterfall pools in the hills outside town.' },
+    ],
+  },
+  'puerto-vallarta': {
+    highlights:
+      'Pacific beaches with a walkable old town and Malecon art promenade.',
+    bestFor: 'Beach downtime with a real town attached',
+    topAttractions: [
+      { name: 'Malecón', blurb: 'Seaside promenade of sculptures and sunset views.' },
+      { name: 'Zona Romántica', blurb: 'Old-town streets of galleries, bars, and beaches.' },
+      { name: 'Church of Our Lady of Guadalupe', blurb: 'Iconic crown-topped parish church downtown.' },
+      { name: 'Los Arcos', blurb: 'Offshore rock arches popular for snorkeling boats.' },
+      { name: 'Marina Vallarta', blurb: 'Harbor district of shops, boats, and restaurants.' },
+    ],
+  },
+  tulum: {
+    highlights:
+      'Cliffside Maya ruins above turquoise Caribbean water and nearby cenotes.',
+    bestFor: 'Beach-and-ruins trips with a boho resort vibe',
+    topAttractions: [
+      { name: 'Tulum Archaeological Site', blurb: 'Maya ruins perched on cliffs above the sea.' },
+      { name: 'Gran Cenote', blurb: 'Popular swimming and snorkeling sinkhole.' },
+      { name: 'Tulum Beach', blurb: 'White-sand strip lined with eco-chic hotels.' },
+      { name: 'Sian Ka’an Biosphere Reserve', blurb: 'Protected wetlands and lagoons south of town.' },
+      { name: 'Cenote Dos Ojos', blurb: 'Linked cenote system for snorkeling and diving.' },
+    ],
+  },
+  casablanca: {
+    highlights:
+      'Atlantic Morocco’s modern hub, anchored by a monumental seaside mosque.',
+    bestFor: 'A stopover between flights and Morocco’s imperial cities',
+    topAttractions: [
+      { name: 'Hassan II Mosque', blurb: 'Vast oceanfront mosque with a soaring minaret.' },
+      { name: 'Old Medina', blurb: 'Compact historic quarter of markets and alleys.' },
+      { name: 'Corniche', blurb: 'Seaside strip of cafés facing the Atlantic.' },
+      { name: 'Rick’s Café', blurb: 'Casablanca-movie homage restaurant and bar.' },
+      { name: 'Habous Quarter', blurb: 'New medina of artisan shops and French-era architecture.' },
+    ],
+  },
+  johannesburg: {
+    highlights:
+      'Big-city energy with apartheid history sites and safari day-trip access.',
+    bestFor: 'Urban South Africa before Kruger or Cape Town',
+    topAttractions: [
+      { name: 'Apartheid Museum', blurb: 'Essential museum on South Africa’s apartheid era.' },
+      { name: 'Constitution Hill', blurb: 'Former prison complex turned constitutional court site.' },
+      { name: 'Soweto (Vilakazi Street)', blurb: 'Historic township street of Mandela and Tutu homes.' },
+      { name: 'Nelson Mandela Bridge', blurb: 'Iconic cable-stayed bridge lighting the skyline.' },
+      { name: 'Maboneng Precinct', blurb: 'Artsy downtown neighborhood of galleries and cafés.' },
+    ],
+  },
+  granada: {
+    highlights:
+      'Moorish palaces and whitewashed hillside lanes under Sierra Nevada peaks.',
+    bestFor: 'Andalusian history without Barcelona crowds',
+    topAttractions: [
+      { name: 'Alhambra', blurb: 'Nasrid palace-fortress and Spain’s most famous monument.' },
+      { name: 'Generalife', blurb: 'Summer gardens and palace beside the Alhambra.' },
+      { name: 'Albaicín', blurb: 'Moorish quarter of steep lanes and mirador views.' },
+      { name: 'Cathedral of Granada', blurb: 'Renaissance cathedral in the old city center.' },
+      { name: 'Sacromonte', blurb: 'Cave-house hillside known for flamenco shows.' },
+    ],
+  },
+  split: {
+    highlights:
+      'A living Roman palace on the Adriatic with ferries to Dalmatian islands.',
+    bestFor: 'Combining ruins, beaches, and island hopping',
+    topAttractions: [
+      { name: 'Diocletian’s Palace', blurb: 'Roman imperial palace that still forms the old town.' },
+      { name: 'Riva Promenade', blurb: 'Palm-lined waterfront for coffee and people-watching.' },
+      { name: 'Cathedral of Saint Domnius', blurb: 'Cathedral built into Diocletian’s mausoleum.' },
+      { name: 'Marjan Hill', blurb: 'Pine-covered peninsula park above the harbor.' },
+      { name: 'Klis Fortress', blurb: 'Hilltop castle with Game of Thrones filming fame.' },
+    ],
+  },
+  belgrade: {
+    highlights:
+      'Riverside fortress city with a famously late nightlife and Balkan kitchens.',
+    bestFor: 'Budget-friendly city breaks with strong café culture',
+    topAttractions: [
+      { name: 'Belgrade Fortress (Kalemegdan)', blurb: 'Park-fortress at the confluence of two rivers.' },
+      { name: 'Church of Saint Sava', blurb: 'One of the world’s largest Orthodox churches.' },
+      { name: 'Skadarlija', blurb: 'Bohemian cobbled street of taverns and live music.' },
+      { name: 'Nikola Tesla Museum', blurb: 'Small museum dedicated to the inventor’s legacy.' },
+      { name: 'Knez Mihailova Street', blurb: 'Main pedestrian shopping and promenade spine.' },
+    ],
+  },
+  bucharest: {
+    highlights:
+      'Wide boulevards, Belle Époque façades, and Europe’s heaviest Communist landmark.',
+    bestFor: 'Urban Romania with day trips to Transylvania',
+    topAttractions: [
+      { name: 'Palace of the Parliament', blurb: 'Vast Communist-era palace, one of the world’s largest buildings.' },
+      { name: 'Old Town (Lipscani)', blurb: 'Nightlife and café core of restored historic streets.' },
+      { name: 'Romanian Athenaeum', blurb: 'Neoclassical concert hall and city icon.' },
+      { name: 'Village Museum', blurb: 'Open-air museum of traditional Romanian houses.' },
+      { name: 'Revolution Square', blurb: 'Historic square tied to the 1989 uprising.' },
+    ],
+  },
+  tallinn: {
+    highlights:
+      'A complete medieval walled old town on the Baltic, easy to cover on foot.',
+    bestFor: 'Short Baltic city breaks and Northern European history',
+    topAttractions: [
+      { name: 'Tallinn Old Town', blurb: 'UNESCO-listed medieval streets inside city walls.' },
+      { name: 'Alexander Nevsky Cathedral', blurb: 'Onion-domed Orthodox cathedral on Toompea Hill.' },
+      { name: 'Town Hall Square', blurb: 'Main square framed by the Gothic town hall.' },
+      { name: 'Toompea Castle', blurb: 'Hilltop seat of Estonia’s parliament.' },
+      { name: 'Kadriorg Park', blurb: 'Baroque palace gardens east of the center.' },
+    ],
+  },
+  geneva: {
+    highlights:
+      'Lake Geneva views, UN diplomacy, and a famously expensive Swiss city core.',
+    bestFor: 'Alpine lake scenery plus museums and chocolate shopping',
+    topAttractions: [
+      { name: 'Jet d’Eau', blurb: 'Iconic water fountain shooting over Lac Léman.' },
+      { name: 'Old Town (Vieille Ville)', blurb: 'Hilltop streets around St. Pierre Cathedral.' },
+      { name: 'CERN', blurb: 'Particle-physics campus with visitor exhibitions.' },
+      { name: 'United Nations Office', blurb: 'Palais des Nations and lakeside diplomatic district.' },
+      { name: 'Jardin Anglais', blurb: 'Waterfront park with the Flower Clock.' },
+    ],
+  },
+  bologna: {
+    highlights:
+      'Porticoed streets and Italy’s most famous pasta traditions.',
+    bestFor: 'Serious food travel between Florence and Milan',
+    topAttractions: [
+      { name: 'Two Towers (Asinelli & Garisenda)', blurb: 'Leaning medieval towers above the center.' },
+      { name: 'Piazza Maggiore', blurb: 'Main square framed by Basilica di San Petronio.' },
+      { name: 'Archiginnasio', blurb: 'Historic university complex with a famous anatomy theater.' },
+      { name: 'Santo Stefano complex', blurb: 'Interlinked churches nicknamed Bologna’s Jerusalem.' },
+      { name: 'Mercato di Mezzo', blurb: 'Central market lanes for cured meats and cheese.' },
+    ],
+  },
+  valletta: {
+    highlights:
+      'A fortified limestone capital packed onto a peninsula between two harbors.',
+    bestFor: 'Compact history walks and Mediterranean island hopping',
+    topAttractions: [
+      { name: 'Saint John’s Co-Cathedral', blurb: 'Baroque cathedral with Caravaggio’s Beheading of St John.' },
+      { name: 'Upper Barrakka Gardens', blurb: 'Gardens with saluting battery views over Grand Harbour.' },
+      { name: 'Grandmaster’s Palace', blurb: 'Historic knights’ palace and armory museum.' },
+      { name: 'Fort St. Elmo', blurb: 'Harbor fortress tied to the Great Siege of 1565.' },
+      { name: 'Republic Street', blurb: 'Main spine of shops between City Gate and Fort St. Elmo.' },
+    ],
+  },
+  antalya: {
+    highlights:
+      'Mediterranean beaches plus a Roman harbor old town and nearby ruins.',
+    bestFor: 'Turquoise Coast beach holidays with day-trip history',
+    topAttractions: [
+      { name: 'Kaleiçi (Old Town)', blurb: 'Ottoman-era lanes around the historic harbor.' },
+      { name: 'Hadrian’s Gate', blurb: 'Triumphal Roman arch into the old city.' },
+      { name: 'Düden Waterfalls', blurb: 'Waterfalls that tumble toward the Mediterranean.' },
+      { name: 'Antalya Museum', blurb: 'Strong regional archaeology collection.' },
+      { name: 'Konyaaltı Beach', blurb: 'Long public pebble beach west of the center.' },
+    ],
+  },
+  'da-nang': {
+    highlights:
+      'Central Vietnam beach city between Hoi An and Hue, with a famous dragon bridge.',
+    bestFor: 'Beach base for Marble Mountains and Hoi An day trips',
+    topAttractions: [
+      { name: 'Dragon Bridge', blurb: 'Dragon-shaped bridge that breathes fire on weekends.' },
+      { name: 'My Khe Beach', blurb: 'Long sandy city beach popular with locals and visitors.' },
+      { name: 'Marble Mountains', blurb: 'Limestone knolls with caves, pagodas, and viewpoints.' },
+      { name: 'Son Tra Peninsula (Monkey Mountain)', blurb: 'Forested promontory with Linh Ung Pagoda.' },
+      { name: 'Han Market', blurb: 'Central market for street snacks and souvenirs.' },
+    ],
+  },
+  'hoi-an': {
+    highlights:
+      'Lantern-lit UNESCO old town of tailor shops and riverside evenings.',
+    bestFor: 'Slow nights, food tours, and custom clothing',
+    topAttractions: [
+      { name: 'Japanese Covered Bridge', blurb: 'Historic covered bridge linking old-town quarters.' },
+      { name: 'Ancient Town', blurb: 'Yellow façades, silk shops, and lantern-lined streets.' },
+      { name: 'Assembly Hall of the Fujian Chinese', blurb: 'Ornate Chinese congregation hall and temple.' },
+      { name: 'Thu Bon River', blurb: 'Lantern boat rides at dusk through the old town.' },
+      { name: 'An Bang Beach', blurb: 'Sandy beach a short ride from the historic center.' },
+    ],
+  },
+  brisbane: {
+    highlights:
+      'Subtropical riverside capital with parks, bridges, and nearby beaches.',
+    bestFor: 'Queensland city time before Gold Coast or islands',
+    topAttractions: [
+      { name: 'South Bank Parklands', blurb: 'Riverfront parks, pools, and weekend markets.' },
+      { name: 'Story Bridge', blurb: 'Steel cantilever bridge with climb and city views.' },
+      { name: 'Queensland Gallery of Modern Art (GOMA)', blurb: 'Major contemporary art museum by the river.' },
+      { name: 'Lone Pine Koala Sanctuary', blurb: 'Classic wildlife park for koalas and Aussie animals.' },
+      { name: 'Mount Coot-tha Lookout', blurb: 'Hilltop viewpoint over the city and bay.' },
+    ],
+  },
+  wellington: {
+    highlights:
+      'Windy harbour capital packed with cafés, museums, and craft beer.',
+    bestFor: 'Culture-heavy NZ stop between North and South Islands',
+    topAttractions: [
+      { name: 'Te Papa Tongarewa', blurb: 'National museum of New Zealand on the waterfront.' },
+      { name: 'Cable Car & Botanic Garden', blurb: 'Ride up to gardens overlooking the harbour.' },
+      { name: 'Cuba Street', blurb: 'Bohemian strip of cafés, boutiques, and street art.' },
+      { name: 'Zealandia', blurb: 'Fenced eco-sanctuary restoring native birds and bush.' },
+      { name: 'Mount Victoria Lookout', blurb: 'Classic harbour and city panorama.' },
+    ],
+  },
+  'xi-an': {
+    highlights:
+      'Silk Road capital famous for the Terracotta Army and Muslim Quarter snacks.',
+    bestFor: 'Ancient China history and intense street-food nights',
+    topAttractions: [
+      { name: 'Terracotta Army', blurb: 'Emperor Qin’s underground clay warriors outside the city.' },
+      { name: 'Xi’an City Wall', blurb: 'Ming-era wall you can bike around the old city.' },
+      { name: 'Muslim Quarter', blurb: 'Night-market streets of lamb skewers and noodles.' },
+      { name: 'Giant Wild Goose Pagoda', blurb: 'Tang-dynasty Buddhist pagoda and plaza.' },
+      { name: 'Bell Tower', blurb: 'Ming bell tower at the old city’s crossroads.' },
+    ],
+  },
 
 };

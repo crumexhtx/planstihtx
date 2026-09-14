@@ -1,11 +1,12 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { checkRateLimit, pruneRateLimits } from './_lib/rateLimit';
+import { readFxCache, writeFxCache } from './_lib/fxCache';
 import {
   mergeExchangeRates,
   planningExchangeRates,
-} from '../src/utils/exchangeRates';
-import { checkRateLimit, pruneRateLimits } from './_lib/rateLimit';
-import { readFxCache, writeFxCache } from './_lib/fxCache';
+} from './_lib/fxRates';
 
+/** Public Frankfurter API — no API key required. */
 const FRANKFURTER_URL = 'https://api.frankfurter.dev/v1/latest?base=USD';
 const FETCH_TIMEOUT_MS = 4_000;
 const RATE_LIMIT = 60;
@@ -19,46 +20,68 @@ export default async function handler(
   request: VercelRequest,
   response: VercelResponse,
 ) {
-  response.setHeader('X-Content-Type-Options', 'nosniff');
-
-  if (request.method !== 'GET') {
-    response.setHeader('Allow', 'GET');
-    return response.status(405).json({ error: 'Method not allowed' });
-  }
-
-  const clientKey = clientRateLimitKey(request);
-  pruneRateLimits();
-  const rate = checkRateLimit(`fx:${clientKey}`, RATE_LIMIT, RATE_WINDOW_MS);
-  if (!rate.allowed) {
-    response.setHeader('Retry-After', String(rate.retryAfterSeconds));
-    return response.status(429).json({ error: 'Too many requests' });
-  }
-
-  const cached = readFxCache();
-  if (cached) {
-    response.setHeader(
-      'Cache-Control',
-      'public, s-maxage=3600, stale-while-revalidate=86400',
-    );
-    return response.status(200).json(cached);
-  }
-
   try {
-    const live = await fetchFrankfurterRates();
-    writeFxCache(live);
-    response.setHeader(
-      'Cache-Control',
-      'public, s-maxage=3600, stale-while-revalidate=86400',
-    );
-    return response.status(200).json({ ...live, source: 'live' });
+    response.setHeader('X-Content-Type-Options', 'nosniff');
+
+    if (request.method !== 'GET') {
+      response.setHeader('Allow', 'GET');
+      return response.status(405).json({ error: 'Method not allowed' });
+    }
+
+    const clientKey = clientRateLimitKey(request);
+    pruneRateLimits();
+    const rate = checkRateLimit(`fx:${clientKey}`, RATE_LIMIT, RATE_WINDOW_MS);
+    if (!rate.allowed) {
+      response.setHeader('Retry-After', String(rate.retryAfterSeconds));
+      return response.status(429).json({ error: 'Too many requests' });
+    }
+
+    const cached = readFxCache();
+    if (cached) {
+      response.setHeader(
+        'Cache-Control',
+        'public, s-maxage=3600, stale-while-revalidate=86400',
+      );
+      return response.status(200).json(cached);
+    }
+
+    try {
+      const live = await fetchFrankfurterRates();
+      writeFxCache(live);
+      response.setHeader(
+        'Cache-Control',
+        'public, s-maxage=3600, stale-while-revalidate=86400',
+      );
+      return response.status(200).json({ ...live, source: 'live' });
+    } catch (error) {
+      console.error(
+        'FX fetch failed:',
+        error instanceof Error ? error.message : 'UnknownError',
+      );
+      const fallback = planningExchangeRates();
+      response.setHeader('Cache-Control', 'public, s-maxage=60');
+      return response.status(200).json(fallback);
+    }
   } catch (error) {
     console.error(
-      'FX fetch failed:',
-      error instanceof Error ? error.name : 'UnknownError',
+      'FX handler failed:',
+      error instanceof Error ? error.message : 'UnknownError',
     );
-    const fallback = planningExchangeRates();
-    response.setHeader('Cache-Control', 'public, s-maxage=60');
-    return response.status(200).json(fallback);
+    // Never 500 the currency UI — planning rates are always available.
+    try {
+      response.setHeader('Cache-Control', 'public, s-maxage=60');
+      response.setHeader('X-Content-Type-Options', 'nosniff');
+      return response.status(200).json(planningExchangeRates());
+    } catch {
+      return response.status(200).json({
+        base: 'USD',
+        rates: { USD: 1 },
+        asOf: '2026-07-01',
+        asOfLabel: 'July 2026',
+        source: 'estimate',
+        fallbackCurrencies: ['USD'],
+      });
+    }
   }
 }
 

@@ -168,5 +168,37 @@ export const culturalIcons: Record<string, CulturalIcon> = {
   'quebec-city': { title: 'Château Frontenac', label: 'Château Frontenac' },
   calgary: { title: 'Calgary Tower', label: 'Calgary Tower' },
   'san-antonio': { title: 'The Alamo', label: 'The Alamo' },
+  bogota: { title: 'Monserrate', label: 'Monserrate' },
+  oaxaca: { title: 'Monte Albán', label: 'Monte Albán' },
+  'puerto-vallarta': {
+    title: 'Church of Our Lady of Guadalupe (Puerto Vallarta)',
+    label: 'Our Lady of Guadalupe Church',
+  },
+  tulum: { title: 'Tulum', label: 'Tulum Ruins' },
+  casablanca: { title: 'Hassan II Mosque', label: 'Hassan II Mosque' },
+  johannesburg: { title: 'Nelson Mandela Bridge', label: 'Nelson Mandela Bridge' },
+  granada: { title: 'Alhambra', label: 'Alhambra' },
+  split: { title: "Diocletian's Palace", label: "Diocletian's Palace" },
+  belgrade: { title: 'Church of Saint Sava', label: 'Church of Saint Sava' },
+  bucharest: { title: 'Palace of the Parliament', label: 'Palace of the Parliament' },
+  tallinn: {
+    title: 'Alexander Nevsky Cathedral, Tallinn',
+    label: 'Alexander Nevsky Cathedral',
+  },
+  geneva: { title: "Jet d'Eau", label: "Jet d'Eau" },
+  bologna: { title: 'Two Towers, Bologna', label: 'Two Towers' },
+  valletta: { title: "Saint John's Co-Cathedral", label: "Saint John's Co-Cathedral" },
+  antalya: { title: 'Yivli Minaret Mosque', label: 'Yivli Minaret' },
+  'da-nang': { title: 'Dragon Bridge (Da Nang)', label: 'Dragon Bridge' },
+  'hoi-an': {
+    title: 'Japanese Bridge',
+    label: 'Japanese Covered Bridge',
+  },
+  brisbane: { title: 'Story Bridge', label: 'Story Bridge' },
+  wellington: {
+    title: 'Museum of New Zealand Te Papa Tongarewa',
+    label: 'Te Papa',
+  },
+  'xi-an': { title: 'Terracotta Army', label: 'Terracotta Army' },
 
 };

@@ -274,5 +274,45 @@ export const destinationDescriptions: Record<string, string> = {
     'Alberta’s cowboy-culture city, best known for its huge summer rodeo and quick access to the Canadian Rockies.',
   'san-antonio':
     'A Texas city built around a lively downtown river walk and the historic Alamo mission.',
+  bogota:
+    'Colombia’s high-altitude capital, with a colonial historic center, mountain views, and a serious coffee-and-food scene.',
+  oaxaca:
+    'A highland Mexican city famous for mole, mezcal, and colorful markets around a lively zócalo.',
+  'puerto-vallarta':
+    'A Pacific resort town with a charming old town, Malecon promenade, and easy access to jungle and beaches.',
+  tulum:
+    'A Riviera Maya beach town known for cliffside Maya ruins, cenotes, and a stylish eco-resort strip.',
+  casablanca:
+    'Morocco’s Atlantic commercial hub, crowned by the Hassan II Mosque and a working port-city energy.',
+  johannesburg:
+    'South Africa’s economic powerhouse, with apartheid-era history museums and a gateway to safari country.',
+  granada:
+    'An Andalusian city of Moorish palaces, Albaicín lanes, and the Alhambra overlooking the Sierra Nevada.',
+  split:
+    'A Dalmatian Adriatic city built inside a Roman emperor’s palace, with ferries to nearby islands.',
+  belgrade:
+    'Serbia’s riverside capital, known for fortress views, late-night nightlife, and hearty Balkan cooking.',
+  bucharest:
+    'Romania’s sprawling capital of Belle Époque boulevards, Communist-era megastructures, and lively cafés.',
+  tallinn:
+    'Estonia’s fairy-tale walled old town, a Baltic capital mixing medieval streets with a digital-forward vibe.',
+  geneva:
+    'A lakeside Swiss city of UN diplomacy, chocolate shops, and the Jet d’Eau shooting over Lac Léman.',
+  bologna:
+    'Italy’s food capital under endless porticoes, famous for ragù, tortellini, and a red-brick university town feel.',
+  valletta:
+    'Malta’s tiny fortified capital of limestone streets, harbors, and Baroque churches packed onto a peninsula.',
+  antalya:
+    'Turkey’s Mediterranean beach capital, with a Roman harbor old town and easy access to Turquoise Coast ruins.',
+  'da-nang':
+    'Central Vietnam’s beach city, known for My Khe sand, the Dragon Bridge, and day trips to Marble Mountains.',
+  'hoi-an':
+    'A lantern-lit UNESCO trading port of tailor shops, yellow façades, and riverside evenings on the Thu Bon.',
+  brisbane:
+    'Queensland’s riverside capital, with subtropical parks, Story Bridge views, and easy trips to beaches and islands.',
+  wellington:
+    'New Zealand’s windy harbour capital, packed with cafés, museums, and ferry links across Cook Strait.',
+  'xi-an':
+    'China’s ancient Silk Road capital, home to the Terracotta Army and a lively Muslim Quarter street-food scene.',
 
 };

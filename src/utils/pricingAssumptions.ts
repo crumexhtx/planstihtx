@@ -54,4 +54,6 @@ export const PLANNING_USD_RATES = {
   UYU: 40.0,
   BSD: 1.0,
   JMD: 157.0,
+  RON: 4.55,
+  RSD: 108.0,
 } as const;

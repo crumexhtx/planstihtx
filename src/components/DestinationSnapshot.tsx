@@ -318,6 +318,13 @@ export function DestinationSnapshot({
               ? 'Loading weather'
               : describeWeather(snapshot.weatherCode) || 'Weather unavailable'}
           </small>
+          <small className="destination-snapshot__weather-source">
+            {!weatherReady
+              ? '\u00a0'
+              : snapshot.temperatureF === null
+                ? 'Live weather unavailable — not a cached estimate'
+                : 'Live forecast via Open-Meteo'}
+          </small>
         </p>
       )}
     </div>
