@@ -113,7 +113,13 @@ export const culturalIcons: Record<string, CulturalIcon> = {
   portland: { title: 'International Rose Test Garden', label: 'Portland Rose Garden' },
   phoenix: { title: 'Camelback Mountain', label: 'Camelback Mountain' },
   charleston: { title: 'Rainbow Row', label: 'Rainbow Row' },
-  savannah: { title: 'Forsyth Park Fountain', label: 'Forsyth Park Fountain' },
+  savannah: {
+    title: 'Forsyth Park',
+    label: 'Forsyth Park Fountain',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Forsyth_fountain_2019.jpeg/1200px-Forsyth_fountain_2019.jpeg',
+    imagePageUrl: 'https://commons.wikimedia.org/wiki/File:Forsyth_fountain_2019.jpeg',
+  },
   dallas: { title: 'Reunion Tower', label: 'Reunion Tower' },
   houston: { title: 'Space Center Houston', label: 'Space Center Houston' },
   'key-west': { title: 'Southernmost Point Buoy', label: 'Southernmost Point' },

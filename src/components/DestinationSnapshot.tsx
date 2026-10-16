@@ -3,6 +3,7 @@ import type { Destination } from '../types';
 import { culturalIcons } from '../data/culturalIcons';
 import destinationMedia from '../data/destinationMedia.json';
 import { destinationExplore } from '../data/destinationExplore';
+import { getImageOverride } from '../data/imageOverrides';
 import {
   searchWikipediaArticleImage,
   searchWikipediaSummary,
@@ -156,16 +157,21 @@ export function DestinationSnapshot({
         {
           query: `${destination.name} ${destination.country}`,
           subject: destination.name,
+          override: undefined as WikimediaImage | null | undefined,
         },
         ...attractionNames.map((attraction) => ({
           query: `${attraction} ${destination.name}`,
           subject: attraction,
+          override: getImageOverride(destination.id, attraction),
         })),
-      ].map(({ query, subject }) =>
-        searchWikipediaArticleImage(query, controller.signal, subject).catch(
-          () => null,
-        ),
-      ),
+      ].map(({ query, subject, override }) => {
+        if (override !== undefined) return Promise.resolve(override);
+        return searchWikipediaArticleImage(
+          query,
+          controller.signal,
+          subject,
+        ).catch(() => null);
+      }),
     ).then((images) =>
       images.filter((image): image is WikimediaImage => image !== null),
     );
@@ -243,7 +249,7 @@ export function DestinationSnapshot({
             >
               <img
                 src={image.url}
-                alt={`${image.alt}, ${destination.name}, ${destination.country}`}
+                alt={image.alt}
                 width={640}
                 height={360}
                 loading={index === 0 ? 'eager' : 'lazy'}

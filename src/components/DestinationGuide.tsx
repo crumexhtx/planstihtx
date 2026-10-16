@@ -6,6 +6,7 @@ import { destinationDishes } from '../data/destinationDishes';
 import { destinationBeverages } from '../data/destinationBeverages';
 import { DESTINATION_LOCAL_CURRENCY } from '../utils/currencyTracker';
 import { buildMustTryFoodAnswer } from '../utils/destinationAnswers';
+import { getImageOverride } from '../data/imageOverrides';
 import {
   searchWikipediaArticleImage,
   type WikimediaImage,
@@ -47,15 +48,22 @@ function useNearViewport() {
 
 function AttractionImage({
   attractionName,
+  destinationId,
   destinationName,
 }: {
   attractionName: string;
+  destinationId: string;
   destinationName: string;
 }) {
   const [image, setImage] = useState<WikimediaImage | null>();
   const { ref, isNearViewport } = useNearViewport();
+  const override = getImageOverride(destinationId, attractionName);
 
   useEffect(() => {
+    if (override !== undefined) {
+      setImage(override);
+      return;
+    }
     if (!isNearViewport) return;
     const controller = new AbortController();
     setImage(undefined);
@@ -69,7 +77,7 @@ function AttractionImage({
         if (!controller.signal.aborted) setImage(null);
       });
     return () => controller.abort();
-  }, [attractionName, destinationName, isNearViewport]);
+  }, [attractionName, destinationId, destinationName, isNearViewport, override]);
 
   if (!image) {
     return (
@@ -91,7 +99,7 @@ function AttractionImage({
     >
       <img
         src={image.url}
-        alt={`${attractionName} in ${destinationName}`}
+        alt={image.alt}
         width={800}
         height={450}
         loading="lazy"
@@ -103,17 +111,24 @@ function AttractionImage({
 
 function GuideItemImage({
   name,
+  destinationId,
   destinationName,
   kind,
 }: {
   name: string;
+  destinationId: string;
   destinationName: string;
   kind: 'food' | 'drink' | 'beer';
 }) {
   const [image, setImage] = useState<WikimediaImage | null>();
   const { ref, isNearViewport } = useNearViewport();
+  const override = getImageOverride(destinationId, name);
 
   useEffect(() => {
+    if (override !== undefined) {
+      setImage(override);
+      return;
+    }
     if (!isNearViewport) return;
     const controller = new AbortController();
     setImage(undefined);
@@ -127,7 +142,7 @@ function GuideItemImage({
         if (!controller.signal.aborted) setImage(null);
       });
     return () => controller.abort();
-  }, [destinationName, isNearViewport, kind, name]);
+  }, [destinationId, destinationName, isNearViewport, kind, name, override]);
 
   if (!image) {
     return (
@@ -149,7 +164,7 @@ function GuideItemImage({
     >
       <img
         src={image.url}
-        alt={`${name}, a ${kind} pick for ${destinationName}`}
+        alt={image.alt}
         width={800}
         height={450}
         loading="lazy"
@@ -228,6 +243,7 @@ export function DestinationGuide({
                   <li key={attraction.name}>
                     <AttractionImage
                       attractionName={attraction.name}
+                      destinationId={destination.id}
                       destinationName={destination.name}
                     />
                     <div className="attraction-gallery__content">
@@ -275,6 +291,7 @@ export function DestinationGuide({
                 <article key={dish.name} className="dish-card">
                   <GuideItemImage
                     name={dish.name}
+                    destinationId={destination.id}
                     destinationName={destination.name}
                     kind="food"
                   />
@@ -308,6 +325,7 @@ export function DestinationGuide({
                   <article key={`${kind}-${beverage.name}`} className="dish-card">
                     <GuideItemImage
                       name={beverage.name}
+                      destinationId={destination.id}
                       destinationName={destination.name}
                       kind={kind}
                     />
