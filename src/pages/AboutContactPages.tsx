@@ -7,6 +7,10 @@ import {
   CONTACT_CATEGORIES,
   CONTACT_LIMITS,
 } from '../utils/contactValidation';
+import {
+  companionDailyPercent,
+  extraRoomTravelerPercent,
+} from '../utils/costEngine';
 import { SAMPLE_TRIP_LOCATION } from '../utils/plannerQuery';
 import { trackAnalyticsEvent } from '../utils/observability';
 
@@ -74,12 +78,13 @@ export function AboutPage() {
           </p>
           <p>
             In practice, a travel companion who shares your existing room
-            adds about 62% of the destination’s daily rate per day (the
-            combined weight of food, transport, activities, and
-            contingency)—lodging itself doesn’t increase. A third, fifth, or
-            seventh traveler, who needs a new room, costs closer to the full
-            daily rate, since that room is a new expense rather than a
-            shared one.
+            adds about {companionDailyPercent()}% of the destination’s daily
+            rate per day (the combined weight of food, transport, activities,
+            and contingency)—lodging itself doesn’t increase. A third, fifth,
+            or seventh traveler, who needs a new room, costs about{' '}
+            {extraRoomTravelerPercent()}% of the daily rate, since that room
+            is billed at the lodging share of two travelers plus their own
+            food, transport, activities, and contingency.
           </p>
           <p>
             The trip cost snapshot on every destination and comparison page

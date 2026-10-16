@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Destination, Origin, TripPlan } from '../types';
 import {
+  CATEGORY_WEIGHTS,
   calculateActualSpendUsd,
   calculateTripCost,
   calculateTripPlanCost,
@@ -79,14 +80,14 @@ describe('calculateTripCost', () => {
     });
 
     expect(result).toEqual({
-      lodging: 76,
+      lodging: 152,
       food: 112,
       localTransport: 56,
       activities: 56,
       contingency: 24,
-      perPersonDaily: 81,
-      perPersonTrip: 162,
-      grandTotal: 324,
+      perPersonDaily: 100,
+      perPersonTrip: 200,
+      grandTotal: 400,
     });
   });
 
@@ -102,8 +103,8 @@ describe('calculateTripCost', () => {
       groupSize: 3,
     });
 
-    expect(twoTravelers.lodging).toBe(38);
-    expect(threeTravelers.lodging).toBe(76);
+    expect(twoTravelers.lodging).toBe(76);
+    expect(threeTravelers.lodging).toBe(152);
     expect(threeTravelers.food).toBe(84);
   });
 
@@ -114,7 +115,20 @@ describe('calculateTripCost', () => {
       groupSize: 1,
     });
 
-    expect(result.grandTotal).toBe(100);
+    expect(result.grandTotal).toBe(138);
+  });
+
+  it('prices a 2-traveler 7-day trip as 6 nights × 1 room × 2 × lodging share', () => {
+    const result = calculateTripCost({
+      destination,
+      numberOfDays: 7,
+      numberOfNights: 6,
+      groupSize: 2,
+    });
+
+    expect(result.lodging).toBe(
+      roundCurrency(destination.dailyBudget * CATEGORY_WEIGHTS.lodging * 2 * 6 * 1),
+    );
   });
 
   it('charges lodging by nights when nights are provided', () => {
@@ -125,12 +139,12 @@ describe('calculateTripCost', () => {
       groupSize: 1,
     });
 
-    expect(result.lodging).toBe(228);
+    expect(result.lodging).toBe(456);
     expect(result.food).toBe(196);
     expect(result.localTransport).toBe(98);
     expect(result.activities).toBe(98);
     expect(result.contingency).toBe(42);
-    expect(result.grandTotal).toBe(662);
+    expect(result.grandTotal).toBe(890);
   });
 
   it('clamps invalid trip lengths and party sizes to one', () => {
@@ -140,8 +154,8 @@ describe('calculateTripCost', () => {
       groupSize: 0,
     });
 
-    expect(result.grandTotal).toBe(100);
-    expect(result.perPersonDaily).toBe(100);
+    expect(result.grandTotal).toBe(138);
+    expect(result.perPersonDaily).toBe(138);
   });
 
   it('rounds category and total amounts to cents', () => {
@@ -151,8 +165,8 @@ describe('calculateTripCost', () => {
       groupSize: 1,
     });
 
-    expect(result.lodging).toBe(12.67);
-    expect(result.grandTotal).toBe(33.34);
+    expect(result.lodging).toBe(25.33);
+    expect(result.grandTotal).toBe(46);
   });
 });
 
@@ -182,7 +196,7 @@ describe('calculateTripPlanCost', () => {
 
     expect(result.totalDays).toBe(7);
     expect(result.totalNights).toBe(6);
-    expect(result.lodging).toBe(228);
+    expect(result.lodging).toBe(456);
     expect(result.destinationTransport).toBe(400);
     expect(result.grandTotal).toBeGreaterThan(result.lodging);
   });

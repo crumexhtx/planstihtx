@@ -18,6 +18,15 @@ export const DESTINATIONS_INDEX_META = {
     'Browse city trip cost guides and find out how expensive each destination is. Compare daily budgets, attractions, food prices, and trip cost calculators.',
 } as const;
 
+export function truncateAtWord(text: string, max = 155): string {
+  const normalized = text.replace(/\s+/g, ' ').trim();
+  if (normalized.length <= max) return normalized;
+  const slice = normalized.slice(0, Math.max(0, max - 1));
+  const lastSpace = slice.lastIndexOf(' ');
+  const trimmed = (lastSpace > 0 ? slice.slice(0, lastSpace) : slice).trimEnd();
+  return `${trimmed}…`;
+}
+
 export function destinationPageMeta(
   name: string,
   country: string,
@@ -27,11 +36,10 @@ export function destinationPageMeta(
   const base = `Find the cost of a ${name}, ${country} trip. See how expensive it is to visit, estimate daily spend, and plan flights, food, and attractions with Plansti’s trip cost calculator.`;
   const combined = [base, bestTimePhrase, description]
     .filter(Boolean)
-    .join(' ')
-    .slice(0, 300);
+    .join(' ');
 
   return {
     title: `💰 How Expensive Is ${name}? Trip Cost & Budget Calculator | ${SITE_NAME}`,
-    description: combined,
+    description: truncateAtWord(combined, 155),
   };
 }

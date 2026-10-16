@@ -75,10 +75,18 @@ const REGION_BY_COUNTRY: Record<string, Region> = {
   Panama: 'Latin America',
   Bahamas: 'Latin America',
   Jamaica: 'Latin America',
+  Serbia: 'Europe',
+  Romania: 'Europe',
+  Estonia: 'Europe',
+  Malta: 'Europe',
 };
 
 export function getDestinationRegion(destination: Destination): Region {
-  return REGION_BY_COUNTRY[destination.country] ?? 'Asia';
+  const region = REGION_BY_COUNTRY[destination.country];
+  if (!region) {
+    throw new Error(`No travel region mapped for country: ${destination.country}`);
+  }
+  return region;
 }
 
 export function getCountriesForRegion(region: Region | ''): string[] {

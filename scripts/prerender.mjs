@@ -63,10 +63,21 @@ function formatSeasonalityHtml(destination) {
   return `<h2>When is the best time to visit ${escapeHtml(destination.name)}?</h2><p>${escapeHtml(variants[index])}</p>`;
 }
 
+const COMPANION_DAILY_PERCENT = Math.round((0.28 + 0.14 + 0.14 + 0.06) * 100);
+
+function truncateAtWord(text, max = 155) {
+  const normalized = String(text).replace(/\s+/g, ' ').trim();
+  if (normalized.length <= max) return normalized;
+  const slice = normalized.slice(0, Math.max(0, max - 1));
+  const lastSpace = slice.lastIndexOf(' ');
+  const trimmed = (lastSpace > 0 ? slice.slice(0, lastSpace) : slice).trimEnd();
+  return `${trimmed}…`;
+}
+
 /** Matches calculateTripCost for 7 days / 2 travelers / 6 nights. */
 function weekGroundTotal(destination) {
   const daily = Number(destination.dailyBudget) || 0;
-  const lodging = daily * 0.38 * 6;
+  const lodging = daily * 0.38 * 2 * 6;
   const food = daily * 0.28 * 7 * 2;
   const localTransport = daily * 0.14 * 7 * 2;
   const activities = daily * 0.14 * 7 * 2;
@@ -88,7 +99,7 @@ function formatCostSnapshotHtml(destination, mustTry) {
     <p>A practical midrange budget for ${escapeHtml(destination.name)} is about $${destination.dailyBudget} USD per traveler per day. For a 7-day trip for two people, ground costs land around $${Math.round(week).toLocaleString('en-US')} USD before long-haul flights${cheapest ? `—usually cheapest in ${escapeHtml(cheapest)}` : ''}.</p>
     <ul>
       <li>Daily budget baseline: $${destination.dailyBudget} USD / traveler</li>
-      <li>7 days for 2 people: ~$${Math.round(week).toLocaleString('en-US')} USD ground costs (2nd traveler ≈ 62% of daily rate, shared room)</li>
+      <li>7 days for 2 people: ~$${Math.round(week).toLocaleString('en-US')} USD ground costs (2nd traveler ≈ ${COMPANION_DAILY_PERCENT}% of daily rate, shared room)</li>
       <li>Usually cheapest: ${escapeHtml(cheapest || 'Varies')}</li>
       <li>Busiest months: ${escapeHtml(busiest || 'Varies')}</li>
     </ul>
@@ -240,14 +251,16 @@ for (const destination of destinations) {
     bestMonths.length > 0
       ? `When is the best time to visit ${destination.name}? Typically ${formatMonthList(destination.seasonality.best)}.`
       : '';
-  const metaDescription = [
-    `Find the cost of a ${destination.name}, ${destination.country} trip. See how expensive it is to visit with Plansti’s trip cost calculator.`,
-    bestTimePhrase,
-    description,
-  ]
-    .filter(Boolean)
-    .join(' ')
-    .slice(0, 300);
+  const metaDescription = truncateAtWord(
+    [
+      `Find the cost of a ${destination.name}, ${destination.country} trip. See how expensive it is to visit with Plansti’s trip cost calculator.`,
+      bestTimePhrase,
+      description,
+    ]
+      .filter(Boolean)
+      .join(' '),
+    155,
+  );
 
   staticRoutes.push({
     routePath: `/destinations/${destination.id}`,
@@ -530,8 +543,8 @@ function compareBody(comparison, a, b) {
     <p>${escapeHtml(comparison.summary)}</p>
     <h2>Ground costs for 2 travelers, 7 days</h2>
     <ul>
-      <li>${escapeHtml(a.name)}: $${a.dailyBudget}/day baseline · ~$${Math.round(aWeek).toLocaleString('en-US')} USD for 7 days (2nd traveler ≈ 62% of daily rate, shared room)</li>
-      <li>${escapeHtml(b.name)}: $${b.dailyBudget}/day baseline · ~$${Math.round(bWeek).toLocaleString('en-US')} USD for 7 days (2nd traveler ≈ 62% of daily rate, shared room)</li>
+      <li>${escapeHtml(a.name)}: $${a.dailyBudget}/day baseline · ~$${Math.round(aWeek).toLocaleString('en-US')} USD for 7 days (2nd traveler ≈ ${COMPANION_DAILY_PERCENT}% of daily rate, shared room)</li>
+      <li>${escapeHtml(b.name)}: $${b.dailyBudget}/day baseline · ~$${Math.round(bWeek).toLocaleString('en-US')} USD for 7 days (2nd traveler ≈ ${COMPANION_DAILY_PERCENT}% of daily rate, shared room)</li>
     </ul>
     <p>See <a href="/about#group-size-cost">how group size affects cost</a>.</p>
     <h2>When to pick each city</h2>

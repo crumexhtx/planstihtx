@@ -4,7 +4,7 @@ import { JsonLd } from '../components/JsonLd';
 import { NotFoundPage } from './NotFoundPage';
 import { getComparisonBySlug, cityComparisons } from '../data/comparisons';
 import { getDestinationById } from '../utils/tripHelpers';
-import { calculateTripCost } from '../utils/costEngine';
+import { calculateTripCost, companionDailyPercent } from '../utils/costEngine';
 import {
   PLANNING_DATA_AS_OF,
   PLANNING_DATA_AS_OF_LABEL,
@@ -141,11 +141,17 @@ export function ComparePage() {
                   <th scope="row">7 days for 2 people</th>
                   <td>
                     ~${Math.round(aWeek).toLocaleString('en-US')} USD
-                    <small>2nd traveler ≈ 62% of daily rate (shared room)</small>
+                    <small>
+                      2nd traveler ≈ {companionDailyPercent()}% of daily rate
+                      (shared room)
+                    </small>
                   </td>
                   <td>
                     ~${Math.round(bWeek).toLocaleString('en-US')} USD
-                    <small>2nd traveler ≈ 62% of daily rate (shared room)</small>
+                    <small>
+                      2nd traveler ≈ {companionDailyPercent()}% of daily rate
+                      (shared room)
+                    </small>
                   </td>
                 </tr>
                 <tr>

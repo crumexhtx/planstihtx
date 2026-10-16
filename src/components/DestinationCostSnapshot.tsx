@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { Destination } from '../types';
+import { companionDailyPercent } from '../utils/costEngine';
+import { formatUsd } from '../utils/formatUsd';
 import { buildCostSnapshot } from '../utils/destinationAnswers';
 
 export interface DestinationCostSnapshotProps {
@@ -34,7 +36,10 @@ export function DestinationCostSnapshot({
             ~${Math.round(snapshot.weekForTwoTotal).toLocaleString('en-US')} USD
             ground costs
           </dd>
-          <small>2nd traveler ≈ 62% of daily rate (shared room)</small>
+          <small>
+            2nd traveler ≈ {companionDailyPercent()}% of daily rate (shared
+            room)
+          </small>
         </div>
         <div>
           <dt>Usually cheapest</dt>
@@ -53,7 +58,7 @@ export function DestinationCostSnapshot({
             {snapshot.sampleDishes.map((dish) => (
               <li key={dish.name}>
                 <strong>{dish.name}</strong>
-                <span>${dish.averagePriceUsd.toFixed(2)} USD avg</span>
+                <span>{formatUsd(dish.averagePriceUsd)} avg</span>
               </li>
             ))}
           </ul>

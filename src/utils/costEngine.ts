@@ -69,13 +69,32 @@ const FLIGHT_SEASON_MULTIPLIERS: Record<TravelSeason, number> = {
 };
 
 /** Category weights applied to the destination daily budget (must sum to 1). */
-const CATEGORY_WEIGHTS = {
+export const CATEGORY_WEIGHTS = {
   lodging: 0.38,
   food: 0.28,
   localTransport: 0.14,
   activities: 0.14,
   contingency: 0.06,
 } as const;
+
+/** Non-lodging share billed per extra traveler who shares an existing room. */
+export const COMPANION_DAILY_SHARE =
+  CATEGORY_WEIGHTS.food +
+  CATEGORY_WEIGHTS.localTransport +
+  CATEGORY_WEIGHTS.activities +
+  CATEGORY_WEIGHTS.contingency;
+
+/** Incremental daily share when a traveler requires a new room. */
+export const EXTRA_ROOM_DAILY_SHARE =
+  CATEGORY_WEIGHTS.lodging * 2 + COMPANION_DAILY_SHARE;
+
+export function companionDailyPercent(): number {
+  return Math.round(COMPANION_DAILY_SHARE * 100);
+}
+
+export function extraRoomTravelerPercent(): number {
+  return Math.round(EXTRA_ROOM_DAILY_SHARE * 100);
+}
 
 /** Display-rate subset used by the cost engine. USD remains the calculation currency. */
 export const USD_EXCHANGE_RATES: Record<CurrencyCode, number> =
@@ -126,7 +145,7 @@ export function calculateTripCost({
   const adjustedDaily = destination.dailyBudget;
 
   const lodging = roundCurrency(
-    adjustedDaily * CATEGORY_WEIGHTS.lodging * nights * rooms,
+    adjustedDaily * CATEGORY_WEIGHTS.lodging * 2 * nights * rooms,
   );
   const food = roundCurrency(
     adjustedDaily * CATEGORY_WEIGHTS.food * days * travelers,

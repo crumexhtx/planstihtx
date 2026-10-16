@@ -10,7 +10,7 @@ import {
 } from '../data/regions';
 import { DESTINATIONS_INDEX_META } from '../utils/pageMetaCopy';
 
-const COUNTRY_FLAG_CODES: Record<string, string> = {
+export const COUNTRY_FLAG_CODES: Record<string, string> = {
   Portugal: 'pt',
   Thailand: 'th',
   Mexico: 'mx',
@@ -54,6 +54,29 @@ const COUNTRY_FLAG_CODES: Record<string, string> = {
   Colombia: 'co',
   Chile: 'cl',
   Malaysia: 'my',
+  Belgium: 'be',
+  Slovenia: 'si',
+  Norway: 'no',
+  Finland: 'fi',
+  Philippines: 'ph',
+  Cambodia: 'kh',
+  Nepal: 'np',
+  Israel: 'il',
+  Qatar: 'qa',
+  Jordan: 'jo',
+  Kenya: 'ke',
+  Tanzania: 'tz',
+  Ecuador: 'ec',
+  'Costa Rica': 'cr',
+  'Dominican Republic': 'do',
+  Uruguay: 'uy',
+  Panama: 'pa',
+  Bahamas: 'bs',
+  Jamaica: 'jm',
+  Serbia: 'rs',
+  Romania: 'ro',
+  Estonia: 'ee',
+  Malta: 'mt',
 };
 
 function flagCodeFor(destinationId: string, country: string): string {

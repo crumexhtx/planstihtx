@@ -21,6 +21,7 @@ import {
   estimateTripTransport,
   getTravelSeason,
 } from '../utils/costEngine';
+import { formatUsd } from '../utils/formatUsd';
 import { useExchangeRates } from './ExchangeRatesProvider';
 import {
   addDays,
@@ -508,7 +509,7 @@ export function TripPlanner({
                 <span>Estimated round-trip itinerary cost</span>
                 <strong>
                   {transportEstimate.available
-                    ? `$${transportEstimate.costUsd.toFixed(2)} USD`
+                    ? `${formatUsd(transportEstimate.costUsd)}`
                     : 'Unavailable'}
                 </strong>
                 <small>
@@ -685,7 +686,7 @@ export function TripPlanner({
               {trip.customCategories.map((category) => (
                 <div className="planner-row" key={category.id}>
                   <span>{category.name}</span>
-                  <span>${category.amountUsd.toFixed(2)}</span>
+                  <span>{formatUsd(category.amountUsd)}</span>
                   <button
                     type="button"
                     onClick={() =>
@@ -796,7 +797,9 @@ export function TripPlanner({
                     {expense.date} · {expense.description} ({expense.category})
                   </span>
                   <span>
-                    {expense.amount.toFixed(2)} {expense.currency}
+                    {expense.currency === 'USD'
+                      ? formatUsd(expense.amount)
+                      : `${expense.amount.toFixed(2)} ${expense.currency}`}
                   </span>
                   <button
                     type="button"

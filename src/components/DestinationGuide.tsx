@@ -4,6 +4,7 @@ import { destinationExplore } from '../data/destinationExplore';
 import { destinationDishes } from '../data/destinationDishes';
 import { destinationBeverages } from '../data/destinationBeverages';
 import { DESTINATION_LOCAL_CURRENCY } from '../utils/currencyTracker';
+import { formatUsd } from '../utils/formatUsd';
 import { buildMustTryFoodAnswer } from '../utils/destinationAnswers';
 import {
   getDestinationItemMedia,
@@ -229,7 +230,7 @@ export function DestinationGuide({
                     <p className="cost-summary__eyebrow">Local dish</p>
                     <h3>{dish.name}</h3>
                     <p>{dish.blurb}</p>
-                    <strong>Avg. ${dish.averagePriceUsd.toFixed(2)} USD</strong>
+                    <strong>Avg. {formatUsd(dish.averagePriceUsd)}</strong>
                     {onAddAdditionalCost && (
                       <button
                         type="button"
@@ -263,7 +264,7 @@ export function DestinationGuide({
                       <h3>{beverage.name}</h3>
                       <p>{beverage.blurb}</p>
                       <strong>
-                        Avg. ${beverage.averagePriceUsd.toFixed(2)} USD
+                        Avg. {formatUsd(beverage.averagePriceUsd)}
                       </strong>
                       {onAddAdditionalCost && (
                         <button
