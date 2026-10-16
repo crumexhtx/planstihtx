@@ -32,6 +32,10 @@ const MONTH_LABELS = [
   'December',
 ];
 
+function toSocialImageUrl(url) {
+  return String(url).replace(/\/\d+px-/g, '/1200px-');
+}
+
 function formatMonthList(months) {
   const labels = (months ?? [])
     .map((month) => MONTH_LABELS[month - 1])
@@ -341,7 +345,7 @@ function renderHtml(route) {
       ? null
       : `${siteUrl}${route.routePath === '/' ? '/' : route.routePath}`;
   let html = template;
-  const socialImage = route.image ?? defaultSocialImage;
+  const socialImage = toSocialImageUrl(route.image ?? defaultSocialImage);
   const socialImageAlt = route.imageAlt ?? defaultSocialImageAlt;
   html = replaceTag(
     html,
@@ -360,10 +364,13 @@ function renderHtml(route) {
     canonical ?? `${siteUrl}${route.routePath}`,
   );
   html = upsertMeta(html, 'property', 'og:image', socialImage);
-  if (!route.image) {
-    html = upsertMeta(html, 'property', 'og:image:width', '1200');
-    html = upsertMeta(html, 'property', 'og:image:height', '630');
-  }
+  html = upsertMeta(html, 'property', 'og:image:width', '1200');
+  html = upsertMeta(
+    html,
+    'property',
+    'og:image:height',
+    route.image ? '800' : '630',
+  );
   html = upsertMeta(html, 'property', 'og:image:alt', socialImageAlt);
   html = upsertMeta(html, 'name', 'twitter:card', 'summary_large_image');
   html = upsertMeta(html, 'name', 'twitter:title', route.title);

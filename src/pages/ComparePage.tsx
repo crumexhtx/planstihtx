@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
-import { JsonLd } from '../components/JsonLd';
 import { NotFoundPage } from './NotFoundPage';
 import { getComparisonBySlug, cityComparisons } from '../data/comparisons';
 import { getDestinationById } from '../utils/tripHelpers';
@@ -10,7 +9,6 @@ import {
   PLANNING_DATA_AS_OF_LABEL,
 } from '../utils/pricingAssumptions';
 import { formatMonthList } from '../utils/seasonalityCopy';
-import { buildCompareJsonLd } from '../utils/seo';
 import type { Destination } from '../types';
 
 function weekGroundTotal(destination: Destination): number {
@@ -87,10 +85,6 @@ export function ComparePage() {
         title={`${a.name} vs ${b.name} Trip Cost — Plansti`}
         description={metaDescription}
         canonicalPath={`/compare/${comparison.slug}`}
-      />
-      <JsonLd
-        id={`compare-${comparison.slug}`}
-        data={buildCompareJsonLd(comparison, a, b)}
       />
 
       <article className="destination-page compare-page">

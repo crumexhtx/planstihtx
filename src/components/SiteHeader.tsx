@@ -116,7 +116,7 @@ export function SiteHeader({
             Plansti
           </NavLink>
         </p>
-        <h1>{title}</h1>
+        <p className="app-shell__page-title">{title}</p>
       </div>
       <div className="app-shell__actions">
         <button

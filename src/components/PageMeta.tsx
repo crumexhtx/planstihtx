@@ -7,6 +7,10 @@ import {
   SITE_NAME,
   SITE_URL,
 } from '../config/site';
+import {
+  DESTINATION_SOCIAL_IMAGE_HEIGHT,
+  toSocialImageUrl,
+} from '../utils/socialImage';
 
 export interface PageMetaProps {
   title: string;
@@ -80,7 +84,13 @@ export function PageMeta({
     const canonicalUrl = canonicalPath
       ? `${SITE_URL}${canonicalPath}`
       : `${window.location.origin}${window.location.pathname}`;
-    const imageUrl = image.startsWith('http') ? image : `${SITE_URL}${image}`;
+    const imageUrl = toSocialImageUrl(
+      image.startsWith('http') ? image : `${SITE_URL}${image}`,
+    );
+    const imageHeight =
+      image === DEFAULT_SOCIAL_IMAGE_URL
+        ? DEFAULT_SOCIAL_IMAGE_HEIGHT
+        : DESTINATION_SOCIAL_IMAGE_HEIGHT;
 
     upsertMeta('property', 'og:title', title);
     upsertMeta('property', 'og:description', description);
@@ -92,21 +102,12 @@ export function PageMeta({
       canonicalUrl,
     );
     upsertMeta('property', 'og:image', imageUrl);
-    if (image === DEFAULT_SOCIAL_IMAGE_URL) {
-      upsertMeta(
-        'property',
-        'og:image:width',
-        String(DEFAULT_SOCIAL_IMAGE_WIDTH),
-      );
-      upsertMeta(
-        'property',
-        'og:image:height',
-        String(DEFAULT_SOCIAL_IMAGE_HEIGHT),
-      );
-    } else {
-      document.querySelector('meta[property="og:image:width"]')?.remove();
-      document.querySelector('meta[property="og:image:height"]')?.remove();
-    }
+    upsertMeta(
+      'property',
+      'og:image:width',
+      String(DEFAULT_SOCIAL_IMAGE_WIDTH),
+    );
+    upsertMeta('property', 'og:image:height', String(imageHeight));
     upsertMeta('property', 'og:image:alt', imageAlt);
     upsertMeta('name', 'twitter:card', 'summary_large_image');
     upsertMeta('name', 'twitter:title', title);
@@ -114,7 +115,8 @@ export function PageMeta({
     upsertMeta('name', 'twitter:image', imageUrl);
     upsertMeta('name', 'twitter:image:alt', imageAlt);
 
-    document.getElementById('seo-static')?.setAttribute('hidden', '');
+    document.getElementById('seo-static')?.remove();
+    document.getElementById('seo-static-cls')?.remove();
   }, [title, description, canonicalPath, noIndex, image, imageAlt]);
 
   return null;

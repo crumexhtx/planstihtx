@@ -4,8 +4,6 @@ import { TripPlanner } from '../components/TripPlanner';
 import { BudgetDestinationMatcher } from '../components/BudgetDestinationMatcher';
 import { CurrencyFooter } from '../components/CurrencyFooter';
 import { HeroGlobe } from '../components/HeroGlobe';
-import { JsonLd } from '../components/JsonLd';
-import { buildWebsiteJsonLd } from '../utils/seo';
 import { HOME_META } from '../utils/pageMetaCopy';
 import { SAMPLE_TRIP_LOCATION } from '../utils/plannerQuery';
 
@@ -21,7 +19,6 @@ export function HomePage({ theme }: HomePageProps) {
         description={HOME_META.description}
         canonicalPath="/"
       />
-      <JsonLd id="website" data={buildWebsiteJsonLd()} />
       <section className="travel-hero">
         <div className="travel-hero__content">
           <p className="travel-hero__eyebrow">Explore more. Spend smarter.</p>

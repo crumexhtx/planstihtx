@@ -999,7 +999,8 @@ a.explore-button {
   box-sizing: border-box;
 }
 
-.app-shell__brand h1 {
+.app-shell__brand h1,
+.app-shell__page-title {
   margin: 0.15rem 0 0;
   font-family: var(--font-body);
   font-size: clamp(0.92rem, 2.2vw, 1.05rem);
@@ -2537,7 +2538,8 @@ body {
 }
 
 .app-shell__brand > div:first-child h1,
-.app-shell__brand-copy h1 {
+.app-shell__brand-copy h1,
+.app-shell__page-title {
   display: none;
 }
 

@@ -7,7 +7,6 @@ import { DestinationCostSnapshot } from '../components/DestinationCostSnapshot';
 import { TripPlanner } from '../components/TripPlanner';
 import { DestinationSnapshot } from '../components/DestinationSnapshot';
 import { CurrencyTracker } from '../components/CurrencyTracker';
-import { JsonLd } from '../components/JsonLd';
 import { NotFoundPage } from './NotFoundPage';
 import { getDestinationById } from '../utils/tripHelpers';
 import { destinationDescriptions } from '../data/destinationDescriptions';
@@ -15,7 +14,6 @@ import { destinationExplore } from '../data/destinationExplore';
 import { getDestinationEvents } from '../data/destinationEvents';
 import { culturalIcons } from '../data/culturalIcons';
 import destinationMedia from '../data/destinationMedia.json';
-import { buildDestinationJsonLd } from '../utils/seo';
 import { buildBestTimeMetaPhrase } from '../utils/seasonalityCopy';
 import { cityComparisons } from '../data/comparisons';
 import { destinationPageMeta } from '../utils/pageMetaCopy';
@@ -78,10 +76,6 @@ export function DestinationPage({ theme }: DestinationPageProps) {
             ? `${icon?.label ?? media?.alt ?? destination.name} in ${destination.name}`
             : undefined
         }
-      />
-      <JsonLd
-        id={`destination-${destination.id}`}
-        data={buildDestinationJsonLd(destination)}
       />
 
       <article className="destination-page">

@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = 5173;
+const PORT = 4173;
 const baseURL = `http://127.0.0.1:${PORT}`;
 
 export default defineConfig({
@@ -14,9 +14,12 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: `npm run dev -- --host 127.0.0.1 --port ${PORT} --strictPort`,
+    command: process.env.CI
+      ? `npx vite preview --host 127.0.0.1 --port ${PORT} --strictPort`
+      : `npm run build && npx vite preview --host 127.0.0.1 --port ${PORT} --strictPort`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
+    timeout: 180_000,
   },
   projects: [
     {
