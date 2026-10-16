@@ -3,6 +3,8 @@ export interface BeveragePick {
   blurb: string;
   /** Typical serving price in USD for planning. */
   averagePriceUsd: number;
+  /** Exact Wikipedia article title when it differs from `name`. */
+  wikiTitle?: string;
 }
 
 export interface LocalDrinkPick extends BeveragePick {}
@@ -117,7 +119,7 @@ export const destinationBeverages: Record<string, DestinationBeveragePair> = {
     beer: { name: 'Stella', blurb: 'Historic Egyptian lager sold through licensed shops, hotels, and restaurants; availability is restricted and it is not a general cultural staple.', averagePriceUsd: 3 },
   },
   sydney: {
-    localDrink: { name: 'Flat white', blurb: 'Australian espresso drink with steamed milk and a thin layer of microfoam.', averagePriceUsd: 4 },
+    localDrink: { name: 'Flat white', wikiTitle: 'Flat white', blurb: 'Australian espresso drink with steamed milk and a thin layer of microfoam.', averagePriceUsd: 4 },
     beer: { name: 'Tooheys New', blurb: 'New South Wales lager long associated with Sydney pubs.', averagePriceUsd: 7 },
   },
   prague: {
@@ -270,7 +272,7 @@ export const destinationBeverages: Record<string, DestinationBeveragePair> = {
   },
   montreal: {
     localDrink: { name: 'Maple latte', blurb: 'Coffee sweetened with local maple syrup.', averagePriceUsd: 5 },
-    beer: { name: 'La Fin du Monde', blurb: 'Belgian-style strong ale from Unibroue in Quebec.', averagePriceUsd: 8 },
+    beer: { name: 'La Fin du Monde', wikiTitle: 'La Fin du Monde (beer)', blurb: 'Belgian-style strong ale from Unibroue in Quebec.', averagePriceUsd: 8 },
   },
   cusco: {
     localDrink: { name: 'Coca tea', blurb: 'Mild herbal tea commonly used while acclimatizing.', averagePriceUsd: 1.5 },

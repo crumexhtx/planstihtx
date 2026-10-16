@@ -83,10 +83,10 @@ await mapPool(destinations, 2, async (destination) => {
   await new Promise((resolve) => setTimeout(resolve, 350));
   try {
     let summary = await fetchSummary(title);
-    if (!summary?.thumbnail?.source && !summary?.originalimage?.source) {
-      summary = await fetchSummary(destination.name);
+    if (!summary?.originalimage?.source && !summary?.thumbnail?.source) {
+      summary = await fetchSummary(`${destination.name}, ${destination.country}`);
     }
-    const url = summary?.thumbnail?.source ?? summary?.originalimage?.source;
+    const url = summary?.originalimage?.source ?? summary?.thumbnail?.source;
     if (!url) {
       missed += 1;
       return;

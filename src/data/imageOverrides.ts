@@ -1,6 +1,6 @@
-import type { WikimediaImage } from '../utils/wikimediaImages';
+import type { CatalogImage } from './catalogImage';
 
-export type ImageOverride = WikimediaImage | null;
+export type ImageOverride = CatalogImage | null;
 
 /** `${destinationId}|${itemName}` → pinned image, or null to skip Wikipedia search. */
 export const IMAGE_OVERRIDES: Record<string, ImageOverride> = {
@@ -19,6 +19,18 @@ export const IMAGE_OVERRIDES: Record<string, ImageOverride> = {
   'montreal|La Fin du Monde': null,
   'oslo|Vigeland Sculpture Park': null,
   'xi-an|Xi’an City Wall': null,
+  'paris|Musée d’Orsay': {
+    url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Mus%C3%A9e_d%27Orsay%2C_North-West_view%2C_Paris_7e_140402.jpg/1200px-Mus%C3%A9e_d%27Orsay%2C_North-West_view%2C_Paris_7e_140402.jpg',
+    pageUrl:
+      'https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_d%27Orsay,_North-West_view,_Paris_7e_140402.jpg',
+    alt: "Musée d'Orsay",
+  },
+  'cartagena|Walled Old Town': {
+    url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Murallas_de_Cartagena_de_Indias.jpg/1200px-Murallas_de_Cartagena_de_Indias.jpg',
+    pageUrl:
+      'https://commons.wikimedia.org/wiki/File:Murallas_de_Cartagena_de_Indias.jpg',
+    alt: 'Walled City of Cartagena',
+  },
 };
 
 export function imageOverrideKey(

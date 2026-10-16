@@ -115,6 +115,12 @@ const culturalIcons = await loadTsObjectExport(
   'culturalIcons',
 );
 const destinationMedia = require(path.join(root, 'src/data/destinationMedia.json'));
+let itemMedia = {};
+try {
+  itemMedia = require(path.join(root, 'src/data/itemMedia.json'));
+} catch {
+  itemMedia = {};
+}
 const destinationEvents = await loadTsObjectExport(
   path.join(root, 'src/data/destinationEvents.ts'),
   'destinationEvents',
@@ -421,10 +427,48 @@ function destinationBody(destination, description, info, topAttractions, mustTry
   const seasonality = formatSeasonalityHtml(destination);
   const costSnapshot = formatCostSnapshotHtml(destination, mustTry);
   const media = destinationMedia[destination.id];
+  const catalog = itemMedia[destination.id] ?? {};
   const events = destinationEvents[destination.id] ?? [];
-  const imageHtml = media?.url
-    ? `<figure class="destination-snapshot"><div class="destination-snapshot__gallery"><img src="${escapeAttr(media.url)}" alt="${escapeAttr(media.alt || destination.name)} in ${escapeAttr(destination.name)}" width="960" height="640"></div></figure>`
+  const galleryImages = [
+    media?.url
+      ? {
+          url: media.url,
+          alt: media.alt || destination.name,
+          pageUrl: media.pageUrl || media.url,
+        }
+      : null,
+    ...(catalog.gallery ?? []),
+    ...topAttractions.map((item) => catalog.attractions?.[item.name]).filter(Boolean),
+  ]
+    .filter(Boolean)
+    .filter((image, index, list) => list.findIndex((entry) => entry.url === image.url) === index)
+    .slice(0, 4);
+  const imageHtml = galleryImages.length
+    ? `<figure class="destination-snapshot"><div class="destination-snapshot__gallery">${galleryImages
+        .map(
+          (image) =>
+            `<a href="${escapeAttr(image.pageUrl || image.url)}"><img src="${escapeAttr(image.url)}" alt="${escapeAttr(image.alt || destination.name)}" width="960" height="640"></a>`,
+        )
+        .join('')}</div></figure>`
     : '';
+  const attractionCards = topAttractions
+    .map((item) => {
+      const image = catalog.attractions?.[item.name];
+      const img = image?.url
+        ? `<img src="${escapeAttr(image.url)}" alt="${escapeAttr(image.alt || item.name)}" width="800" height="450">`
+        : '';
+      return `<li>${img}<strong>${escapeHtml(item.name)}</strong> — ${escapeHtml(item.blurb)}</li>`;
+    })
+    .join('');
+  const dishCards = mustTry
+    .map((dish) => {
+      const image = catalog.dishes?.[dish.name];
+      const img = image?.url
+        ? `<img src="${escapeAttr(image.url)}" alt="${escapeAttr(image.alt || dish.name)}" width="800" height="450">`
+        : '';
+      return `<li>${img}<strong>${escapeHtml(dish.name)}</strong> — ${escapeHtml(dish.blurb)} (avg $${Number(dish.averagePriceUsd).toFixed(2)})</li>`;
+    })
+    .join('');
   const lead = escapeHtml(
     (info.highlights || description || '').split(/(?<=[.!?])\s/)[0] ||
       description,
@@ -457,10 +501,10 @@ function destinationBody(destination, description, info, topAttractions, mustTry
     ${costSnapshot}
     ${seasonality}
     <h2>What are the top things to do in ${escapeHtml(destination.name)}?</h2>
-    <ol>${attractions || '<li>Coming soon</li>'}</ol>
+    <ol>${attractionCards || attractions || '<li>Coming soon</li>'}</ol>
     <h2>What's the food and dining like in ${escapeHtml(destination.name)}?</h2>
     ${foodLead}
-    <ul>${food || '<li>Coming soon</li>'}</ul>
+    <ul>${dishCards || food || '<li>Coming soon</li>'}</ul>
     ${eventsHtml}
     <p><a href="/destinations/${destination.id}#trip-calculator">Estimate your ${escapeHtml(destination.name)} trip</a> or <a href="/">open the general calculator</a></p>
   </main>`;

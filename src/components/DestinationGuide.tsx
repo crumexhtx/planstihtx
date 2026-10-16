@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react';
 import type { Destination } from '../types';
 import { destinationDescriptions } from '../data/destinationDescriptions';
 import { destinationExplore } from '../data/destinationExplore';
@@ -6,11 +5,11 @@ import { destinationDishes } from '../data/destinationDishes';
 import { destinationBeverages } from '../data/destinationBeverages';
 import { DESTINATION_LOCAL_CURRENCY } from '../utils/currencyTracker';
 import { buildMustTryFoodAnswer } from '../utils/destinationAnswers';
-import { getImageOverride } from '../data/imageOverrides';
 import {
-  searchWikipediaArticleImage,
-  type WikimediaImage,
-} from '../utils/wikimediaImages';
+  getDestinationItemMedia,
+  resolveCatalogImage,
+} from '../utils/itemMedia';
+import { MediaCredit, MediaPlaceholder } from './CatalogMedia';
 
 export interface DestinationGuideProps {
   destination: Destination;
@@ -19,158 +18,91 @@ export interface DestinationGuideProps {
   onAddAdditionalCost?: (name: string, amountUsd?: number) => void;
 }
 
-function useNearViewport() {
-  const ref = useRef<HTMLSpanElement>(null);
-  const [isNearViewport, setIsNearViewport] = useState(false);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-    if (!('IntersectionObserver' in window)) {
-      setIsNearViewport(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsNearViewport(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '400px 0px' },
-    );
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
-  return { ref, isNearViewport };
-}
-
 function AttractionImage({
   attractionName,
   destinationId,
-  destinationName,
 }: {
   attractionName: string;
   destinationId: string;
-  destinationName: string;
 }) {
-  const [image, setImage] = useState<WikimediaImage | null>();
-  const { ref, isNearViewport } = useNearViewport();
-  const override = getImageOverride(destinationId, attractionName);
-
-  useEffect(() => {
-    if (override !== undefined) {
-      setImage(override);
-      return;
-    }
-    if (!isNearViewport) return;
-    const controller = new AbortController();
-    setImage(undefined);
-    searchWikipediaArticleImage(
-      `${attractionName} ${destinationName}`,
-      controller.signal,
-      attractionName,
-    )
-      .then((result) => setImage(result))
-      .catch(() => {
-        if (!controller.signal.aborted) setImage(null);
-      });
-    return () => controller.abort();
-  }, [attractionName, destinationId, destinationName, isNearViewport, override]);
+  const catalog =
+    getDestinationItemMedia(destinationId)?.attractions?.[attractionName];
+  const image = resolveCatalogImage(destinationId, attractionName, catalog);
 
   if (!image) {
     return (
-      <span
-        ref={ref}
-        className="attraction-gallery__image attraction-gallery__image--placeholder"
-        aria-hidden="true"
+      <MediaPlaceholder
+        name={attractionName}
+        className="attraction-gallery__image"
       />
     );
   }
 
   return (
-    <a
-      className="attraction-gallery__image"
-      href={image.pageUrl}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`View image source for ${attractionName}`}
-    >
-      <img
-        src={image.url}
-        alt={image.alt}
-        width={800}
-        height={450}
-        loading="lazy"
-        decoding="async"
-      />
-    </a>
+    <span className="attraction-gallery__media">
+      <a
+        className="attraction-gallery__image"
+        href={image.pageUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`View image source for ${attractionName}`}
+      >
+        <img
+          src={image.url}
+          alt={image.alt}
+          width={800}
+          height={450}
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <MediaCredit image={image} />
+    </span>
   );
 }
 
 function GuideItemImage({
   name,
   destinationId,
-  destinationName,
   kind,
 }: {
   name: string;
   destinationId: string;
-  destinationName: string;
   kind: 'food' | 'drink' | 'beer';
 }) {
-  const [image, setImage] = useState<WikimediaImage | null>();
-  const { ref, isNearViewport } = useNearViewport();
-  const override = getImageOverride(destinationId, name);
-
-  useEffect(() => {
-    if (override !== undefined) {
-      setImage(override);
-      return;
-    }
-    if (!isNearViewport) return;
-    const controller = new AbortController();
-    setImage(undefined);
-    searchWikipediaArticleImage(
-      `${name} ${kind} ${destinationName}`,
-      controller.signal,
-      name,
-    )
-      .then((result) => setImage(result))
-      .catch(() => {
-        if (!controller.signal.aborted) setImage(null);
-      });
-    return () => controller.abort();
-  }, [destinationId, destinationName, isNearViewport, kind, name, override]);
+  const media = getDestinationItemMedia(destinationId);
+  const catalog =
+    kind === 'food'
+      ? media?.dishes?.[name]
+      : kind === 'drink'
+        ? media?.drink
+        : media?.beer;
+  const image = resolveCatalogImage(destinationId, name, catalog);
 
   if (!image) {
-    return (
-      <span
-        ref={ref}
-        className="dish-card__image dish-card__image--placeholder"
-        aria-hidden="true"
-      />
-    );
+    return <MediaPlaceholder name={name} className="dish-card__image" />;
   }
 
   return (
-    <a
-      className="dish-card__image"
-      href={image.pageUrl}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`View image source for ${name}`}
-    >
-      <img
-        src={image.url}
-        alt={image.alt}
-        width={800}
-        height={450}
-        loading="lazy"
-        decoding="async"
-      />
-    </a>
+    <span className="dish-card__media">
+      <a
+        className="dish-card__image"
+        href={image.pageUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`View image source for ${name}`}
+      >
+        <img
+          src={image.url}
+          alt={image.alt}
+          width={800}
+          height={450}
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <MediaCredit image={image} />
+    </span>
   );
 }
 
@@ -244,7 +176,6 @@ export function DestinationGuide({
                     <AttractionImage
                       attractionName={attraction.name}
                       destinationId={destination.id}
-                      destinationName={destination.name}
                     />
                     <div className="attraction-gallery__content">
                       <span className="explore-modal__rank">{index + 1}</span>
@@ -292,7 +223,6 @@ export function DestinationGuide({
                   <GuideItemImage
                     name={dish.name}
                     destinationId={destination.id}
-                    destinationName={destination.name}
                     kind="food"
                   />
                   <div className="dish-card__body">
@@ -326,7 +256,6 @@ export function DestinationGuide({
                     <GuideItemImage
                       name={beverage.name}
                       destinationId={destination.id}
-                      destinationName={destination.name}
                       kind={kind}
                     />
                     <div className="dish-card__body">

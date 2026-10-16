@@ -1,6 +1,8 @@
 export interface Attraction {
   name: string;
   blurb: string;
+  /** Exact Wikipedia article title when it differs from `name`. */
+  wikiTitle?: string;
 }
 
 export interface DestinationExploreInfo {
@@ -89,9 +91,9 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
     topAttractions: [
       { name: 'Eiffel Tower', blurb: 'City icon best enjoyed at golden hour or after dark.' },
       { name: 'Louvre Museum', blurb: 'Vast art collection from antiquity to the 19th century.' },
-      { name: 'Notre-Dame & Île de la Cité', blurb: 'Historic heart of Paris along the Seine.' },
+      { name: 'Notre-Dame & Île de la Cité', wikiTitle: 'Notre-Dame de Paris', blurb: 'Historic heart of Paris along the Seine.' },
       { name: 'Montmartre', blurb: 'Hilltop village vibes, Sacré-Cœur, and café streets.' },
-      { name: 'Musée d’Orsay', blurb: 'Impressionist masterpieces in a grand former station.' },
+      { name: 'Musée d’Orsay', wikiTitle: "Musée d'Orsay", blurb: 'Impressionist masterpieces in a grand former station.' },
     ],
   },
   london: {
@@ -293,7 +295,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
     topAttractions: [
       { name: 'Table Mountain', blurb: 'Cable car or hike to the city’s signature plateau.' },
       { name: 'V&A Waterfront', blurb: 'Harborfront dining, shops, and ferry access.' },
-      { name: 'Cape Peninsula', blurb: 'Scenic drive to beaches, cliffs, and wildlife.' },
+      { name: 'Cape Peninsula', wikiTitle: 'Cape Peninsula', blurb: 'Scenic drive to beaches, cliffs, and wildlife.' },
       { name: 'Bo-Kaap', blurb: 'Bright houses and Cape Malay food heritage.' },
       { name: 'Stellenbosch Winelands', blurb: 'Day-trip vineyards outside the city.' },
     ],
@@ -315,7 +317,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       'Harbor icons, beaches, coastal walks, and outdoor dining.',
     bestFor: 'Harbor-city trips with easy day trips',
     topAttractions: [
-      { name: 'Sydney Opera House', blurb: 'Harbor landmark for tours or a performance.' },
+      { name: 'Sydney Opera House', wikiTitle: 'Sydney Opera House', blurb: 'Harbor landmark for tours or a performance.' },
       { name: 'Bondi to Coogee Walk', blurb: 'Cliffside coastal walk between beaches.' },
       { name: 'Sydney Harbour Bridge', blurb: 'Climb or walk for classic skyline views.' },
       { name: 'The Rocks', blurb: 'Historic waterfront lanes and weekend markets.' },
@@ -724,8 +726,8 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       'Lake walks, museums, and day trips.',
     bestFor: 'Efficient Switzerland trip bases',
     topAttractions: [
-      { name: 'Old Town (Altstadt)', blurb: 'Lindenhof views and riverside lanes.' },
-      { name: 'Lake Zurich promenade', blurb: 'Waterfront path for swimming and sunsets.' },
+      { name: 'Old Town (Altstadt)', wikiTitle: 'Altstadt (Zürich)', blurb: 'Lindenhof views and riverside lanes.' },
+      { name: 'Lake Zurich promenade', wikiTitle: 'Lake Zurich', blurb: 'Waterfront path for swimming and sunsets.' },
       { name: 'Kunsthaus Zürich', blurb: 'Major art museum with a strong modern collection.' },
       { name: 'Bahnhofstrasse', blurb: 'Polished shopping avenue from the main station.' },
       { name: 'Uetliberg', blurb: 'Local mountain viewpoint above the city.' },
@@ -788,7 +790,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       { name: 'Sacsayhuamán', blurb: 'Massive Inca stone fortress above town.' },
       { name: 'Qorikancha', blurb: 'Temple of the Sun beneath a colonial convent.' },
       { name: 'San Blas', blurb: 'Artisan neighborhood of steep lanes and viewpoints.' },
-      { name: 'Sacred Valley / Machu Picchu', blurb: 'Core day-trip and multi-day route from Cusco.' },
+      { name: 'Sacred Valley / Machu Picchu', wikiTitle: 'Machu Picchu', blurb: 'Core day-trip and multi-day route from Cusco.' },
     ],
   },
   cartagena: {
@@ -796,7 +798,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       'Old Town walls and island days.',
     bestFor: 'Caribbean city-and-beach trips',
     topAttractions: [
-      { name: 'Walled Old Town', blurb: 'Colorful streets, plazas, and boutique hotels.' },
+      { name: 'Walled Old Town', wikiTitle: 'Walled City of Cartagena', blurb: 'Colorful streets, plazas, and boutique hotels.' },
       { name: 'Castillo San Felipe', blurb: 'Hilltop fortress overlooking the city.' },
       { name: 'Getsemaní', blurb: 'Street-art neighborhood with nightlife.' },
       { name: 'Rosario Islands', blurb: 'Boat-day beaches and snorkeling offshore.' },
@@ -934,7 +936,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       { name: 'Denver Art Museum', blurb: 'Major collection with a striking downtown campus.' },
       { name: 'Union Station', blurb: 'Restored transit hub with shops and restaurants.' },
       { name: 'LoDo / Larimer Square', blurb: 'Historic warehouse district for dining and nightlife.' },
-      { name: 'Mount Evans / Echo Lake day trip', blurb: 'High-alpine scenery west of the city.' },
+      { name: 'Mount Evans / Echo Lake day trip', wikiTitle: 'Mount Blue Sky', blurb: 'High-alpine scenery west of the city.' },
     ],
   },
   philadelphia: {
@@ -1064,7 +1066,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
     bestFor: 'Food-focused travel and ancient history',
     topAttractions: [
       { name: 'Naples Historic Center', blurb: 'UNESCO old town of narrow lanes and churches.' },
-      { name: 'Pompeii', blurb: 'Ancient Roman city preserved by Vesuvius’s ash.' },
+      { name: 'Pompeii', wikiTitle: 'Pompeii', blurb: 'Ancient Roman city preserved by Vesuvius’s ash.' },
       { name: 'Mount Vesuvius', blurb: 'Active volcano with a hikeable crater rim.' },
       { name: 'Naples National Archaeological Museum', blurb: 'Treasures recovered from Pompeii and Herculaneum.' },
       { name: 'Spaccanapoli', blurb: 'Straight-line street cutting through the old center.' },
@@ -1150,7 +1152,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       { name: 'Ljubljana Castle', blurb: 'Hilltop castle reached by funicular.' },
       { name: 'Triple Bridge', blurb: 'Trio of pedestrian bridges over the Ljubljanica.' },
       { name: 'Central Market', blurb: 'Riverside market by architect Jože Plečnik.' },
-      { name: 'Lake Bled day trip', blurb: 'Alpine lake with an island church, an hour away.' },
+      { name: 'Lake Bled day trip', wikiTitle: 'Lake Bled', blurb: 'Alpine lake with an island church, an hour away.' },
       { name: 'Metelkova', blurb: 'Alternative art squat turned cultural hub.' },
     ],
   },
@@ -1171,11 +1173,11 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       'Cube-house alleys, windmill views, and some of Greece’s liveliest beach clubs.',
     bestFor: 'Nightlife-forward island getaways',
     topAttractions: [
-      { name: 'Mykonos Windmills', blurb: 'Iconic row of whitewashed windmills.' },
+      { name: 'Mykonos Windmills', wikiTitle: 'Mykonos windmills', blurb: 'Iconic row of whitewashed windmills.' },
       { name: 'Little Venice', blurb: 'Waterfront houses built right against the sea.' },
       { name: 'Paradise Beach', blurb: 'Famous beach-club and party strip.' },
-      { name: 'Delos day trip', blurb: 'Sacred ancient island ruins offshore.' },
-      { name: 'Chora old town', blurb: 'Maze of whitewashed lanes and boutiques.' },
+      { name: 'Delos day trip', wikiTitle: 'Delos', blurb: 'Sacred ancient island ruins offshore.' },
+      { name: 'Chora old town', wikiTitle: 'Mykonos (town)', blurb: 'Maze of whitewashed lanes and boutiques.' },
     ],
   },
   oslo: {
@@ -1183,7 +1185,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       'Fjord views, Viking ship history, and easy forest hikes right from the city.',
     bestFor: 'Nordic design and nature within city limits',
     topAttractions: [
-      { name: 'Vigeland Sculpture Park', blurb: 'Open-air park of over 200 sculptures.' },
+      { name: 'Vigeland Sculpture Park', wikiTitle: 'Vigeland Sculpture Park', blurb: 'Open-air park of over 200 sculptures.' },
       { name: 'Viking Ship Museum', blurb: 'Preserved 9th-century Viking burial ships.' },
       { name: 'Oslo Opera House', blurb: 'Walkable-roof waterfront opera house.' },
       { name: 'Akershus Fortress', blurb: 'Medieval fortress overlooking the fjord.' },
@@ -1426,8 +1428,8 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       { name: 'Amman Citadel', blurb: 'Hilltop ruins overlooking the whole city.' },
       { name: 'Roman Theatre', blurb: 'Well-preserved 2nd-century amphitheater downtown.' },
       { name: 'Rainbow Street', blurb: 'Café- and gallery-lined hillside street.' },
-      { name: 'Petra day trip', blurb: 'Rock-carved ancient city, a few hours south.' },
-      { name: 'Dead Sea day trip', blurb: 'Buoyant salt lake, an easy drive away.' },
+      { name: 'Petra day trip', wikiTitle: 'Petra', blurb: 'Rock-carved ancient city, a few hours south.' },
+      { name: 'Dead Sea day trip', wikiTitle: 'Dead Sea', blurb: 'Buoyant salt lake, an easy drive away.' },
     ],
   },
   nairobi: {
@@ -1520,7 +1522,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
     bestFor: 'Staging a wider Costa Rica nature trip',
     topAttractions: [
       { name: 'National Theatre of Costa Rica', blurb: 'Ornate 19th-century theater downtown.' },
-      { name: 'Poás Volcano day trip', blurb: 'Active volcano crater within driving distance.' },
+      { name: 'Poás Volcano day trip', wikiTitle: 'Poás Volcano', blurb: 'Active volcano crater within driving distance.' },
       { name: 'Central Market', blurb: 'Traditional market for food stalls and crafts.' },
       { name: 'Pre-Columbian Gold Museum', blurb: 'Underground museum of indigenous gold work.' },
       { name: 'La Sabana Park', blurb: 'Large city park with lake and sports fields.' },
@@ -1532,7 +1534,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
     bestFor: 'All-inclusive beach vacations',
     topAttractions: [
       { name: 'Bavaro Beach', blurb: 'Signature stretch of white sand and calm water.' },
-      { name: 'Isla Saona day trip', blurb: 'Boat trip to a postcard island off the coast.' },
+      { name: 'Isla Saona day trip', wikiTitle: 'Saona Island', blurb: 'Boat trip to a postcard island off the coast.' },
       { name: 'Hoyo Azul', blurb: 'Turquoise cenote sinkhole in a nature park.' },
       { name: 'Punta Cana Resorts golf courses', blurb: 'Oceanfront courses along the coast.' },
       { name: 'Altos de Chavón', blurb: 'Recreated 16th-century artisan village.' },
@@ -1571,7 +1573,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       { name: 'Queen’s Staircase', blurb: 'Historic 65-step limestone staircase.' },
       { name: 'Straw Market', blurb: 'Downtown market for local crafts and souvenirs.' },
       { name: 'Blue Lagoon Island', blurb: 'Boat-trip beach island with dolphin encounters.' },
-      { name: 'Pig Beach day trip', blurb: 'Famous swimming pigs on a nearby cay.' },
+      { name: 'Pig Beach day trip', wikiTitle: 'Pig Beach', blurb: 'Famous swimming pigs on a nearby cay.' },
     ],
   },
   'montego-bay': {
@@ -1582,8 +1584,8 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       { name: 'Doctor’s Cave Beach', blurb: 'Iconic white-sand beach with calm, clear water.' },
       { name: 'Rose Hall Great House', blurb: 'Restored plantation great house with local legend.' },
       { name: 'Martha Brae River rafting', blurb: 'Bamboo raft float down a jungle river.' },
-      { name: 'Dunn’s River Falls day trip', blurb: 'Terraced waterfall climb near Ocho Rios.' },
-      { name: 'Hip Strip', blurb: 'Main strip of shops, bars, and live music.' },
+      { name: 'Dunn’s River Falls day trip', wikiTitle: "Dunn's River Falls", blurb: 'Terraced waterfall climb near Ocho Rios.' },
+      { name: 'Hip Strip', wikiTitle: 'Hip Strip', blurb: 'Main strip of shops, bars, and live music.' },
     ],
   },
   queenstown: {
@@ -1595,7 +1597,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
       { name: 'Lake Wakatipu', blurb: 'Glacial lake framed by the Remarkables range.' },
       { name: 'Kawarau Bridge Bungy', blurb: 'The world’s original commercial bungee jump.' },
       { name: 'Shotover Jet', blurb: 'High-speed jet boat ride through a river canyon.' },
-      { name: 'Milford Sound day trip', blurb: 'Fjord day trip through dramatic mountain scenery.' },
+      { name: 'Milford Sound day trip', wikiTitle: 'Milford Sound', blurb: 'Fjord day trip through dramatic mountain scenery.' },
     ],
   },
   'gold-coast': {
@@ -1629,7 +1631,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
     topAttractions: [
       { name: 'Calgary Stampede', blurb: 'Massive July rodeo and festival.' },
       { name: 'Calgary Tower', blurb: 'Downtown observation tower with a glass floor.' },
-      { name: 'Banff day trip', blurb: 'Rockies mountain town about 90 minutes away.' },
+      { name: 'Banff day trip', wikiTitle: 'Banff National Park', blurb: 'Rockies mountain town about 90 minutes away.' },
       { name: 'Studio Bell (National Music Centre)', blurb: 'Museum of Canadian music history.' },
       { name: 'Prince’s Island Park', blurb: 'Riverside park in the heart of downtown.' },
     ],
@@ -1880,7 +1882,7 @@ export const destinationExplore: Record<string, DestinationExploreInfo> = {
     bestFor: 'Ancient China history and intense street-food nights',
     topAttractions: [
       { name: 'Terracotta Army', blurb: 'Emperor Qin’s underground clay warriors outside the city.' },
-      { name: 'Xi’an City Wall', blurb: 'Ming-era wall you can bike around the old city.' },
+      { name: 'Xi’an City Wall', wikiTitle: "Fortifications of Xi'an", blurb: 'Ming-era wall you can bike around the old city.' },
       { name: 'Muslim Quarter', blurb: 'Night-market streets of lamb skewers and noodles.' },
       { name: 'Giant Wild Goose Pagoda', blurb: 'Tang-dynasty Buddhist pagoda and plaza.' },
       { name: 'Bell Tower', blurb: 'Ming bell tower at the old city’s crossroads.' },

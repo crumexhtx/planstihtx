@@ -3,6 +3,8 @@ export interface MustTryDish {
   blurb: string;
   /** Typical plate price in USD for planning. */
   averagePriceUsd: number;
+  /** Exact Wikipedia article title when it differs from `name`. */
+  wikiTitle?: string;
 }
 
 /** Popular / must-try dishes per destination with average prices. */
@@ -50,7 +52,7 @@ export const destinationDishes: Record<string, MustTryDish[]> = {
     { name: 'Mint tea with pastries', blurb: 'Gunpowder tea poured over fresh mint.', averagePriceUsd: 3 },
   ],
   paris: [
-    { name: 'Croissant', blurb: 'Buttery laminated pastry, best fresh in the morning.', averagePriceUsd: 2.5 },
+    { name: 'Croissant', wikiTitle: 'Croissant', blurb: 'Buttery laminated pastry, best fresh in the morning.', averagePriceUsd: 2.5 },
     { name: 'Steak frites', blurb: 'Classic bistro steak with crisp fries.', averagePriceUsd: 28 },
     { name: 'Croque monsieur', blurb: 'Toasted ham-and-cheese sandwich, often with béchamel.', averagePriceUsd: 12 },
     { name: 'Onion soup', blurb: 'Beef broth with caramelized onions and melted cheese.', averagePriceUsd: 14 },
@@ -138,7 +140,7 @@ export const destinationDishes: Record<string, MustTryDish[]> = {
     { name: 'Korean BBQ', blurb: 'Table-grill meats with banchan sides.', averagePriceUsd: 35 },
     { name: 'In-N-Out burger', blurb: 'Regional fast-food burger stop for many visitors.', averagePriceUsd: 6 },
     { name: 'Birria tacos', blurb: 'Consommé-dipped tacos popular across the city.', averagePriceUsd: 4 },
-    { name: 'Acai or smoothie bowl', blurb: 'Health-café staple in beach neighborhoods.', averagePriceUsd: 12 },
+    { name: 'Acai or smoothie bowl', wikiTitle: 'Açaí na tigela', blurb: 'Health-café staple in beach neighborhoods.', averagePriceUsd: 12 },
   ],
   orlando: [
     { name: 'Fried alligator bites', blurb: 'Florida alligator tail, breaded and fried as an appetizer.', averagePriceUsd: 14 },
@@ -171,7 +173,7 @@ export const destinationDishes: Record<string, MustTryDish[]> = {
   'cape-town': [
     { name: 'Gatsby', blurb: 'Cape Town sandwich packed with chips, sauce, and meat or seafood.', averagePriceUsd: 9 },
     { name: 'Braai boerewors', blurb: 'Grilled spiced sausage with sides.', averagePriceUsd: 10 },
-    { name: 'Bunny chow', blurb: 'Hollowed bread loaf filled with curry.', averagePriceUsd: 8 },
+    { name: 'Bunny chow', wikiTitle: 'Bunny chow', blurb: 'Hollowed bread loaf filled with curry.', averagePriceUsd: 8 },
     { name: 'Peri-peri chicken', blurb: 'Flame-grilled chicken with chili sauce.', averagePriceUsd: 12 },
     { name: 'Malva pudding', blurb: 'Sweet sponge dessert with cream sauce.', averagePriceUsd: 6 },
   ],
@@ -863,7 +865,7 @@ export const destinationDishes: Record<string, MustTryDish[]> = {
     { name: 'Jerk chicken', blurb: 'Smoky, spice-rubbed grilled chicken.', averagePriceUsd: 8 },
     { name: 'Ackee and saltfish', blurb: 'Jamaica’s national breakfast dish.', averagePriceUsd: 9 },
     { name: 'Curry goat', blurb: 'Slow-cooked curried goat with rice and peas.', averagePriceUsd: 14 },
-    { name: 'Festival', blurb: 'Slightly sweet fried dumpling served with jerk plates.', averagePriceUsd: 2 },
+    { name: 'Festival', wikiTitle: 'Festival (Jamaican pastry)', blurb: 'Slightly sweet fried dumpling served with jerk plates.', averagePriceUsd: 2 },
   ],
   queenstown: [
     { name: 'Fergburger', blurb: 'Queenstown’s famously massive gourmet burger.', averagePriceUsd: 14 },
@@ -926,7 +928,7 @@ export const destinationDishes: Record<string, MustTryDish[]> = {
     { name: 'Harira', blurb: 'Tomato-lentil soup traditionally served at sunset.', averagePriceUsd: 4 },
   ],
   johannesburg: [
-    { name: 'Bunny chow', blurb: 'Hollowed bread loaf filled with curry, a Joburg favorite.', averagePriceUsd: 8 },
+    { name: 'Bunny chow', wikiTitle: 'Bunny chow', blurb: 'Hollowed bread loaf filled with curry, a Joburg favorite.', averagePriceUsd: 8 },
     { name: 'Boerewors roll', blurb: 'Spiced farmer’s sausage in a bun with tomato relish.', averagePriceUsd: 5 },
     { name: 'Pap and chakalaka', blurb: 'Maize porridge with spicy vegetable relish.', averagePriceUsd: 6 },
     { name: 'Bobotie', blurb: 'Spiced minced meat bake topped with egg custard.', averagePriceUsd: 11 },
@@ -950,8 +952,8 @@ export const destinationDishes: Record<string, MustTryDish[]> = {
     { name: 'Sarma', blurb: 'Cabbage rolls filled with minced meat and rice.', averagePriceUsd: 9 },
   ],
   bucharest: [
-    { name: 'Mici', blurb: 'Grilled minced-meat rolls served with mustard.', averagePriceUsd: 6 },
-    { name: 'Sarmale', blurb: 'Cabbage rolls with pork and rice, a national staple.', averagePriceUsd: 8 },
+    { name: 'Mici', wikiTitle: 'Mititei', blurb: 'Grilled minced-meat rolls served with mustard.', averagePriceUsd: 6 },
+    { name: 'Sarmale', wikiTitle: 'Sarmale', blurb: 'Cabbage rolls with pork and rice, a national staple.', averagePriceUsd: 8 },
     { name: 'Ciorbă de burtă', blurb: 'Creamy tripe soup finished with garlic and vinegar.', averagePriceUsd: 7 },
     { name: 'Papanași', blurb: 'Fried doughnuts with sour cream and jam.', averagePriceUsd: 6 },
   ],

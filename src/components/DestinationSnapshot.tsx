@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import type { Destination } from '../types';
+import type { CatalogImage } from '../data/catalogImage';
 import { culturalIcons } from '../data/culturalIcons';
 import destinationMedia from '../data/destinationMedia.json';
 import { destinationExplore } from '../data/destinationExplore';
-import { getImageOverride } from '../data/imageOverrides';
 import {
-  searchWikipediaArticleImage,
-  searchWikipediaSummary,
-  type WikimediaImage,
-} from '../utils/wikimediaImages';
+  getDestinationItemMedia,
+  resolveCatalogImage,
+} from '../utils/itemMedia';
+import { MediaCredit, MediaPlaceholder } from './CatalogMedia';
 
 interface DestinationSnapshotProps {
   destination: Destination;
@@ -23,7 +23,7 @@ interface ForecastDay {
 }
 
 interface Snapshot {
-  images: WikimediaImage[];
+  images: CatalogImage[];
   temperatureF: number | null;
   weatherCode: number | null;
   forecast: ForecastDay[];
@@ -62,8 +62,8 @@ function imageFileName(url: string): string {
 }
 
 function isDuplicateImage(
-  candidate: WikimediaImage,
-  existing: WikimediaImage,
+  candidate: CatalogImage,
+  existing: CatalogImage,
 ): boolean {
   const candidatePage = candidate.pageUrl.split(/[?#]/)[0].toLowerCase();
   const existingPage = existing.pageUrl.split(/[?#]/)[0].toLowerCase();
@@ -74,23 +74,44 @@ function isDuplicateImage(
   );
 }
 
-function seedImages(
-  destination: Destination,
-  culturalIcon: (typeof culturalIcons)[string] | undefined,
-): WikimediaImage[] {
-  const baked = (destinationMedia as Record<string, WikimediaImage | undefined>)[
+function catalogImagesFor(destination: Destination): CatalogImage[] {
+  const culturalIcon = culturalIcons[destination.id];
+  const baked = (destinationMedia as Record<string, CatalogImage | undefined>)[
     destination.id
   ];
-  const url = culturalIcon?.imageUrl ?? baked?.url;
-  if (!url) return [];
-  return [
-    {
-      url,
-      pageUrl:
-        culturalIcon?.imagePageUrl ?? baked?.pageUrl ?? url,
+  const itemMedia = getDestinationItemMedia(destination.id);
+  const images: CatalogImage[] = [];
+  const heroUrl = culturalIcon?.imageUrl ?? baked?.url;
+  if (heroUrl) {
+    images.push({
+      url: heroUrl,
+      pageUrl: culturalIcon?.imagePageUrl ?? baked?.pageUrl ?? heroUrl,
       alt: culturalIcon?.label ?? baked?.alt ?? destination.name,
-    },
-  ];
+      author: baked?.author,
+      license: baked?.license,
+    });
+  }
+  const extras = [
+    ...(itemMedia?.gallery ?? []),
+    ...(destinationExplore[destination.id]?.topAttractions ?? []).map(
+      (attraction) =>
+        resolveCatalogImage(
+          destination.id,
+          attraction.name,
+          itemMedia?.attractions?.[attraction.name],
+        ),
+    ),
+  ].filter((image): image is CatalogImage => image !== null);
+
+  extras.forEach((image) => {
+    if (
+      images.length < GALLERY_SLOTS &&
+      !images.some((candidate) => isDuplicateImage(image, candidate))
+    ) {
+      images.push(image);
+    }
+  });
+  return images;
 }
 
 export function DestinationSnapshot({
@@ -98,9 +119,9 @@ export function DestinationSnapshot({
   forecastDays = 1,
 }: DestinationSnapshotProps) {
   const culturalIcon = culturalIcons[destination.id];
-  const wikipediaTitle = culturalIcon?.title ?? destination.name;
+  const galleryImages = catalogImagesFor(destination);
   const [snapshot, setSnapshot] = useState<Snapshot>(() => ({
-    images: seedImages(destination, culturalIcon),
+    images: galleryImages,
     temperatureF: null,
     weatherCode: null,
     forecast: [],
@@ -110,9 +131,9 @@ export function DestinationSnapshot({
 
   useEffect(() => {
     const controller = new AbortController();
-    const seeded = seedImages(destination, culturalIcon);
+    const images = catalogImagesFor(destination);
     setSnapshot({
-      images: seeded,
+      images,
       temperatureF: null,
       weatherCode: null,
       forecast: [],
@@ -129,12 +150,7 @@ export function DestinationSnapshot({
         : '') +
       '&temperature_unit=fahrenheit&timezone=auto';
 
-    const wikipediaRequest = seeded.length
-      ? Promise.resolve(null)
-      : searchWikipediaSummary(wikipediaTitle, controller.signal).catch(
-          () => null,
-        );
-    const weatherRequest = fetch(weatherUrl, { signal: controller.signal })
+    fetch(weatherUrl, { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error('Weather request failed');
         return response.json() as Promise<{
@@ -147,77 +163,20 @@ export function DestinationSnapshot({
           };
         }>;
       })
-      .catch(() => null);
-    const attractionNames =
-      destinationExplore[destination.id]?.topAttractions.map(
-        (attraction) => attraction.name,
-      ) ?? [];
-    const galleryRequest = Promise.all(
-      [
-        {
-          query: `${destination.name} ${destination.country}`,
-          subject: destination.name,
-          override: undefined as WikimediaImage | null | undefined,
-        },
-        ...attractionNames.map((attraction) => ({
-          query: `${attraction} ${destination.name}`,
-          subject: attraction,
-          override: getImageOverride(destination.id, attraction),
-        })),
-      ].map(({ query, subject, override }) => {
-        if (override !== undefined) return Promise.resolve(override);
-        return searchWikipediaArticleImage(
-          query,
-          controller.signal,
-          subject,
-        ).catch(() => null);
-      }),
-    ).then((images) =>
-      images.filter((image): image is WikimediaImage => image !== null),
-    );
-
-    Promise.all([wikipediaRequest, weatherRequest, galleryRequest])
-      .then(([wikipedia, weather, gallery]) => {
+      .then((weather) => {
         if (controller.signal.aborted) return;
-        const primaryUrl =
-          culturalIcon?.imageUrl ??
-          seeded[0]?.url ??
-          wikipedia?.thumbnail?.source ??
-          wikipedia?.originalimage?.source;
-        const images: WikimediaImage[] = primaryUrl
-          ? [
-              {
-                url: primaryUrl,
-                pageUrl:
-                  culturalIcon?.imagePageUrl ??
-                  seeded[0]?.pageUrl ??
-                  wikipedia?.content_urls?.desktop?.page ??
-                  primaryUrl,
-                alt: culturalIcon?.label ?? destination.name,
-              },
-            ]
-          : [];
-        gallery.forEach((image) => {
-          if (
-            images.length < GALLERY_SLOTS &&
-            !images.some((candidate) => isDuplicateImage(image, candidate))
-          ) {
-            images.push(image);
-          }
-        });
-        if (!images.length && !weather) {
-          setFailed(true);
-        }
         setSnapshot({
           images,
           temperatureF: weather?.current?.temperature_2m ?? null,
           weatherCode: weather?.current?.weather_code ?? null,
-          forecast: (weather?.daily?.time ?? []).slice(0, 5).map((date, index) => ({
-            date,
-            maxF: weather?.daily?.temperature_2m_max?.[index] ?? null,
-            minF: weather?.daily?.temperature_2m_min?.[index] ?? null,
-            weatherCode: weather?.daily?.weather_code?.[index] ?? null,
-          })),
+          forecast: (weather?.daily?.time ?? [])
+            .slice(0, 5)
+            .map((date, index) => ({
+              date,
+              maxF: weather?.daily?.temperature_2m_max?.[index] ?? null,
+              minF: weather?.daily?.temperature_2m_min?.[index] ?? null,
+              weatherCode: weather?.daily?.weather_code?.[index] ?? null,
+            })),
         });
         setWeatherReady(true);
       })
@@ -228,7 +187,7 @@ export function DestinationSnapshot({
       });
 
     return () => controller.abort();
-  }, [culturalIcon, destination, forecastDays, wikipediaTitle]);
+  }, [destination, forecastDays]);
 
   const galleryItems = Array.from({ length: GALLERY_SLOTS }, (_, index) => {
     return snapshot.images[index] ?? null;
@@ -237,30 +196,34 @@ export function DestinationSnapshot({
 
   return (
     <div className="destination-snapshot">
-      <div className="destination-snapshot__gallery" aria-busy={!hasAnyImage && !failed}>
+      <div className="destination-snapshot__gallery" aria-busy={false}>
         {galleryItems.map((image, index) =>
           image ? (
-            <a
-              key={image.url}
-              href={image.pageUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`View source for ${destination.name} image ${index + 1}`}
-            >
-              <img
-                src={image.url}
-                alt={image.alt}
-                width={640}
-                height={360}
-                loading={index === 0 ? 'eager' : 'lazy'}
-                decoding="async"
-              />
-            </a>
+            <figure key={image.url} className="destination-snapshot__figure">
+              <a
+                href={image.pageUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`View source for ${destination.name} image ${index + 1}`}
+              >
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  width={640}
+                  height={360}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </a>
+              <figcaption>
+                <MediaCredit image={image} />
+              </figcaption>
+            </figure>
           ) : (
-            <span
+            <MediaPlaceholder
               key={`slot-${index}`}
+              name={destination.name}
               className="destination-snapshot__placeholder"
-              aria-hidden="true"
             />
           ),
         )}
@@ -269,7 +232,7 @@ export function DestinationSnapshot({
         {hasAnyImage && culturalIcon
           ? `Featuring ${culturalIcon.label} and city landmarks`
           : failed
-            ? 'Live images are temporarily unavailable.'
+            ? 'Live weather is temporarily unavailable.'
             : '\u00a0'}
       </small>
       {forecastDays === 5 ? (

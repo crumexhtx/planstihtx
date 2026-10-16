@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && node scripts/prerender.mjs",
-    "prefetch-media": "node scripts/prefetchDestinationMedia.mjs",
+    "prefetch-media": "node scripts/prefetchItemMedia.mjs",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "preview": "vite preview"

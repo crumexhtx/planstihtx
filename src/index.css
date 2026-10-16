@@ -769,7 +769,47 @@ body.nav-open {
 }
 
 .dish-card__image--placeholder {
-  animation: attraction-image-pulse 1.4s ease-in-out infinite alternate;
+  animation: none;
+}
+
+.dish-card__media,
+.attraction-gallery__media {
+  display: grid;
+}
+
+.media-credit {
+  display: block;
+  padding: 0.2rem 0.55rem 0.35rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+
+.media-credit a {
+  color: inherit;
+}
+
+.media-placeholder {
+  display: grid;
+  place-items: center;
+  gap: 0.35rem;
+  padding: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  background:
+    linear-gradient(135deg, var(--accent-soft), transparent),
+    var(--track);
+}
+
+.media-placeholder__icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  opacity: 0.75;
+}
+
+.media-placeholder__label {
+  font-size: 0.78rem;
+  line-height: 1.3;
 }
 
 .dish-card__body {
@@ -1847,7 +1887,7 @@ a.explore-button {
 }
 
 .attraction-gallery__image--placeholder {
-  animation: attraction-image-pulse 1.4s ease-in-out infinite alternate;
+  animation: none;
 }
 
 .attraction-gallery__content {
@@ -1909,12 +1949,30 @@ a.explore-button {
 }
 
 .destination-snapshot__gallery a,
+.destination-snapshot__figure,
 .destination-snapshot__placeholder {
   display: block;
   min-height: 0;
   overflow: hidden;
   border-radius: 0.5rem;
   background: var(--track);
+}
+
+.destination-snapshot__figure {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.destination-snapshot__figure a {
+  display: block;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.destination-snapshot__figure:only-child {
+  grid-column: 1 / -1;
+  grid-row: 1 / 3;
 }
 
 .destination-snapshot__gallery a:only-child {
