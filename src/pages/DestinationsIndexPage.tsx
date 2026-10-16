@@ -9,6 +9,7 @@ import {
   type Region,
 } from '../data/regions';
 import { DESTINATIONS_INDEX_META } from '../utils/pageMetaCopy';
+import { getDestinationHero } from '../utils/destinationHero';
 
 export const COUNTRY_FLAG_CODES: Record<string, string> = {
   Portugal: 'pt',
@@ -182,27 +183,54 @@ export function DestinationsIndexPage() {
           </p>
         ) : (
           <ul className="destinations-index__list">
-            {filtered.map((destination) => (
-              <li key={destination.id}>
-                <Link to={`/destinations/${destination.id}`}>
-                  <img
-                    className="destinations-index__flag"
-                    src={`https://flagcdn.com/w320/${flagCodeFor(destination.id, destination.country)}.png`}
-                    alt=""
-                    width={320}
-                    height={213}
-                    aria-hidden="true"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <strong>{destination.name}</strong>
-                  <span>
-                    {destination.country} · {getDestinationRegion(destination)}
-                  </span>
-                  <small>From ${destination.dailyBudget}/day baseline</small>
-                </Link>
-              </li>
-            ))}
+            {filtered.map((destination, index) => {
+              const hero = getDestinationHero(destination.id);
+              return (
+                <li key={destination.id}>
+                  <Link
+                    className="destinations-index__card"
+                    to={`/destinations/${destination.id}`}
+                  >
+                    {hero ? (
+                      <img
+                        className="destinations-index__hero"
+                        src={hero.url}
+                        alt=""
+                        width={640}
+                        height={360}
+                        loading={index < 8 ? 'eager' : 'lazy'}
+                        decoding="async"
+                      />
+                    ) : (
+                      <span
+                        className="destinations-index__hero destinations-index__hero--empty"
+                        aria-hidden="true"
+                      />
+                    )}
+                    <img
+                      className="destinations-index__flag"
+                      src={`https://flagcdn.com/w80/${flagCodeFor(destination.id, destination.country)}.png`}
+                      alt=""
+                      width={80}
+                      height={53}
+                      aria-hidden="true"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="destinations-index__copy">
+                      <strong>{destination.name}</strong>
+                      <span>
+                        {destination.country} ·{' '}
+                        {getDestinationRegion(destination)}
+                      </span>
+                      <small>
+                        From ${destination.dailyBudget}/day baseline
+                      </small>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         )}
 

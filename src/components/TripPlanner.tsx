@@ -11,6 +11,7 @@ import {
 import { Link, useSearchParams } from 'react-router-dom';
 import { destinationDescriptions } from '../data/destinationDescriptions';
 import { DestinationSnapshot } from './DestinationSnapshot';
+import { DestinationCombobox } from './DestinationCombobox';
 import { FeaturedDestinations } from './FeaturedDestinations';
 import { TripControls } from './TripControls';
 import { CostSummary } from './CostSummary';
@@ -85,6 +86,8 @@ export interface TripPlannerProps {
   showDestinationSnapshot?: boolean;
   /** City-mode guide blocks (attractions / must-try). Default true. */
   showCityGuideRecommendations?: boolean;
+  originId?: string;
+  onOriginIdChange?: (originId: string) => void;
 }
 
 export function TripPlanner({
@@ -93,6 +96,8 @@ export function TripPlanner({
   theme,
   showDestinationSnapshot = true,
   showCityGuideRecommendations = true,
+  originId,
+  onOriginIdChange,
 }: TripPlannerProps) {
   const { rates } = useExchangeRates();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -112,6 +117,19 @@ export function TripPlanner({
     currency: 'USD',
     date: today(),
   });
+
+  useEffect(() => {
+    if (!originId) return;
+    setTrip((current) =>
+      current.originId === originId
+        ? current
+        : {
+            ...current,
+            originId,
+            updatedAt: new Date().toISOString(),
+          },
+    );
+  }, [originId]);
 
   useEffect(() => {
     if (!lockedId) return;
@@ -232,6 +250,9 @@ export function TripPlanner({
       ...patch,
       updatedAt: new Date().toISOString(),
     }));
+    if (patch.originId) {
+      onOriginIdChange?.(patch.originId);
+    }
   }
 
   function selectDestination(destinationId: string) {
@@ -298,19 +319,11 @@ export function TripPlanner({
               </p>
               <label>
                 Target destination
-                <select
+                <DestinationCombobox
+                  destinations={destinations}
                   value={trip.legs[0]?.destinationId ?? ''}
-                  onChange={(event) => selectDestination(event.target.value)}
-                >
-                  <option value="" disabled>
-                    Select a destination
-                  </option>
-                  {destinations.map((destination) => (
-                    <option key={destination.id} value={destination.id}>
-                      {destination.name}, {destination.country}
-                    </option>
-                  ))}
-                </select>
+                  onChange={selectDestination}
+                />
               </label>
             </section>
           </>

@@ -196,7 +196,7 @@ export function DestinationSnapshot({
 
   return (
     <div className="destination-snapshot">
-      <div className="destination-snapshot__gallery" aria-busy={false}>
+      <div className="destination-snapshot__gallery">
         {galleryItems.map((image, index) =>
           image ? (
             <figure key={image.url} className="destination-snapshot__figure">
@@ -237,7 +237,8 @@ export function DestinationSnapshot({
       </small>
       {forecastDays === 5 ? (
         <div
-          className="destination-snapshot__forecast"
+          className={`destination-snapshot__forecast${!weatherReady ? ' is-loading' : ''}`}
+          aria-busy={!weatherReady}
           aria-label={`Five-day weather forecast for ${destination.name}`}
           aria-live="polite"
         >
@@ -273,7 +274,11 @@ export function DestinationSnapshot({
               ))}
         </div>
       ) : (
-        <p className="destination-snapshot__weather" aria-live="polite">
+        <p
+          className={`destination-snapshot__weather${!weatherReady ? ' is-loading' : ''}`}
+          aria-busy={!weatherReady}
+          aria-live="polite"
+        >
           <span>Current temperature</span>
           <strong>
             {!weatherReady

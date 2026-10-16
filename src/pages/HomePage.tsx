@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { TripPlanner } from '../components/TripPlanner';
 import { BudgetDestinationMatcher } from '../components/BudgetDestinationMatcher';
@@ -6,12 +7,21 @@ import { CurrencyFooter } from '../components/CurrencyFooter';
 import { HeroGlobe } from '../components/HeroGlobe';
 import { HOME_META } from '../utils/pageMetaCopy';
 import { SAMPLE_TRIP_LOCATION } from '../utils/plannerQuery';
+import { origins } from '../utils/tripHelpers';
 
 export interface HomePageProps {
   theme: 'light' | 'dark';
 }
 
 export function HomePage({ theme }: HomePageProps) {
+  const [searchParams] = useSearchParams();
+  const [originId, setOriginId] = useState(() => {
+    const fromQuery = searchParams.get('origin');
+    return fromQuery && origins.some((origin) => origin.id === fromQuery)
+      ? fromQuery
+      : 'houston';
+  });
+
   return (
     <>
       <PageMeta
@@ -47,9 +57,17 @@ export function HomePage({ theme }: HomePageProps) {
           <HeroGlobe />
         </div>
       </section>
-      <BudgetDestinationMatcher />
+      <BudgetDestinationMatcher
+        originId={originId}
+        onOriginIdChange={setOriginId}
+      />
       <div id="trip-planner">
-        <TripPlanner mode="general" theme={theme} />
+        <TripPlanner
+          mode="general"
+          theme={theme}
+          originId={originId}
+          onOriginIdChange={setOriginId}
+        />
       </div>
       <CurrencyFooter />
     </>

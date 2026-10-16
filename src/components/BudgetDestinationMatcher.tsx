@@ -7,9 +7,16 @@ import {
 } from '../utils/costEngine';
 import { destinations, origins } from '../utils/tripHelpers';
 
-export function BudgetDestinationMatcher() {
+export interface BudgetDestinationMatcherProps {
+  originId: string;
+  onOriginIdChange: (originId: string) => void;
+}
+
+export function BudgetDestinationMatcher({
+  originId,
+  onOriginIdChange,
+}: BudgetDestinationMatcherProps) {
   const [budget, setBudget] = useState(3000);
-  const [originId, setOriginId] = useState('houston');
   const [days, setDays] = useState(7);
   const [travelers, setTravelers] = useState(2);
   const origin =
@@ -80,7 +87,7 @@ export function BudgetDestinationMatcher() {
           Starting city
           <select
             value={originId}
-            onChange={(event) => setOriginId(event.target.value)}
+            onChange={(event) => onOriginIdChange(event.target.value)}
           >
             {origins.map((candidate) => (
               <option key={candidate.id} value={candidate.id}>

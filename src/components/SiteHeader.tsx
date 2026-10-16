@@ -120,6 +120,31 @@ export function SiteHeader({
       </div>
       <div className="app-shell__actions">
         <button
+          className="theme-toggle"
+          type="button"
+          aria-label={
+            theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+          }
+          aria-pressed={theme === 'light'}
+          onClick={onToggleTheme}
+        >
+          {theme === 'dark' ? (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 4.5a1 1 0 0 1 1 1V7a1 1 0 1 1-2 0V5.5a1 1 0 0 1 1-1Zm0 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm7.5-2.5a1 1 0 1 1 0 2H18a1 1 0 1 1 0-2h1.5ZM7 12a1 1 0 0 1-1 1H4.5a1 1 0 1 1 0-2H6a1 1 0 0 1 1 1Zm9.6 5.1a1 1 0 0 1 1.4 1.4l-1.05 1.05a1 1 0 1 1-1.4-1.4Zm-10.2 0 1.05 1.05a1 1 0 0 1-1.4 1.4L5 18.5a1 1 0 0 1 1.4-1.4ZM12 17a1 1 0 0 1 1 1v1.5a1 1 0 1 1-2 0V18a1 1 0 0 1 1-1Zm5.6-10.1 1.05-1.05a1 1 0 1 1 1.4 1.4L19 8.3a1 1 0 1 1-1.4-1.4ZM6.4 6.9a1 1 0 0 1 1.4-1.4L8.85 6.55A1 1 0 0 1 7.45 8Z"
+              />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M15.5 2.8a1 1 0 0 1 1.32 1.32A8.5 8.5 0 1 1 8.12 19.82 1 1 0 0 1 9.44 18.5 6.5 6.5 0 1 0 15.5 2.8Z"
+              />
+            </svg>
+          )}
+        </button>
+        <button
           ref={toggleRef}
           className="nav-toggle"
           type="button"
@@ -145,14 +170,6 @@ export function SiteHeader({
               </NavLink>
             ))}
           </nav>
-          <button
-            className="theme-toggle"
-            type="button"
-            aria-pressed={theme === 'light'}
-            onClick={onToggleTheme}
-          >
-            {theme === 'dark' ? '☀ Light' : '☾ Dark'}
-          </button>
         </div>
       </div>
     </header>
