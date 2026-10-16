@@ -1,7 +1,7 @@
 import {
   FX_CACHE_TTL_MS,
   type ExchangeRatesSnapshot,
-} from './fxRates';
+} from './fxRates.js';
 
 interface CacheEntry {
   snapshot: ExchangeRatesSnapshot;

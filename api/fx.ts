@@ -1,10 +1,10 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { checkRateLimit, pruneRateLimits } from './_lib/rateLimit';
-import { readFxCache, writeFxCache } from './_lib/fxCache';
+import { checkRateLimit, pruneRateLimits } from './_lib/rateLimit.js';
+import { readFxCache, writeFxCache } from './_lib/fxCache.js';
 import {
   mergeExchangeRates,
   planningExchangeRates,
-} from './_lib/fxRates';
+} from './_lib/fxRates.js';
 
 /** Public Frankfurter API — no API key required. */
 const FRANKFURTER_URL = 'https://api.frankfurter.dev/v1/latest?base=USD';

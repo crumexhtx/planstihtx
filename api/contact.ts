@@ -2,8 +2,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import {
   CONTACT_LIMITS,
   validateContactSubmission,
-} from '../src/utils/contactValidation';
-import { checkRateLimit, pruneRateLimits } from './_lib/rateLimit';
+} from './_lib/contactValidation.js';
+import { checkRateLimit, pruneRateLimits } from './_lib/rateLimit.js';
 
 const GENERIC_ERROR = 'Your message could not be sent. Please try again later.';
 const RATE_LIMIT = 8;

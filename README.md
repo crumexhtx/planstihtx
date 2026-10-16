@@ -91,6 +91,17 @@ Canonical URLs, Open Graph URLs, `robots.txt`, and `sitemap.xml` are built from 
 
 Before promoting to production, open the preview URL, confirm canonical and Open Graph URLs, submit the contact form, and check Sentry.
 
+### Verify after deploy
+
+Replace `<preview-url>` with the Vercel preview origin (no trailing slash):
+
+```sh
+curl -i https://<preview-url>/api/fx
+curl -i -X GET https://<preview-url>/api/contact
+```
+
+`/api/fx` should return **200** with a JSON body (`source` of `live`, `cached`, or `estimate`). `GET /api/contact` should return **405**, not 500.
+
 Custom analytics cover destination selection, estimate engagement, currency converter use, and contact outcomes. Events contain only coarse metadata such as destination IDs, currency codes, status codes, and planner mode.
 
 To verify a production build locally in PowerShell:
