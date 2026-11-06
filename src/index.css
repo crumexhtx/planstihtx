@@ -581,6 +581,20 @@ body.nav-open {
   color: #f9733b;
 }
 
+.compare-index__group {
+  margin-top: 1.75rem;
+}
+
+.compare-index__group h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.compare-index__group .destinations-index__list {
+  margin-top: 0.75rem;
+}
+
 :root[data-theme='dark'] .cost-snapshot__grid div {
   background: rgba(249, 115, 59, 0.1);
 }
