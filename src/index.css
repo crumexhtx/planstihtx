@@ -581,6 +581,20 @@ body.nav-open {
   color: #f9733b;
 }
 
+.compare-index__group {
+  margin-top: 1.75rem;
+}
+
+.compare-index__group h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.compare-index__group .destinations-index__list {
+  margin-top: 0.75rem;
+}
+
 :root[data-theme='dark'] .cost-snapshot__grid div {
   background: rgba(249, 115, 59, 0.1);
 }
@@ -1636,6 +1650,16 @@ a.explore-button {
   font: inherit;
   font-weight: 650;
   text-align: left;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.destination-combobox__option small {
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .destination-combobox__option.is-active button,
@@ -1648,6 +1672,46 @@ a.explore-button {
 .destination-combobox__empty {
   padding: 0.65rem;
   color: var(--muted);
+}
+
+.destination-combobox__empty a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.app-shell__search {
+  flex: 1 1 12rem;
+  min-width: 0;
+  max-width: 22rem;
+}
+
+.app-shell__search .destination-combobox__list {
+  z-index: 230;
+  min-width: 18rem;
+  width: max(100%, 18rem);
+  right: auto;
+}
+
+.app-shell__search input {
+  width: 100%;
+  min-height: 2.4rem;
+  border: 1px solid var(--panel-edge);
+  border-radius: 0.65rem;
+  padding: 0.45rem 0.75rem;
+  color: inherit;
+  background: rgba(5, 12, 20, 0.35);
+  font: inherit;
+}
+
+:root[data-theme='light'] .app-shell__search input {
+  background: rgba(255, 255, 255, 0.92);
+  color: #173349;
+  border-color: rgba(23, 51, 73, 0.16);
+}
+
+:root[data-theme='dark'] .app-shell__search input {
+  background: rgba(7, 16, 24, 0.72);
+  color: var(--ink);
 }
 
 .transport-estimate {
@@ -2394,16 +2458,6 @@ a.explore-button {
   border: 1px solid var(--accent);
   border-radius: 0.65rem;
   text-align: center;
-}
-
-.about-maker-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.1rem;
-}
-
-.about-maker-links a {
-  font-weight: 700;
 }
 
 .static-page__form {
@@ -3460,30 +3514,9 @@ body {
 }
 
 .site-footer__brand span,
-.site-footer__maker,
 .site-footer__disclaimer p,
 .site-footer > small {
   color: rgba(255, 255, 255, 0.72);
-}
-
-.site-footer__maker {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.9rem;
-  margin: 0.55rem 0 0;
-  font-size: 0.88rem;
-}
-
-.site-footer__maker a {
-  color: #ffb18e;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.site-footer__maker a:hover,
-.site-footer__maker a:focus-visible {
-  color: #ffffff;
-  text-decoration: underline;
 }
 
 .site-footer nav {
@@ -3646,9 +3679,16 @@ body {
     right: 0;
     width: 100%;
     z-index: 200;
+    flex-wrap: wrap;
     gap: 0.75rem;
     padding-top: max(0.85rem, env(safe-area-inset-top, 0px));
     box-sizing: border-box;
+  }
+
+  .app-shell__search {
+    flex: 1 1 100%;
+    max-width: none;
+    order: 3;
   }
 
   .nav-toggle {
@@ -3705,6 +3745,13 @@ body {
   .app-shell__menu .theme-toggle {
     width: 2.6rem;
     align-self: flex-end;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .app-shell__search {
+    max-width: 12rem;
+    flex-basis: 9rem;
   }
 }
 

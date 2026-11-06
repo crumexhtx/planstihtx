@@ -1,7 +1,12 @@
 import { Link, useParams } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { NotFoundPage } from './NotFoundPage';
-import { getComparisonBySlug, cityComparisons } from '../data/comparisons';
+import {
+  getComparisonBySlug,
+  cityComparisons,
+  type CityComparison,
+} from '../data/comparisons';
+import { getDestinationRegion, type Region } from '../data/regions';
 import { getDestinationById } from '../utils/tripHelpers';
 import { calculateTripCost, companionDailyPercent } from '../utils/costEngine';
 import {
@@ -20,7 +25,48 @@ function weekGroundTotal(destination: Destination): number {
   }).grandTotal;
 }
 
+const COMPARE_REGION_ORDER: Region[] = [
+  'Europe',
+  'Asia',
+  'North America',
+  'Latin America',
+  'Middle East & Africa',
+  'Oceania',
+];
+
+function comparisonRegion(comparison: CityComparison): Region | null {
+  const a = getDestinationById(comparison.aId);
+  if (!a) return null;
+  return getDestinationRegion(a);
+}
+
+function ComparisonCard({ comparison }: { comparison: CityComparison }) {
+  const a = getDestinationById(comparison.aId);
+  const b = getDestinationById(comparison.bId);
+  if (!a || !b) return null;
+  return (
+    <li>
+      <Link to={`/compare/${comparison.slug}`}>
+        <span>{comparison.theme}</span>
+        <strong>
+          {a.name} vs {b.name}
+        </strong>
+        <small>
+          From ${Math.min(a.dailyBudget, b.dailyBudget)}/day baseline
+        </small>
+      </Link>
+    </li>
+  );
+}
+
 export function CompareIndexPage() {
+  const grouped = COMPARE_REGION_ORDER.map((region) => ({
+    region,
+    items: cityComparisons.filter(
+      (comparison) => comparisonRegion(comparison) === region,
+    ),
+  })).filter((group) => group.items.length > 0);
+
   return (
     <>
       <PageMeta
@@ -35,26 +81,23 @@ export function CompareIndexPage() {
           Side-by-side planning estimates for popular city pairs—daily budgets,
           7-day ground costs for two travelers, and when to pick each city.
         </p>
-        <ul className="destinations-index__list">
-          {cityComparisons.map((comparison) => {
-            const a = getDestinationById(comparison.aId);
-            const b = getDestinationById(comparison.bId);
-            if (!a || !b) return null;
-            return (
-              <li key={comparison.slug}>
-                <Link to={`/compare/${comparison.slug}`}>
-                  <span>{comparison.theme}</span>
-                  <strong>
-                    {a.name} vs {b.name}
-                  </strong>
-                  <small>
-                    From ${Math.min(a.dailyBudget, b.dailyBudget)}/day baseline
-                  </small>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        {grouped.map((group) => (
+          <section
+            key={group.region}
+            className="compare-index__group"
+            aria-label={group.region}
+          >
+            <h2>{group.region}</h2>
+            <ul className="destinations-index__list">
+              {group.items.map((comparison) => (
+                <ComparisonCard
+                  key={comparison.slug}
+                  comparison={comparison}
+                />
+              ))}
+            </ul>
+          </section>
+        ))}
       </main>
     </>
   );

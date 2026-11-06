@@ -4,13 +4,14 @@ import { getDestinationById } from '../utils/tripHelpers';
 
 describe('city comparisons', () => {
   it('covers the priority backlog pairs with valid cities', () => {
-    expect(cityComparisons).toHaveLength(10);
+    expect(cityComparisons.length).toBeGreaterThanOrEqual(39);
 
     const slugs = cityComparisons.map((comparison) => comparison.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
 
     cityComparisons.forEach((comparison) => {
       expect(comparison.slug).toMatch(/^[a-z0-9-]+-vs-[a-z0-9-]+$/);
+      expect(comparison.aId).not.toBe(comparison.bId);
       expect(getDestinationById(comparison.aId)).toBeDefined();
       expect(getDestinationById(comparison.bId)).toBeDefined();
       expect(comparison.summary.trim().length).toBeGreaterThan(40);
@@ -19,5 +20,12 @@ describe('city comparisons', () => {
       expect(comparison.verdict.trim().length).toBeGreaterThan(20);
       expect(getComparisonBySlug(comparison.slug)?.slug).toBe(comparison.slug);
     });
+  });
+
+  it('does not repeat a pair in either order', () => {
+    const pairKeys = cityComparisons.map((comparison) =>
+      [comparison.aId, comparison.bId].sort().join('|'),
+    );
+    expect(new Set(pairKeys).size).toBe(pairKeys.length);
   });
 });

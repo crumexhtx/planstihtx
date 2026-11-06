@@ -2,7 +2,6 @@ import { type FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PageMeta } from '../components/PageMeta';
 import { PartnerBanner } from '../components/PartnerBanner';
-import { MAKER } from '../config/maker';
 import {
   CONTACT_CATEGORIES,
   CONTACT_LIMITS,
@@ -120,41 +119,6 @@ export function AboutPage() {
             totals, not live fares), making city pages crawlable without
             abandoning a client-side planner, and failing visibly when weather,
             FX, or maps cannot load.
-          </p>
-          <p>
-            Source is on{' '}
-            <a
-              href={MAKER.githubRepoUrl}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              GitHub
-            </a>.
-          </p>
-        </section>
-
-        <section className="static-page__section" id="built-by">
-          <h2>Who built this</h2>
-          <p>
-            Plansti is built by {MAKER.name}. It is a live product at{' '}
-            <a href="https://plansti.com">plansti.com</a>, not a mock
-            portfolio page.
-          </p>
-          <p className="about-maker-links">
-            <a
-              href={MAKER.githubUrl}
-              rel="me noopener noreferrer"
-              target="_blank"
-            >
-              GitHub
-            </a>
-            <a
-              href={MAKER.linkedinUrl}
-              rel="me noopener noreferrer"
-              target="_blank"
-            >
-              LinkedIn
-            </a>
           </p>
         </section>
 
