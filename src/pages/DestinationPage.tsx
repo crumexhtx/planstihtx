@@ -59,10 +59,12 @@ export function DestinationPage({ theme }: DestinationPageProps) {
       { url: string; pageUrl?: string; alt?: string } | undefined
     >
   )[destination.id];
-  const relatedComparisons = cityComparisons.filter(
-    (comparison) =>
-      comparison.aId === destination.id || comparison.bId === destination.id,
-  );
+  const relatedComparisons = cityComparisons
+    .filter(
+      (comparison) =>
+        comparison.aId === destination.id || comparison.bId === destination.id,
+    )
+    .slice(0, 4);
 
   return (
     <>

@@ -5,20 +5,32 @@ import {
   useRef,
   useState,
   type KeyboardEvent,
+  type ReactNode,
+  type Ref,
 } from 'react';
 import type { Destination } from '../types';
+
+export function foldSearchText(value: string): string {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
 
 export function filterDestinations(
   destinations: readonly Destination[],
   query: string,
+  limit?: number,
 ): Destination[] {
-  const normalized = query.trim().toLowerCase();
-  if (!normalized) return [...destinations];
-  return destinations.filter((destination) =>
-    `${destination.name} ${destination.country}`
-      .toLowerCase()
-      .includes(normalized),
-  );
+  const normalized = foldSearchText(query).trim();
+  const matches = !normalized
+    ? [...destinations]
+    : destinations.filter((destination) =>
+        foldSearchText(`${destination.name} ${destination.country}`).includes(
+          normalized,
+        ),
+      );
+  return typeof limit === 'number' ? matches.slice(0, limit) : matches;
 }
 
 function labelFor(destination: Destination): string {
@@ -29,12 +41,26 @@ export interface DestinationComboboxProps {
   destinations: readonly Destination[];
   value: string;
   onChange: (destinationId: string) => void;
+  placeholder?: string;
+  ariaLabel?: string;
+  maxResults?: number;
+  showBaseline?: boolean;
+  emptyContent?: ReactNode;
+  inputRef?: Ref<HTMLInputElement>;
+  className?: string;
 }
 
 export function DestinationCombobox({
   destinations,
   value,
   onChange,
+  placeholder = 'Search cities',
+  ariaLabel,
+  maxResults,
+  showBaseline = false,
+  emptyContent = 'No matching cities',
+  inputRef,
+  className,
 }: DestinationComboboxProps) {
   const listboxId = useId();
   const inputId = useId();
@@ -45,8 +71,9 @@ export function DestinationCombobox({
   const [activeIndex, setActiveIndex] = useState(0);
 
   const matches = useMemo(
-    () => filterDestinations(destinations, open ? query : ''),
-    [destinations, open, query],
+    () =>
+      filterDestinations(destinations, open ? query : '', maxResults),
+    [destinations, open, query, maxResults],
   );
 
   useEffect(() => {
@@ -89,7 +116,7 @@ export function DestinationCombobox({
     }
     if (event.key === 'Enter' && open) {
       event.preventDefault();
-      const next = matches[activeIndex];
+      const next = matches[activeIndex] ?? matches[0];
       if (next) choose(next);
       return;
     }
@@ -98,12 +125,18 @@ export function DestinationCombobox({
     }
   }
 
+  const rootClassName = className
+    ? `destination-combobox ${className}`
+    : 'destination-combobox';
+
   return (
-    <div className="destination-combobox" ref={rootRef}>
+    <div className={rootClassName} ref={rootRef}>
       <input
         id={inputId}
+        ref={inputRef}
         type="text"
         role="combobox"
+        aria-label={ariaLabel}
         aria-autocomplete="list"
         aria-expanded={open}
         aria-controls={listboxId}
@@ -113,7 +146,7 @@ export function DestinationCombobox({
             : undefined
         }
         value={open ? query : selected ? labelFor(selected) : ''}
-        placeholder="Search cities"
+        placeholder={placeholder}
         autoComplete="off"
         onFocus={() => {
           setQuery('');
@@ -128,14 +161,14 @@ export function DestinationCombobox({
       {open && (
         <ul className="destination-combobox__list" id={listboxId} role="listbox">
           {matches.length === 0 ? (
-            <li className="destination-combobox__empty">No matching cities</li>
+            <li className="destination-combobox__empty">{emptyContent}</li>
           ) : (
             matches.map((destination, index) => (
               <li
                 key={destination.id}
                 id={`${listboxId}-${destination.id}`}
                 role="option"
-                aria-selected={destination.id === value}
+                aria-selected={index === activeIndex}
                 className={
                   index === activeIndex
                     ? 'destination-combobox__option is-active'
@@ -148,7 +181,10 @@ export function DestinationCombobox({
                   onMouseDown={(event) => event.preventDefault()}
                   onClick={() => choose(destination)}
                 >
-                  {labelFor(destination)}
+                  <span>{labelFor(destination)}</span>
+                  {showBaseline ? (
+                    <small>${destination.dailyBudget}/day</small>
+                  ) : null}
                 </button>
               </li>
             ))
