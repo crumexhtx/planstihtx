@@ -1636,6 +1636,16 @@ a.explore-button {
   font: inherit;
   font-weight: 650;
   text-align: left;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.destination-combobox__option small {
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .destination-combobox__option.is-active button,
@@ -1648,6 +1658,46 @@ a.explore-button {
 .destination-combobox__empty {
   padding: 0.65rem;
   color: var(--muted);
+}
+
+.destination-combobox__empty a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.app-shell__search {
+  flex: 1 1 12rem;
+  min-width: 0;
+  max-width: 22rem;
+}
+
+.app-shell__search .destination-combobox__list {
+  z-index: 230;
+  min-width: 18rem;
+  width: max(100%, 18rem);
+  right: auto;
+}
+
+.app-shell__search input {
+  width: 100%;
+  min-height: 2.4rem;
+  border: 1px solid var(--panel-edge);
+  border-radius: 0.65rem;
+  padding: 0.45rem 0.75rem;
+  color: inherit;
+  background: rgba(5, 12, 20, 0.35);
+  font: inherit;
+}
+
+:root[data-theme='light'] .app-shell__search input {
+  background: rgba(255, 255, 255, 0.92);
+  color: #173349;
+  border-color: rgba(23, 51, 73, 0.16);
+}
+
+:root[data-theme='dark'] .app-shell__search input {
+  background: rgba(7, 16, 24, 0.72);
+  color: var(--ink);
 }
 
 .transport-estimate {
@@ -3615,9 +3665,16 @@ body {
     right: 0;
     width: 100%;
     z-index: 200;
+    flex-wrap: wrap;
     gap: 0.75rem;
     padding-top: max(0.85rem, env(safe-area-inset-top, 0px));
     box-sizing: border-box;
+  }
+
+  .app-shell__search {
+    flex: 1 1 100%;
+    max-width: none;
+    order: 3;
   }
 
   .nav-toggle {
@@ -3674,6 +3731,13 @@ body {
   .app-shell__menu .theme-toggle {
     width: 2.6rem;
     align-self: flex-end;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .app-shell__search {
+    max-width: 12rem;
+    flex-basis: 9rem;
   }
 }
 

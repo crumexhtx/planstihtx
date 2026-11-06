@@ -1,6 +1,8 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { destinations } from '../utils/tripHelpers';
+import { DestinationCombobox } from './DestinationCombobox';
 
 export interface SiteHeaderProps {
   title: string;
@@ -27,6 +29,7 @@ export function SiteHeader({
   onToggleTheme,
 }: SiteHeaderProps) {
   const location = useLocation();
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [portalReady, setPortalReady] = useState(false);
   const [useMobilePortal, setUseMobilePortal] = useState(false);
@@ -34,6 +37,7 @@ export function SiteHeader({
   const headerRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setPortalReady(true);
@@ -108,6 +112,49 @@ export function SiteHeader({
     return () => document.body.classList.remove('nav-open');
   }, [menuOpen]);
 
+  useEffect(() => {
+    function onSlashFocus(event: KeyboardEvent) {
+      if (event.key !== '/' || event.ctrlKey || event.metaKey || event.altKey) {
+        return;
+      }
+      const target = event.target;
+      if (
+        target instanceof HTMLElement &&
+        (target.closest('input, textarea, select') || target.isContentEditable)
+      ) {
+        return;
+      }
+      event.preventDefault();
+      searchInputRef.current?.focus();
+    }
+
+    document.addEventListener('keydown', onSlashFocus);
+    return () => document.removeEventListener('keydown', onSlashFocus);
+  }, []);
+
+  const headerSearch = (
+    <div className="app-shell__search">
+      <DestinationCombobox
+        destinations={destinations}
+        value=""
+        onChange={(destinationId) => {
+          navigate(`/destinations/${destinationId}`);
+        }}
+        placeholder={`Search ${destinations.length} cities…`}
+        ariaLabel="Search cities"
+        maxResults={8}
+        showBaseline
+        inputRef={searchInputRef}
+        emptyContent={
+          <>
+            No cities match.{' '}
+            <Link to="/destinations">Browse all cities →</Link>
+          </>
+        }
+      />
+    </div>
+  );
+
   const header = (
     <header ref={headerRef} className="app-shell__brand">
       <div className="app-shell__brand-copy">
@@ -118,6 +165,7 @@ export function SiteHeader({
         </p>
         <p className="app-shell__page-title">{title}</p>
       </div>
+      {headerSearch}
       <div className="app-shell__actions">
         <button
           className="theme-toggle"
