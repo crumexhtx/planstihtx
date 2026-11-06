@@ -189,44 +189,42 @@ export function DestinationSnapshot({
     return () => controller.abort();
   }, [destination, forecastDays]);
 
-  const galleryItems = Array.from({ length: GALLERY_SLOTS }, (_, index) => {
-    return snapshot.images[index] ?? null;
-  });
-  const hasAnyImage = snapshot.images.length > 0;
+  const visibleImages = snapshot.images.slice(0, GALLERY_SLOTS);
+  const hasAnyImage = visibleImages.length > 0;
 
   return (
     <div className="destination-snapshot">
       <div className="destination-snapshot__gallery">
-        {galleryItems.map((image, index) =>
-          image ? (
-            <figure key={image.url} className="destination-snapshot__figure">
-              <a
-                href={image.pageUrl}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`View source for ${destination.name} image ${index + 1}`}
-              >
-                <img
-                  src={image.url}
-                  alt={image.alt}
-                  width={640}
-                  height={360}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
-                />
-              </a>
-              <figcaption>
-                <MediaCredit image={image} />
-              </figcaption>
-            </figure>
-          ) : (
-            <MediaPlaceholder
-              key={`slot-${index}`}
-              name={destination.name}
-              className="destination-snapshot__placeholder"
-            />
-          ),
-        )}
+        {hasAnyImage
+          ? visibleImages.map((image, index) => (
+              <figure key={image.url} className="destination-snapshot__figure">
+                <a
+                  href={image.pageUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View source for ${destination.name} image ${index + 1}`}
+                >
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    width={640}
+                    height={360}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <MediaCredit image={image} />
+                </figcaption>
+              </figure>
+            ))
+          : Array.from({ length: 2 }, (_, index) => (
+              <MediaPlaceholder
+                key={`slot-${index}`}
+                name={destination.name}
+                className="destination-snapshot__placeholder"
+              />
+            ))}
       </div>
       <small className="destination-snapshot__caption">
         {hasAnyImage && culturalIcon
